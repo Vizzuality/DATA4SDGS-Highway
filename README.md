@@ -1,6 +1,6 @@
 # DATA4SDGS Highway
 
-Connected open data for sustainable development purposes.
+> Connected open data for sustainable development purposes.
 
 ## Installation
 
@@ -10,13 +10,26 @@ Requirements:
 
 Install dependencies:
 
-	npm install
+```
+npm install
+```
 
 ## Usage
 
-To run the server:
+``` bash
 
-	npm start
+# serve with hot reload at 127.0.0.1:3000
+npm run dev
+
+# build for production with minification
+npm run build
+
+# run unit tests
+npm run unit
+
+# run all tests
+npm test
+```
 
 ## Contributing
 
