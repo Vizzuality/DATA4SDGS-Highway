@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <div class="l-header">
+    <header class="l-header">
       <router-view name="Header"></router-view>
-    </div>
-    <div class="l-main">
+    </header>
+    <main class="l-main">
       <router-view></router-view>
-    </div>
-    <div class="l-footer">
+    </main>
+    <footer class="l-footer">
       <router-view name="Footer"></router-view>
-    </div>
+    </footer>
   </div>
 </template>
 
@@ -16,7 +16,5 @@
 
 <script>
 
-export default {
-  name: 'app',
-};
+export default { name: 'app' };
 </script>
