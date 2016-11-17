@@ -2,7 +2,7 @@
 <style src="./style.scss"> </style>
 <script>
 export default {
-  name: 'hello',
+  name: 'homepage',
   data() {
     return {
       msg: 'Welcome!',
