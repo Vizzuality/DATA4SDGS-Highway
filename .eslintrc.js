@@ -24,6 +24,7 @@ module.exports = {
       'js': 'never',
       'vue': 'never'
     }],
+    'comma-dangle': ['error', 'only-multiline'],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
