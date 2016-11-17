@@ -1,0 +1,34 @@
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  background-color: $base-bg-color;
+}
+
+#app {
+  height: 100%;
+}
+
+h1, h2, h3 {
+  font-family: $heading-font-family;
+  color: $heading-font-color;
+}
+
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}

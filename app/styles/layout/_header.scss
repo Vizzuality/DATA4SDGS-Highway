@@ -1,0 +1,9 @@
+.l-header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+
+  background-color: $inverse-bg-color;
+  color: $inverse-font-color;
+}

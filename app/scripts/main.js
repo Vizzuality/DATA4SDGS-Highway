@@ -1,13 +1,11 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import 'styles/lib/foundation.css';
+import 'styles/index.scss';
 
+import Vue from 'vue';
 import App from './App';
 import store from './store';
+import router from './router';
 
-import '../styles/lib/foundation.css';
-import '../styles/index.scss';
-
-Vue.use(VueRouter);
 
 /* eslint-disable no-new */
 new Vue({
@@ -15,4 +13,5 @@ new Vue({
   template: '<App/>',
   components: { App },
   store,
+  router,
 });
