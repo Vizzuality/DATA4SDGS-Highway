@@ -1,2 +1,9 @@
+// Import global variables
+@import '../../../styles/variables';
+
 .c-header{
+  padding: $medium-margin;
+  a {
+    color: inherit;
+  }
 }
