@@ -16,7 +16,7 @@
     }
 
     .split-panel {
-      padding: $medium-margin * 2;
+      padding: ($large-margin * 2) ($medium-margin * 2);
 
       &:first-child {
         border-right: $border-1;

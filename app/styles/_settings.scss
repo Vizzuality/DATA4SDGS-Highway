@@ -1,16 +1,17 @@
 // Colors
 $black: #212020;
+$grayed-black: #292929;
 $white: #FFFFFF;
 $mexican-pink: #FF0065;
 $dark-grey: #2F2F2F;
 $gold-yellow: #EFA600;
 $grey: #F3F3F3;
 
-$pink-bg: linear-gradient(to bottom, #ff0064, #ff0085);
+$pink-gradient: linear-gradient(to bottom, #ff0064, #ff0085);
 
 // Fonts
 $heading-font-family: "bebas-neue", sans-serif;
-$heading-font-color: $black;
+$heading-font-color: $grayed-black;
 
 $h1-font-size: rem(64);
 $h2-font-size: rem(44);
@@ -25,7 +26,7 @@ $base-line-height: 1.7;
 $base-bg-color: $white;
 $base-font-color: $dark-grey;
 
-$inverse-bg-color: $black;
+$inverse-bg-color: $grayed-black;
 $inverse-font-color: $white;
 
 // Borders
@@ -34,8 +35,8 @@ $border-1: solid 2px $grey;
 $link-font-color: $gold-yellow;
 
 // App Palette
-$primary-color: $dark-grey;
-$secondary-color: $mexican-pink;
+$primary-color: $mexican-pink;
+$secondary-color: $black;
 $third-color: $grey;
 
 // Margins
