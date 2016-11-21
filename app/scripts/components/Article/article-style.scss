@@ -11,6 +11,10 @@
   &.-split {
     padding: 0;
 
+    p {
+      margin-bottom: $large-margin;
+    }
+
     .row {
       max-width: none;
     }

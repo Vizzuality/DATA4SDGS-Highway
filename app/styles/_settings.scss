@@ -18,9 +18,12 @@ $h2-font-size: rem(44);
 $h3-font-size: rem(35);
 $h4-font-size: rem(23);
 
+$font-size-normal: rem(18);
+$font-size-small: rem(13);
+
 // General Settings
 $base-font-family: "proxima-nova", Helvetica, Arial, sans-serif;
-$base-font-size: rem(18);
+$base-font-size: $font-size-normal;
 $base-line-height: 1.7;
 
 $base-bg-color: $white;
@@ -28,6 +31,8 @@ $base-font-color: $dark-grey;
 
 $inverse-bg-color: $grayed-black;
 $inverse-font-color: $white;
+
+$button-font-color: $white;
 
 // Borders
 $border-1: solid 2px $grey;

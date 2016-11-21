@@ -1,0 +1,16 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-button {
+  font-size: $font-size-small;
+  background-color: $secondary-color;
+  color: $button-font-color;
+  text-transform: uppercase;
+  padding: $small-margin $medium-margin;
+  border-radius: 0;
+  outline: none;
+
+  &:active {
+    opacity: 0.9;
+  }
+}
