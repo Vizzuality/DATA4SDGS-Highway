@@ -7,7 +7,7 @@ import logoGlobalSDD from 'images/logos/global_partnership_sdg.jpg';
 import logoVizz from 'images/logos/vizzuality.jpg';
 
 export default {
-  name: 'Footer',
+  name: 'footer-component',
   data() {
     return {
       logoGlobalSDD,

@@ -1,0 +1,13 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-home {
+  text-align: center;
+
+  .c-article {
+
+    &.-gradient {
+      background-image: $pink-bg;
+    }
+  }
+}

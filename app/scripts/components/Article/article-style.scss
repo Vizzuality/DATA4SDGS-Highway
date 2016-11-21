@@ -1,0 +1,26 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-article {
+  padding: $medium-margin 0;
+
+  &.-fourth {
+    background-color: $third-color;
+  }
+
+  &.-split {
+    padding: 0;
+
+    .row {
+      max-width: none;
+    }
+
+    .split-panel {
+      padding: $medium-margin * 2;
+
+      &:first-child {
+        border-right: $border-1;
+      }
+    }
+  }
+}
