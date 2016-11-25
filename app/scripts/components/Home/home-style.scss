@@ -2,12 +2,67 @@
 @import '../../../styles/variables';
 
 .c-home {
-  text-align: center;
 
-  .c-article {
+  .link-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-    &.-gradient {
-      background-image: $pink-gradient;
+    > .link-column-action {
+      color: $theme-accent;
+
+      &:after {
+        position: relative;
+        display: inline-block;
+        content: '';
+        width: 9px;
+        height: 9px;
+        margin-left: $small-margin;
+        transform: rotate(45deg);
+        border: 2px solid transparent;
+        border-top: 2px solid $theme-accent;
+        border-right: 2px solid $theme-accent;
+
+      }
     }
+  }
+
+  .home-swipe {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 200px;
+    overflow: hidden;
+    flex-direction: column;
+
+    .mint-swipe-item {
+      padding: 2rem;
+      height: 200px;
+      display: none;
+      &.is-active {
+        display: block;
+      }
+    }
+
+    .mint-swipe-indicators {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      width: 70px;
+
+      .mint-swipe-indicator {
+        width: 10px;
+        height: 10px;
+        border: 1px solid $grayed-black;
+        border-radius: 50%;
+
+        &.is-active {
+          background-color: $grayed-black;
+        }
+      }
+    }
+
   }
 }

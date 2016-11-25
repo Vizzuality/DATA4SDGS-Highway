@@ -3,16 +3,18 @@
 <script>
 import ArticleComponent from 'components/Article';
 import ButtonComponent from 'components/Button';
+import { Swipe, SwipeItem } from 'vue-swipe';
 
 export default {
-  name: 'home',
+  name: 'home-component',
   data() {
-    return {
-    };
+    return {};
   },
   components: {
     ArticleComponent,
-    ButtonComponent
-  }
+    ButtonComponent,
+    Swipe,
+    SwipeItem
+  },
 };
 </script>

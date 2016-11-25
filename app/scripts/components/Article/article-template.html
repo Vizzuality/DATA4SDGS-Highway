@@ -1,15 +1,7 @@
-<article class="c-article" :class="classObject">
+<article class="c-article">
   <div class="row align-center">
 
-    <div v-if="split" class="columns small-12 medium-6 split-panel">
-      <slot name="left-panel"></slot>
-    </div>
-
-    <div v-if="split" class="columns small-12 medium-6 split-panel">
-      <slot name="right-panel"></slot>
-    </div>
-
-    <div v-else class="columns small-12 medium-8">
+    <div class="columns small-12 medium-10">
       <slot></slot>
     </div>
 

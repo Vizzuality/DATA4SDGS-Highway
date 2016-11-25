@@ -16,15 +16,38 @@ body {
   height: 100%;
 }
 
-h1, h2, h3 {
+h1, h2 {
   font-family: $heading-font-family;
   color: $heading-font-color;
   line-height: 1.2;
-  margin: 0.5rem;
+  margin-top: 0;
+  margin-bottom: $small-margin;
+  text-transform: uppercase;
+
+  &.-clean {
+    color: inherit;
+  }
+}
+
+h3, h4 {
+  margin: 0;
+
+  &.-light {
+    font-weight: $font-weight-normal;
+  }
+
+  &.-center {
+    text-align: center;
+  }
 }
 
 h1 {
   font-size: $h1-font-size;
+  text-align: center;
+
+  &.-left {
+    text-align: left;
+  }
 }
 
 h2 {
@@ -33,11 +56,24 @@ h2 {
 
 h3 {
   font-size: $h3-font-size;
+  line-height: 1.3;
+}
+
+h4 {
+  font-size: $h4-font-size;
+  text-align: center;
+  text-transform: uppercase;
+  &.-left {
+    text-align: left;
+  }
 }
 
 a {
   color: $link-font-color;
   text-decoration: none;
+  text-transform: uppercase;
+  font-size: $font-size-small;
+  font-weight: $font-weight-bold;
 }
 
 nav > ul {
@@ -53,6 +89,11 @@ nav > ul {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: $small-margin;
+  color: $paragraph-font-color;
+
+  &.-clean {
+    color: inherit;
+  }
 }
 

@@ -27,7 +27,7 @@ module.exports = {
       'app': path.resolve(__dirname, '../app/scripts'),
       'images': path.resolve(__dirname, '../app/images/'),
       'styles': path.resolve(__dirname, '../app/styles'),
-      'components': path.resolve(__dirname, '../app/scripts/components')
+      'components': path.resolve(__dirname, '../app/scripts/components'),
     }
   },
   resolveLoader: {

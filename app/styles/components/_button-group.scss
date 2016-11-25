@@ -1,0 +1,11 @@
+.c-button-group {
+  display: flex;
+
+  &.-center {
+    justify-content: center;
+  }
+
+  &.-justified {
+    justify-content: space-between;
+  }
+}

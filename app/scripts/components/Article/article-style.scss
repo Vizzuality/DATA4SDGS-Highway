@@ -2,29 +2,23 @@
 @import '../../../styles/variables';
 
 .c-article {
-  padding: $medium-margin 0;
+  padding: $large-margin 0;
 
-  &.-fourth {
+  &.-accent {
+    background-color: $theme-accent;
+    color: $theme-base;
+
+  }
+
+  &.-complementary {
     background-color: $theme-complementary;
   }
 
-  &.-split {
-    padding: 0;
+  &.-alternative {
+    background-color: $theme-alternative;
+    color: $theme-base;
 
-    p {
-      margin-bottom: $large-margin;
-    }
-
-    .row {
-      max-width: none;
-    }
-
-    .split-panel {
-      padding: ($large-margin * 2) ($medium-margin * 2);
-
-      &:first-child {
-        border-right: $border-1;
-      }
-    }
   }
+
 }
+

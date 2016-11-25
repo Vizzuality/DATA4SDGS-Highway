@@ -1,7 +1,6 @@
 /* Grid override */
 .row {
   max-width: $max-width;
-
   &.-float {
     display: block;
     &:before,

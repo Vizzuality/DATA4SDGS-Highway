@@ -3,12 +3,35 @@
 
 .c-button {
   font-size: $font-size-small;
-  background-color: $theme-support;
-  color: $button-font-color;
   text-transform: uppercase;
+
+  background-color: transparent;
+  color: $button-font-color;
+
   padding: $small-margin $medium-margin;
-  border-radius: 0;
+  border-radius: 2px;
+
   outline: none;
+
+  &.-filled {
+    background-color: $theme-accent;
+    font-weight: $font-weight-bold;
+    &.-alternative {
+      background-color: $theme-alternative
+    }
+  }
+
+  &.-bordered {
+    border: solid 1px $theme-base;
+  }
+
+  &.-big {
+    width: 245px;
+  }
+
+  &.-small {
+    width: 196px;
+  }
 
   &:active {
     opacity: 0.9;

@@ -2,52 +2,56 @@
 $black: #212020;
 $grayed-black: #292929;
 $white: #FFFFFF;
-$mexican-pink: #FF0065;
+$mexican-pink: #ff0065;
 $dark-grey: #2F2F2F;
 $gold-yellow: #EFA600;
-$grey: #F3F3F3;
-
-$pink-gradient: linear-gradient(to bottom, #ff0064, #ff0085);
+$lightgrey: #F3F3F3;
+$grey: grey;
 
 // Fonts
 $heading-font-family: "bebas-neue", sans-serif;
 $heading-font-color: $grayed-black;
 
-$h1-font-size: rem(64);
+
+$h1-font-size: rem(48);
 $h2-font-size: rem(44);
-$h3-font-size: rem(35);
-$h4-font-size: rem(23);
+$h3-font-size: rem(20);
+$h4-font-size: rem(16);
 
 $font-size-normal: rem(18);
-$font-size-small: rem(13);
+$font-size-small: rem(14);
+
+$font-weight-normal: 400;
+$font-weight-bold: 700;
 
 // App Palette
 $theme-base: $white;
-$theme-complementary: $grey;
+$theme-complementary: $lightgrey;
 $theme-accent: $mexican-pink;
-$theme-support: $black;
+$theme-alternative: $black;
 
 
 // General Settings
 $base-font-family: "proxima-nova", Helvetica, Arial, sans-serif;
 $base-font-size: $font-size-normal;
-$base-line-height: 1.7;
+$base-line-height: 1.5;
 
 $base-bg-color: $theme-base;
 $base-font-color: $dark-grey;
 
-$inverse-bg-color: $grayed-black;
-$inverse-font-color: $theme-base;
+$header-bg-color: $grayed-black;
+
+$paragraph-font-color: $grey;
 
 $button-font-color: $theme-base;
 
 // Borders
-$border-1: solid 2px $grey;
+$border-1: solid 2px $lightgrey;
 // Links and Buttons
 $link-font-color: $gold-yellow;
 
 // Margins
-$small-margin: 18px;
+$small-margin: 22px;
 $medium-margin: 32px;
 $large-margin: 80px;
 
