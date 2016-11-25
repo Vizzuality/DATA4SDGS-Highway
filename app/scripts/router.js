@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import HomeComponent from 'components/Home';
+import PlaygroundComponent from 'components/Playground';
 import HeaderComponent from 'components/Header';
 import FooterComponent from 'components/Footer';
 
@@ -19,6 +20,7 @@ const routes = [
   {
     path: '/playground',
     components: {
+      default: PlaygroundComponent,
       HeaderComponent,
       FooterComponent,
     },
