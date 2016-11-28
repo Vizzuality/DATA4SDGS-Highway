@@ -68,35 +68,18 @@
   </article-component>
 
   <article-component>
-    <swipe class="home-swipe">
-
-      <swipe-item>
-        <h4>What our clients have to say</h4>
-        <div>
-          “Awesome & timely, particularly given this morning's
-          #datarevolution discussion. #TechWomenAfri ca”
+    <slider-component :slides="twitterSlides">
+      <swipe-item v-for="tweet in twitterSlides">
+        <div class="tweet">
+          <h4>What our clients have to say</h4>
+          <p class="tweet-message">{{tweet.message}}</p>
+          <div class="tweet-user">
+            <span class="tweet-user-tag">Twitter user:</span>
+            <a class="tweet-username">@{{tweet.user}}</a>
+          </div>
         </div>
-        <span>Twitter user:</span>
       </swipe-item>
-
-      <swipe-item>
-        <h4>What our clients have to say</h4>
-        <div>
-          “Awesome & timely, particularly given this morning's
-          #datarevolution discussion. #TechWomenAfrica”
-        </div>
-        <span>Twitter user:</span>
-      </swipe-item>
-
-      <swipe-item>
-        <h4>What our clients have to say</h4>
-        <div>
-          “Awesome & timely, particularly given this morning's
-          #datarevolution discussion. #TechWomenAfrica”
-        </div>
-        <span>Twitter user:</span>
-      </swipe-item>
-    </swipe>
+    </slider-component>
   </article-component>
 
   <article-component class="-complementary">

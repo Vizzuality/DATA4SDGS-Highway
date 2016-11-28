@@ -27,42 +27,31 @@
     }
   }
 
-  .home-swipe {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-height: 200px;
-    overflow: hidden;
-    flex-direction: column;
+  .tweet {
 
-    .mint-swipe-item {
-      padding: 2rem;
-      height: 200px;
-      display: none;
-      &.is-active {
-        display: block;
-      }
+    > .tweet-message {
+      margin-top: $small-margin;
+      margin-bottom: 0;
+      font-style: italic;
+      font-size: $font-size-small;
+      text-align: center;
     }
 
-    .mint-swipe-indicators {
-      position: absolute;
-      bottom: 0;
+    > .tweet-user {
       display: flex;
-      justify-content: space-between;
-      width: 70px;
+      align-items: baseline;
+      justify-content: center;
 
-      .mint-swipe-indicator {
-        width: 10px;
-        height: 10px;
-        border: 1px solid $grayed-black;
-        border-radius: 50%;
+      > .tweet-user-tag {
+        font-weight: $font-weight-bold;
+        font-size: $font-size-xsmall;
+      }
 
-        &.is-active {
-          background-color: $grayed-black;
-        }
+      > .tweet-username {
+        margin-left: $small-margin / 3;
+        text-transform: lowercase;
       }
     }
-
   }
+
 }

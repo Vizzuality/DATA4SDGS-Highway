@@ -3,18 +3,36 @@
 <script>
 import ArticleComponent from 'components/Article';
 import ButtonComponent from 'components/Button';
-import { Swipe, SwipeItem } from 'vue-swipe';
+import SliderComponent from 'components/Slider';
+import { SwipeItem } from 'vue-swipe';
 
 export default {
   name: 'home-component',
   data() {
-    return {};
+    return {
+      twitterSlides: [{
+        id: 0,
+        message: 'Hola',
+        user: 'Un_usuario'
+      },
+      {
+        id: 1,
+        message: 'Ciao',
+        user: 'un_utente'
+      },
+      {
+        id: 1,
+        message: 'Hello',
+        user: 'A_user'
+      }],
+    };
   },
   components: {
     ArticleComponent,
     ButtonComponent,
-    Swipe,
-    SwipeItem
+    SliderComponent,
+    SwipeItem,
+
   },
 };
 </script>
