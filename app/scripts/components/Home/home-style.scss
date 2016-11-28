@@ -3,6 +3,23 @@
 
 .c-home {
 
+  .info-column {
+    display: flex;
+    margin-top: $medium-margin;
+
+    .info-column-text {
+      margin-left: $small-margin;
+
+      > * {
+        margin-top: $small-margin;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
   .link-column {
     display: flex;
     flex-direction: column;

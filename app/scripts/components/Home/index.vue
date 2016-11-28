@@ -5,6 +5,7 @@ import ArticleComponent from 'components/Article';
 import ButtonComponent from 'components/Button';
 import SliderComponent from 'components/Slider';
 import { SwipeItem } from 'vue-swipe';
+import IconComponent from 'components/Icon';
 
 export default {
   name: 'home-component',
@@ -13,7 +14,7 @@ export default {
       twitterSlides: [{
         id: 0,
         message: 'Hola',
-        user: 'Un_usuario'
+        user: 'un_usuario'
       },
       {
         id: 1,
@@ -23,7 +24,7 @@ export default {
       {
         id: 1,
         message: 'Hello',
-        user: 'A_user'
+        user: 'a_user'
       }],
     };
   },
@@ -32,6 +33,7 @@ export default {
     ButtonComponent,
     SliderComponent,
     SwipeItem,
+    IconComponent,
 
   },
 };

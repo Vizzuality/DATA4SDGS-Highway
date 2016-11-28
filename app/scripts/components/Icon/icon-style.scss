@@ -1,0 +1,25 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-icon {
+
+  &.-normal {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: $border-1;
+    border-radius: 50%;
+    > svg {
+      height: 35px;
+      width: 35px;
+    }
+  }
+
+  &.-base > svg {
+    fill: $link-font-color;
+    stroke: $link-font-color;
+  }
+}
