@@ -20,11 +20,36 @@
     }
   }
 
+  .split-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:first-child {
+      background-image: url('/static/layouts/laptop.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 532px;
+
+      border: 1px solid $theme-accent;
+    }
+
+    &:last-child {
+      background-image: url('/static/layouts/lights.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 532px;
+
+      border: 1px solid $theme-accent;
+      border-left: 0;
+    }
+  }
+
   .link-column {
+    height: 50%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     > .link-column-action {
       color: $theme-accent;
 

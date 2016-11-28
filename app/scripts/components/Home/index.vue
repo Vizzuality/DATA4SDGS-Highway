@@ -1,14 +1,12 @@
 <template src="./home-template.html"> </template>
 <style lang="sass?indentedSyntax" src="./home-style.scss"> </style>
 <script>
+import router from 'router';
 import ArticleComponent from 'components/Article';
 import ButtonComponent from 'components/Button';
 import SliderComponent from 'components/Slider';
 import { SwipeItem } from 'vue-swipe';
 import IconComponent from 'components/Icon';
-
-import router from 'router';
-
 
 export default {
   name: 'home-component',
@@ -42,8 +40,7 @@ export default {
     SliderComponent,
     SwipeItem,
     IconComponent,
-    router
-
+    router,
   },
 };
 </script>
