@@ -7,6 +7,9 @@ import SliderComponent from 'components/Slider';
 import { SwipeItem } from 'vue-swipe';
 import IconComponent from 'components/Icon';
 
+import router from 'router';
+
+
 export default {
   name: 'home-component',
   data() {
@@ -28,12 +31,18 @@ export default {
       }],
     };
   },
+  methods: {
+    goToPlayground: () => {
+      router.push('/playground');
+    },
+  },
   components: {
     ArticleComponent,
     ButtonComponent,
     SliderComponent,
     SwipeItem,
     IconComponent,
+    router
 
   },
 };

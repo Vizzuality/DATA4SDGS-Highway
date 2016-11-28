@@ -3,6 +3,12 @@
 <script>
 export default{
   name: 'button-component',
+  props: {
+    click: {
+      type: Function,
+      required: true,
+    },
+  },
   data() {
     return {};
   },
