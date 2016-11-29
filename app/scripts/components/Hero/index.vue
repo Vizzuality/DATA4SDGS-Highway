@@ -1,5 +1,5 @@
 <template src="./hero-template.html"> </template>
-<style lang="sass?indentedSyntax" src="./hero-style.scss"> </style>
+<style lang="scss" src="./hero-style.scss"> </style>
 <script>
 import ButtonComponent from 'components/Button';
 

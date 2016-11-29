@@ -1,5 +1,5 @@
 <template src="./swiper-template.html"> </template>
-<style lang="sass?indentedSyntax" src="./swiper-style.scss"> </style>
+<style lang="scss" src="./swiper-style.scss"> </style>
 <script>
 import { Swipe } from 'vue-swipe';
 
