@@ -4,7 +4,7 @@
 import ButtonComponent from 'components/Button';
 
 export default {
-  name: 'searchbar-component',
+  name: 'hero-component',
   data() {
     return {};
   },

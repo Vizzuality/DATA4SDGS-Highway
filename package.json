@@ -12,13 +12,9 @@
     "lint": "eslint --ext .js,.vue app test/unit/specs"
   },
   "dependencies": {
-    "swiper": "^3.4.0",
     "vue": "^2.0.1",
-    "vue-lory": "0.0.4",
     "vue-router": "^2.0.2",
-    "vue-slick": "^1.0.0",
     "vue-swipe": "^2.0.0",
-    "vue-swiper": "^0.5.0",
     "vuex": "^2.0.0"
   },
   "devDependencies": {
@@ -61,7 +57,7 @@
     "karma-webpack": "^1.7.0",
     "lolex": "^1.4.0",
     "mocha": "^3.1.0",
-    "node-sass": "^3.12.5",
+    "node-sass": "^3.13.0",
     "opn": "^4.0.2",
     "ora": "^0.3.0",
     "phantomjs-prebuilt": "^2.1.3",

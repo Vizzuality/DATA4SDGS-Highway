@@ -1,5 +1,5 @@
 <template src="./home-template.html"> </template>
-<style lang="sass?indentedSyntax" src="./home-style.scss"> </style>
+<style src="./home-style.scss"> </style>
 <script>
 import router from 'router';
 import ArticleComponent from 'components/Article';
