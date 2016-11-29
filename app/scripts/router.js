@@ -5,6 +5,7 @@ import HomeComponent from 'components/Home';
 import PlaygroundComponent from 'components/Playground';
 import HeaderComponent from 'components/Header';
 import FooterComponent from 'components/Footer';
+import HeroComponent from 'components/Hero';
 
 Vue.use(VueRouter);
 
@@ -13,6 +14,7 @@ const routes = [
     path: '/',
     components: {
       default: HomeComponent,
+      HeroComponent,
       HeaderComponent,
       FooterComponent,
     },
@@ -21,6 +23,7 @@ const routes = [
     path: '/playground',
     components: {
       default: PlaygroundComponent,
+      HeroComponent,
       HeaderComponent,
       FooterComponent,
     },

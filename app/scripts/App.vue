@@ -4,6 +4,7 @@
       <router-view name="HeaderComponent"></router-view>
     </header>
     <main class="l-main">
+      <router-view name="HeroComponent"></router-view>
       <router-view></router-view>
     </main>
     <footer class="l-footer">

@@ -16,7 +16,7 @@ body {
   height: 100%;
 }
 
-h1, h2 {
+h1 {
   font-family: $heading-font-family;
   color: $heading-font-color;
   line-height: 1.2;
@@ -52,6 +52,10 @@ h1 {
 
 h2 {
   font-size: $h2-font-size;
+  font-family: $base-font-family;
+  color: $theme-base;
+  line-height: 1.14;
+  font-weight: $font-weight-normal;
 }
 
 h3 {

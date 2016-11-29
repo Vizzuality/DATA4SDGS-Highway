@@ -7,7 +7,6 @@ import ButtonComponent from 'components/Button';
 import SwiperComponent from 'components/Swiper';
 import { SwipeItem } from 'vue-swipe';
 import IconComponent from 'components/Icon';
-import HeroComponent from 'components/Hero';
 
 export default {
   name: 'home-component',
@@ -15,18 +14,18 @@ export default {
     return {
       twitterSlides: [{
         id: 0,
-        message: 'Hola',
-        user: 'un_usuario'
+        message: '“Awesome & timely, particularly given this morning\'s #datarevolution discussion. #TechWomenAfrica”',
+        user: 'Datasc'
       },
       {
         id: 1,
-        message: 'Ciao',
-        user: 'un_utente'
+        message: '“Awesome & timely, particularly given this morning\'s #datarevolution discussion. #TechWomenAfrica”',
+        user: 'Datasc'
       },
       {
-        id: 1,
-        message: 'Hello',
-        user: 'a_user'
+        id: 2,
+        message: '“Awesome & timely, particularly given this morning\'s #datarevolution discussion. #TechWomenAfrica”',
+        user: 'Datasc'
       }],
     };
   },
@@ -42,7 +41,6 @@ export default {
     SwipeItem,
     IconComponent,
     router,
-    HeroComponent
   },
 };
 </script>

@@ -2,7 +2,6 @@
 <style lang="sass?indentedSyntax" src="./playground-style.scss"> </style>
 <script>
 import ArticleComponent from 'components/Article';
-import HeroComponent from 'components/Hero';
 
 export default{
   name: 'playground-component',
@@ -11,7 +10,6 @@ export default{
   },
   components: {
     ArticleComponent,
-    HeroComponent
   },
 };
 </script>

@@ -1,3 +1,10 @@
-<div class="c-hero">
-
+<div :class="styles">
+  <div class="row">
+    <div class="column small-12 medium-6" v-if="location.home">
+      <h2>Transform data on SDGs into effective applications</h2>
+      <div class="c-button-group">
+        <button-component class="-bordered -big" :click="goToFindOutMore">Find Out More</button-component>
+      </div>
+    </div>
+  </div>
 </div>
