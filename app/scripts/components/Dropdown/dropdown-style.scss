@@ -1,0 +1,29 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-dropdown {
+  height: 60px;
+  width: 200px;
+
+  .dropdown-button {
+    width: 100%;
+  }
+
+  .dropdown-list {
+    width: 100%;
+    background-color: $theme-base;
+    list-style: none;
+    padding: 0;
+    border-radius: 2px;
+    border: $border-1;
+
+    .dropdown-list-item {
+      padding: 0 $small-margin;
+
+      &:hover {
+        background-color: lightgrey;
+        cursor: pointer;
+      }
+    }
+  }
+}

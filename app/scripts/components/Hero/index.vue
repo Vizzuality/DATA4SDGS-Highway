@@ -2,14 +2,16 @@
 <style lang="scss" src="./hero-style.scss"> </style>
 <script>
 import ButtonComponent from 'components/Button';
+import SearchComponent from 'components/Search';
 
 export default {
-  name: 'searchbar-component',
+  name: 'hero-component',
   data() {
     return {};
   },
   components: {
     ButtonComponent,
+    SearchComponent
   },
   computed: {
     styles: function getStyles() {

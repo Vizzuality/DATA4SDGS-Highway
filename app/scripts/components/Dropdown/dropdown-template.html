@@ -1,0 +1,6 @@
+<div class="c-dropdown">
+  <button-component class="-bordered dropdown-button" :click="showItems">WRI</button-component>
+  <ul class="dropdown-list" v-if="open">
+    <li v-for="item in items" class="dropdown-list-item">{{item}}</li>
+  </ul>
+</div>

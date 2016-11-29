@@ -4,7 +4,6 @@
 .c-hero {
   padding-top: rem(166);
   background-color: $header-bg-color;
-  min-height: 45vh;
 
   &.-home {
     background-image: url('/static/layouts/Back.png');
@@ -16,7 +15,7 @@
   }
 
   .hero-app-content {
-    padding: ($medium-margin * 2) 0;
+    padding: ($medium-margin * 3) 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
