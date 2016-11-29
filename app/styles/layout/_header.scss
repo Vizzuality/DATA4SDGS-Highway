@@ -1,9 +1,9 @@
 .l-header {
-  position: relative;
+  position: absolute;
   left: 0;
   right: 0;
   z-index: 1;
 
-  background-color: $header-bg-color;
-  color: $theme-base;
+  background-color: transparent;
+  color: $base-bg-color;
 }

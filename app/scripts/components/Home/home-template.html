@@ -1,4 +1,6 @@
 <div class="c-home">
+
+  <hero-component class="-home"></hero-component>
   <article-component class="about-us">
     <h1>Data4SDGs Developer Playground</h1>
     <h4>DATA4SDGS GOALS</h4>
@@ -79,7 +81,7 @@
   </article-component>
 
   <article-component>
-    <slider-component :slides="twitterSlides">
+    <swiper-component :slides="twitterSlides">
       <swipe-item v-for="tweet in twitterSlides">
         <div class="tweet">
           <h4>What our clients have to say</h4>
@@ -90,7 +92,7 @@
           </div>
         </div>
       </swipe-item>
-    </slider-component>
+    </swiper-component>
   </article-component>
 
   <article-component class="-complementary">

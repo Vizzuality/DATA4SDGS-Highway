@@ -1,0 +1,14 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-hero {
+  padding-top: 30vh;
+  background-color: $header-bg-color;
+  min-height: 45vh;
+
+  &.-home {
+    background-image: url('/static/layouts/Back.png');
+    background-size: cover;
+    height: 75vh;
+  }
+}

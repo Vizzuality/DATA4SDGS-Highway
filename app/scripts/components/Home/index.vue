@@ -4,9 +4,10 @@
 import router from 'router';
 import ArticleComponent from 'components/Article';
 import ButtonComponent from 'components/Button';
-import SliderComponent from 'components/Slider';
+import SwiperComponent from 'components/Swiper';
 import { SwipeItem } from 'vue-swipe';
 import IconComponent from 'components/Icon';
+import HeroComponent from 'components/Hero';
 
 export default {
   name: 'home-component',
@@ -37,10 +38,11 @@ export default {
   components: {
     ArticleComponent,
     ButtonComponent,
-    SliderComponent,
+    SwiperComponent,
     SwipeItem,
     IconComponent,
     router,
+    HeroComponent
   },
 };
 </script>

@@ -1,10 +1,10 @@
-<template src="./slider-template.html"> </template>
-<style lang="sass?indentedSyntax" src="./slider-style.scss"> </style>
+<template src="./swiper-template.html"> </template>
+<style lang="sass?indentedSyntax" src="./swiper-style.scss"> </style>
 <script>
 import { Swipe } from 'vue-swipe';
 
 export default {
-  name: 'slider-component',
+  name: 'swiper-component',
   props: {
     slides: {
       type: Array,
