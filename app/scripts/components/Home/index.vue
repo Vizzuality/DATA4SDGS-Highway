@@ -1,5 +1,7 @@
 <template src="./home-template.html"> </template>
-<style src="./home-style.scss"> </style>
+
+<style lang="scss" src="./home-style.scss"> </style>
+
 <script>
 import router from 'router';
 import ArticleComponent from 'components/Article';

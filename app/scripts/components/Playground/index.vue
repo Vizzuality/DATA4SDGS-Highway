@@ -1,5 +1,5 @@
 <template src="./playground-template.html"> </template>
-<style lang="sass?indentedSyntax" src="./playground-style.scss"> </style>
+<style lang="scss" src="./playground-style.scss"> </style>
 <script>
 import ArticleComponent from 'components/Article';
 

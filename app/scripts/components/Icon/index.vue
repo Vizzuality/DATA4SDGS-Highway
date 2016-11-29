@@ -1,5 +1,7 @@
 <template src="./icon-template.html"> </template>
-<style src="./icon-style.scss"> </style>
+
+<style lang="scss" src="./icon-style.scss"> </style>
+
 <script>
 export default{
   name: 'icon-component',

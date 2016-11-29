@@ -1,6 +1,6 @@
 <template src="./header-template.html"></template>
 
-<style lang="sass?indentedSyntax" src="./header-style.scss"></style>
+<style lang="scss" src="./header-style.scss"></style>
 
 <script>
 import d4sdgLogo from 'static/logos/logo_D4SDG.png';

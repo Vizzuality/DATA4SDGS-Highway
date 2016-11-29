@@ -1,6 +1,6 @@
 <template src="./footer-template.html"></template>
 
-<style lang="sass?indentedSyntax" src="./footer-style.scss"></style>
+<style lang="scss" src="./footer-style.scss"></style>
 
 <script>
 import logoGlobalSDD from 'static/logos/global_partnership_sdg.jpg';
