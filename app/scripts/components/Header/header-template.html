@@ -1,23 +1,19 @@
 <div class="c-header">
   <div class="row align-top">
-    <div class="columns small-2">
-      <router-link to="/">Data<br>4SDGS<br>HIGH-<br>WAY</router-link>
+    <div class="columns small-6 medium-2">
+      <router-link to="/" class="header-logo">
+        <img :src="d4sdgLogo">
+      </router-link>
     </div>
 
-    <div class="columns small-6 small-offset-4">
+    <div class="columns small-6 medium-3 medium-offset-7">
       <nav>
         <ul>
           <li>
-            <router-link to="/playbook">Playbook</router-link>
-          </li>
-          <li>
-            <router-link to="/developer">Developer</router-link>
+            <router-link to="/about">About Us</router-link>
           </li>
           <li>
             <router-link to="/playground">Playground</router-link>
-          </li>
-          <li>
-            <router-link to="/partnership">Software Partnership</router-link>
           </li>
         </ul>
       </nav>

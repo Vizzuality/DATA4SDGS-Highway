@@ -1,0 +1,19 @@
+<div :class="styles">
+
+  <div class="row" v-if="location.home">
+    <div class="column small-12 medium-6 hero-home-content">
+      <h2>Transform data on SDGs into effective applications</h2>
+      <div class="c-button-group">
+        <button-component class="-bordered -big" :click="goToFindOutMore">Find Out More</button-component>
+      </div>
+    </div>
+  </div>
+
+  <div class="row align-center">
+    <div class="column small-8 hero-app-content" v-if="!location.home">
+      <input type="search">
+      <button-component class="-filled -small">Search</button-component>
+    </div>
+  </div>
+
+</div>

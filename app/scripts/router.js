@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Homepage from 'components/Homepage';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+import HomeComponent from 'components/Home';
+import PlaygroundComponent from 'components/Playground';
+import HeaderComponent from 'components/Header';
+import FooterComponent from 'components/Footer';
+import HeroComponent from 'components/Hero';
 
 Vue.use(VueRouter);
 
@@ -11,37 +13,19 @@ const routes = [
   {
     path: '/',
     components: {
-      default: Homepage,
-      Header,
-      Footer,
-    },
-  },
-  {
-    path: '/playbook',
-    components: {
-      Header,
-      Footer,
-    },
-  },
-  {
-    path: '/developer',
-    components: {
-      Header,
-      Footer,
+      default: HomeComponent,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
     },
   },
   {
     path: '/playground',
     components: {
-      Header,
-      Footer,
-    },
-  },
-  {
-    path: '/partnership',
-    components: {
-      Header,
-      Footer,
+      default: PlaygroundComponent,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
     },
   },
   { path: '*', redirect: '/' },

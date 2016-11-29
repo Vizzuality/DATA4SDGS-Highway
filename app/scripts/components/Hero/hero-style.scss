@@ -1,0 +1,24 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-hero {
+  padding-top: rem(166);
+  background-color: $header-bg-color;
+  min-height: 45vh;
+
+  &.-home {
+    background-image: url('/static/layouts/Back.png');
+    background-size: cover;
+
+    .hero-home-content {
+      padding: ($medium-margin * 4) 0;
+    }
+  }
+
+  .hero-app-content {
+    padding: ($medium-margin * 2) 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

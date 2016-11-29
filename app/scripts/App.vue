@@ -1,13 +1,14 @@
 <template>
   <div id="app">
     <header class="l-header">
-      <router-view name="Header"></router-view>
+      <router-view name="HeaderComponent"></router-view>
     </header>
     <main class="l-main">
+      <router-view name="HeroComponent"></router-view>
       <router-view></router-view>
     </main>
     <footer class="l-footer">
-      <router-view name="Footer"></router-view>
+      <router-view name="FooterComponent"></router-view>
     </footer>
   </div>
 </template>
@@ -15,6 +16,5 @@
 <style></style>
 
 <script>
-
 export default { name: 'app' };
 </script>
