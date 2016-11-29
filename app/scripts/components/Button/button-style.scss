@@ -17,7 +17,7 @@
     background-color: $theme-accent;
     font-weight: $font-weight-bold;
     &.-alternative {
-      background-color: $theme-alternative
+      background-color: $theme-alternative;
     }
   }
 
@@ -34,6 +34,7 @@
   }
 
   &:active {
-    opacity: 0.9;
+    opacity: 0.8;
   }
+
 }
