@@ -7,11 +7,19 @@ export default{
   name: 'search-component',
   data() {
     return {
-      filters: ['noaa', 'nasa', 'wri']
+      filters: ['all', 'noaa', 'nasa', 'wri', 'other'],
+      query: null,
+      results: [],
     };
   },
   components: {
     DropdownComponent,
+  },
+  watch: {
+    query() {
+      !this.results.length && this.results.push('Searching...');
+      !this.query && this.results.pop();
+    },
   },
 };
 </script>

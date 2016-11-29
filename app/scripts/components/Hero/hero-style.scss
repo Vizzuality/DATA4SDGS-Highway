@@ -4,6 +4,8 @@
 .c-hero {
   padding-top: rem(166);
   background-color: $header-bg-color;
+  position: relative;
+  z-index: 1;
 
   &.-home {
     background-image: url('/static/layouts/Back.png');
