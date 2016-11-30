@@ -21,10 +21,10 @@ export default{
     ButtonComponent,
   },
   methods: {
-    toggleVisibility: function toggleVisibility() {
+    toggleVisibility() {
       this.open = !this.open;
     },
-    selectItem: function selectItem(index) {
+    selectItem(index) {
       this.selected = this.items[index];
       this.toggleVisibility();
     },
