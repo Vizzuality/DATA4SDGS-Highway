@@ -9,17 +9,28 @@ export default{
     return {
       filters: ['all', 'noaa', 'nasa', 'wri', 'other'],
       query: null,
-      results: [],
+      loadingMessage: 'Searching...',
+      errorMessage: 'Something weird happened!',
+      notFoundMessage: 'No Datasets were found',
     };
   },
-  components: {
-    DropdownComponent,
+  computed: {
+    loading() {
+    },
+    results() {
+    },
+    notFound() {
+      return this.query && !this.results;
+    },
+    error() {
+    },
   },
   watch: {
     query() {
-      !this.results.length && this.results.push('Searching...');
-      !this.query && this.results.pop();
     },
+  },
+  components: {
+    DropdownComponent,
   },
 };
 </script>

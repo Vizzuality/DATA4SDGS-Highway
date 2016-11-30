@@ -6,6 +6,9 @@
       <div class="search-bar">
         <input type="search" v-model="query" placeholder="Search for data..." class="search-input">
         <ul class="search-results-list">
+          <li v-if="notFound" class="search-results-item">{{notFoundMessage}}</li>
+          <li v-if="error" class="search-results-item">{{errorMessage}}</li>
+          <li v-if="loading" class="search-results-item">{{loadingMessage}}</li>
           <li v-for="result in results" class="search-results-item">{{result}}</li>
         </ul>
       </div>
