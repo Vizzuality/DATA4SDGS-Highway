@@ -12,7 +12,7 @@ export default{
     }
   },
   computed: {
-    selector: function formatSelector() {
+    selector() {
       return `#${this.name}`;
     }
   },
