@@ -19,9 +19,10 @@
 
     .dropdown-list-item {
       padding: 0 $small-margin;
+      text-transform: uppercase;
 
       &:hover {
-        background-color: lightgrey;
+        background-color: $lightgrey;
         cursor: pointer;
       }
     }

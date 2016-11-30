@@ -14,14 +14,19 @@ export default{
   data() {
     return {
       open: false,
+      selected: null
     };
   },
   components: {
     ButtonComponent,
   },
   methods: {
-    showItems: function toggleVisibility() {
+    toggleVisibility() {
       this.open = !this.open;
+    },
+    selectItem(index) {
+      this.selected = this.items[index];
+      this.toggleVisibility();
     },
   },
 };

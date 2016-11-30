@@ -32,7 +32,7 @@ export default {
     };
   },
   methods: {
-    goToPlayground: () => {
+    goToPlayground() {
       router.push('/playground');
     },
   },
