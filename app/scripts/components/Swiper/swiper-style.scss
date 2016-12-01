@@ -1,0 +1,22 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-swiper {
+  height: 200px;
+
+  .mint-swipe-indicators {
+
+    .mint-swipe-indicator {
+      background-color: $theme-base;
+      width: 10px;
+      height: 10px;
+      border: 1px solid $grayed-black;
+      opacity: 1;
+
+      &.is-active {
+        background-color: $grayed-black;
+      }
+    }
+  }
+
+}

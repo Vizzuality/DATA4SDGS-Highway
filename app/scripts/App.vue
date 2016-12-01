@@ -1,27 +1,20 @@
 <template>
   <div id="app">
-    <hello></hello>
+    <header class="l-header">
+      <router-view name="HeaderComponent"></router-view>
+    </header>
+    <main class="l-main">
+      <router-view name="HeroComponent"></router-view>
+      <router-view></router-view>
+    </main>
+    <footer class="l-footer">
+      <router-view name="FooterComponent"></router-view>
+    </footer>
   </div>
 </template>
 
+<style></style>
+
 <script>
-import Hello from './components/Hello';
-
-export default {
-  name: 'app',
-  components: {
-    Hello,
-  },
-};
+export default { name: 'app' };
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

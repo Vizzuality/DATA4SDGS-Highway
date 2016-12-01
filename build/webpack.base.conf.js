@@ -12,6 +12,7 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
 module.exports = {
   entry: {
+    fetch: 'whatwg-fetch',
     app: './app/scripts/main.js'
   },
   output: {
@@ -25,8 +26,10 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue',
       'app': path.resolve(__dirname, '../app/scripts'),
-      'assets': path.resolve(__dirname, '../app/assets'),
-      'components': path.resolve(__dirname, '../app/scripts/components')
+      'styles': path.resolve(__dirname, '../app/styles'),
+      'components': path.resolve(__dirname, '../app/scripts/components'),
+      'router': path.resolve(__dirname, '../app/scripts/router'),
+      'static': path.resolve(__dirname, '../static'),
     }
   },
   resolveLoader: {

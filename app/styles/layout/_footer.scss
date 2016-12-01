@@ -1,0 +1,12 @@
+.l-footer {
+  min-height: 15vh;
+  position: relative;
+  left: 0;
+  right: 0;
+  background-color: $header-bg-color;
+  color: $theme-base;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

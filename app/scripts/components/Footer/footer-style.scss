@@ -1,0 +1,10 @@
+// Import Global Variables
+@import '../../../styles/variables';
+
+.c-footer {
+  padding: $small-margin;
+
+  .footer-logo {
+    height: rem(40);
+  }
+}

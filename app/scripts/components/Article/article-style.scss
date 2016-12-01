@@ -1,0 +1,27 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-article {
+  padding: $large-margin 0;
+
+  &.-accent {
+    background-color: $theme-accent;
+    color: $theme-base;
+
+  }
+
+  &.-complementary {
+    background-color: $theme-complementary;
+  }
+
+  &.-alternative {
+    background-color: $theme-alternative;
+    color: $theme-base;
+  }
+
+  &.-no-padding {
+    padding: 0;
+  }
+
+}
+
