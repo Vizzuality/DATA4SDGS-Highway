@@ -9,7 +9,7 @@
           <li v-if="notFound" class="search-results-item">{{notFoundMessage}}</li>
           <li v-if="error" class="search-results-item">{{errorMessage}}</li>
           <li v-if="loading" class="search-results-item">{{loadingMessage}}</li>
-          <li v-for="result in results" class="search-results-item">{{result}}</li>
+          <li v-for="result in results" class="search-results-item">{{result.attributes.name}}</li>
         </ul>
       </div>
     </div>
