@@ -1,9 +1,9 @@
 <div class="c-playground">
     <article-component>
       <h1 class="-left">Featured Datasets</h1>
-      <div class="featured-list">
-        <div class="column small-6 medium-4 featured-list-item">
-          <h4>Worldbank Poverty Index</h4>
+      <div class="featured-list row align-justify">
+        <div class="column small-12 medium-6 large-4 featured-list-item" v-for="n in 12">
+          <dataset-component></dataset-component>
         </div>
       </div>
     </article-component>

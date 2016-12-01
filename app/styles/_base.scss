@@ -37,6 +37,14 @@ h3, h4 {
     font-weight: $font-weight-normal;
   }
 
+  &.-uppercase {
+    text-transform: uppercase;
+  }
+
+  &.-left {
+    text-align: left;
+  }
+
   &.-center {
     text-align: center;
   }
@@ -66,11 +74,6 @@ h3 {
 
 h4 {
   font-size: $h4-font-size;
-  text-align: center;
-  text-transform: uppercase;
-  &.-left {
-    text-align: left;
-  }
 }
 
 a {
