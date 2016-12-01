@@ -29,14 +29,21 @@
       background-color: $medium-grey;
 
       list-style: none;
-      cursor: pointer;
       overflow: overlay;
+      cursor: pointer;
 
       .search-results-item {
         padding:  $small-margin / 2 $medium-margin;
 
-        &:hover {
-          background-color: $lightgrey;
+        &.-error {
+          color: rgba(red, 0.5);
+          font-weight: $font-weight-bold;
+        }
+
+        &.-item {
+          &:hover {
+            background-color: $lightgrey;
+          }
         }
       }
     }
