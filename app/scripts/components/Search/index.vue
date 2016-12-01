@@ -1,6 +1,7 @@
 <template src="./search-template.html"> </template>
 <style lang="scss" src="./search-style.scss"> </style>
 <script>
+import { mapGetters } from 'vuex';
 import DropdownComponent from 'components/Dropdown';
 
 export default{
@@ -8,26 +9,27 @@ export default{
   data() {
     return {
       filters: ['all', 'noaa', 'nasa', 'wri', 'other'],
-      query: null,
       loadingMessage: 'Searching...',
       errorMessage: 'Something weird happened!',
       notFoundMessage: 'No Datasets were found',
     };
   },
   computed: {
-    loading() {
+    queryState: {
+      get() {
+        return this.query;
+      },
+      set(value) {
+        this.$store.dispatch('updateQuery', value);
+      }
     },
-    results() {
-    },
-    notFound() {
-      return this.query && !this.results;
-    },
-    error() {
-    },
-  },
-  watch: {
-    query() {
-    },
+    ...mapGetters({
+      notFound: 'getNotFound',
+      results: 'getListData',
+      query: 'getQuery',
+      loading: 'getLoading',
+      error: 'getError',
+    }),
   },
   components: {
     DropdownComponent,

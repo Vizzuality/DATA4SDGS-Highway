@@ -20,20 +20,30 @@
 
     .search-results-list {
       width: 100%;
+      max-height: 221px;
       margin: 0;
       padding: 0;
       border-radius: 0 0 2px 2px;
+      box-shadow: $box-shadow-1;
 
-      background-color: $lightgrey;
+      background-color: $medium-grey;
 
       list-style: none;
+      overflow: overlay;
       cursor: pointer;
 
       .search-results-item {
-        padding:  0 $small-margin;
+        padding:  $small-margin / 2 $medium-margin;
 
-        &:hover {
-          background-color: grey;
+        &.-error {
+          color: rgba(red, 0.5);
+          font-weight: $font-weight-bold;
+        }
+
+        &.-item {
+          &:hover {
+            background-color: $lightgrey;
+          }
         }
       }
     }
