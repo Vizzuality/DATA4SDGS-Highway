@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import searchedDatasets from './modules/searched-datasets';
+import searchedDatasets from './modules/search-datasets';
 
 Vue.use(Vuex);
 

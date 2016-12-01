@@ -1,7 +1,7 @@
 <template src="./search-template.html"> </template>
 <style lang="scss" src="./search-style.scss"> </style>
 <script>
-import { mapState, mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
 import DropdownComponent from 'components/Dropdown';
 
 export default{
@@ -15,21 +15,20 @@ export default{
     };
   },
   computed: {
-    query: {
+    queryState: {
       get() {
-        return this.$store.state.query;
+        return this.query;
       },
-      set() {
-        this.$store.dispatch('searchDatasets');
+      set(value) {
+        this.$store.dispatch('updateQuery', value);
       }
     },
-    ...mapState({
-      loading: 'loading',
-      error: 'error',
-    }),
     ...mapGetters({
       notFound: 'getNotFound',
       results: 'getListData',
+      query: 'getQuery',
+      loading: 'getLoading',
+      error: 'getError',
     }),
   },
   components: {

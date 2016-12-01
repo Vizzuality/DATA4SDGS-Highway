@@ -11,11 +11,12 @@
 
   .dropdown-list {
     width: 100%;
-    background-color: $theme-base;
+    background-color: $medium-grey;
     list-style: none;
     padding: 0;
     border-radius: 2px;
     border: $border-1;
+    box-shadow: $box-shadow-1;
 
     .dropdown-list-item {
       padding: 0 $small-margin;
