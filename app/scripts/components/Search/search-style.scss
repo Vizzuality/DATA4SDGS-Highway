@@ -1,0 +1,51 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .search-bar {
+    height: 60px;
+    width: 600px;
+
+    .search-input {
+      height: 100%;
+      width: 100%;
+      padding: 0 $small-margin;
+      border-radius: 2px 2px 0 0;
+      border: 0;
+    }
+
+    .search-results-list {
+      width: 100%;
+      max-height: 221px;
+      margin: 0;
+      padding: 0;
+      border-radius: 0 0 2px 2px;
+      box-shadow: $box-shadow-1;
+
+      background-color: $medium-grey;
+
+      list-style: none;
+      overflow: overlay;
+      cursor: pointer;
+
+      .search-results-item {
+        padding:  $small-margin / 2 $medium-margin;
+
+        &.-error {
+          color: rgba(red, 0.5);
+          font-weight: $font-weight-bold;
+        }
+
+        &.-item {
+          &:hover {
+            background-color: $lightgrey;
+          }
+        }
+      }
+    }
+  }
+}

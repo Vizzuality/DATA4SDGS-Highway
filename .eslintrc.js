@@ -9,6 +9,9 @@ module.exports = {
   plugins: [
     'html'
   ],
+  globals: {
+    'fetch': true
+  },
   // check if imports actually resolve
   'settings': {
     'import/resolver': {
@@ -25,6 +28,8 @@ module.exports = {
       'vue': 'never'
     }],
     'comma-dangle': ['error', 'only-multiline'],
+    'no-unused-expressions': ['error', { 'allowShortCircuit': true }],
+    'no-param-reassign': ['error', { "props": false }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }

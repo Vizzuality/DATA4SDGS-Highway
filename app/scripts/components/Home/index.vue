@@ -1,5 +1,7 @@
 <template src="./home-template.html"> </template>
+
 <style lang="scss" src="./home-style.scss"> </style>
+
 <script>
 import router from 'router';
 import ArticleComponent from 'components/Article';
@@ -30,7 +32,7 @@ export default {
     };
   },
   methods: {
-    goToPlayground: () => {
+    goToPlayground() {
       router.push('/playground');
     },
   },

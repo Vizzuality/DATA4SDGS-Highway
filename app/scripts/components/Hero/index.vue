@@ -2,6 +2,7 @@
 <style lang="scss" src="./hero-style.scss"> </style>
 <script>
 import ButtonComponent from 'components/Button';
+import SearchComponent from 'components/Search';
 
 export default {
   name: 'hero-component',
@@ -10,16 +11,17 @@ export default {
   },
   components: {
     ButtonComponent,
+    SearchComponent
   },
   computed: {
-    styles: function getStyles() {
+    styles() {
       let classes = 'c-hero';
       if (this.location.home) {
         classes += ' -home';
       }
       return classes;
     },
-    location: function getlocation() {
+    location() {
       const computedLocation = {};
       if (this.$route.path === '/') {
         computedLocation.home = true;
@@ -28,7 +30,7 @@ export default {
     },
   },
   methods: {
-    goToFindOutMore: function goToFindOutMore() {
+    goToFindOutMore() {
       return false;
     },
   },

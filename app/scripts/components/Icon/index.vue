@@ -1,5 +1,7 @@
 <template src="./icon-template.html"> </template>
+
 <style lang="scss" src="./icon-style.scss"> </style>
+
 <script>
 export default{
   name: 'icon-component',
@@ -10,7 +12,7 @@ export default{
     }
   },
   computed: {
-    selector: function formatSelector() {
+    selector() {
       return `#${this.name}`;
     }
   },
