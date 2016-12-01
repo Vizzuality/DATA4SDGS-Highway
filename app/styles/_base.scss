@@ -1,6 +1,7 @@
 html {
   font-size: 16px;
   height: 100%;
+  box-sizing: border-box;
 }
 
 body {
@@ -102,3 +103,6 @@ p {
   }
 }
 
+*, *:before, *:after, input[type=search] {
+  box-sizing: inherit;
+}

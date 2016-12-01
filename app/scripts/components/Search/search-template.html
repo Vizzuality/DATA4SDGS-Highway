@@ -1,0 +1,18 @@
+<div class="c-search row align-left">
+    <div class="column small-2">
+      <dropdown-component :items="filters"></dropdown-component>
+    </div>
+    <div class="column small-8">
+      <div class="search-bar">
+        <input type="search" v-model="queryState" placeholder="Search for data..." class="search-input">
+        <ul class="search-results-list">
+          <li v-if="loading" class="search-results-item">{{loadingMessage}}</li>
+          <li v-else-if="error" class="search-results-item -error">{{errorMessage}}</li>
+          <li v-else-if="notFound" class="search-results-item">{{notFoundMessage}}</li>
+          <li v-else-if="query" v-for="result in results" class="search-results-item -item">{{result.attributes.name}}</li>
+        </ul>
+      </div>
+    </div>
+</div>
+
+

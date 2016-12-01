@@ -1,0 +1,6 @@
+<div class="c-dropdown">
+  <button-component class="-bordered dropdown-button" :click="toggleVisibility">{{selected || 'Filter'}}</button-component>
+  <ul class="dropdown-list" v-show="open">
+    <li v-for="(item, index) in items" class="dropdown-list-item" @click="selectItem(index)">{{item}}</li>
+  </ul>
+</div>
