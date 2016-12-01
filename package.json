@@ -4,14 +4,17 @@
   "description": "Connected open data for sustainable development purposes.",
   "author": "Vizzuality",
   "private": true,
+  "main": "server.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue app test/unit/specs"
+    "lint": "eslint --ext .js,.vue app test/unit/specs",
+    "deploy": "git subtree push --prefix dist heroku master"
   },
   "dependencies": {
+    "express": "^4.14.0",
     "vue": "^2.0.1",
     "vue-router": "^2.0.2",
     "vue-swipe": "^2.0.0",
