@@ -1,0 +1,5 @@
+<div class="c-dataset-list row align-justify">
+  <div class="column small-12 medium-6 large-4 featured-list-item" v-for="(dataset, index) in datasets" :key="dataset.id">
+    <dataset-component :name="dataset.name" :source="getSource(index)" :goal="dataset.goal" :target="dataset.target"></dataset-component>
+  </div>
+</div>

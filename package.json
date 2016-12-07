@@ -11,17 +11,17 @@
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue app test/unit/specs",
-    "deploy": "git subtree push --prefix dist heroku master"
+    "deploy": "git push heroku master:master",
+    "postinstall": "NODE_ENV=production npm run build"
   },
   "dependencies": {
     "express": "^4.14.0",
     "dotenv": "^2.0.0",
+    "jsonapi-serializer": "^3.4.1",
     "vue": "^2.0.1",
     "vue-router": "^2.0.2",
     "vue-swipe": "^2.0.0",
-    "vuex": "^2.0.0"
-  },
-  "devDependencies": {
+    "vuex": "^2.0.0",
     "autoprefixer": "^6.4.0",
     "babel-core": "^6.0.0",
     "babel-eslint": "^7.0.0",
