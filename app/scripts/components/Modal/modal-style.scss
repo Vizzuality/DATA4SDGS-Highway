@@ -19,6 +19,9 @@
     box-shadow: $box-shadow-2;
 
     .close-modal {
+      position: relative;
+      right: 0;
+      top: 0;
     }
   }
 }

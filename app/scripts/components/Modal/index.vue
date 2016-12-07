@@ -4,7 +4,6 @@
 
 <script>
 import IconComponent from 'components/Icon';
-import DatasetComponent from 'components/Dataset';
 
 export default{
   name: 'modal-component',
@@ -14,8 +13,7 @@ export default{
     return {};
   },
   components: {
-    IconComponent,
-    DatasetComponent
+    IconComponent
   },
 };
 </script>

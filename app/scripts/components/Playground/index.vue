@@ -5,6 +5,7 @@ import { mapGetters } from 'vuex';
 import ArticleComponent from 'components/Article';
 import DatasetListComponent from 'components/DatasetList';
 import ModalComponent from 'components/Modal';
+import DatasetComponent from 'components/Dataset';
 
 export default{
   name: 'playground-component',
@@ -25,6 +26,7 @@ export default{
     ArticleComponent,
     DatasetListComponent,
     ModalComponent,
+    DatasetComponent,
   },
 };
 </script>
