@@ -6,16 +6,23 @@
 export default{
   name: 'dataset-component',
   props: {
+    name: {
+      type: String
+    },
+    source: {
+      type: String
+    },
+    goal: {
+      type: Number
+    },
+    target: {
+      type: Number
+    },
   },
   computed: {
   },
   data() {
-    return {
-      name: 'Worldbank agriculture',
-      source: ' WRI',
-      goal: 1,
-      target: 3,
-    };
+    return {};
   },
 };
 </script>

@@ -12,6 +12,7 @@ export default{
       loadingMessage: 'Searching...',
       errorMessage: 'Something weird happened!',
       notFoundMessage: 'No Datasets were found',
+      timeout: null,
     };
   },
   computed: {
@@ -20,7 +21,9 @@ export default{
         return this.query;
       },
       set(value) {
-        this.$store.dispatch('searchDatasets', value);
+        if (value.split('').length > 1 || value === '') {
+          this.debounce(this.$store.dispatch, ['searchDatasets', value]);
+        }
       }
     },
     ...mapGetters({
@@ -30,6 +33,14 @@ export default{
       loading: 'getSearchLoading',
       error: 'getSearchError',
     }),
+  },
+  methods: {
+    debounce(callback, params) {
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        callback(...params);
+      }, 400);
+    },
   },
   components: {
     DropdownComponent,

@@ -36,7 +36,7 @@ const datasets = {
       state.search.loading = loading;
     },
     [SEARCH_DATASETS_ERROR](state, error) {
-      state.search.error = error;
+      state.search.error = error.message;
     },
     [SET_SEARCH_DATASETS_QUERY](state, query) {
       state.search.query = query;
@@ -48,38 +48,40 @@ const datasets = {
       state.featured.loading = loading;
     },
     [GET_FEATURED_DATASETS_ERROR](state, error) {
-      state.featured.error = error;
+      state.featured.error = error.message;
     },
   },
   actions: {
     searchDatasets({ commit, state }, query) {
       return new Promise(() => {
         commit(SET_SEARCH_DATASETS_QUERY, query);
-        commit(SEARCH_DATASETS_LOADING, true);
-        commit(SEARCH_DATASETS_ERROR, false);
-        fetch(`${BASE_URL}/dataset?app=data4sdgs&page[size]=10000&includes=metadata&name=${state.search.query}`)
-          .then((response) => {
-            if (response.status >= 400) {
-              throw new Error(response.status);
-            }
-            return response.json();
-          }).then((data) => {
-            Deserializer.deserialize(data, (err, list) => {
-              if (err) throw new Error('Error deserializing json api');
+        if (state.search.query !== '') {
+          commit(SEARCH_DATASETS_LOADING, true);
+          commit(SEARCH_DATASETS_ERROR, false);
+          fetch(`${BASE_URL}/dataset?app=data4sdgs&page[size]=10000&includes=metadata&name=${state.search.query}`)
+            .then((response) => {
+              if (response.status >= 400) {
+                throw new Error(response.status);
+              }
+              return response.json();
+            }).then((data) => {
+              Deserializer.deserialize(data, (err, list) => {
+                if (err) throw new Error('Error deserializing json api');
+                commit(SEARCH_DATASETS_LOADING, false);
+                commit(SEARCH_DATASETS_SUCCESS, list);
+              });
+            }).catch((error) => {
               commit(SEARCH_DATASETS_LOADING, false);
-              commit(SEARCH_DATASETS_SUCCESS, list);
+              commit(SEARCH_DATASETS_ERROR, error);
             });
-          }).catch((error) => {
-            commit(SEARCH_DATASETS_LOADING, false);
-            commit(SEARCH_DATASETS_ERROR, error);
-          });
+        }
       });
     },
     getFeaturedDatasets({ commit }) {
       return new Promise(() => {
         commit(GET_FEATURED_DATASETS_LOADING, true);
         commit(GET_FEATURED_DATASETS_ERROR, false);
-        fetch(`${BASE_URL}/dataset?app=data4sdgs&includes=metadata`)
+        fetch(`${BASE_URL}/dataset?app=data4sdgs&page[size]=9`)
           .then((response) => {
             if (response.status >= 400) {
               throw new Error(response.status);
@@ -115,6 +117,15 @@ const datasets = {
     },
     getSearchError(state) {
       return state.search.error && state.search.query;
+    },
+    getFeaturedListData(state) {
+      return state.featured.list;
+    },
+    getFeaturedLoading(state) {
+      return state.featured.loading;
+    },
+    getFeaturedError(state) {
+      return state.featured.error;
     },
   },
 };
