@@ -12,7 +12,11 @@ export default{
       type: Array
     },
   },
-  computed: {
+  methods: {
+    getSource(index) {
+      return this.datasets[index].metadata.attributes ?
+      this.datasets[index].metadata.attributes.source : null;
+    },
   },
   data() {
     return {

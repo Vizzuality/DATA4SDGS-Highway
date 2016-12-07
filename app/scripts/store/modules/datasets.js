@@ -81,7 +81,7 @@ const datasets = {
       return new Promise(() => {
         commit(GET_FEATURED_DATASETS_LOADING, true);
         commit(GET_FEATURED_DATASETS_ERROR, false);
-        fetch(`${BASE_URL}/dataset?app=data4sdgs&page[size]=6`)
+        fetch(`${BASE_URL}/dataset?app=data4sdgs&page[size]=6&includes=metadata`)
           .then((response) => {
             if (response.status >= 400) {
               throw new Error(response.status);
