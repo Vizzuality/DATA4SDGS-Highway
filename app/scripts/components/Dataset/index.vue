@@ -18,6 +18,9 @@ export default{
     target: {
       type: Number
     },
+    large: {
+      type: Boolean
+    },
   },
   computed: {
   },

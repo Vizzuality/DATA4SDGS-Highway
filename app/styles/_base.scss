@@ -17,13 +17,10 @@ body {
   height: 100%;
 }
 
-h1 {
-  font-family: $heading-font-family;
-  color: $heading-font-color;
-  line-height: 1.2;
-  margin-top: 0;
-  margin-bottom: $small-margin;
-  text-transform: uppercase;
+h1, h2 {
+  &.-left {
+    text-align: left;
+  }
 
   &.-clean {
     color: inherit;
@@ -51,12 +48,14 @@ h3, h4 {
 }
 
 h1 {
+  font-family: $heading-font-family;
+  color: $heading-font-color;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: $small-margin;
+  text-transform: uppercase;
   font-size: $h1-font-size;
   text-align: center;
-
-  &.-left {
-    text-align: left;
-  }
 }
 
 h2 {

@@ -2,24 +2,50 @@
 @import '../../../styles/variables';
 
 .c-icon {
-
-  &.-normal {
-    height: 50px;
-    width: 50px;
+  flex-shrink: 0;
+  &.-round {
     display: flex;
-    flex-shrink: 0;
     align-items: center;
     justify-content: center;
     border: $border-1;
     border-radius: 50%;
+  }
+
+  &.-small {
+    height: 50px;
+    width: 50px;
     > svg {
       height: 35px;
       width: 35px;
     }
   }
 
+  &.-medium {
+    height: 60px;
+    width: 60px;
+    > svg {
+      height: 60px;
+      width: 60px;
+    }
+  }
+
   &.-base > svg {
-    fill: $link-font-color;
-    stroke: $link-font-color;
+    fill: $theme-base;
+    stroke: $theme-base;
+  }
+
+  &.-complementary > svg {
+    fill: $theme-complementary;
+    stroke: $theme-complementary;
+  }
+
+  &.-action {
+    &:hover {
+      opacity: 0.3;
+      cursor: pointer;
+    }
+    &:active {
+      opacity: 0.7;
+    }
   }
 }
