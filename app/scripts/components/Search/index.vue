@@ -20,15 +20,15 @@ export default{
         return this.query;
       },
       set(value) {
-        this.$store.dispatch('updateQuery', value);
+        this.$store.dispatch('searchDatasets', value);
       }
     },
     ...mapGetters({
-      notFound: 'getNotFound',
-      results: 'getListData',
-      query: 'getQuery',
-      loading: 'getLoading',
-      error: 'getError',
+      notFound: 'getSearchNotFound',
+      results: 'getSearchListData',
+      query: 'getSearchQuery',
+      loading: 'getSearchLoading',
+      error: 'getSearchError',
     }),
   },
   components: {
