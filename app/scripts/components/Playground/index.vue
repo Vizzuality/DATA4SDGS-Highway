@@ -6,6 +6,7 @@ import ArticleComponent from 'components/Article';
 import DatasetListComponent from 'components/DatasetList';
 import ModalComponent from 'components/Modal';
 import DatasetComponent from 'components/Dataset';
+import ConsoleComponent from 'components/Console';
 
 export default{
   name: 'playground-component',
@@ -31,6 +32,7 @@ export default{
     DatasetListComponent,
     ModalComponent,
     DatasetComponent,
+    ConsoleComponent,
   },
 };
 </script>

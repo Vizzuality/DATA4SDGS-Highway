@@ -1,0 +1,10 @@
+<div class="c-console">
+  <div class="tab-bar">
+    <div v-for="lang in languages" :class="classList(lang)" @click="setDisplayedLang(lang)">{{lang}}</div>
+  </div>
+
+  <pre class="console-content">
+    <code>{{snippet}}</code>
+  </pre>
+
+</div>
