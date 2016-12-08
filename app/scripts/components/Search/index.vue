@@ -41,6 +41,10 @@ export default{
         callback(...params);
       }, 400);
     },
+    selectDataset(dataset) {
+      this.$store.dispatch('setSelectedDataset', dataset);
+      this.$store.dispatch('openConsoleModal');
+    },
   },
   components: {
     DropdownComponent,

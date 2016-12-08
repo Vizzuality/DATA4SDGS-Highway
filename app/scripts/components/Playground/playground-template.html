@@ -3,10 +3,10 @@
     <h1 class="-left">Featured Datasets</h1>
     <dataset-list-component :datasets="featuredDatasets"></dataset-list-component>
   </article-component>
-  <modal-component>
+  <modal-component :open="openModal" :close="closeModal">
     <div class="row expanded">
       <div class="column small-10 align-middle flex">
-        <dataset-component  name="WRI" source="LINK" :goal="1" :target="3" large></dataset-component>
+        <dataset-component :dataset="selectedDataset" large></dataset-component>
       </div>
     </div>
   </modal-component>

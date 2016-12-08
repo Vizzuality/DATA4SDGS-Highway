@@ -5,6 +5,16 @@
 
   .dataset-header {
     margin: 0;
+
+    &.-selectable {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:active {
+        opacity: 0.7;
+      }
+    }
   }
 
   .dataset-detail {

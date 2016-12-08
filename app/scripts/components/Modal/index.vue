@@ -4,16 +4,22 @@
 
 <script>
 import IconComponent from 'components/Icon';
+import ButtonComponent from 'components/Button';
+
 
 export default{
   name: 'modal-component',
-  computed: {
-  },
-  data() {
-    return {};
+  props: {
+    open: {
+      type: Boolean,
+    },
+    close: {
+      type: Function,
+    },
   },
   components: {
-    IconComponent
+    IconComponent,
+    ButtonComponent,
   },
 };
 </script>

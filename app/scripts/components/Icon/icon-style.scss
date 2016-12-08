@@ -38,14 +38,4 @@
     fill: $theme-complementary;
     stroke: $theme-complementary;
   }
-
-  &.-action {
-    &:hover {
-      opacity: 0.3;
-      cursor: pointer;
-    }
-    &:active {
-      opacity: 0.7;
-    }
-  }
 }

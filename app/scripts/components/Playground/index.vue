@@ -12,15 +12,19 @@ export default{
   created() {
     if (!this.featuredDatasets.length) this.$store.dispatch('getFeaturedDatasets');
   },
-  data() {
-    return {};
-  },
   computed: {
     ...mapGetters({
       featuredDatasets: 'getFeaturedListData',
       loading: 'getFeaturedLoading',
       error: 'getFeaturedError',
-    })
+      selectedDataset: 'getSelectedDataset',
+      openModal: 'getConsoleModal',
+    }),
+  },
+  methods: {
+    closeModal() {
+      this.$store.dispatch('closeConsoleModal');
+    },
   },
   components: {
     ArticleComponent,
