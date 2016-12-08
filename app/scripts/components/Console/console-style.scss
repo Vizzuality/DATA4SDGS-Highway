@@ -43,8 +43,9 @@
     color: $theme-base;
     font-weight: $font-weight-bold;
     padding: 0 ($small-margin / 2);
-    white-space: pre;
     font-size: $font-size-xsmall;
     line-height: 18px;
+
+    overflow: overlay;
   }
 }
