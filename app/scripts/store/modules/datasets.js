@@ -7,6 +7,8 @@ import {
   GET_FEATURED_DATASETS_SUCCESS,
   GET_FEATURED_DATASETS_ERROR,
   GET_FEATURED_DATASETS_LOADING,
+  SET_SELECTED_DATASET,
+  ADD_RECENT_DATASETS,
 } from '../types/datasets';
 
 const Deserializer = new JSONAPIDeserializer({ keyForAttribute: 'camelCase' });
@@ -26,7 +28,9 @@ const datasets = {
       list: [],
       loading: false,
       error: false,
-    }
+    },
+    selectedDataset: null,
+    recentDatasets: new Set(),
   },
   mutations: {
     [SEARCH_DATASETS_SUCCESS](state, data) {
@@ -49,6 +53,12 @@ const datasets = {
     },
     [GET_FEATURED_DATASETS_ERROR](state, error) {
       state.featured.error = error.message;
+    },
+    [SET_SELECTED_DATASET](state, dataset) {
+      state.selectedDataset = dataset;
+    },
+    [ADD_RECENT_DATASETS](state, dataset) {
+      state.recentDatasets.add(dataset);
     },
   },
   actions: {
@@ -99,7 +109,12 @@ const datasets = {
           });
       });
     },
-
+    setSelectedDataset({ commit }, dataset) {
+      commit(SET_SELECTED_DATASET, dataset);
+    },
+    addRecentDataset({ commit }, dataset) {
+      commit(ADD_RECENT_DATASETS, dataset);
+    },
   },
   getters: {
     getSearchNotFound(state) {
@@ -126,6 +141,12 @@ const datasets = {
     },
     getFeaturedError(state) {
       return state.featured.error;
+    },
+    getSelectedDataset(state) {
+      return state.selectedDataset;
+    },
+    getRecentDatasets(state) {
+      return [...state.recentDatasets];
     },
   },
 };

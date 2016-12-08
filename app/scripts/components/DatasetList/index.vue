@@ -9,18 +9,9 @@ export default{
   name: 'dataset-list-component',
   props: {
     datasets: {
-      type: Array
+      type: Array,
+      required: true,
     },
-  },
-  methods: {
-    getSource(index) {
-      return this.datasets[index].metadata.attributes ?
-      this.datasets[index].metadata.attributes.source : null;
-    },
-  },
-  data() {
-    return {
-    };
   },
   components: {
     DatasetComponent,

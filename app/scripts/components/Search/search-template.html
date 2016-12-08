@@ -9,7 +9,13 @@
           <li v-if="loading" class="search-results-item">{{loadingMessage}}</li>
           <li v-else-if="error" class="search-results-item -error">{{errorMessage}}</li>
           <li v-else-if="notFound" class="search-results-item">{{notFoundMessage}}</li>
-          <li v-else-if="query" v-for="result in results" class="search-results-item -item">{{result.name}}</li>
+          <li
+            v-else-if="query"
+            v-for="result in results"
+            class="search-results-item -item"
+            @click="selectDataset(result)">
+            {{result.name}}
+          </li>
         </ul>
       </div>
     </div>
