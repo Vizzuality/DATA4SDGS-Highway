@@ -18,32 +18,40 @@
   }
 
   .dataset-detail {
-    display: inline-flex;
+    display: flex;
 
     margin-top: ($small-margin / 2);
     margin-bottom: $medium-margin;
+    align-items: center;
+
+    .dataset-link {
+      line-height: 1.3;
+      max-width: 50%;
+    }
 
     .dataset-badge {
       width: 180px;
+      height: 20px;
       display: flex;
       flex-shrink: 0;
-      margin-left: $small-margin;
+      margin-left: $small-margin / 2;
+      max-width: 30%;
+
       .dataset-badge-item {
-        padding: 0;
+        display: inline-flex;
         margin: 0;
+        padding: 0 10px;
         font-size: $font-size-xsmall;
 
         background-color: $medium-grey;
 
         &:first-child {
-          padding: 0 10px;
           border-bottom-left-radius: 10px;
           border-top-left-radius: 10px;
           border-right: 1px solid $theme-base;
         }
 
         &:last-child {
-          padding: 0 10px;
           border-bottom-right-radius: 10px;
           border-top-right-radius: 10px;
         }
