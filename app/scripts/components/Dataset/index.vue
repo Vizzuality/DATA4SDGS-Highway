@@ -25,13 +25,28 @@ export default{
       return this.dataset.goal;
     },
     source() {
-      return this.dataset.metadata.attributes ? this.dataset.metadata.attributes.source : null;
+      const info = this.getMetadataInfo();
+      return info ? info.organization : null;
+    },
+    link() {
+      const info = this.getMetadataInfo();
+      return info ? info.source : null;
     },
   },
   methods: {
     selectDataset() {
       this.$store.dispatch('setSelectedDataset', this.dataset);
       this.$store.dispatch('openConsoleModal');
+    },
+    getMetadataInfo() {
+      const metadata = this.dataset.metadata[0];
+      if (metadata) {
+        const attributes = metadata.attributes;
+        if (attributes.info) {
+          return attributes.info;
+        }
+      }
+      return null;
     },
   },
 };
