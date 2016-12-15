@@ -3,6 +3,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import DropdownComponent from 'components/Dropdown';
+import CheckboxComponent from 'components/Checkbox';
 
 export default{
   name: 'search-component',
@@ -48,6 +49,7 @@ export default{
   },
   components: {
     DropdownComponent,
+    CheckboxComponent,
   },
 };
 </script>

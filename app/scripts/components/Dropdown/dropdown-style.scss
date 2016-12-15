@@ -7,24 +7,27 @@
 
   .dropdown-button {
     width: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .dropdown-list {
     width: 100%;
+    margin-top: 0;
     background-color: $medium-grey;
     list-style: none;
     padding: 0;
-    border-radius: 2px;
     border: $border-1;
     box-shadow: $box-shadow-1;
 
     .dropdown-list-item {
-      padding: 0 $small-margin;
+      padding: ($small-margin / 2) $small-margin ;
       text-transform: uppercase;
+      font-weight: $font-weight-bold;
+      font-size: $font-size-xsmall;
 
       &:hover {
-        background-color: $lightgrey;
-        cursor: pointer;
+        background: $gold-yellow;
       }
     }
   }
