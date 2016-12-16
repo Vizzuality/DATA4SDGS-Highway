@@ -5,6 +5,12 @@
 <script>
 export default {
   name: 'checkbox-component',
+  props: {
+    items: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
     };

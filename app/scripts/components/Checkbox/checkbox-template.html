@@ -1,9 +1,9 @@
 <div class="c-checkbox-group">
-  <div class="c-checkbox">
-    <input type="checkbox" :name="name" :id="id" v-model="value">
+  <div class="c-checkbox" v-for="item in items">
+    <input type="checkbox" name="item.name" id="item.id" value="item.value">
     <label>
       <span></span>
-      {{label}}
+      {{item.label}}
     </label>
   </div>
 </div>

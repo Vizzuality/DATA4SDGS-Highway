@@ -9,7 +9,26 @@ export default{
   name: 'search-component',
   data() {
     return {
-      filters: ['all', 'noaa', 'nasa', 'wri', 'other'],
+      filters: [{
+        value: 'all',
+        label: 'ALL'
+      },
+      {
+        value: 'noaa',
+        label: 'NOAA',
+      },
+      {
+        value: 'nasa',
+        label: 'NASA'
+      },
+      {
+        value: 'wri',
+        label: 'WRI'
+      },
+      {
+        value: 'other',
+        label: 'OTHER'
+      }],
       loadingMessage: 'Searching...',
       errorMessage: 'Something weird happened!',
       notFoundMessage: 'No Datasets were found',
