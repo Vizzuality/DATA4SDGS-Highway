@@ -16,7 +16,7 @@ export default{
   },
   computed: {
     snippet() {
-      const url = this.selectedDataset.connectorUrl;
+      const url = encodeURI(this.selectedDataset.connectorUrl);
       if (url) {
         const snippet = new HTTPSnippet({
           method: 'GET',

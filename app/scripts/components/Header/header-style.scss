@@ -9,6 +9,10 @@
 
   .header-logo {
     position: absolute;
-    transform: translate(-50%, 0);
+    transform: translate(-96px, 0);
+
+    @media (max-width: 1330px) {
+      transform: translate(0, 0);
+    }
   }
 }
