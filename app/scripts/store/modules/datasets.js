@@ -69,7 +69,9 @@ const datasets = {
     setSearchDatasetsFilters({ commit, dispatch, state }, filters) {
       return new Promise(() => {
         commit(SET_SEARCH_DATASETS_FILTERS, filters);
-        dispatch('searchDatasets', state.search.query);
+        if (state.search.query) {
+          dispatch('searchDatasets', state.search.query);
+        }
       });
     },
     searchDatasets({ commit, state }, query) {

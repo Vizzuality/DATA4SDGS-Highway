@@ -14,8 +14,17 @@ export default{
   data() {
     return {
       open: false,
-      selected: null
+      selected: null,
+      buttonClasses: '-bordered dropdown-button',
     };
+  },
+  computed: {
+    getButtonClasses() {
+      if (this.open) {
+        return `${this.buttonClasses} -opened`;
+      }
+      return this.buttonClasses;
+    },
   },
   methods: {
     toggleVisibility() {

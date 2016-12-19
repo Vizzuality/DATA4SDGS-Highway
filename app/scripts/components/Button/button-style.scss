@@ -38,7 +38,7 @@
   }
 
   &:hover {
-    opacity: 0.3;
+    color: darken($button-font-color, 12.5%);
   }
 
 }
