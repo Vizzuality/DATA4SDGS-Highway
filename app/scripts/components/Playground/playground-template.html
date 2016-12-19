@@ -1,8 +1,14 @@
 <div class="c-playground">
-  <article-component>
+  <article-component v-if="recentDatasets.length">
+    <h1 class="-left">Recent Datasets</h1>
+    <dataset-list-component :datasets="recentDatasets"></dataset-list-component>
+  </article-component>
+
+  <article-component :class="onModalOpen">
     <h1 class="-left">Featured Datasets</h1>
     <dataset-list-component :datasets="featuredDatasets"></dataset-list-component>
   </article-component>
+
   <modal-component :open="openModal" :close="closeModal">
     <div class="row expanded">
       <div class="column small-12 align-middle flex">

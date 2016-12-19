@@ -3,4 +3,10 @@
 
 .c-playground {
   min-height: 50vh;
+
+  .c-article {
+    &.-bottom {
+      margin-top: $large-margin * 2;
+    }
+  }
 }

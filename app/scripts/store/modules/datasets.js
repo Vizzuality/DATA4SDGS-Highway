@@ -31,7 +31,7 @@ const datasets = {
       error: false,
     },
     selectedDataset: null,
-    recentDatasets: new Set(),
+    recentDatasets: Set,
   },
   mutations: {
     [SET_SEARCH_DATASETS_FILTERS](state, filters) {
@@ -62,7 +62,7 @@ const datasets = {
       state.selectedDataset = dataset;
     },
     [ADD_RECENT_DATASETS](state, dataset) {
-      state.recentDatasets.add(dataset);
+      state.recentDatasets = new Set([...state.recentDatasets, dataset]);
     },
   },
   actions: {
@@ -162,7 +162,7 @@ const datasets = {
       return state.selectedDataset;
     },
     getRecentDatasets(state) {
-      return [...state.recentDatasets];
+      return Array.from(state.recentDatasets);
     },
   },
 };
