@@ -11,6 +11,15 @@
     border-radius: 50%;
   }
 
+  &.-xsmall {
+    height: 12px;
+    width: 12px;
+    > svg {
+      height: 12px;
+      width: 12px;
+    }
+  }
+
   &.-small {
     height: 50px;
     width: 50px;

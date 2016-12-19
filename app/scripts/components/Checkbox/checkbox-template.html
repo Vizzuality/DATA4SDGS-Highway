@@ -2,7 +2,9 @@
   <div class="c-checkbox" v-for="(item, index) in items">
     <input type="checkbox" :name="item.name" :id="getId(item.value, index)" :value="item.value" v-model="selectedFilters">
     <label :for="getId(item.value, index)">
-      <span></span>
+      <span>
+        <icon-component :name="icon" class="-xsmall" v-if="icon"></icon-component>
+      </span>
       {{item.label}}
     </label>
   </div>

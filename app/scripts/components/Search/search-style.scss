@@ -1,6 +1,8 @@
 // Import global variables
 @import '../../../styles/variables';
 
+$checkbox-color: #87929a;
+
 .c-search {
   display: flex;
   align-items: center;
@@ -60,12 +62,17 @@
         > span {
           width: 16px;
           height: 16px;
-          border: 2px solid #87929a;
+          border: 2px solid $checkbox-color;
           border-radius: 2px;
 
-          &:after {
-            background-color: white;
+          .c-icon {
+            > svg {
+              fill: transparent;
+            }
+          }
 
+          &:after {
+            content: none;
           }
         }
       }
@@ -74,7 +81,13 @@
         font-weight: 700;
 
         span {
-          background-color: #87929a;
+          background-color: $checkbox-color;
+
+          .c-icon {
+            > svg {
+              fill: $theme-base;
+            }
+          }
         }
       }
 
