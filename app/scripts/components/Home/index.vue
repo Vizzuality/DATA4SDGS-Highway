@@ -6,8 +6,6 @@
 import router from 'router';
 import ArticleComponent from 'components/Article';
 import ButtonComponent from 'components/Button';
-import SwiperComponent from 'components/Swiper';
-import { SwipeItem } from 'vue-swipe';
 import IconComponent from 'components/Icon';
 
 export default {
@@ -39,8 +37,6 @@ export default {
   components: {
     ArticleComponent,
     ButtonComponent,
-    SwiperComponent,
-    SwipeItem,
     IconComponent,
     router,
   },
