@@ -1,12 +1,12 @@
 <div class="c-search row align-left">
     <div class="column small-2">
       <dropdown-component>
-      <checkbox-component items="filters"></checkbox-component>
+      <checkbox-component :items="filters"></checkbox-component>
       </dropdown-component>
     </div>
     <div class="column small-8">
       <div class="search-bar">
-        <input type="search" v-model="queryState" placeholder="Search for data..." class="search-input">
+        <input type="search" v-model.trim="queryState" placeholder="Search for data..." class="search-input">
         <ul class="search-results-list">
           <li v-if="loading" class="search-results-item">{{loadingMessage}}</li>
           <li v-else-if="error" class="search-results-item -error">{{errorMessage}}</li>

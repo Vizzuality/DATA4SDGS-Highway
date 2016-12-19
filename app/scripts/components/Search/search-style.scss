@@ -48,4 +48,36 @@
       }
     }
   }
+
+  .c-checkbox-group {
+    padding: $small-margin;
+
+    .c-checkbox {
+
+      > label {
+        color: $link-font-color;
+        font-size: $font-size-xsmall;
+        > span {
+          width: 16px;
+          height: 16px;
+          border: 2px solid #87929a;
+          border-radius: 2px;
+
+          &:after {
+            background-color: white;
+
+          }
+        }
+      }
+
+      input[type=checkbox]:checked + label {
+        font-weight: 700;
+
+        span {
+          background-color: #87929a;
+        }
+      }
+
+    }
+  }
 }

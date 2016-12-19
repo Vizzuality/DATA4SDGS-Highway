@@ -10,10 +10,6 @@ export default{
   data() {
     return {
       filters: [{
-        value: 'all',
-        label: 'ALL'
-      },
-      {
         value: 'noaa',
         label: 'NOAA',
       },
@@ -22,12 +18,16 @@ export default{
         label: 'NASA'
       },
       {
-        value: 'wri',
-        label: 'WRI'
+        value: 'iucn_unep_wcmc',
+        label: 'IUCN & UNEP-WCMC'
       },
       {
-        value: 'other',
-        label: 'OTHER'
+        value: 'cait',
+        label: 'CAIT'
+      },
+      {
+        value: 'joe_casola',
+        label: 'JOE CASOLA, U. OF WASHINGTON'
       }],
       loadingMessage: 'Searching...',
       errorMessage: 'Something weird happened!',
@@ -59,7 +59,7 @@ export default{
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         callback(...params);
-      }, 400);
+      }, 700);
     },
     selectDataset(dataset) {
       this.$store.dispatch('setSelectedDataset', dataset);

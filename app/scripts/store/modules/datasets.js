@@ -4,6 +4,7 @@ import {
   SEARCH_DATASETS_ERROR,
   SEARCH_DATASETS_LOADING,
   SET_SEARCH_DATASETS_QUERY,
+  SET_SEARCH_DATASETS_FILTERS,
   GET_FEATURED_DATASETS_SUCCESS,
   GET_FEATURED_DATASETS_ERROR,
   GET_FEATURED_DATASETS_LOADING,
@@ -33,6 +34,9 @@ const datasets = {
     recentDatasets: new Set(),
   },
   mutations: {
+    [SET_SEARCH_DATASETS_FILTERS](state, filters) {
+      state.search.filters = filters;
+    },
     [SEARCH_DATASETS_SUCCESS](state, data) {
       state.search.list = data;
     },
@@ -62,13 +66,20 @@ const datasets = {
     },
   },
   actions: {
+    setSearchDatasetsFilters({ commit, dispatch, state }, filters) {
+      return new Promise(() => {
+        commit(SET_SEARCH_DATASETS_FILTERS, filters);
+        dispatch('searchDatasets', state.search.query);
+      });
+    },
     searchDatasets({ commit, state }, query) {
       return new Promise(() => {
         commit(SET_SEARCH_DATASETS_QUERY, query);
         if (state.search.query !== '') {
           commit(SEARCH_DATASETS_LOADING, true);
           commit(SEARCH_DATASETS_ERROR, false);
-          fetch(`${BASE_URL}/dataset?app=data4sdgs&page[size]=10000&includes=metadata&name=${state.search.query}`)
+          const tags = state.search.filters ? `&tags=${state.search.filters}` : '';
+          fetch(`${BASE_URL}/dataset?app=data4sdgs&page[size]=10000&includes=metadata&name=${state.search.query}${tags}`)
             .then((response) => {
               if (response.status >= 400) {
                 throw new Error(response.status);
@@ -126,6 +137,9 @@ const datasets = {
     },
     getSearchQuery(state) {
       return state.search.query;
+    },
+    getSearchFilters(state) {
+      return state.search.filters;
     },
     getSearchLoading(state) {
       return state.search.loading;

@@ -13,7 +13,19 @@ export default {
   },
   data() {
     return {
+      selectedFilters: [],
     };
+  },
+  methods: {
+    getId(value, index) {
+      return `checkbox-${value}-${index}`;
+    },
+  },
+  watch: {
+    selectedFilters() {
+      const newFilters = this.selectedFilters.join(',');
+      this.$store.dispatch('setSearchDatasetsFilters', newFilters);
+    },
   },
 };
 </script>
