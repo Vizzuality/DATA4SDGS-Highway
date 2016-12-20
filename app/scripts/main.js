@@ -2,10 +2,15 @@ import 'styles/lib/foundation.css';
 import 'vue-swipe/dist/vue-swipe.css';
 import 'styles/index.scss';
 
+import { sync } from 'vuex-router-sync';
+
 import Vue from 'vue';
 import App from './App';
+
 import store from './store';
 import router from './router';
+
+sync(store, router);
 
 
 /* eslint-disable no-new */

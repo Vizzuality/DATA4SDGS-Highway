@@ -1,11 +1,7 @@
 import {
   SET_CONSOLE_MODAL,
-} from '../types/modal';
-
-import {
   SET_SEARCH_DATASETS_QUERY,
-} from '../types/datasets';
-
+} from '../types/mutation-types';
 
 const modal = {
   state: {

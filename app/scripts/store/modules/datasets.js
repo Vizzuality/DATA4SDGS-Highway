@@ -10,7 +10,7 @@ import {
   GET_FEATURED_DATASETS_LOADING,
   SET_SELECTED_DATASET,
   ADD_RECENT_DATASETS,
-} from '../types/datasets';
+} from '../types/mutation-types';
 
 const Deserializer = new JSONAPIDeserializer({ keyForAttribute: 'camelCase' });
 
@@ -128,8 +128,6 @@ const datasets = {
     },
     setSelectedDataset({ commit }, dataset) {
       commit(SET_SELECTED_DATASET, dataset);
-    },
-    addRecentDataset({ commit }, dataset) {
       commit(ADD_RECENT_DATASETS, dataset);
     },
   },

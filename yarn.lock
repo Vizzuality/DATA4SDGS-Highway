@@ -1429,7 +1429,7 @@ css-color-names@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
 
-css-loader@0.25.0:
+css-loader@^0.25.0:
   version "0.25.0"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.25.0.tgz#c3febc8ce28f4c83576b6b13707f47f90c390223"
   dependencies:
@@ -5642,6 +5642,10 @@ vue-template-es2015-compiler@^1.2.2:
 vue@^2.0.1:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.1.6.tgz#2fc0024c07479ac6bc7d34a2cd5ef9ca5e90b143"
+
+vuex-router-sync@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/vuex-router-sync/-/vuex-router-sync-4.0.1.tgz#4e71282b9869a6dd80a686f1629d6e8271cf6099"
 
 vuex@^2.0.0:
   version "2.1.1"

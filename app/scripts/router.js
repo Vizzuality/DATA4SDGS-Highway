@@ -27,7 +27,11 @@ const routes = [
       HeaderComponent,
       FooterComponent,
     },
+    children: [
+      { path: ':dataset', component: HeroComponent },
+    ]
   },
+
   { path: '*', redirect: '/' },
 ];
 
