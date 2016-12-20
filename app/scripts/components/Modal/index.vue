@@ -9,12 +9,22 @@ import ButtonComponent from 'components/Button';
 
 export default{
   name: 'modal-component',
+  created() {
+    window.addEventListener('keyup', (e) => {
+      if (e.keyCode === 27) {
+        this.close();
+      }
+    });
+  },
   props: {
     open: {
       type: Boolean,
     },
     close: {
       type: Function,
+    },
+    beforeDestroy() {
+      window.removeEventListener('keyup');
     },
   },
   components: {

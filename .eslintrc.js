@@ -12,6 +12,9 @@ module.exports = {
   globals: {
     'fetch': true
   },
+  env: {
+    "browser": true
+  },
   // check if imports actually resolve
   'settings': {
     'import/resolver': {
