@@ -15,7 +15,7 @@ import {
 const Deserializer = new JSONAPIDeserializer({ keyForAttribute: 'camelCase' });
 
 const BASE_URL = 'https://staging-api.globalforestwatch.org'; // process.env.API_URL;
-
+const restoredDatasets = JSON.parse(localStorage.getItem('recentDatasets'));
 const datasets = {
   state: {
     search: {
@@ -31,7 +31,7 @@ const datasets = {
       error: false,
     },
     selectedDataset: null,
-    recentDatasets: Set,
+    recentDatasets: restoredDatasets || Set,
   },
   mutations: {
     [SET_SEARCH_DATASETS_FILTERS](state, filters) {
@@ -62,7 +62,11 @@ const datasets = {
       state.selectedDataset = dataset;
     },
     [ADD_RECENT_DATASETS](state, dataset) {
-      state.recentDatasets = new Set([...state.recentDatasets, dataset]);
+      const list = [dataset, ...state.recentDatasets];
+      if (list.length > 6) list.pop();
+
+      state.recentDatasets = new Set(list);
+      localStorage.setItem('recentDatasets', JSON.stringify(state.recentDatasets));
     },
   },
   actions: {
