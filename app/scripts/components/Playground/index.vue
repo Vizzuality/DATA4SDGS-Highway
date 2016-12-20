@@ -14,9 +14,6 @@ export default{
     if (!this.featuredDatasets.length) this.$store.dispatch('getFeaturedDatasets');
   },
   computed: {
-    onModalOpen() {
-      return this.openModal ? '-bottom' : '';
-    },
     ...mapGetters({
       featuredDatasets: 'getFeaturedListData',
       loading: 'getFeaturedLoading',
