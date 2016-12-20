@@ -2,6 +2,7 @@
 @import '../../../styles/variables';
 
 .c-header{
+
   padding: $medium-margin;
   a {
     color: inherit;
@@ -15,4 +16,24 @@
       transform: translate(0, 0);
     }
   }
+
+  .header-tab {
+    height: $small-margin * 2;
+    position: relative;
+
+    &.-active {
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 22px;
+        height: 4px;
+        background-color: $theme-accent;
+        left: calc(50% - 11px);
+        bottom: 0;
+      }
+    }
+  }
+
+
 }
