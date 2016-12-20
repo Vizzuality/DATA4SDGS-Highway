@@ -9,6 +9,9 @@ import ButtonComponent from 'components/Button';
 
 export default{
   name: 'modal-component',
+  created() {
+    window.addEventListener('keyup', this.onKeyup);
+  },
   props: {
     open: {
       type: Boolean,
@@ -16,6 +19,14 @@ export default{
     close: {
       type: Function,
     },
+  },
+  methods: {
+    onKeyup(e) {
+      if (e.keyCode === 27) this.close();
+    },
+  },
+  beforeDestroy() {
+    window.removeEventListener('keyup', this.onKeyup);
   },
   components: {
     IconComponent,

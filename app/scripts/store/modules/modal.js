@@ -2,6 +2,10 @@ import {
   SET_CONSOLE_MODAL,
 } from '../types/modal';
 
+import {
+  SET_SEARCH_DATASETS_QUERY,
+} from '../types/datasets';
+
 
 const modal = {
   state: {
@@ -18,6 +22,7 @@ const modal = {
     },
     closeConsoleModal({ commit }) {
       commit(SET_CONSOLE_MODAL, false);
+      commit(SET_SEARCH_DATASETS_QUERY, null);
     },
   },
   getters: {

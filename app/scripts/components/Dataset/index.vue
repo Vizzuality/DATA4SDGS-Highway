@@ -37,6 +37,7 @@ export default{
     selectDataset() {
       this.$store.dispatch('setSelectedDataset', this.dataset);
       this.$store.dispatch('openConsoleModal');
+      this.$store.dispatch('addRecentDataset', this.dataset);
     },
     getMetadataInfo() {
       const metadata = this.dataset.metadata[0];

@@ -20,6 +20,7 @@ export default{
       error: 'getFeaturedError',
       selectedDataset: 'getSelectedDataset',
       openModal: 'getConsoleModal',
+      recentDatasets: 'getRecentDatasets',
     }),
   },
   methods: {

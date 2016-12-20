@@ -64,6 +64,7 @@ export default{
     selectDataset(dataset) {
       this.$store.dispatch('setSelectedDataset', dataset);
       this.$store.dispatch('openConsoleModal');
+      this.$store.dispatch('addRecentDataset', dataset);
     },
   },
   components: {
