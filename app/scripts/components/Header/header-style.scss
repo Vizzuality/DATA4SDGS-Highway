@@ -29,8 +29,9 @@
         width: 22px;
         height: 4px;
         background-color: $theme-accent;
-        left: calc(50% - 11px);
+        left: 50%;
         bottom: 0;
+        transform: translateX(-50%);
       }
     }
   }
