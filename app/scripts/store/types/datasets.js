@@ -4,7 +4,8 @@
 export const SEARCH_DATASETS_SUCCESS = 'datasets/SEARCH_DATASETS_SUCCESS';
 export const SEARCH_DATASETS_ERROR = 'datasets/SEARCH_DATASETS_ERROR';
 export const SEARCH_DATASETS_LOADING = 'datasets/SEARCH_DATASETS_LOADING';
-export const SET_SEARCH_DATASETS_QUERY = 'search/SET_SEARCH_DATASETS_QUERY';
+export const SET_SEARCH_DATASETS_QUERY = 'datasets/SET_SEARCH_DATASETS_QUERY';
+export const SET_SEARCH_DATASETS_FILTERS = 'datasets/SET_SEARCH_DATASETS_FILTERS';
 /**
  * Datasets - Featured
  */
@@ -14,9 +15,9 @@ export const GET_FEATURED_DATASETS_LOADING = 'datasets/GET_FEATURED_DATASETS_LOA
 /**
  * Selected Dataset
  */
-export const SET_SELECTED_DATASET = 'dataset/SET_SELECTED_DATASET';
+export const SET_SELECTED_DATASET = 'datasets/SET_SELECTED_DATASET';
 
 /**
  * Recent Datasets
  */
-export const ADD_RECENT_DATASETS = 'dataset/ADD_RECENT_DATASETS';
+export const ADD_RECENT_DATASETS = 'datasets/ADD_RECENT_DATASETS';

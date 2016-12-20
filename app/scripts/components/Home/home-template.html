@@ -78,21 +78,6 @@
     </div>
   </article-component>
 
-  <article-component>
-    <swiper-component :slides="twitterSlides">
-      <swipe-item v-for="tweet in twitterSlides">
-        <div class="tweet">
-          <h4 class="-center -uppercase">What our clients have to say</h4>
-          <p class="tweet-message">{{tweet.message}}</p>
-          <div class="tweet-user">
-            <span class="tweet-user-tag">Twitter user:</span>
-            <a class="tweet-username">@{{tweet.user}}</a>
-          </div>
-        </div>
-      </swipe-item>
-    </swiper-component>
-  </article-component>
-
   <article-component class="-complementary">
     <h1>Partnership</h1>
     <h4 class="-light -center -uppercase">

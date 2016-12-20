@@ -3,12 +3,32 @@
 <script>
 import { mapGetters } from 'vuex';
 import DropdownComponent from 'components/Dropdown';
+import CheckboxComponent from 'components/Checkbox';
 
 export default{
   name: 'search-component',
   data() {
     return {
-      filters: ['all', 'noaa', 'nasa', 'wri', 'other'],
+      filters: [{
+        value: 'noaa',
+        label: 'NOAA',
+      },
+      {
+        value: 'nasa',
+        label: 'NASA'
+      },
+      {
+        value: 'iucn_unep_wcmc',
+        label: 'IUCN & UNEP-WCMC'
+      },
+      {
+        value: 'cait',
+        label: 'CAIT'
+      },
+      {
+        value: 'joe_casola',
+        label: 'JOE CASOLA, U. OF WASHINGTON'
+      }],
       loadingMessage: 'Searching...',
       errorMessage: 'Something weird happened!',
       notFoundMessage: 'No Datasets were found',
@@ -39,7 +59,7 @@ export default{
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         callback(...params);
-      }, 400);
+      }, 700);
     },
     selectDataset(dataset) {
       this.$store.dispatch('setSelectedDataset', dataset);
@@ -48,6 +68,7 @@ export default{
   },
   components: {
     DropdownComponent,
+    CheckboxComponent,
   },
 };
 </script>
