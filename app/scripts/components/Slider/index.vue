@@ -1,7 +1,7 @@
 <template src="./slider-template.html"> </template>
 <style lang="scss" src="./slider-style.scss"> </style>
 <script>
-import Siema from 'siema';
+import Siema from 'siema/dist/siema.min';
 
 export default {
   name: 'slider-component',
