@@ -3,4 +3,19 @@
 
 .c-playground {
   min-height: 50vh;
+
+  .c-article {
+
+    &:last-child {
+      padding-top: 0;
+    }
+
+    &:first-child {
+      padding: $large-margin 0;
+    }
+
+    .c-spinner {
+      left: 50%;
+    }
+  }
 }

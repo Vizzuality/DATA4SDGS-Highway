@@ -1,15 +1,61 @@
-<template src="./playground-template.html"> </template>
-<style lang="scss" src="./playground-style.scss"> </style>
+<template src="./playground-template.html"></template>
+<style lang="scss" src="./playground-style.scss"></style>
 <script>
+import router from 'router';
+import store from 'store';
+import { mapGetters } from 'vuex';
 import ArticleComponent from 'components/Article';
+import DatasetListComponent from 'components/DatasetList';
+import ModalComponent from 'components/Modal';
+import DatasetComponent from 'components/Dataset';
+import ConsoleComponent from 'components/Console';
+import SpinnerComponent from 'components/Spinner';
 
 export default{
   name: 'playground-component',
-  data() {
-    return {};
+  created() {
+    if (!this.featuredDatasets.length) this.$store.dispatch('getFeaturedDatasets');
+  },
+  beforeRouteEnter(to, from, next) {
+    if (to.params.dataset) {
+      store.dispatch('setSelectedDataset', to.params.dataset).then(() => store.dispatch('openConsoleModal'));
+    }
+    next();
+  },
+  computed: {
+    ...mapGetters({
+      featuredDatasets: 'getFeaturedListData',
+      loading: 'getFeaturedLoading',
+      error: 'getFeaturedError',
+      selectedDataset: 'getSelectedDataset',
+      openModal: 'getConsoleModal',
+      recentDatasets: 'getRecentDatasets',
+      featuresLoading: 'getFeaturedLoading',
+    }),
+  },
+  methods: {
+    closeModal() {
+      this.$store.dispatch('closeConsoleModal');
+      router.push('/playground');
+    },
+  },
+  watch: {
+    router() {
+      if (router.params.dataset) {
+        this.$store.dispatch('setSelectedDataset', router.to.params.dataset).then(() => store.dispatch('openConsoleModal'));
+      }
+      router.next();
+    }
   },
   components: {
     ArticleComponent,
+    DatasetListComponent,
+    ModalComponent,
+    DatasetComponent,
+    ConsoleComponent,
+    SpinnerComponent,
+    router,
   },
 };
+
 </script>

@@ -1,5 +1,23 @@
 <div class="c-playground">
-    <article-component>
-      <h1 class="-left">Featured Datasets</h1>
-    </article-component>
+  <article-component v-if="recentDatasets.length">
+    <h1 class="-left">Recent Datasets</h1>
+    <dataset-list-component :datasets="recentDatasets"></dataset-list-component>
+  </article-component>
+
+  <article-component>
+    <h1 class="-left">Featured Datasets</h1>
+    <dataset-list-component :datasets="featuredDatasets"></dataset-list-component>
+    <spinner-component :loading="featuresLoading"></spinner-component>
+  </article-component>
+
+  <modal-component :open="openModal" :close="closeModal">
+    <div class="row expanded">
+      <div class="column small-12 align-middle flex">
+        <dataset-component :dataset="selectedDataset" large></dataset-component>
+      </div>
+    </div>
+    <div class="row column">
+      <console-component></console-component>
+    </div>
+  </modal-component>
 </div>
