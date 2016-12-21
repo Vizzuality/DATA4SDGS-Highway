@@ -29,6 +29,7 @@ module.exports = {
       'styles': path.resolve(__dirname, '../app/styles'),
       'components': path.resolve(__dirname, '../app/scripts/components'),
       'router': path.resolve(__dirname, '../app/scripts/router'),
+      'store': path.resolve(__dirname, '../app/scripts/store'),
       'static': path.resolve(__dirname, '../static'),
     }
   },

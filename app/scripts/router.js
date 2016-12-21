@@ -26,10 +26,17 @@ const routes = [
       HeroComponent,
       HeaderComponent,
       FooterComponent,
-    },
-    children: [
-      { path: ':dataset', component: HeroComponent },
-    ]
+    }
+  },
+
+  {
+    path: '/playground/:dataset',
+    components: {
+      default: PlaygroundComponent,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
+    }
   },
 
   { path: '*', redirect: '/' },
