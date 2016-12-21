@@ -7,6 +7,7 @@
   <article-component>
     <h1 class="-left">Featured Datasets</h1>
     <dataset-list-component :datasets="featuredDatasets"></dataset-list-component>
+    <spinner-component :loading="featuresLoading"></spinner-component>
   </article-component>
 
   <modal-component :open="openModal" :close="closeModal">

@@ -1,5 +1,4 @@
 import 'styles/lib/foundation.css';
-import 'vue-swipe/dist/vue-swipe.css';
 import 'styles/index.scss';
 
 import { sync } from 'vuex-router-sync';
