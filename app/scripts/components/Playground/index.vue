@@ -7,6 +7,7 @@ import DatasetListComponent from 'components/DatasetList';
 import ModalComponent from 'components/Modal';
 import DatasetComponent from 'components/Dataset';
 import ConsoleComponent from 'components/Console';
+import SpinnerComponent from 'components/Spinner';
 
 export default{
   name: 'playground-component',
@@ -21,6 +22,7 @@ export default{
       selectedDataset: 'getSelectedDataset',
       openModal: 'getConsoleModal',
       recentDatasets: 'getRecentDatasets',
+      featuresLoading: 'getFeaturedLoading',
     }),
   },
   methods: {
@@ -34,6 +36,7 @@ export default{
     ModalComponent,
     DatasetComponent,
     ConsoleComponent,
+    SpinnerComponent
   },
 };
 </script>

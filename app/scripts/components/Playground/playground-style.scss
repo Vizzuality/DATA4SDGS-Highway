@@ -13,5 +13,9 @@
     &:first-child {
       padding: $large-margin 0;
     }
+
+    .c-spinner {
+      left: 50%;
+    }
   }
 }
