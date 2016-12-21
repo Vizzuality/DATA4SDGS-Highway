@@ -1,8 +1,6 @@
 <div class="c-dataset">
   <h2 class="-left -clean dataset-header" v-if="large">{{name}}</h2>
-  <h4 v-else class="-left dataset-header -selectable">
-  <router-link :to="idRoute">{{name}}</router-link>
-  </h4>
+  <h4 class="-left dataset-header -selectable" v-else @click="selectDataset">{{name}}</h4>
   <div class="dataset-detail">
     <a class="dataset-link" :href="link">{{source || 'Source'}}</a>
     <div class="dataset-badge">
