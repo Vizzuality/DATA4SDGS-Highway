@@ -26,8 +26,19 @@ const routes = [
       HeroComponent,
       HeaderComponent,
       FooterComponent,
-    },
+    }
   },
+
+  {
+    path: '/playground/:dataset',
+    components: {
+      default: PlaygroundComponent,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
+    }
+  },
+
   { path: '*', redirect: '/' },
 ];
 

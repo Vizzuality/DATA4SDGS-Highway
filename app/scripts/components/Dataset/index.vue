@@ -3,6 +3,8 @@
 <style lang="scss" src="./dataset-style.scss"> </style>
 
 <script>
+import router from 'router';
+
 export default{
   name: 'dataset-component',
   props: {
@@ -15,6 +17,9 @@ export default{
     },
   },
   computed: {
+    idRoute() {
+      return `/playground/${this.dataset.id}`;
+    },
     name() {
       return this.dataset.name;
     },
@@ -35,9 +40,7 @@ export default{
   },
   methods: {
     selectDataset() {
-      this.$store.dispatch('setSelectedDataset', this.dataset);
-      this.$store.dispatch('openConsoleModal');
-      this.$store.dispatch('addRecentDataset', this.dataset);
+      router.push(`/playground/${this.dataset.id}`);
     },
     getMetadataInfo() {
       const metadata = this.dataset.metadata[0];
@@ -49,6 +52,9 @@ export default{
       }
       return null;
     },
+  },
+  components: {
+    router,
   },
 };
 </script>

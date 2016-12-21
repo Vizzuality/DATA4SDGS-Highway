@@ -1,6 +1,7 @@
 <template src="./search-template.html"> </template>
 <style lang="scss" src="./search-style.scss"> </style>
 <script>
+import router from 'router';
 import { mapGetters } from 'vuex';
 import DropdownComponent from 'components/Dropdown';
 import CheckboxComponent from 'components/Checkbox';
@@ -62,14 +63,13 @@ export default{
       }, 700);
     },
     selectDataset(dataset) {
-      this.$store.dispatch('setSelectedDataset', dataset);
-      this.$store.dispatch('openConsoleModal');
-      this.$store.dispatch('addRecentDataset', dataset);
+      router.push(`/playground/${dataset.id}`);
     },
   },
   components: {
     DropdownComponent,
     CheckboxComponent,
+    router,
   },
 };
 </script>

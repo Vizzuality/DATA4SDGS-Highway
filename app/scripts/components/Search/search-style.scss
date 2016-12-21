@@ -44,7 +44,8 @@ $checkbox-color: #87929a;
 
         &.-item {
           &:hover {
-            background-color: $lightgrey;
+            background-color: $gold-yellow;
+            color: $theme-base;
           }
         }
       }

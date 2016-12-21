@@ -1,6 +1,8 @@
-<template src="./playground-template.html"> </template>
-<style lang="scss" src="./playground-style.scss"> </style>
+<template src="./playground-template.html"></template>
+<style lang="scss" src="./playground-style.scss"></style>
 <script>
+import router from 'router';
+import store from 'store';
 import { mapGetters } from 'vuex';
 import ArticleComponent from 'components/Article';
 import DatasetListComponent from 'components/DatasetList';
@@ -13,6 +15,12 @@ export default{
   name: 'playground-component',
   created() {
     if (!this.featuredDatasets.length) this.$store.dispatch('getFeaturedDatasets');
+  },
+  beforeRouteEnter(to, from, next) {
+    if (to.params.dataset) {
+      store.dispatch('setSelectedDataset', to.params.dataset).then(() => store.dispatch('openConsoleModal'));
+    }
+    next();
   },
   computed: {
     ...mapGetters({
@@ -28,7 +36,16 @@ export default{
   methods: {
     closeModal() {
       this.$store.dispatch('closeConsoleModal');
+      router.push('/playground');
     },
+  },
+  watch: {
+    router() {
+      if (router.params.dataset) {
+        this.$store.dispatch('setSelectedDataset', router.to.params.dataset).then(() => store.dispatch('openConsoleModal'));
+      }
+      router.next();
+    }
   },
   components: {
     ArticleComponent,
@@ -36,7 +53,9 @@ export default{
     ModalComponent,
     DatasetComponent,
     ConsoleComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    router,
   },
 };
+
 </script>
