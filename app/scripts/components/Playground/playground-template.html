@@ -1,10 +1,10 @@
 <div class="c-playground">
-  <article-component v-if="recentDatasets.length">
+  <article-component v-if="recentDatasets.length" grid-column="small-10 medium-10 small-offset-2 medium-offset-0">
     <h1 class="-left">Recent Datasets</h1>
     <dataset-list-component :datasets="recentDatasets"></dataset-list-component>
   </article-component>
 
-  <article-component>
+  <article-component grid-column="small-10 medium-10 small-offset-2 medium-offset-0">
     <h1 class="-left">Featured Datasets</h1>
     <dataset-list-component :datasets="featuredDatasets"></dataset-list-component>
     <spinner-component :loading="featuresLoading"></spinner-component>
