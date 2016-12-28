@@ -23,6 +23,9 @@ export default{
     next();
   },
   computed: {
+    storeRouter() {
+      return this.$store.route;
+    },
     ...mapGetters({
       featuredDatasets: 'getFeaturedListData',
       loading: 'getFeaturedLoading',
@@ -40,7 +43,7 @@ export default{
     },
   },
   watch: {
-    router() {
+    storeRouter() {
       if (router.params.dataset) {
         this.$store.dispatch('setSelectedDataset', router.to.params.dataset).then(() => store.dispatch('openConsoleModal'));
       }
