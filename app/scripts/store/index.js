@@ -4,6 +4,7 @@ import searchDatasets from './modules/search_datasets';
 import featuredDatasets from './modules/featured_datasets';
 import selectedDataset from './modules/selected_dataset';
 import modal from './modules/modal';
+import countries from './modules/countries';
 
 Vue.use(Vuex);
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
     featuredDatasets,
     selectedDataset,
     modal,
+    countries
   },
   strict: debug,
 });

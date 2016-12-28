@@ -10,6 +10,9 @@
 
   export default {
     name: 'visualization-component',
+    created() {
+      this.$store.dispatch('getCountries');
+    },
     data() {
       return {};
     },

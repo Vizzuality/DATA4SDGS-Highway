@@ -1,1 +1,11 @@
-<aside class="c-sidebar">Sidebar!</aside>
+<aside class="c-sidebar">
+  <multiselect
+   placeholder="Select a country"
+   :close-on-select="true"
+   :selected="selected"
+   :options="options"
+   :custom-label="customLabel"
+   @input="onChange"
+  >
+ </multiselect>
+</aside>
