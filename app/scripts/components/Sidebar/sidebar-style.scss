@@ -1,0 +1,48 @@
+@import '../../../styles/variables';
+
+.c-sidebar {
+  background-color: $white;
+  position: absolute;
+  width: 333px;
+  padding: 30px;
+  top: 190px;
+  left: $visualization-padding-side;
+  z-index: 101;
+  box-shadow: 5px 0 2px 0 rgba(0, 0, 0, 0.2);
+
+  // Overriding multiselect styles
+  .multiselect {
+    border: solid 1px rgba(0, 0, 0, 0.5);
+  }
+  .multiselect__tags {
+    padding: 15px 39px 15px 25px;
+  }
+  .multiselect__select {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    &:before {
+      border-color: $black transparent transparent;
+    }
+  }
+  .multiselect__input {
+    font-size: $font-size-small;
+    margin-bottom: 0;
+    &::placeholder {
+      color: $black;
+    }
+  }
+}
+
+.c-legend {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+}
+.legend-item {
+  font-size: $font-size-xsmall;
+  margin-bottom: 10px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
