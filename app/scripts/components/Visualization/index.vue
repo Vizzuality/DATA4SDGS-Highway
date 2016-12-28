@@ -7,6 +7,7 @@
   import MapComponent from 'components/Map';
   import SidebarComponent from 'components/Sidebar';
   import TimelineComponent from 'components/Timeline';
+  import d4sdgLogo from 'static/logos/logo_D4SDG.png';
 
   export default {
     name: 'visualization-component',
@@ -14,7 +15,9 @@
       this.$store.dispatch('getCountries');
     },
     data() {
-      return {};
+      return {
+        d4sdgLogo,
+      };
     },
     computed: {
     },

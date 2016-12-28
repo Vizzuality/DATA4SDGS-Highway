@@ -6,7 +6,9 @@
   width: 333px;
   padding: 30px;
   top: 190px;
-  left: $visualization-padding-left;
+  left: $visualization-padding-side;
+  z-index: 101;
+  box-shadow: 5px 0 2px 0 rgba(0, 0, 0, 0.2);
 
   // Overriding multiselect styles
   .multiselect {

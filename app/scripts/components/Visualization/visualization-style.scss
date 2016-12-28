@@ -1,0 +1,7 @@
+@import '../../../styles/variables';
+
+.visualization-header {
+  position: relative;
+  z-index: 101;
+  padding: 44px $visualization-padding-side;
+}
