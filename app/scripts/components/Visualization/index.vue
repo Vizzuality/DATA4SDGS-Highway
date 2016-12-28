@@ -4,6 +4,10 @@
 
 <script>
 
+  import MapComponent from 'components/Map';
+  import SidebarComponent from 'components/Sidebar';
+  import TimelineComponent from 'components/Timeline';
+
   export default {
     name: 'visualization-component',
     data() {
@@ -11,5 +15,10 @@
     },
     computed: {
     },
+    components: {
+      MapComponent,
+      SidebarComponent,
+      TimelineComponent
+    }
   };
 </script>

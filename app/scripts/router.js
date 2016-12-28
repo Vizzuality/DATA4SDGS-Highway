@@ -7,9 +7,6 @@ import HeaderComponent from 'components/Header';
 import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
 import VisualizationComponent from 'components/Visualization';
-import MapComponent from 'components/Map';
-import SidebarComponent from 'components/Sidebar';
-import TimelineComponent from 'components/Timeline';
 
 Vue.use(VueRouter);
 
@@ -46,10 +43,7 @@ const routes = [
   {
     path: '/map',
     components: {
-      default: VisualizationComponent,
-      MapComponent,
-      SidebarComponent,
-      TimelineComponent
+      default: VisualizationComponent
     }
   },
 
