@@ -33,3 +33,16 @@
     }
   }
 }
+
+.c-legend {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+}
+.legend-item {
+  font-size: $font-size-xsmall;
+  margin-bottom: 10px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
