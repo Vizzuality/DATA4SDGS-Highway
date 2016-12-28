@@ -40,14 +40,11 @@ const countries = {
 
   // GETTERS
   getters: {
-    getCountries(state) {
-      return state.list;
+    getCountriesForSelect(state) {
+      return state.list.map(country => country.properties.name);
     },
-    getSelectedCountry(state) {
-      return state.selected;
-    },
-    getError(state) {
-      return state.error;
+    getSelectedCountryName(state) {
+      return state.selected ? state.selected.properties.name : null;
     }
   }
 };

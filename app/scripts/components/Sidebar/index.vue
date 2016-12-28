@@ -25,12 +25,10 @@
     },
     computed: {
       selected() {
-        return this.$store.state.countries.selected ?
-          this.$store.state.countries.selected.properties.name :
-          null;
+        return this.$store.getters.getSelectedCountryName;
       },
       options() {
-        return this.$store.state.countries.list.map(country => country.properties.name);
+        return this.$store.getters.getCountriesForSelect;
       }
     },
   };
