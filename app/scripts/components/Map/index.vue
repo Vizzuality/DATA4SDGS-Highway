@@ -2,6 +2,7 @@
 <style lang="scss" src="./map-style.scss"></style>
 
 <script>
+  import 'leaflet/dist/leaflet.css';
   import L from 'leaflet';
   import { mapGetters } from 'vuex';
 
