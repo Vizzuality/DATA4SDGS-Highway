@@ -8,9 +8,7 @@
   export default {
     name: 'map-component',
     mounted() {
-      this.$nextTick(() => {
-        this.renderMap();
-      });
+      this.renderMap();
     },
     data() {
       return {
@@ -33,7 +31,6 @@
       renderMap() {
         this.createMap();
         this.addBasemap();
-        this.$store.dispatch('cartoLayer');
       },
 
       createMap() {
@@ -45,6 +42,10 @@
           this.basemap = L.tileLayer(this.basemapUrl);
           this.basemap.addTo(this.map);
         }
+      },
+
+      addAllLayers() {
+        this.$store.dispatch('cartoLayer');
       },
 
       addCartoLayer() {
