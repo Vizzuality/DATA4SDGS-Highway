@@ -1,9 +1,9 @@
 <div class="c-home">
   <article-component class="about-us">
     <h1>Data4SDGs Developer Playground</h1>
-    <h4>DATA4SDGS GOALS</h4>
+    <h4 class="-center">DATA4SDGS GOALS</h4>
 
-    <div class="row">
+    <div class="row expanded">
       <div class="column small-12 medium-6 large-4 info-column">
         <icon-component class="-round -small -base" name="icon-data"></icon-component>
         <div class="info-column-text">
@@ -50,32 +50,34 @@
     </div>
   </article-component>
 
-  <article-component class="-alternative -no-padding" grid-row="row expanded" grid-column="small-12">
-    <div class="row expanded">
+  <article-component class="-alternative -no-padding" grid-row="row expanded" :grid-column="false">
 
       <div class="column small-12 medium-6 split-view">
-        <div class="link-column">
-          <h1 class="-clean -left">Playbook</h1>
-          <p class="-clean">
-            Learn how to turn your SDG data into data services and
-            make it available to millions of software developers.
-          </p>
-          <a class="link-column-action">Read Playbook</a>
+        <div class="link-column row">
+          <div class="column small-10 large-7 large-offset-1">
+            <h1 class="-clean -left">Playbook</h1>
+            <p class="-clean">
+              Learn how to turn your SDG data into data services and
+              make it available to millions of software developers.
+            </p>
+            <a class="link-column-action">Read Playbook</a>
+          </div>
         </div>
       </div>
 
       <div class="column small-12 medium-6 split-view">
-        <div class="link-column">
-          <h1 class="-clean -left">shared, open software</h1>
-          <p class="-clean">
-            All software used in the making of the developer playground is open source
-            and available online. Take a look and if you want, contribute!
-          </p>
-          <a class="link-column-action">Source Code</a>
+        <div class="link-column row">
+          <div class="column small-10 large-7">
+            <h1 class="-clean -left">shared, open software</h1>
+            <p class="-clean">
+              All software used in the making of the developer playground is open source
+              and available online. Take a look and if you want, contribute!
+            </p>
+            <a class="link-column-action">Source Code</a>
+          </div>
         </div>
       </div>
 
-    </div>
   </article-component>
 
   <article-component>

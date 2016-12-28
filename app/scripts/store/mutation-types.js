@@ -34,3 +34,11 @@ export const SET_CONSOLE_MODAL = 'modal/SET_CONSOLE_MODAL';
 export const GET_COUNTRIES_SUCCESS = 'countries/GET_COUNTRIES_SUCCESS';
 export const GET_COUNTRIES_ERROR = 'countries/GET_COUNTRIES_ERROR';
 export const SET_SELECTED_COUNTRY = 'countries/SET_SELECTED_COUNTRY';
+
+/**
+ * Carto layer
+ */
+export const SET_CARTO_LAYER_SUCCESS = 'layers/SET_CARTO_LAYER_SUCCESS';
+export const SET_CARTO_LAYER_ERROR = 'layers/SET_CARTO_LAYER_ERROR';
+export const SET_CARTO_LAYER_LOADING = 'layers/SET_CARTO_LAYER_LOADING';
+

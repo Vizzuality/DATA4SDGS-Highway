@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import searchDatasets from './modules/search_datasets';
 import featuredDatasets from './modules/featured_datasets';
 import selectedDataset from './modules/selected_dataset';
+import cartoLayer from './modules/carto_layer';
 import modal from './modules/modal';
 import countries from './modules/countries';
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
     searchDatasets,
     featuredDatasets,
     selectedDataset,
+    cartoLayer,
     modal,
     countries
   },
