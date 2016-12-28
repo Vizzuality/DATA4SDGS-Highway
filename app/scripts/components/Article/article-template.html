@@ -1,9 +1,13 @@
 <article class="c-article">
-  <div :class="gridRow">
 
-    <div :class="gridColumn">
+  <div v-if="gridRow" :class="gridRow">
+    <div v-if="gridColumn" :class="gridColumn">
       <slot></slot>
     </div>
 
+    <slot v-else></slot>
   </div>
+
+  <slot v-else></slot>
+
 </article>

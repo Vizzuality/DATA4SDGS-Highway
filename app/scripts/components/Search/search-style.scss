@@ -8,9 +8,13 @@ $checkbox-color: #87929a;
   align-items: center;
   justify-content: space-around;
 
+  .filters-dropdown {
+    z-index: 1;
+  }
+
   .search-bar {
     height: 60px;
-    width: 600px;
+    width: 100%;
 
     .search-input {
       height: 100%;
@@ -50,6 +54,11 @@ $checkbox-color: #87929a;
         }
       }
     }
+
+    @media (max-width: 639px) {
+      margin-top: $small-margin;
+    }
+
   }
 
   .c-checkbox-group {
