@@ -12,11 +12,12 @@
   export default {
     name: 'sidebar-component',
     methods: {
-      onChange(newSelected) {
-        this.$store.dispatch('setSelectedCountry', newSelected);
-      },
-      customLabel({ properties }) {
-        return properties.name;
+      onChange(selectedCountry) {
+        /*
+          NOTE: Matching by country name is not consistent,
+          but multiselect does not allow a custom search function
+        */
+        this.$store.dispatch('setSelectedCountry', this.$store.state.countries.list.find(country => country.properties.name === selectedCountry));
       }
     },
     components: {
@@ -29,7 +30,7 @@
           null;
       },
       options() {
-        return this.$store.state.countries.list;
+        return this.$store.state.countries.list.map(country => country.properties.name);
       }
     },
   };
