@@ -6,6 +6,7 @@ import PlaygroundComponent from 'components/Playground';
 import HeaderComponent from 'components/Header';
 import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
+import Map from 'components/Map';
 
 Vue.use(VueRouter);
 
@@ -36,6 +37,13 @@ const routes = [
       HeroComponent,
       HeaderComponent,
       FooterComponent,
+    }
+  },
+
+  {
+    path: '/map',
+    components: {
+      default: Map
     }
   },
 
