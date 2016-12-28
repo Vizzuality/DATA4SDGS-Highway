@@ -27,3 +27,9 @@ export const ADD_RECENT_DATASETS = 'datasets/ADD_RECENT_DATASETS';
  * Modal - Console Modal
  */
 export const SET_CONSOLE_MODAL = 'modal/SET_CONSOLE_MODAL';
+/**
+ * Carto layer
+ */
+export const SET_CARTO_LAYER_SUCCESS = 'layers/SET_CARTO_LAYER_SUCCESS';
+export const SET_CARTO_LAYER_ERROR = 'layers/SET_CARTO_LAYER_ERROR';
+export const SET_CARTO_LAYER_LOADING = 'layers/SET_CARTO_LAYER_LOADING';
