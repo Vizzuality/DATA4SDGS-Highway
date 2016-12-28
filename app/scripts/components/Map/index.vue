@@ -25,7 +25,7 @@
     },
     computed: {
       ...mapGetters({
-        layerId: 'getCartoLayerIdData',
+        cartoLayerId: 'getCartoLayerIdData',
       }),
     },
     methods: {
@@ -42,6 +42,7 @@
         if (this.map && this.map instanceof L.Map) {
           this.basemap = L.tileLayer(this.basemapUrl);
           this.basemap.addTo(this.map);
+          this.addAllLayers();
         }
       },
 
@@ -50,7 +51,8 @@
       },
 
       addCartoLayer() {
-        this.addLayer();
+        const layers = this.createLayer(this.cartoLayerId);
+        this.addLayer(layers.layer);
       },
 
       addTorqueLayer() {
@@ -83,8 +85,7 @@
 
     watch: {
       cartoLayerId() {
-        const layers = this.createLayer(this.layerId);
-        this.addLayer(layers.layer);
+        this.addCartoLayer();
       },
     },
   };
