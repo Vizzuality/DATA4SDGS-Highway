@@ -4,6 +4,7 @@
       <img :src="d4sdgLogo">
     </router-link>
   </header>
+  <button @click="toggleModal" class="share-button" type="button"></button>
   <sidebar-component></sidebar-component>
   <map-component></map-component>
   <map-footer-component></map-footer-component>
@@ -11,9 +12,8 @@
   <modal-component :open="openModal" :close="closeModal">
     <div class="row expanded">
       <div class="column small-12 align-middle flex">
-        <p v-if="modalType.share">Share component</p>
-        <p v-if="modalType.about">No data available</p>
-        <p v-else>No data available</p>
+        <share-component v-if="modalContent === 'share'"></share-component>
+        <p v-else-if="modalContent === 'about'">No data available</p>
       </div>
     </div>
   </modal-component>

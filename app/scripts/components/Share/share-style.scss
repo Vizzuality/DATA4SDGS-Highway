@@ -1,0 +1,43 @@
+@import '../../../styles/variables';
+
+.c-share {
+  position: relative;
+  z-index: 9999;
+
+  background-color: $white;
+  padding: 1rem;
+
+
+  .share-url-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .share-input {
+    padding: 15px 20px;
+    outline: none;
+  }
+  .share-links {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+  }
+  .share-links-item {
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.share-button {
+  position: absolute;
+  z-index: 999;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-color: $mexican-pink;
+  top: 9rem;
+  right: 3.125rem;
+  border-radius: 0;
+}

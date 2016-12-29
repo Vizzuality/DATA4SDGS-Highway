@@ -6,6 +6,7 @@
 
   import MapComponent from 'components/Map';
   import SidebarComponent from 'components/Sidebar';
+  import ShareComponent from 'components/Share';
   import TimelineComponent from 'components/Timeline';
   import MapFooterComponent from 'components/MapFooter';
   import ModalComponent from 'components/Modal';
@@ -24,12 +25,6 @@
       };
     },
     computed: {
-      modalType() {
-        const computedType = {};
-        computedType.share = this.modalContent === 'share';
-        computedType.about = this.modalContent === 'about';
-        return computedType;
-      },
       ...mapGetters({
         openModal: 'getConsoleModal',
         modalContentType: 'getModalContentType',
@@ -39,11 +34,15 @@
       closeModal() {
         this.$store.dispatch('closeConsoleModal');
       },
+      toggleModal() {
+        this.$store.dispatch('openConsoleModal');
+        this.$store.dispatch('setModalContentType', 'share');
+      }
     },
     watch: {
       modalContentType() {
         this.modalContent = this.$store.getters.getModalContentType;
-      },
+      }
     },
     components: {
       MapComponent,
@@ -51,6 +50,7 @@
       TimelineComponent,
       MapFooterComponent,
       ModalComponent,
+      ShareComponent
     }
   };
 </script>
