@@ -7,6 +7,7 @@
   import MapComponent from 'components/Map';
   import SidebarComponent from 'components/Sidebar';
   import TimelineComponent from 'components/Timeline';
+  import MapFooterComponent from 'components/MapFooter';
   import d4sdgLogo from 'static/logos/logo_D4SDG.png';
 
   export default {
@@ -24,7 +25,8 @@
     components: {
       MapComponent,
       SidebarComponent,
-      TimelineComponent
+      TimelineComponent,
+      MapFooterComponent,
     }
   };
 </script>
