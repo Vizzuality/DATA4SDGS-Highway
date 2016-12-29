@@ -6,9 +6,24 @@
    :options="options"
    @input="onChange"
   >
- </multiselect>
- <ul class="c-legend">
-   <li class="legend-item">Confirmed Deforestation Areas</li>
-   <li class="legend-item">Deforestation Alerts</li>
- </ul>
+  </multiselect>
+  <ul class="c-legend">
+    <li class="legend-item">
+      <div class="switch">
+        <input type="checkbox" name="forests" @click="toggleLayer">
+        <span class="toggle"></span>
+      </div>
+      Confirmed Deforestation Areas
+    </li>
+
+    <li class="legend-item">
+      <div class="switch">
+        <input type="checkbox" name="protected" @click="toggleLayer">
+        <span class="toggle"></span>
+      </div>
+      Protected Areas
+    </li>
+
+    <li class="legend-item">Deforestation Alerts</li>
+  </ul>
 </aside>

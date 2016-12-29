@@ -8,9 +8,21 @@
     Vue 2.0 compatible version is available
   */
   import Multiselect from 'vue-multiselect';
+  import { mapGetters } from 'vuex';
 
   export default {
     name: 'sidebar-component',
+    computed: {
+      selected() {
+        return this.$store.getters.getSelectedCountryName;
+      },
+      options() {
+        return this.$store.getters.getCountriesForSelect;
+      },
+      ...mapGetters({
+        cartoLayerSlug: 'getCartoLayerSlug',
+      }),
+    },
     methods: {
       onChange(selectedCountry) {
         /*
@@ -18,18 +30,17 @@
           but multiselect does not allow a custom search function
         */
         this.$store.dispatch('setSelectedCountry', this.$store.state.countries.list.find(country => country.properties.name === selectedCountry));
-      }
+      },
+      toggleLayer(e) {
+        const layer = e.target.name !== this.$store.getters.getCartoLayerSlug ?
+          e.target.name :
+          null;
+
+        this.$store.dispatch('setCartoLayerSlug', layer);
+      },
     },
     components: {
       Multiselect
-    },
-    computed: {
-      selected() {
-        return this.$store.getters.getSelectedCountryName;
-      },
-      options() {
-        return this.$store.getters.getCountriesForSelect;
-      }
     },
   };
 </script>

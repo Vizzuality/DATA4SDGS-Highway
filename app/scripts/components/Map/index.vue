@@ -30,7 +30,8 @@
     computed: {
       ...mapGetters({
         cartoLayerId: 'getCartoLayerIdData',
-        markerLayer: 'getMarkerLayer'
+        markerLayer: 'getMarkerLayer',
+        cartoLayerSlug: 'getCartoLayerSlug',
       }),
     },
     methods: {
@@ -57,10 +58,8 @@
       },
 
       addCartoLayer() {
-        if (this.cartoLayer && Object.keys(this.cartoLayer).length > 0) {
-          this.removeLayer(this.cartoLayer.layer);
-          this.removeLayer(this.cartoLayer.utfGrid);
-        }
+        this.cartoLayer && Object.keys(this.cartoLayer).length > 0 &&
+          this.removeCurrentCartoLayer();
 
         this.createLayer(this.cartoLayerId);
         this.addLayer(this.cartoLayer.layer);
@@ -127,6 +126,11 @@
           this.map.removeLayer(layer);
         }
       },
+
+      removeCurrentCartoLayer() {
+        this.removeLayer(this.cartoLayer.layer);
+        this.removeLayer(this.cartoLayer.utfGrid);
+      },
     },
 
     watch: {
@@ -135,7 +139,14 @@
       },
       markerLayer() {
         this.addClusterLayer();
-      }
+      },
+      cartoLayerSlug() {
+        if (this.$store.getters.getCartoLayerSlug) {
+          this.$store.dispatch('cartoLayer');
+        } else {
+          this.removeCurrentCartoLayer();
+        }
+      },
     },
   };
 </script>
