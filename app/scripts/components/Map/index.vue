@@ -54,14 +54,18 @@
       },
 
       addCartoLayer() {
-        const layers = this.createLayer(this.cartoLayerId);
-        this.addLayer(layers.layer);
+        if (this.cartoLayer && Object.keys(this.cartoLayer).length > 0) {
+          this.removeLayer(this.cartoLayer.layer);
+          this.removeLayer(this.cartoLayer.utfGrid);
+        }
 
-        this.addLayer(layers.utfGrid, {
+        this.createLayer(this.cartoLayerId);
+        this.addLayer(this.cartoLayer.layer);
+        this.addLayer(this.cartoLayer.utfGrid, {
           resolution: 2
         });
 
-        this.setCartoLayerTooltip(layers.utfGrid);
+        this.setCartoLayerTooltip(this.cartoLayer.utfGrid);
       },
 
       addTorqueLayer() {
@@ -79,7 +83,7 @@
         const pngUrl = `${tileUrl}.png`;
         const utfUrl = `${tileUrl}.grid.json?callback={cb}`;
 
-        return {
+        this.cartoLayer = {
           layer: new L.tileLayer(pngUrl),
           utfGrid: new L.UtfGrid(utfUrl)
         };
@@ -89,16 +93,16 @@
         utfGrid.addEventListener('click', (data) => {
           data && data.data && L.popup()
             .setLatLng(data.latlng || data.latLng)
-            .setContent(`<div><h1>${data.data.cartodb_id}</h1></div>`)
+            .setContent(`<div><h3>${data.data.cartodb_id}</h3></div>`)
             .openOn(this.map);
         });
       },
 
-      // removeLayer: function(layer) {
-      //   if (this.map && this.map instanceof L.Map) {
-      //     this.map.removeLayer(layer);
-      //   }
-      // },
+      removeLayer(layer) {
+        if (this.map && this.map instanceof L.Map) {
+          this.map.removeLayer(layer);
+        }
+      },
     },
 
     watch: {
