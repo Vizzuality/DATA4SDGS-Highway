@@ -34,11 +34,6 @@
       top: rem(50)!important;
       z-index: 9999999999!important;
     }
-
-    .leaflet-top .leaflet-left {
-      .leaflet-control-zoom .leaflet-bar .leaflet-control {
-      }
-    }
   }
 
   .leaflet-bar {
@@ -51,6 +46,7 @@
       color: $mexican-pink;
       font-weight: lighter;
       line-height: rem(26);
+      background-color: transparent;
 
       &:first-child {
         margin-bottom: rem(7);
