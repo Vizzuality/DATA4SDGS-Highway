@@ -1,3 +1,5 @@
+@import '../../../styles/variables';
+
 .l-map {
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
@@ -12,9 +14,49 @@
   height: 100%;
 }
 
-/* Leaflet override */
+/*
+  Leaflet override
+*/
 .leaflet-popup {
   .leaflet-popup-content-wrapper {
     border-radius: 0;
+  }
+}
+
+/*
+  -- Map markers --
+*/
+.c-marker-bubble {
+  background-color: $gold-yellow;
+  border-radius: 100%;
+  box-shadow: 0px 0px 0px 10px rgba($gold-yellow, 0.5);
+  transition: all .3s ease;
+
+  &:hover {
+    box-shadow: 0 0 3px 1px rgba(0,0,0,.15);
+    z-index: 1000 !important;
+  }
+
+  .marker-bubble-inner {
+    display: none;
+  }
+}
+
+.c-marker-cluster-bubble {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  color: $white;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 10px;
+  background-color: $mexican-pink;
+  box-shadow: 0px 0px 0px 10px rgba($mexican-pink, 0.5);
+  transition: all .3s ease;
+
+  &:hover {
+    box-shadow: 0 0 6px 1px rgba(black, 0.3);
+    z-index: 1000 !important;
   }
 }
