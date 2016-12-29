@@ -2,16 +2,12 @@
 <style lang="scss" src="./map-footer-style.scss"></style>
 
 <script>
-  import store from 'store';
   import { mapGetters } from 'vuex';
-  import ModalComponent from 'components/Modal';
-  import ButtonComponent from 'components/Button';
 
   export default {
     name: 'map-footer-component',
     data() {
       return {
-        open: false,
       };
     },
     computed: {
@@ -21,18 +17,14 @@
     },
     methods: {
       toggleModal() {
-        this.open = !this.open;
+        this.$store.dispatch('openConsoleModal');
       },
     },
 
     watch: {
       openModal() {
-        store.dispatch('openConsoleModal');
+        // this.$store.getters.getConsoleModal && this.$store.dispatch('setModalContent');
       },
-    },
-    components: {
-      ModalComponent,
-      ButtonComponent,
     },
   };
 </script>

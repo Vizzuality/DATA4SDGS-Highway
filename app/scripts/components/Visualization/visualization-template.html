@@ -7,4 +7,12 @@
   <sidebar-component></sidebar-component>
   <map-component></map-component>
   <map-footer-component></map-footer-component>
+
+  <modal-component :open="openModal" :close="closeModal">
+    <div class="row expanded">
+      <div class="column small-12 align-middle flex">
+        {{modalContent}}
+      </div>
+    </div>
+  </modal-component>
 </div>
