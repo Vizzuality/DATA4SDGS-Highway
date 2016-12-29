@@ -5,6 +5,7 @@
   import 'leaflet/dist/leaflet.css';
   import L from 'leaflet';
   import { mapGetters } from 'vuex';
+  import BubbleClusterLayer from '../../utils/layers/BubbleClusterLayer';
   import Grid from '../../lib/leafletUtfgrid/leaflet-utfgrid';
 
   L.Grid = Grid;
@@ -29,6 +30,7 @@
     computed: {
       ...mapGetters({
         cartoLayerId: 'getCartoLayerIdData',
+        markerLayer: 'getMarkerLayer'
       }),
     },
     methods: {
@@ -51,6 +53,7 @@
 
       addAllLayers() {
         this.$store.dispatch('cartoLayer');
+        this.$store.dispatch('markerLayer');
       },
 
       addCartoLayer() {
@@ -68,14 +71,35 @@
         this.setCartoLayerTooltip(this.cartoLayer.utfGrid);
       },
 
-      addTorqueLayer() {
-        this.addLayer();
-      },
-
       addLayer(layer) {
         if (this.map && this.map instanceof L.Map) {
           this.map.addLayer(layer);
         }
+      },
+
+      addClusterLayer() {
+        const request = new Request(this.markerLayer.url, {
+          method: 'GET'
+        });
+
+        fetch(request)
+          .then((res) => {
+            if (!res.ok) {
+              const error = new Error(res.statusText);
+              error.response = res;
+              throw error;
+            }
+            return res.json();
+          })
+          .then((data) => {
+            const geojson = data.rows[0].data.features || [];
+            new BubbleClusterLayer(
+              geojson, {}
+            ).addTo(this.map);
+          });
+          // .catch((err) => {
+          //   console.error('Request failed', err);
+          // });
       },
 
       createLayer(layerId) {
@@ -109,6 +133,9 @@
       cartoLayerId() {
         this.addCartoLayer();
       },
+      markerLayer() {
+        this.addClusterLayer();
+      }
     },
   };
 </script>
