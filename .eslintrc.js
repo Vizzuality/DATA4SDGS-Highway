@@ -10,8 +10,7 @@ module.exports = {
     'html'
   ],
   globals: {
-    'fetch': true,
-    'Vue': true
+    'fetch': true
   },
   env: {
     "browser": true

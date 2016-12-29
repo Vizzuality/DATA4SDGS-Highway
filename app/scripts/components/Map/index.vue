@@ -5,6 +5,9 @@
   import 'leaflet/dist/leaflet.css';
   import L from 'leaflet';
   import { mapGetters } from 'vuex';
+  import Grid from '../../lib/leafletUtfgrid/leaflet-utfgrid';
+
+  L.Grid = Grid;
 
   export default {
     name: 'map-component',
@@ -51,8 +54,18 @@
       },
 
       addCartoLayer() {
-        const layers = this.createLayer(this.cartoLayerId);
-        this.addLayer(layers.layer);
+        if (this.cartoLayer && Object.keys(this.cartoLayer).length > 0) {
+          this.removeLayer(this.cartoLayer.layer);
+          this.removeLayer(this.cartoLayer.utfGrid);
+        }
+
+        this.createLayer(this.cartoLayerId);
+        this.addLayer(this.cartoLayer.layer);
+        this.addLayer(this.cartoLayer.utfGrid, {
+          resolution: 2
+        });
+
+        this.setCartoLayerTooltip(this.cartoLayer.utfGrid);
       },
 
       addTorqueLayer() {
@@ -68,19 +81,28 @@
       createLayer(layerId) {
         const tileUrl = `https://wri-01.cartodb.com/api/v1/map/${layerId}/0/{z}/{x}/{y}`;
         const pngUrl = `${tileUrl}.png`;
-        // const utfUrl = `${tileUrl}.grid.json?callback={cb}`;
+        const utfUrl = `${tileUrl}.grid.json?callback={cb}`;
 
-        return {
-          layer: new L.tileLayer(pngUrl)
-          // utfGrid: new L.UtfGrid(utfUrl)
+        this.cartoLayer = {
+          layer: new L.tileLayer(pngUrl),
+          utfGrid: new L.UtfGrid(utfUrl)
         };
-      }
+      },
 
-      // removeLayer: function(layer) {
-      //   if (this.map && this.map instanceof L.Map) {
-      //     this.map.removeLayer(layer);
-      //   }
-      // },
+      setCartoLayerTooltip(utfGrid) {
+        utfGrid.addEventListener('click', (data) => {
+          data && data.data && L.popup()
+            .setLatLng(data.latlng || data.latLng)
+            .setContent(`<div><h3>${data.data.cartodb_id}</h3></div>`)
+            .openOn(this.map);
+        });
+      },
+
+      removeLayer(layer) {
+        if (this.map && this.map instanceof L.Map) {
+          this.map.removeLayer(layer);
+        }
+      },
     },
 
     watch: {
