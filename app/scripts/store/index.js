@@ -5,6 +5,7 @@ import featuredDatasets from './modules/featured_datasets';
 import selectedDataset from './modules/selected_dataset';
 import cartoLayer from './modules/carto_layer';
 import modal from './modules/modal';
+import modalContent from './modules/modal_content';
 import countries from './modules/countries';
 
 Vue.use(Vuex);
@@ -18,7 +19,8 @@ export default new Vuex.Store({
     selectedDataset,
     cartoLayer,
     modal,
-    countries
+    countries,
+    modalContent
   },
   strict: debug,
 });

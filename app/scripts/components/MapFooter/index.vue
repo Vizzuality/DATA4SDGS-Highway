@@ -23,7 +23,7 @@
 
     watch: {
       openModal() {
-        // this.$store.getters.getConsoleModal && this.$store.dispatch('setModalContent');
+        this.$store.getters.getConsoleModal && this.$store.dispatch('setModalContentType', 'about');
       },
     },
   };

@@ -11,7 +11,9 @@
   <modal-component :open="openModal" :close="closeModal">
     <div class="row expanded">
       <div class="column small-12 align-middle flex">
-        {{modalContent}}
+        <p v-if="modalType.share">Share component</p>
+        <p v-if="modalType.about">No data available</p>
+        <p v-else>No data available</p>
       </div>
     </div>
   </modal-component>

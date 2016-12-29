@@ -24,13 +24,25 @@
       };
     },
     computed: {
+      modalType() {
+        const computedType = {};
+        computedType.share = this.modalContent === 'share';
+        computedType.about = this.modalContent === 'about';
+        return computedType;
+      },
       ...mapGetters({
         openModal: 'getConsoleModal',
+        modalContentType: 'getModalContentType',
       }),
     },
     methods: {
       closeModal() {
         this.$store.dispatch('closeConsoleModal');
+      },
+    },
+    watch: {
+      modalContentType() {
+        this.modalContent = this.$store.getters.getModalContentType;
       },
     },
     components: {
