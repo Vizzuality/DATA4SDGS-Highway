@@ -4,7 +4,7 @@
 /* eslint new-cap: 0 */
 /* eslint class-methods-use-this: 0 */
 
-import L from 'leaflet/dist/leaflet';
+import L from 'leaflet';
 import { PruneCluster, PruneClusterForLeaflet } from '../../lib/PruneCluster';
 
 /**
