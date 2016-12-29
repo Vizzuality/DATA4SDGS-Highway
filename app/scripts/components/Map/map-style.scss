@@ -17,9 +17,45 @@
 /*
   Leaflet override
 */
-.leaflet-popup {
-  .leaflet-popup-content-wrapper {
-    border-radius: 0;
+#map.leaflet-container {
+  .leaflet-popup {
+    .leaflet-popup-content-wrapper {
+      border-radius: 0;
+    }
+  }
+
+  .leaflet-control-container {
+    .leaflet-left {
+      left: auto!important;
+      right: rem(50) !important;
+    }
+
+    .leaflet-top {
+      top: rem(50)!important;
+      z-index: 9999999999!important;
+    }
+
+    .leaflet-top .leaflet-left {
+      .leaflet-control-zoom .leaflet-bar .leaflet-control {
+      }
+    }
+  }
+
+  .leaflet-bar {
+    border: 0;
+    border-radius: 0!important;
+
+    & a {
+      border: 1px solid $mexican-pink !important;
+      border-radius: 0!important;
+      color: $mexican-pink;
+      font-weight: lighter;
+      line-height: rem(26);
+
+      &:first-child {
+        margin-bottom: rem(7);
+      }
+    }
   }
 }
 
