@@ -5,6 +5,9 @@
   import 'leaflet/dist/leaflet.css';
   import L from 'leaflet';
   import { mapGetters } from 'vuex';
+  import Grid from '../../lib/leafletUtfgrid/leaflet-utfgrid';
+
+  L.Grid = Grid;
 
   export default {
     name: 'map-component',
@@ -53,6 +56,12 @@
       addCartoLayer() {
         const layers = this.createLayer(this.cartoLayerId);
         this.addLayer(layers.layer);
+
+        this.addLayer(layers.utfGrid, {
+          resolution: 2
+        });
+
+        this.setCartoLayerTooltip(layers.utfGrid);
       },
 
       addTorqueLayer() {
@@ -68,13 +77,22 @@
       createLayer(layerId) {
         const tileUrl = `https://wri-01.cartodb.com/api/v1/map/${layerId}/0/{z}/{x}/{y}`;
         const pngUrl = `${tileUrl}.png`;
-        // const utfUrl = `${tileUrl}.grid.json?callback={cb}`;
+        const utfUrl = `${tileUrl}.grid.json?callback={cb}`;
 
         return {
-          layer: new L.tileLayer(pngUrl)
-          // utfGrid: new L.UtfGrid(utfUrl)
+          layer: new L.tileLayer(pngUrl),
+          utfGrid: new L.UtfGrid(utfUrl)
         };
-      }
+      },
+
+      setCartoLayerTooltip(utfGrid) {
+        utfGrid.addEventListener('click', (data) => {
+          data && data.data && L.popup()
+            .setLatLng(data.latlng || data.latLng)
+            .setContent(`<div><h1>${data.data.cartodb_id}</h1></div>`)
+            .openOn(this.map);
+        });
+      },
 
       // removeLayer: function(layer) {
       //   if (this.map && this.map instanceof L.Map) {
