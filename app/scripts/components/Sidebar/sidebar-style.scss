@@ -39,10 +39,57 @@
   padding: 0;
   margin: 20px 0 0 0;
 }
+
 .legend-item {
+  display: flex;
+  align-items: center;
   font-size: $font-size-xsmall;
   margin-bottom: 10px;
+
   &:last-of-type {
     margin-bottom: 0;
+  }
+
+  .switch {
+    position: relative;
+    display: flex;
+    margin-right: rem(15);
+    width: rem(30);
+    height: rem(14);
+    margin-bottom: rem(3);
+    background-color: $mexican-pink;
+    border-radius: rem(8);
+
+    &.-hidden {
+      visibility: hidden;
+    }
+
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .toggle {
+      position: absolute;
+      top: rem(1);
+      left: rem(1);
+      display: inline-block;
+      width: rem(12);
+      height: rem(12);
+      background-color: $white;
+      border-radius: 50%;
+      transition: all .5s ease-in;
+
+      &.-right {
+        left: auto;
+        right: rem(1);
+      }
+    }
   }
 }

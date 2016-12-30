@@ -37,6 +37,7 @@
         const addLayer = !slugStore || e.target.name !== slugStore ||
           (e.target.name === slugStore && !addLayerStore);
 
+        e.target.nextElementSibling.classList.toggle('-right');
         this.$store.dispatch('setCartoLayerSlug', { slug: e.target.name, addLayer });
       },
     },

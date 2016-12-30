@@ -24,6 +24,12 @@
       Protected Areas
     </li>
 
-    <li class="legend-item">Deforestation Alerts</li>
+    <li class="legend-item">
+      <div class="switch -hidden">
+        <input type="checkbox" name="alerts" @click="toggleLayer">
+        <span class="toggle"></span>
+      </div>
+      Deforestation Alerts
+    </li>
   </ul>
 </aside>
