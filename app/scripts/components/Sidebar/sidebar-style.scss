@@ -57,11 +57,20 @@
     width: rem(30);
     height: rem(14);
     margin-bottom: rem(3);
-    background-color: $mexican-pink;
+    background-color: $grey;
     border-radius: rem(8);
 
     &.-hidden {
       visibility: hidden;
+    }
+
+    &.-active {
+      background-color: $mexican-pink;
+
+      .toggle {
+        left: auto;
+        right: rem(1);
+      }
     }
 
     input {
@@ -85,11 +94,6 @@
       background-color: $white;
       border-radius: 50%;
       transition: all .5s ease-in;
-
-      &.-right {
-        left: auto;
-        right: rem(1);
-      }
     }
   }
 }
