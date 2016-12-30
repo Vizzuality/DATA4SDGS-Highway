@@ -18,13 +18,8 @@
     methods: {
       toggleModal() {
         this.$store.dispatch('openConsoleModal');
-      },
-    },
-
-    watch: {
-      openModal() {
-        this.$store.getters.getConsoleModal && this.$store.dispatch('setModalContentType', 'about');
-      },
-    },
+        this.$store.dispatch('setModalContentType', 'about');
+      }
+    }
   };
 </script>
