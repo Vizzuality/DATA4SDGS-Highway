@@ -4,7 +4,6 @@
   background-color: $white;
   position: absolute;
   width: 333px;
-  padding: 30px;
   top: 190px;
   left: $visualization-padding-side;
   z-index: 101;
@@ -32,6 +31,10 @@
       color: $black;
     }
   }
+}
+
+.layers-switch {
+  padding: 30px;
 }
 
 .c-legend {
@@ -94,6 +97,40 @@
       background-color: $white;
       border-radius: 50%;
       transition: all .5s ease-in;
+    }
+  }
+}
+
+.legend-spec {
+  padding: 30px;
+  background-color: $lightgrey;
+  border-top: rem(2) solid #aea6a6;
+
+  .c-legend {
+    margin-top: 0;
+  }
+
+  .spec {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: rem(14);
+    margin-bottom: rem(2);
+
+    &.-dot {
+      border-radius: 50%;
+    }
+
+    &.-orange {
+      background-color: #FF6600;
+    }
+
+    &.-blue {
+      background-color: #0078ff;
+    }
+
+    &.-yellow {
+      background-color: $gold-yellow;
     }
   }
 }

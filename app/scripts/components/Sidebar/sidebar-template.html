@@ -7,31 +7,52 @@
    @input="onChange"
   >
   </multiselect> -->
-  <h4>GLAD - iTerra Alerts</h4>
-  <ul class="c-legend">
-    <li class="legend-item">
-      <div class="switch">
-        <input type="checkbox" name="forests" @click="toggleLayer">
-        <span class="toggle"></span>
-      </div>
-      Confirmed Deforestation Areas
-    </li>
+  <div class="layers-switch">
+    <h4>GLAD - iTerra Alerts</h4>
+    <ul class="c-legend">
+      <li class="legend-item">
+        <div class="switch">
+          <input type="checkbox" name="forests" @click="toggleLayer">
+          <span class="toggle"></span>
+        </div>
+        Confirmed Deforestation Areas
+      </li>
 
-    <li class="legend-item">
-      <div class="switch">
-        <input type="checkbox" name="protected" @click="toggleLayer">
-        <span class="toggle"></span>
-      </div>
-      Protected Areas
-    </li>
+      <li class="legend-item">
+        <div class="switch">
+          <input type="checkbox" name="protected" @click="toggleLayer">
+          <span class="toggle"></span>
+        </div>
+        Protected Areas
+      </li>
 
-    <li class="legend-item">
-      <div class="switch -hidden">
-        <input type="checkbox" name="alerts" @click="toggleLayer">
-        <span class="toggle"></span>
-      </div>
-      Deforestation Alerts
-    </li>
-    <spinner-component :loading="layerLoading" :overlay="true" class="-absolute"></spinner-component>
-  </ul>
+      <li class="legend-item">
+        <div class="switch -hidden">
+          <input type="checkbox" name="alerts" @click="toggleLayer">
+          <span class="toggle"></span>
+        </div>
+        Deforestation Alerts
+      </li>
+      <spinner-component :loading="layerLoading" :overlay="true" class="-absolute"></spinner-component>
+    </ul>
+  </div>
+  <div class="legend-spec">
+    <ul class="c-legend">
+      <li class="legend-item">
+        <span class="spec -square -orange"></span>
+        Confirmed Deforestation Areas
+      </li>
+
+      <li class="legend-item">
+        <span class="spec -square -blue"></span>
+        Protected Areas
+      </li>
+
+      <li class="legend-item">
+        <span class="spec -dot -yellow"></span>
+        Deforestation Alerts
+      </li>
+      <spinner-component :loading="layerLoading" :overlay="true" class="-absolute"></spinner-component>
+    </ul>
+  </div>
 </aside>
