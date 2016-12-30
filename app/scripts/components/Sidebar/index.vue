@@ -8,6 +8,7 @@
     Vue 2.0 compatible version is available
   */
   import Multiselect from 'vue-multiselect';
+  import SpinnerComponent from 'components/Spinner';
   import { mapGetters } from 'vuex';
 
   export default {
@@ -21,6 +22,7 @@
       },
       ...mapGetters({
         cartoLayerSlug: 'getCartoLayerSlug',
+        layerLoading: 'getLayerLoading',
       }),
     },
     methods: {
@@ -42,7 +44,8 @@
       },
     },
     components: {
-      Multiselect
+      Multiselect,
+      SpinnerComponent,
     },
   };
 </script>

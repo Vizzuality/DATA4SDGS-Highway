@@ -10,6 +10,10 @@ export default{
       type: Boolean,
       default: false,
     },
+    overlay: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
