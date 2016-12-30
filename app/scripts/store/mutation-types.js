@@ -43,6 +43,7 @@ export const SET_SELECTED_COUNTRY = 'countries/SET_SELECTED_COUNTRY';
 /**
  * Carto layer
  */
+export const SET_CARTO_LAYER_SLUG_SUCCESS = 'layers/SET_CARTO_LAYER_SLUG_SUCCESS';
 export const SET_CARTO_LAYER_SUCCESS = 'layers/SET_CARTO_LAYER_SUCCESS';
 export const SET_CARTO_LAYER_ERROR = 'layers/SET_CARTO_LAYER_ERROR';
 export const SET_CARTO_LAYER_LOADING = 'layers/SET_CARTO_LAYER_LOADING';

@@ -63,7 +63,7 @@
 .c-marker-bubble {
   background-color: $gold-yellow;
   border-radius: 100%;
-  box-shadow: 0px 0px 0px 10px rgba($gold-yellow, 0.5);
+  box-shadow: 0px 0px 0px 6px rgba($gold-yellow, 0.5);
   transition: all .3s ease;
 
   &:hover {
@@ -81,12 +81,12 @@
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  color: $white;
+  color: $black;
   font-weight: 500;
   font-size: 12px;
   padding: 10px;
-  background-color: $mexican-pink;
-  box-shadow: 0px 0px 0px 10px rgba($mexican-pink, 0.5);
+  background-color: $gold-yellow;
+  box-shadow: 0px 0px 0px 8px rgba($gold-yellow, 0.5);
   transition: all .3s ease;
 
   &:hover {
