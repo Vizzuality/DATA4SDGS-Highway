@@ -49,8 +49,11 @@
       border: 1px solid $mexican-pink !important;
       border-radius: 0!important;
       color: $mexican-pink;
+      background-color: $dark-grey;
       font-weight: lighter;
-      line-height: rem(26);
+      line-height: rem(31);
+      width: 35px;
+      height: 35px;
 
       &:first-child {
         margin-bottom: rem(7);

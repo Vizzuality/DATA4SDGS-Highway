@@ -1,17 +1,16 @@
 @import '../../../styles/variables';
 
 .c-share {
-  position: relative;
-  z-index: 9999;
-
-  background-color: $white;
-  padding: 1rem;
-
-
+  width: 100%;
+  .share-title {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
   .share-url-container {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    margin-bottom: 2rem;
   }
   .share-input {
     padding: 15px 20px;
@@ -21,9 +20,13 @@
     list-style-type: none;
     display: flex;
     justify-content: center;
+
+    svg {
+      fill: $mexican-pink;
+    }
   }
   .share-links-item {
-    margin-right: 10px;
+    margin-right: 2rem;
     &:last-child {
       margin-right: 0;
     }
@@ -33,11 +36,18 @@
 .share-button {
   position: absolute;
   z-index: 999;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   display: inline-block;
   background-color: $mexican-pink;
-  top: 9rem;
+  top: 9.75rem;
   right: 3.125rem;
   border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    fill: $dark-grey;
+  }
 }

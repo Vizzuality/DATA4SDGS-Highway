@@ -12,6 +12,7 @@
   import ModalComponent from 'components/Modal';
   import { mapGetters } from 'vuex';
   import d4sdgLogo from 'static/logos/logo_D4SDG.png';
+  import IconComponent from '../Icon';
 
   export default {
     name: 'visualization-component',
@@ -50,7 +51,8 @@
       TimelineComponent,
       MapFooterComponent,
       ModalComponent,
-      ShareComponent
+      ShareComponent,
+      IconComponent
     }
   };
 </script>
