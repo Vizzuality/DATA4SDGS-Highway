@@ -32,11 +32,12 @@
         this.$store.dispatch('setSelectedCountry', this.$store.state.countries.list.find(country => country.properties.name === selectedCountry));
       },
       toggleLayer(e) {
-        const layer = e.target.name !== this.$store.getters.getCartoLayerSlug ?
-          e.target.name :
-          null;
+        const slugStore = this.$store.getters.getCartoLayerSpecs.slug;
+        const addLayerStore = this.$store.getters.getCartoLayerSpecs.addLayer;
+        const addLayer = !slugStore || e.target.name !== slugStore ||
+          (e.target.name === slugStore && !addLayerStore);
 
-        this.$store.dispatch('setCartoLayerSlug', layer);
+        this.$store.dispatch('setCartoLayerSlug', { slug: e.target.name, addLayer });
       },
     },
     components: {

@@ -27,7 +27,10 @@ const cartoDic = {
 const cartoLayer = {
   state: {
     layer: {
-      cartoLayerSlug: 'forests',
+      specs: {
+        slug: null,
+        addLayer: false
+      },
       cartoLayerId: null,
       loading: false,
       error: false
@@ -39,8 +42,11 @@ const cartoLayer = {
     }
   },
   mutations: {
-    [SET_CARTO_LAYER_SLUG_SUCCESS](state, layerSlug) {
-      state.layer.cartoLayerSlug = layerSlug;
+    [SET_CARTO_LAYER_SLUG_SUCCESS](state, layer) {
+      state.layer.specs = {
+        slug: layer.slug,
+        addLayer: layer.addLayer
+      };
     },
     [SET_CARTO_LAYER_LOADING](state, loading) {
       state.layer.loading = loading;
@@ -68,14 +74,16 @@ const cartoLayer = {
       commit(SET_CARTO_MARKERS_LAYER_SUCCESS, { url });
     },
 
-    setCartoLayerSlug({ commit }, layerSlug) {
-      commit(SET_CARTO_LAYER_SLUG_SUCCESS, layerSlug);
+    setCartoLayerSlug({ commit }, layer) {
+      commit(SET_CARTO_LAYER_SLUG_SUCCESS, layer);
     },
 
-    cartoLayer({ commit, dispatch, state }) {
-      console.info(dispatch);
+    resetCartoLayerId({ commit }) {
+      commit(SET_CARTO_LAYER_SUCCESS, null);
+    },
 
-      const slug = state.layer.cartoLayerSlug;
+    cartoLayer({ commit, state }) {
+      const slug = state.layer.specs.slug;
       const layer = cartoDic[slug];
 
       return new Promise(() => {
@@ -116,8 +124,8 @@ const cartoLayer = {
     },
   },
   getters: {
-    getCartoLayerSlug(state) {
-      return state.layer.cartoLayerSlug;
+    getCartoLayerSpecs(state) {
+      return state.layer.specs;
     },
     getCartoLayerIdData(state) {
       return state.layer.cartoLayerId;

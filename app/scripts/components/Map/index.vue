@@ -24,20 +24,23 @@
           attributionControl: false,
           zoom: 3
         },
-        basemapUrl: 'http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png',
+        basemapUrl: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png',
       };
     },
     computed: {
       ...mapGetters({
         cartoLayerId: 'getCartoLayerIdData',
         markerLayer: 'getMarkerLayer',
-        cartoLayerSlug: 'getCartoLayerSlug',
+        cartoLayerSpecs: 'getCartoLayerSpecs',
       }),
     },
     methods: {
       renderMap() {
+        this.cartoLayers = {};
+
         this.createMap();
         this.addBasemap();
+        this.addAllLayers();
       },
 
       createMap() {
@@ -48,26 +51,24 @@
         if (this.map && this.map instanceof L.Map) {
           this.basemap = L.tileLayer(this.basemapUrl);
           this.basemap.addTo(this.map);
-          this.addAllLayers();
         }
       },
 
       addAllLayers() {
-        this.$store.dispatch('cartoLayer');
+        this.slug = this.$store.getters.getCartoLayerSpecs.slug;
+        // this.$store.dispatch('cartoLayer');
         this.$store.dispatch('markerLayer');
       },
 
       addCartoLayer() {
-        this.cartoLayer && Object.keys(this.cartoLayer).length > 0 &&
-          this.removeCurrentCartoLayer();
-
         this.createLayer(this.cartoLayerId);
-        this.addLayer(this.cartoLayer.layer);
-        this.addLayer(this.cartoLayer.utfGrid, {
+        this.addLayer(this.cartoLayers[this.slug].layer);
+        this.addLayer(this.cartoLayers[this.slug].utfGrid, {
           resolution: 2
         });
 
-        this.setCartoLayerTooltip(this.cartoLayer.utfGrid);
+        this.setCartoLayerTooltip(this.cartoLayers[this.slug].utfGrid);
+        this.$store.dispatch('resetCartoLayerId');
       },
 
       addLayer(layer) {
@@ -106,7 +107,7 @@
         const pngUrl = `${tileUrl}.png`;
         const utfUrl = `${tileUrl}.grid.json?callback={cb}`;
 
-        this.cartoLayer = {
+        this.cartoLayers[this.slug] = {
           layer: new L.tileLayer(pngUrl),
           utfGrid: new L.UtfGrid(utfUrl)
         };
@@ -128,20 +129,35 @@
       },
 
       removeCurrentCartoLayer() {
-        this.removeLayer(this.cartoLayer.layer);
-        this.removeLayer(this.cartoLayer.utfGrid);
+        this.removeLayer(this.cartoLayers[this.slug].layer);
+        this.removeLayer(this.cartoLayers[this.slug].utfGrid);
+
+        const layers = {};
+        Object.keys(this.cartoLayers).map((item) => {
+          if (item !== this.slug) layers[item] = this.cartoLayers[item];
+          return true;
+        });
+        this.cartoLayers = layers;
       },
     },
 
     watch: {
       cartoLayerId() {
-        this.addCartoLayer();
+        const carloLayerId = this.$store.getters.getCartoLayerIdData;
+
+        if (carloLayerId) {
+          this.slug = this.$store.getters.getCartoLayerSpecs.slug;
+          this.addCartoLayer();
+        }
       },
       markerLayer() {
         this.addClusterLayer();
       },
-      cartoLayerSlug() {
-        if (this.$store.getters.getCartoLayerSlug) {
+      cartoLayerSpecs() {
+        this.slug = this.$store.getters.getCartoLayerSpecs.slug;
+        const addLayer = this.$store.getters.getCartoLayerSpecs.addLayer;
+
+        if (addLayer && !this.cartoLayers[this.slug]) {
           this.$store.dispatch('cartoLayer');
         } else {
           this.removeCurrentCartoLayer();
