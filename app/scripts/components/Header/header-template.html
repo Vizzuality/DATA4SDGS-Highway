@@ -6,14 +6,17 @@
       </router-link>
     </div>
 
-    <div class="columns small-6 medium-3 medium-offset-6">
+    <div class="columns small-5 medium-4 medium-offset-5">
       <nav>
         <ul>
-          <li :class="firstTabClass">
+          <li :class="getTabClass('/')">
             <router-link to="/about">About Us</router-link>
           </li>
-          <li :class="secondTabClass">
+          <li :class="getTabClass('/playground')">
             <router-link to="/playground">Playground</router-link>
+          </li>
+          <li :class="getTabClass('/map')">
+            <router-link to="/map">Explore</router-link>
           </li>
         </ul>
       </nav>

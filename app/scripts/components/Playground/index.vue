@@ -45,7 +45,7 @@ export default{
   watch: {
     storeRouter() {
       if (router.params.dataset) {
-        this.$store.dispatch('setSelectedDataset', router.to.params.dataset).then(() => store.dispatch('openConsoleModal'));
+        this.$store.dispatch('setSelectedDataset', router.to.params.dataset).then(() => this.$store.dispatch('openConsoleModal'));
       }
       router.next();
     }

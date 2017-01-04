@@ -14,16 +14,15 @@
   export default {
     name: 'sidebar-component',
     computed: {
-      selected() {
-        return this.$store.getters.getSelectedCountryName;
-      },
-      options() {
-        return this.$store.getters.getCountriesForSelect;
-      },
       ...mapGetters({
-        cartoLayerSlug: 'getCartoLayerSlug',
+        cartoLayerSpecs: 'getCartoLayerSpecs',
         layerLoading: 'getLayerLoading',
+        selected: 'getSelectedCountryName',
+        options: 'getCountriesForSelect',
       }),
+      countries() {
+        return this.$store.state.countries.list;
+      },
     },
     methods: {
       onChange(selectedCountry) {
@@ -31,11 +30,11 @@
           NOTE: Matching by country name is not consistent,
           but multiselect does not allow a custom search function
         */
-        this.$store.dispatch('setSelectedCountry', this.$store.state.countries.list.find(country => country.properties.name === selectedCountry));
+        this.$store.dispatch('setSelectedCountry', this.countries.find(country => country.properties.name === selectedCountry));
       },
       toggleLayer(e) {
-        const slugStore = this.$store.getters.getCartoLayerSpecs.slug;
-        const addLayerStore = this.$store.getters.getCartoLayerSpecs.addLayer;
+        const slugStore = this.cartoLayerSpecs.slug;
+        const addLayerStore = this.cartoLayerSpecs.addLayer;
         const addLayer = !slugStore || e.target.name !== slugStore ||
           (e.target.name === slugStore && !addLayerStore);
 
