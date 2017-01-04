@@ -1,11 +1,5 @@
-/* global PruneCluster, PruneClusterForLeaflet */
-/* eslint import/no-unresolved: 0 */
-/* eslint import/extensions: 0 */
-/* eslint new-cap: 0 */
-/* eslint class-methods-use-this: 0 */
-
 import L from 'leaflet';
-import { PruneCluster, PruneClusterForLeaflet } from '../../lib/PruneCluster';
+import { PruneCluster, PruneClusterForLeaflet } from 'lib/PruneCluster';
 
 /**
  * Creating buble cluster marker for food layers
@@ -14,6 +8,7 @@ import { PruneCluster, PruneClusterForLeaflet } from '../../lib/PruneCluster';
  * @return {Object} layer
  */
 export default class BubbleClusterLayer {
+
   constructor(geoJson) {
     const pruneCluster = new PruneClusterForLeaflet();
 
@@ -30,10 +25,10 @@ export default class BubbleClusterLayer {
       const options = {
         location: feature.geometry.coordinates,
         className: 'c-marker-bubble',
-        size: this._getSize(feature.properties.value), // eslint-disable-line
+        size: BubbleClusterLayer.getSize(feature.properties.value),
         data: feature.properties,
-        htmlIcon: this._setMarkerHtml(feature.properties.value), // eslint-disable-line
-        htmlInfowindow: this._setInfowindowHtml(feature.properties) // eslint-disable-line
+        htmlIcon: BubbleClusterLayer.setMarkerHtml(feature.properties.value),
+        htmlInfowindow: BubbleClusterLayer.setInfowindowHtml(feature.properties)
       };
 
       leafletMarker.setIcon(L.divIcon({
@@ -61,7 +56,7 @@ export default class BubbleClusterLayer {
         icon: pruneCluster.BuildLeafletClusterIcon(cluster)
       });
 
-      m.bindPopup(this._setInfowindowClusterHtml(cluster)); // eslint-disable-line
+      m.bindPopup(BubbleClusterLayer.setInfowindowClusterHtml(cluster));
 
       // m.on('click', () => {
       //   // Compute the  cluster bounds (it's slow : O(n))
@@ -107,16 +102,11 @@ export default class BubbleClusterLayer {
     return pruneCluster;
   }
 
-  // STATIC methods
-  // - _setMarkerHtml
-  // - _setInfowindowHtml
-  // - _setInfowindowClusterHtml
-  // - _getSize
-  _setMarkerHtml(/* value */) {
+  static setMarkerHtml(/* value */) {
     return ('<div class="marker-bubble-inner"></div>');
   }
 
-  _setInfowindowHtml(properties) {
+  static setInfowindowHtml(properties) {
     return (`
       <div class="c-infowindow -no-iteraction">
       <h3>${properties.country}</h3>
@@ -124,7 +114,7 @@ export default class BubbleClusterLayer {
     );
   }
 
-  _setInfowindowClusterHtml(properties) {
+  static setInfowindowClusterHtml(properties) {
     return (`
       <div class="c-infowindow -no-iteraction">
       <h3>${properties.population} countries</h3>
@@ -132,7 +122,7 @@ export default class BubbleClusterLayer {
     );
   }
 
-  _getSize(v) {
+  static getSize(v) {
     const size = (v < 1) ? 1 : v;
     const multiplicator = 2.5;
     const constant = 50;

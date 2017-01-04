@@ -1,10 +1,10 @@
+import countryData from 'data/countries.json';
+
 import {
   GET_COUNTRIES_SUCCESS,
   GET_COUNTRIES_ERROR,
   SET_SELECTED_COUNTRY
 } from '../mutation-types';
-
-import countryData from '../../../data/countries.json';
 
 const countries = {
 

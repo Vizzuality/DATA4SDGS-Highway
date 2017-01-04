@@ -12,12 +12,16 @@ export default {
       d4sdgLogo,
     };
   },
-  computed: {
-    firstTabClass() {
-      return this.$route.path === '/' ? 'header-tab -active' : 'header-tab';
-    },
-    secondTabClass() {
-      return this.$route.path === '/playground' ? 'header-tab -active' : 'header-tab';
+  methods: {
+    getTabClass(path) {
+      let location = this.$route.path;
+      let params = [...Object.values(this.$route.params)];
+
+      params = params.join('/');
+      params = params && `/${params}`;
+      location = params ? location.split(params)[0] : location;
+
+      return location === path ? 'header-tab -active' : 'header-tab';
     },
   },
 };

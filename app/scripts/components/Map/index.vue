@@ -5,8 +5,8 @@
   import 'leaflet/dist/leaflet.css';
   import L from 'leaflet';
   import { mapGetters } from 'vuex';
-  import BubbleClusterLayer from '../../utils/layers/BubbleClusterLayer';
-  import Grid from '../../lib/leafletUtfgrid/leaflet-utfgrid';
+  import BubbleClusterLayer from 'services/layers/BubbleClusterLayer';
+  import Grid from 'lib/leafletUtfgrid/leaflet-utfgrid';
 
   L.Grid = Grid;
 
@@ -30,9 +30,12 @@
     computed: {
       ...mapGetters({
         cartoLayerId: 'getCartoLayerIdData',
-        markerLayer: 'getMarkerLayer',
         cartoLayerSpecs: 'getCartoLayerSpecs',
+        clusterLayer: 'getClusterLayer',
       }),
+      slug() {
+        return this.cartoLayerSpecs.slug;
+      },
     },
     methods: {
       renderMap() {
@@ -55,9 +58,8 @@
       },
 
       addAllLayers() {
-        this.slug = this.$store.getters.getCartoLayerSpecs.slug;
-        // this.$store.dispatch('cartoLayer');
-        this.$store.dispatch('markerLayer');
+        // this.$store.dispatch('setCartoLayer');
+        this.addClusterLayer();
       },
 
       addCartoLayer() {
@@ -78,28 +80,9 @@
       },
 
       addClusterLayer() {
-        const request = new Request(this.markerLayer.url, {
-          method: 'GET'
+        this.$store.dispatch('setMarkerLayer').then(() => this.$store.dispatch('setClusterLayer')).then(() => {
+          new BubbleClusterLayer(this.clusterLayer, {}).addTo(this.map);
         });
-
-        fetch(request)
-          .then((res) => {
-            if (!res.ok) {
-              const error = new Error(res.statusText);
-              error.response = res;
-              throw error;
-            }
-            return res.json();
-          })
-          .then((data) => {
-            const geojson = data.rows[0].data.features || [];
-            new BubbleClusterLayer(
-              geojson, {}
-            ).addTo(this.map);
-          });
-          // .catch((err) => {
-          //   console.error('Request failed', err);
-          // });
       },
 
       createLayer(layerId) {
@@ -133,9 +116,8 @@
         this.removeLayer(this.cartoLayers[this.slug].utfGrid);
 
         const layers = {};
-        Object.keys(this.cartoLayers).map((item) => {
+        Object.keys(this.cartoLayers).forEach((item) => {
           if (item !== this.slug) layers[item] = this.cartoLayers[item];
-          return true;
         });
         this.cartoLayers = layers;
       },
@@ -143,26 +125,20 @@
 
     watch: {
       cartoLayerId() {
-        const carloLayerId = this.$store.getters.getCartoLayerIdData;
-
-        if (carloLayerId) {
-          this.slug = this.$store.getters.getCartoLayerSpecs.slug;
+        if (this.cartoLayerId) {
           this.addCartoLayer();
         }
       },
-      markerLayer() {
-        this.addClusterLayer();
-      },
       cartoLayerSpecs() {
-        this.slug = this.$store.getters.getCartoLayerSpecs.slug;
-        const addLayer = this.$store.getters.getCartoLayerSpecs.addLayer;
+        const addLayer = this.cartoLayerSpecs.addLayer;
 
         if (addLayer && !this.cartoLayers[this.slug]) {
-          this.$store.dispatch('cartoLayer');
+          this.$store.dispatch('setCartoLayer');
         } else {
           this.removeCurrentCartoLayer();
         }
       },
     },
   };
+
 </script>
