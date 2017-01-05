@@ -1,4 +1,4 @@
-import countryData from 'data/countries.json';
+import countryData from 'data/countries_2.json';
 
 import {
   GET_COUNTRIES_SUCCESS,
@@ -45,7 +45,10 @@ const countries = {
     },
     getSelectedCountryName(state) {
       return state.selected ? state.selected.properties.name : null;
-    }
+    },
+    getAllCountries(state) {
+      return state.list;
+    },
   }
 };
 

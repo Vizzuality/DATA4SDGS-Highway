@@ -7,6 +7,7 @@ import HeaderComponent from 'components/Header';
 import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
 import VisualizationComponent from 'components/Visualization';
+import CountriesComponent from 'components/Countries';
 
 Vue.use(VueRouter);
 
@@ -41,9 +42,20 @@ const routes = [
   },
 
   {
+    path: '/countries',
+    components: {
+      default: CountriesComponent,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
+    },
+  },
+
+  {
     path: '/map',
     components: {
-      default: VisualizationComponent
+      default: VisualizationComponent,
+      HeaderComponent,
     }
   },
 
