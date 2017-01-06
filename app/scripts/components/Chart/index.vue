@@ -15,17 +15,14 @@ export default{
         width: undefined,
         height: undefined,
       },
+      color: {
+        pattern: ['#EFA600', '#ff0065'],
+      },
       data: {
-        json: this.formatedData,
-        keys: {
-          value: ['waterData', 'area'],
-        },
-        axes: {
-          waterData: 'y2'
-        },
+        columns: this.formatedData,
         types: {
-          area: 'line',
-          waterData: 'bar',
+          data1: 'line',
+          data2: 'bar',
         },
       },
       axis: {
@@ -33,9 +30,6 @@ export default{
           show: false,
         },
         y: {
-          show: false,
-        },
-        y2: {
           show: false,
         },
       },
@@ -72,10 +66,14 @@ export default{
       return `chart-container-${this.container}`;
     },
     formatedData() {
-      return {
-        area: this.options.pixel_area,
-        waterData: Object.values(this.transition_types),
-      };
+      const data1 = ['data1', this.options.pixel_area];
+      const data2 = Object.values(this.options.transition_types);
+
+      data2.forEach(() => {
+        data1.push(this.options.pixel_area);
+      });
+      data2.unshift('data2');
+      return [data1, data2];
     },
   },
   data() {

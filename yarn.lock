@@ -1022,6 +1022,12 @@ bytes@2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-2.4.0.tgz#7d97196f9d5baf7f6935e25985549edd2a6c2339"
 
+c3@^0.4.11:
+  version "0.4.11"
+  resolved "https://registry.yarnpkg.com/c3/-/c3-0.4.11.tgz#3f2b6c7bd33577a3473dd61176735565b4d0f3ce"
+  dependencies:
+    d3 "~3.5.0"
+
 caller-path@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/caller-path/-/caller-path-0.1.0.tgz#94085ef63581ecd3daa92444a8fe94e82577751f"
@@ -1524,6 +1530,10 @@ currently-unhandled@^0.4.1:
 custom-event@~1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/custom-event/-/custom-event-1.0.1.tgz#5d02a46850adf1b4a317946a3928fccb5bfd0425"
+
+d3@~3.5.0:
+  version "3.5.17"
+  resolved "https://registry.yarnpkg.com/d3/-/d3-3.5.17.tgz#bc46748004378b21a360c9fc7cf5231790762fb8"
 
 d@^0.1.1, d@~0.1.1:
   version "0.1.1"
@@ -3291,6 +3301,10 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
+leaflet@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.0.2.tgz#fa4fbcb7844944fc2bfb0bcf9ca0dea13463ca21"
+
 levn@^0.3.0, levn@~0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/levn/-/levn-0.3.0.tgz#3b09924edf9f083c0490fdd4c0bc4421e04764ee"
@@ -5043,7 +5057,7 @@ shelljs@^0.7.4, shelljs@^0.7.5:
     interpret "^1.0.0"
     rechoir "^0.6.2"
 
-siema@^1.0.4:
+siema@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/siema/-/siema-1.0.4.tgz#d2ada41b250f004a0aff5aedd0695316e91ed1a9"
 
@@ -5616,6 +5630,10 @@ vue-loader@^9.4.0:
     vue-template-compiler "^2.0.5"
     vue-template-es2015-compiler "^1.2.2"
 
+vue-multiselect@^2.0.0-beta.13:
+  version "2.0.0-beta.13"
+  resolved "https://registry.yarnpkg.com/vue-multiselect/-/vue-multiselect-2.0.0-beta.13.tgz#15bbc5dea3011e66a9ad568bc56ace9cc8a35eda"
+
 vue-router@^2.0.2:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.1.1.tgz#10c31bbdcb6da92bd3e0223fa12345e73018625a"
@@ -5625,12 +5643,6 @@ vue-style-loader@^1.0.0:
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-1.0.0.tgz#abeb7bd0f46313083741244d3079d4f14449e049"
   dependencies:
     loader-utils "^0.2.7"
-
-vue-swipe@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/vue-swipe/-/vue-swipe-2.0.0.tgz#9037d2815de53cd6a63d8c347ade88a7c6de3edb"
-  dependencies:
-    wind-dom "0.0.3"
 
 vue-template-compiler@^2.0.5:
   version "2.1.6"
@@ -5747,10 +5759,6 @@ wide-align@^1.1.0:
   resolved "https://registry.yarnpkg.com/wide-align/-/wide-align-1.1.0.tgz#40edde802a71fea1f070da3e62dcda2e7add96ad"
   dependencies:
     string-width "^1.0.1"
-
-wind-dom@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/wind-dom/-/wind-dom-0.0.3.tgz#3456e3d959dbebdcbf76ca68c6a4e8142f26360f"
 
 window-size@0.1.0:
   version "0.1.0"
