@@ -63,7 +63,21 @@ export default{
       }, 700);
     },
     selectDataset(dataset) {
-      router.push(`/playground/${dataset.id}`);
+      this.$router.push(`/playground/${dataset.id}`);
+    },
+    navigateDown(e) {
+      const element = e.target.tagName === 'LI'
+      ? e.target.nextElementSibling
+      : this.$refs['search-results-list'].firstChild;
+
+      element.focus();
+    },
+    navigateUp(e) {
+      const element = e.target.previousElementSibling
+      ? e.target.previousElementSibling
+      : this.$refs['search-input'];
+
+      element.focus();
     },
   },
   components: {
