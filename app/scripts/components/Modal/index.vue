@@ -24,9 +24,6 @@ export default{
     onKeyup(e) {
       if (e.keyCode === 27) this.close();
     },
-    stopProp(e) {
-      e.stopPropagation();
-    }
   },
   beforeDestroy() {
     window.removeEventListener('keyup', this.onKeyup);

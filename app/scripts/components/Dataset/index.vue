@@ -40,7 +40,7 @@ export default{
   },
   methods: {
     selectDataset() {
-      router.push(`/playground/${this.dataset.id}`);
+      this.$router.push(`/playground/${this.dataset.id}`);
     },
     getMetadataInfo() {
       const metadata = this.dataset.metadata[0];
