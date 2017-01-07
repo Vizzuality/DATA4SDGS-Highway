@@ -8,6 +8,7 @@ import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
 import VisualizationComponent from 'components/Visualization';
 import CountriesComponent from 'components/Countries';
+import CountryComponent from 'components/Country';
 
 Vue.use(VueRouter);
 
@@ -28,17 +29,15 @@ const routes = [
       HeroComponent,
       HeaderComponent,
       FooterComponent,
-    }
-  },
-
-  {
-    path: '/playground/:dataset',
-    components: {
-      default: PlaygroundComponent,
-      HeroComponent,
-      HeaderComponent,
-      FooterComponent,
-    }
+    },
+    children: [
+      {
+        path: ':dataset',
+        components: {
+          default: PlaygroundComponent,
+        },
+      },
+    ],
   },
 
   {
@@ -52,11 +51,21 @@ const routes = [
   },
 
   {
+    path: '/countries/:country',
+    components: {
+      default: CountryComponent,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
+    },
+  },
+
+  {
     path: '/map',
     components: {
       default: VisualizationComponent,
       HeaderComponent,
-    }
+    },
   },
 
   { path: '*', redirect: '/' },

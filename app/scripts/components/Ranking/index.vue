@@ -19,6 +19,9 @@ export default{
       return !!item.properties.pixel_area
       && !!Object.values(item.properties.transition_types).length;
     },
+    selectItem(name) {
+      this.$router.push(`/countries/${name}`);
+    },
   },
   components: {
     ChartComponent,
