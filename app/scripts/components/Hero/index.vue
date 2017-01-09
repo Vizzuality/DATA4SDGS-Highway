@@ -23,8 +23,15 @@ export default {
     },
     location() {
       const computedLocation = {};
-      computedLocation.home = this.$route.path === '/';
-      computedLocation.playground = this.$route.path === '/playground';
+      let location = this.$route.path;
+      let params = [...Object.values(this.$route.params)];
+
+      params = params.join('/');
+      params = params && `/${params}`;
+      location = params ? location.split(params)[0] : location;
+
+      computedLocation.home = location === '/';
+      computedLocation.playground = location === '/playground';
 
       return computedLocation;
     },

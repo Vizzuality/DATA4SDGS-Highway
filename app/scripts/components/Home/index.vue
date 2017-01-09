@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     goToPlayground() {
-      router.push('/playground');
+      this.$router.push('/playground');
     },
   },
   components: {
