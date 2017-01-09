@@ -6,6 +6,8 @@
 
   import IconComponent from '../Icon';
 
+  const urlEncoded = encodeURIComponent(window.location.href);
+
   export default {
     name: 'share-component',
     components: {
@@ -13,8 +15,16 @@
     },
     data() {
       return {
-        sharedUrl: window.location.href
+        sharedUrl: window.location.href,
       };
+    },
+    computed: {
+      facebookEncondedUrl() {
+        return `https://www.facebook.com/sharer/sharer.php?u=${urlEncoded}&t=Global Cancer Project Map`;
+      },
+      twitterEncondedUrl() {
+        return `https://twitter.com/share?url=${urlEncoded}`;
+      },
     },
     methods: {
       handleCopy() {
