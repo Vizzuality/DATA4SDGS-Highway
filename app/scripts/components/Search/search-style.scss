@@ -22,6 +22,7 @@ $checkbox-color: #87929a;
       padding: 0 $small-margin;
       border-radius: 2px 2px 0 0;
       border: 0;
+      outline: none;
     }
 
     .search-results-list {
@@ -40,6 +41,7 @@ $checkbox-color: #87929a;
 
       .search-results-item {
         padding:  $small-margin / 2 $medium-margin;
+        outline: none;
 
         &.-error {
           color: rgba(red, 0.5);
@@ -47,10 +49,11 @@ $checkbox-color: #87929a;
         }
 
         &.-item {
-          &:hover {
+          &:hover, &:focus {
             background-color: $gold-yellow;
             color: $theme-base;
           }
+
         }
       }
     }

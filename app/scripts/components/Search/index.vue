@@ -8,6 +8,12 @@ import CheckboxComponent from 'components/Checkbox';
 
 export default{
   name: 'search-component',
+  created() {
+    window.addEventListener('keydown', this.onKeydown);
+  },
+  beforeDestroy() {
+    window.removeEventListener('keydown', this.onKeydown);
+  },
   data() {
     return {
       filters: [{
@@ -63,7 +69,30 @@ export default{
       }, 700);
     },
     selectDataset(dataset) {
-      router.push(`/playground/${dataset.id}`);
+      this.$router.push(`/playground/${dataset.id}`);
+    },
+    navigateDown(e) {
+      const element = e.target.tagName === 'LI'
+      ? e.target.nextElementSibling
+      : this.$refs['search-results-list'].firstChild;
+
+      element && element.focus();
+    },
+    navigateUp(e) {
+      const element = e.target.previousElementSibling
+      ? e.target.previousElementSibling
+      : this.$refs['search-input'];
+
+      element && element.focus();
+    },
+    onKeydown(e) {
+      const focusedElement = document.activeElement;
+      if (e.which === 40 || e.which === 38) {
+        if (focusedElement.classList.contains('js-search-input')
+        || focusedElement.classList.contains('js-search-results-item')) {
+          e.preventDefault();
+        }
+      }
     },
   },
   components: {
