@@ -13,8 +13,14 @@
     },
     data() {
       return {
-        sharedUrl: 'http://www.google.es'
+        sharedUrl: window.location.href
       };
-    }
+    },
+    methods: {
+      handleCopy() {
+        document.getElementById('copyInput').select();
+        document.execCommand('copy');
+      },
+    },
   };
 </script>
