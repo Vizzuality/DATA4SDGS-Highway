@@ -10,11 +10,11 @@ import RankingComponent from 'components/Ranking';
 export default{
   name: 'countries-component',
   created() {
-    if (!this.countries.length) this.$store.dispatch('getCountries');
+    if (!this.countries.length) this.$store.dispatch('setCountries');
   },
   computed: {
     ...mapGetters({
-      countries: 'getAllCountries',
+      countries: 'getCountries',
     }),
   },
   components: {

@@ -8,7 +8,7 @@
     >
       <span class="list-item-index">{{index + 1}}</span>
       {{item.properties.name}}
-      <chart-component :options="item.properties" :container="item.id"></chart-component>
+      <chart-component :options="chartOptions" :chart-data="item.properties" :container="item.id"></chart-component>
     </li>
   </ul>
 </div>
