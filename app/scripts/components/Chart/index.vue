@@ -10,7 +10,7 @@ export default{
   name: 'chart-component',
   mounted() {
     this.chart = c3.generate({
-      bindto: this.$refs[this.name],
+      bindto: this.$refs[this.chart],
       size: {
         width: undefined,
         height: undefined,
@@ -62,7 +62,7 @@ export default{
     },
   },
   computed: {
-    name() {
+    chart() {
       return `chart-container-${this.container}`;
     },
     formatedData() {

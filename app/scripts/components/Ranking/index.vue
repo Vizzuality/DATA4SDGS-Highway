@@ -15,7 +15,6 @@ export default{
   },
   methods: {
     hasProps(item) {
-      debugger;
       return !!item.properties.pixel_area
       && !!Object.values(item.properties.transition_types).length;
     },
