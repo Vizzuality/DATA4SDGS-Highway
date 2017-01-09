@@ -1,0 +1,14 @@
+<div class="c-ranking">
+  <ul class="ranking-list">
+    <li class="ranking-list-item"
+        v-for="(item, index) in list"
+        :key="item.id"
+        v-if="hasProps(item)"
+        @click="selectItem(item.properties.name)"
+    >
+      <span class="list-item-index">{{index + 1}}</span>
+      {{item.properties.name}}
+      <chart-component :options="item.properties" :container="item.id"></chart-component>
+    </li>
+  </ul>
+</div>

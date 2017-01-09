@@ -1,0 +1,40 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-ranking {
+  .ranking-list {
+    padding: 0;
+    border-top: 1px solid $theme-complementary;
+    border-bottom: 1px solid $theme-complementary;
+    font-size: $font-size-large;
+    list-style: none;
+
+    .ranking-list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: $small-margin 0;
+      cursor: pointer;
+
+      > .list-item-index {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: 100px;
+        padding: 0 $small-margin;
+        border-right: 1px solid lightgray;
+
+      }
+
+      &:hover {
+        background-color: darken($base-bg-color, 5.5%);
+
+        > .list-item-index {
+          border-right: 1px solid $theme-base;
+        }
+      }
+    }
+  }
+}

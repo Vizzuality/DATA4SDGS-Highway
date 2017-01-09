@@ -23,9 +23,9 @@ export default {
     },
     location() {
       const computedLocation = {};
-      if (this.$route.path === '/') {
-        computedLocation.home = true;
-      }
+      computedLocation.home = this.$route.path === '/';
+      computedLocation.playground = this.$route.path === '/playground';
+
       return computedLocation;
     },
   },

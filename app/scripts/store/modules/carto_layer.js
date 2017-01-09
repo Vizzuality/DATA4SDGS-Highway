@@ -43,7 +43,7 @@ const cartoLayer = {
       error: false
     },
     clusterLayer: {
-      geojson: null,
+      geojson: {},
       loading: false,
       error: false
     }
