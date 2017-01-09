@@ -5,7 +5,7 @@
 <script>
 import ChartComponent from 'components/Chart';
 
-export default{
+export default {
   name: 'ranking-component',
   props: {
     list: {
@@ -15,7 +15,6 @@ export default{
   },
   methods: {
     hasProps(item) {
-      debugger;
       return !!item.properties.pixel_area
       && !!Object.values(item.properties.transition_types).length;
     },
