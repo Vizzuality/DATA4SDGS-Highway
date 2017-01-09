@@ -9,18 +9,21 @@
     <div class="columns small-5 medium-4 medium-offset-5">
       <nav>
         <ul>
-          <li :class="getTabClass('/')">
-            <router-link to="/about">About Us</router-link>
-          </li>
-          <li :class="getTabClass('/playground')">
-            <router-link to="/playground">Playground</router-link>
-          </li>
-          <li :class="getTabClass('/countries')">
-            <router-link to="/countries">Countries</router-link>
-          </li>
-          <li :class="getTabClass('/map')">
-            <router-link to="/map">Map</router-link>
-          </li>
+          <router-link active-class="-active" class="header-tab" tag="li" to="/" exact>
+            <a>About Us</a>
+          </router-link>
+
+          <router-link active-class="-active" class="header-tab" tag="li" to="/playground">
+            <a>Playground</a>
+          </router-link>
+
+          <router-link active-class="-active" class="header-tab" tag="li" to="/countries">
+            <a>Countries</a>
+          </router-link>
+
+          <router-link active-class="-active" class="header-tab" tag="li" to="/map">
+            <a>Map</a>
+          </router-link>
         </ul>
       </nav>
     </div>
