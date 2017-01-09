@@ -20,7 +20,7 @@
     },
     computed: {
       facebookEncondedUrl() {
-        return `https://www.facebook.com/sharer/sharer.php?u=${urlEncoded}&t=Global Cancer Project Map`;
+        return `https://www.facebook.com/sharer/sharer.php?u=${urlEncoded}&t=DATA4SDGS Highway Map`;
       },
       twitterEncondedUrl() {
         return `https://twitter.com/share?url=${urlEncoded}`;
