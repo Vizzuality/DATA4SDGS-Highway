@@ -77,7 +77,7 @@ const searchDatasets = {
   getters: {
     getSearchNotFound(state) {
       return state.search.query && !state.search.error
-        && !state.search.list && !state.search.loading;
+        && !state.search.list.length && !state.search.loading;
     },
     getSearchListData(state) {
       return state.search.list;
