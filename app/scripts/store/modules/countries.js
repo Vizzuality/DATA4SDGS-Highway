@@ -1,8 +1,8 @@
 import countryData from 'data/countries_2.json';
 
 import {
-  GET_COUNTRIES_SUCCESS,
-  GET_COUNTRIES_ERROR,
+  SET_COUNTRIES_SUCCESS,
+  SET_COUNTRIES_ERROR,
   SET_SELECTED_COUNTRY
 } from '../mutation-types';
 
@@ -17,10 +17,10 @@ const countries = {
 
   // MUTATIONS
   mutations: {
-    [GET_COUNTRIES_SUCCESS](state, data) {
+    [SET_COUNTRIES_SUCCESS](state, data) {
       state.list = data;
     },
-    [GET_COUNTRIES_ERROR](state, error) {
+    [SET_COUNTRIES_ERROR](state, error) {
       state.error = error.message;
     },
     [SET_SELECTED_COUNTRY](state, country) {
@@ -30,8 +30,8 @@ const countries = {
 
   // ACTIONS
   actions: {
-    getCountries({ commit }) {
-      commit(GET_COUNTRIES_SUCCESS, countryData.features);
+    setCountries({ commit }) {
+      commit(SET_COUNTRIES_SUCCESS, countryData.features);
     },
     setSelectedCountry({ commit }, country) {
       commit(SET_SELECTED_COUNTRY, country);
@@ -46,7 +46,7 @@ const countries = {
     getSelectedCountryName(state) {
       return state.selected ? state.selected.properties.name : null;
     },
-    getAllCountries(state) {
+    getCountries(state) {
       return state.list;
     },
   }

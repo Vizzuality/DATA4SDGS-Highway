@@ -17,7 +17,7 @@
   export default {
     name: 'visualization-component',
     created() {
-      this.$store.dispatch('getCountries');
+      this.$store.dispatch('setCountries');
     },
     data() {
       return {
