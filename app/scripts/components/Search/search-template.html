@@ -8,7 +8,7 @@
           <input
             type="search"
             placeholder="Search for data..."
-            class="search-input"
+            class="search-input js-search-input"
             v-model.trim="queryState"
             @keyup.down="navigateDown"
             ref="search-input"
@@ -19,12 +19,12 @@
             <li v-else-if="notFound" class="search-results-item">{{notFoundMessage}}</li>
             <li
               tabindex="-1"
-              class="search-results-item -item"
+              class="search-results-item -item js-search-results-item"
               v-else-if="query"
               v-for="(result, index) in results"
               @click="selectDataset(result)"
               @keyup.enter="selectDataset(result)"
-              @keyup.down.stop.prevent.capture="navigateDown"
+              @keyup.down="navigateDown"
               @keyup.up="navigateUp"
             >
               {{result.name}}
