@@ -19,16 +19,17 @@
       };
     },
     computed: {
-      facebookEncondedUrl() {
+      facebookEncodedUrl() {
         return `https://www.facebook.com/sharer/sharer.php?u=${urlEncoded}&t=DATA4SDGS Highway Map`;
       },
-      twitterEncondedUrl() {
+      twitterEncodedUrl() {
         return `https://twitter.com/share?url=${urlEncoded}`;
       },
     },
     methods: {
       handleCopy() {
-        document.getElementById('copyInput').select();
+        debugger;
+        this.$refs.copyInput.select();
         document.execCommand('copy');
       },
     },
