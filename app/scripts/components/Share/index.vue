@@ -28,7 +28,6 @@
     },
     methods: {
       handleCopy() {
-        debugger;
         this.$refs.copyInput.select();
         document.execCommand('copy');
       },
