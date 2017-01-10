@@ -19,9 +19,9 @@ const cartoDic = {
     interactivity: ['cartodb_id', 'grid_id']
   },
   protected: {
-    cartocss: '#layer{polygon-fill: #0078ff; polygon-opacity: 0.7; line-color: #FFF; line-width: 0; line-opacity: 1;}',
-    sql: 'SELECT * FROM ptw_grid_only_scoreover0',
-    interactivity: ['cartodb_id', 'grid_id']
+    cartocss: '#wdpa_protected_areas { polygon-opacity: 0.5; line-width: 0.2; line-opacity: 1;} #wdpa_protected_areas[iucn_cat="Ia"] { polygon-fill: #5ca2d1; line-color: #5ca2d1;} #wdpa_protected_areas[iucn_cat="Ib"] { polygon-fill: #3e7bb6; line-color: #3e7bb6;} #wdpa_protected_areas[iucn_cat="II"] { polygon-fill: #0f3b82; line-color: #0f3b82;} #wdpa_protected_areas[iucn_cat="III"] { polygon-fill: #c9ddff; line-color: #c9ddff;} #wdpa_protected_areas[iucn_cat="IV"] { polygon-fill: #b9b2a1; line-color: #b9b2a1;} #wdpa_protected_areas[iucn_cat="V"] { polygon-fill: #ae847e; line-color: #ae847e;} #wdpa_protected_areas[iucn_cat="VI"] { polygon-fill: #daa89b; line-color: #daa89b;} #wdpa_protected_areas[iucn_cat="Not Applicable"] { polygon-fill: #eed54c; line-color: #eed54c;} #wdpa_protected_areas[iucn_cat="Not Assigned"] { polygon-fill: #e7ab36; line-color: #e7ab36;} #wdpa_protected_areas[iucn_cat="Not Reported"] { polygon-fill: #fa894b; line-color: #fa894b;}',
+    sql: 'SELECT the_geom, the_geom_webmercator, iucn_cat, iso3 FROM wdpa_protected_areas',
+    interactivity: ['iucn_cat']
   },
 };
 

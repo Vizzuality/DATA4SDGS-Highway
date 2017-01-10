@@ -100,7 +100,7 @@
         utfGrid.addEventListener('click', (data) => {
           data && data.data && L.popup()
             .setLatLng(data.latlng || data.latLng)
-            .setContent(`<div><h3>${data.data.cartodb_id}</h3></div>`)
+            .setContent(`<div><h3>${data.data.iucn_cat}</h3></div>`)
             .openOn(this.map);
         });
       },
