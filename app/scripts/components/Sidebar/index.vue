@@ -41,6 +41,9 @@
         e.target.parentElement.classList.toggle('-active');
         this.$store.dispatch('setCartoLayerSlug', { slug: e.target.name, addLayer });
       },
+      showLayerLegend(e) {
+        e.target.parentElement.classList.toggle('-active');
+      },
     },
     components: {
       Multiselect,
