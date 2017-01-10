@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header v-if="!location.map" class="l-header">
+    <header v-bind:class="{'l-header': true, '-over': location.map }">
       <router-view name="HeaderComponent"></router-view>
     </header>
     <main class="l-main">
@@ -22,7 +22,7 @@ export default {
     location() {
       const computedLocation = {};
       computedLocation.home = this.$route.path === '/';
-
+      computedLocation.map = this.$route.path === '/map';
       return computedLocation;
     },
   },
