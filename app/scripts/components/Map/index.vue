@@ -112,14 +112,15 @@
       },
 
       removeCurrentCartoLayer() {
-        this.removeLayer(this.cartoLayers[this.slug].layer);
-        this.removeLayer(this.cartoLayers[this.slug].utfGrid);
-
-        const layers = {};
-        Object.keys(this.cartoLayers).forEach((item) => {
-          if (item !== this.slug) layers[item] = this.cartoLayers[item];
-        });
-        this.cartoLayers = layers;
+        if (this.cartoLayers[this.slug]) {
+          this.removeLayer(this.cartoLayers[this.slug].layer);
+          // this.removeLayer(this.cartoLayers[this.slug].utfGrid);
+          const layers = {};
+          Object.keys(this.cartoLayers).forEach((item) => {
+            if (item !== this.slug) layers[item] = this.cartoLayers[item];
+          });
+          this.cartoLayers = layers;
+        }
       },
     },
 
