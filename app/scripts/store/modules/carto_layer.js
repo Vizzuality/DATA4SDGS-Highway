@@ -9,6 +9,7 @@ import {
   SET_CARTO_CLUSTER_LAYER_SUCCESS,
   SET_CARTO_CLUSTER_LAYER_ERROR,
   SET_CARTO_CLUSTER_LAYER_LOADING,
+  RESET_CARTO_LAYER_OPTIONS,
 } from '../mutation-types';
 
 const baseUrl = 'https://wri-01.cartodb.com/api/v1/map';
@@ -59,6 +60,15 @@ const cartoLayer = {
     [SET_CARTO_LAYER_ERROR](state, error) {
       state.layer.error = error;
     },
+    [RESET_CARTO_LAYER_OPTIONS](state) {
+      state.layer = {
+        specs: {
+          slug: null,
+          addLayer: null
+        },
+        cartoLayerId: null
+      };
+    },
     [SET_CARTO_MARKERS_LAYER_SUCCESS](state, layer) {
       state.markerLayer.layer = layer;
     },
@@ -76,7 +86,7 @@ const cartoLayer = {
     },
     [SET_CARTO_CLUSTER_LAYER_LOADING](state, loading) {
       state.clusterLayer.loading = loading;
-    }
+    },
   },
   actions: {
     setMarkerLayer({ commit }) {
@@ -131,6 +141,10 @@ const cartoLayer = {
             reject(error);
           });
       });
+    },
+
+    resetCartoLayerOptions({ commit }) {
+      commit(RESET_CARTO_LAYER_OPTIONS);
     },
 
     setClusterLayer({ commit, state }) {
