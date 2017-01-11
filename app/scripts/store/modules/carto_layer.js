@@ -15,7 +15,7 @@ import {
 const baseUrl = 'https://wri-01.cartodb.com/api/v1/map';
 const cartoDic = {
   protected: {
-    cartocss: '#wdpa_protected_areas { polygon-opacity: 0.5; line-width: 0.2; line-opacity: 1; polygon-fill: #ffd722; line-color: #ffd722;} ',
+    cartocss: '#wdpa_protected_areas { polygon-opacity: 0.8; line-width: 0.2; line-opacity: 1; polygon-fill: #918D0D; line-color: #918D0D;} ',
     sql: 'SELECT the_geom, the_geom_webmercator, iucn_cat, iso3 FROM wdpa_protected_areas',
     interactivity: ['iucn_cat']
   },
