@@ -14,6 +14,13 @@ export default{
       displayedLang: 'javascript',
     };
   },
+  mounted() {
+    hljs.highlightBlock(this.$refs.snippet);
+  },
+  updated() {
+    this.$refs.snippet.innerText = this.snippet;
+    hljs.highlightBlock(this.$refs.snippet);
+  },
   computed: {
     snippet() {
       let url = this.selectedDataset.connectorUrl;

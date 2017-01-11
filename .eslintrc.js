@@ -10,7 +10,8 @@ module.exports = {
     'html'
   ],
   globals: {
-    'fetch': true
+    'fetch': true,
+    'hljs': true
   },
   env: {
     "browser": true
