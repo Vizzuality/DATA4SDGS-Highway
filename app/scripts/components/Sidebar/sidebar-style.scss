@@ -4,7 +4,7 @@
   background-color: $white;
   position: absolute;
   width: 333px;
-  top: 136px;
+  bottom: rem(70);
   right: $visualization-padding-side;
   z-index: 101;
   box-shadow: 5px 0 2px 0 rgba(0, 0, 0, 0.2);
@@ -157,6 +157,50 @@
       transition: all .5s ease-in;
     }
   }
+
+  &.-list {
+    flex-flow: column;
+    align-items: flex-start;
+
+    &.-active {
+      ul {
+        opacity: 1;
+        height: auto;
+        overflow: auto;
+      }
+
+      .arrow {
+        transform: translate(3px, 1px) rotate(-135deg);
+      }
+    }
+
+    button {
+      &:focus { outline: none; }
+    }
+
+    .arrow {
+      display: inline-block;
+      width: rem(8);
+      height: rem(8);
+      margin-right: rem(17);
+      transform: translate(3px, -2px) rotate(45deg);
+      border-right: rem(1) solid $grayed-black;
+      border-bottom: rem(1) solid $grayed-black;
+      transition: all .2s ease-out;
+    }
+
+    ul {
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      margin-top: rem(4);
+      padding-left: rem(20);
+
+      li {
+        margin-bottom: 4px;
+      }
+    }
+  }
 }
 
 .legend-spec {
@@ -179,16 +223,19 @@
       border-radius: 50%;
     }
 
-    &.-orange {
-      background-color: #FF6600;
-    }
-
-    &.-blue {
-      background-color: #0078ff;
-    }
-
     &.-yellow {
       background-color: $gold-yellow;
     }
+
+    &.-ia { background-color: #fdc2b1; }
+    &.-ib { background-color: #f38d71; }
+    &.-ii { background-color: #ff8b00; }
+    &.-iii { background-color: #f75e33; }
+    &.-iv { background-color: #ff3535; }
+    &.-v { background-color: #cd1717; }
+    &.-vi { background-color: #8f0303; }
+    &.-notApplicable { background-color: #fa578d; }
+    &.-notAssigned { background-color: #f88ba2; }
+    &.-notReported { background-color: #ffbad1; }
   }
 }

@@ -14,7 +14,8 @@ export default class BubbleClusterLayer {
 
     // MARKER
     pruneCluster.BuildLeafletIcon = (feature) => {
-      const location = feature.geometry.coordinates;
+      // const location = feature.geometry.coordinates;
+      const location = [feature.lng, feature.lat];
       const marker = new PruneCluster.Marker(location[1], location[0]); // lat, lng
       marker.data.feature = feature;
       return marker;
@@ -23,12 +24,15 @@ export default class BubbleClusterLayer {
     pruneCluster.PrepareLeafletMarker = (leafletMarker, { feature }) => {
       // Options
       const options = {
-        location: feature.geometry.coordinates,
+        // location: feature.geometry.coordinates,
+        location: [feature.lat, feature.lng],
         className: 'c-marker-bubble',
-        size: BubbleClusterLayer.getSize(feature.properties.value),
-        data: feature.properties,
-        htmlIcon: BubbleClusterLayer.setMarkerHtml(feature.properties.value),
-        htmlInfowindow: BubbleClusterLayer.setInfowindowHtml(feature.properties)
+        // size: BubbleClusterLayer.getSize(feature.properties.value),
+        size: BubbleClusterLayer.getSize(1),
+        data: feature.name,
+        // htmlIcon: BubbleClusterLayer.setMarkerHtml(feature.properties.value),
+        htmlIcon: BubbleClusterLayer.setMarkerHtml(feature.name),
+        htmlInfowindow: BubbleClusterLayer.setInfowindowHtml(feature.name)
       };
 
       leafletMarker.setIcon(L.divIcon({
@@ -109,7 +113,7 @@ export default class BubbleClusterLayer {
   static setInfowindowHtml(properties) {
     return (`
       <div class="c-infowindow -no-iteraction">
-      <h3>${properties.country}</h3>
+      <h3>${properties}</h3>
       </div>`
     );
   }

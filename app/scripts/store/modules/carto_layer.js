@@ -19,9 +19,9 @@ const cartoDic = {
     interactivity: ['cartodb_id', 'grid_id']
   },
   protected: {
-    cartocss: '#layer{polygon-fill: #0078ff; polygon-opacity: 0.7; line-color: #FFF; line-width: 0; line-opacity: 1;}',
-    sql: 'SELECT * FROM ptw_grid_only_scoreover0',
-    interactivity: ['cartodb_id', 'grid_id']
+    cartocss: '#wdpa_protected_areas { polygon-opacity: 0.5; line-width: 0.2; line-opacity: 1;} #wdpa_protected_areas[iucn_cat="Ia"] { polygon-fill: #fdc2b1; line-color: #fdc2b1;} #wdpa_protected_areas[iucn_cat="Ib"] { polygon-fill: #f38d71; line-color: #f38d71;} #wdpa_protected_areas[iucn_cat="II"] { polygon-fill: #ff8b00; line-color: #ff8b00;} #wdpa_protected_areas[iucn_cat="III"] { polygon-fill: #f75e33; line-color: #f75e33;} #wdpa_protected_areas[iucn_cat="IV"] { polygon-fill: #ff3535; line-color: #ff3535;} #wdpa_protected_areas[iucn_cat="V"] { polygon-fill: #cd1717; line-color: #cd1717;} #wdpa_protected_areas[iucn_cat="VI"] { polygon-fill: #8f0303; line-color: #8f0303;} #wdpa_protected_areas[iucn_cat="Not Applicable"] { polygon-fill: #fa578d; line-color: #fa578d;} #wdpa_protected_areas[iucn_cat="Not Assigned"] { polygon-fill: #f88ba2; line-color: #f88ba2;} #wdpa_protected_areas[iucn_cat="Not Reported"] { polygon-fill: #ffbad1; line-color: #ffbad1;}',
+    sql: 'SELECT the_geom, the_geom_webmercator, iucn_cat, iso3 FROM wdpa_protected_areas',
+    interactivity: ['iucn_cat']
   },
 };
 
@@ -86,7 +86,14 @@ const cartoLayer = {
   actions: {
     setMarkerLayer({ commit }) {
       // TODO: make real request to API
-      const url = "https://wri-01.carto.com/api/v2/sql?q=with s as (SELECT iso, region, value, commodity FROM combined01_prepared WHERE year = 2005 and impactparameter='Food Demand' and scenario='SSP2-GFDL' and iso is not null ), r as (SELECT iso, region, sum(value) as value FROM s group by iso, region), d as (SELECT st_asgeojson(st_centroid(the_geom)) as geometry, value, region FROM impact_regions_159 t inner join r on new_region=iso) select json_build_object('type','FeatureCollection','features',json_agg(json_build_object('geometry',cast(geometry as json),'properties', json_build_object('value',value,'country',region),'type','Feature'))) as data from d"; // eslint-disable-line
+      // const url = "https://wri-01.carto.com/api/v2/sql?q=with s as (SELECT iso, region, value, commodity FROM combined01_prepared WHERE year = 2005 and impactparameter='Food Demand' and scenario='SSP2-GFDL' and iso is not null ), r as (SELECT iso, region, sum(value) as value FROM s group by iso, region), d as (SELECT st_asgeojson(st_centroid(the_geom)) as geometry, value, region FROM impact_regions_159 t inner join r on new_region=iso) select json_build_object('type','FeatureCollection','features',json_agg(json_build_object('geometry',cast(geometry as json),'properties', json_build_object('value',value,'country',region),'type','Feature'))) as data from d"; // eslint-disable-line
+      const url = `https://simbiotica.carto.com/api/v2/sql?q=
+        SELECT actor1countrycode AS iso, eventcode, actor1geo_fullname AS name,
+          actor1geo_lat AS lat, actor1geo_long AS lng
+        FROM gdelt_project_data_filtered
+        WHERE actor1geo_lat is not null and actor1geo_long is not null
+        ORDER BY eventcode
+        LIMIT 10000`;
       commit(SET_CARTO_MARKERS_LAYER_SUCCESS, { url });
     },
 
@@ -147,7 +154,9 @@ const cartoLayer = {
             response.json()
           ).then((data) => {
             commit(SET_CARTO_CLUSTER_LAYER_LOADING, false);
-            commit(SET_CARTO_CLUSTER_LAYER_SUCCESS, data.rows[0].data);
+            // commit(SET_CARTO_CLUSTER_LAYER_SUCCESS, data.rows[0].data);
+            commit(SET_CARTO_CLUSTER_LAYER_SUCCESS, { features: data.rows,
+              type: 'FeatureCollection' });
             resolve();
           })
         .catch((error) => {

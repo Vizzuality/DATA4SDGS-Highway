@@ -22,6 +22,8 @@
     }
     .-over & {
       &.-lead {
+        padding-top: rem(18);
+        padding-bottom: rem(18);
         background-color: rgba(0, 0, 0, .5);
       }
       &.-secondary {
@@ -50,10 +52,6 @@
     a {
       padding: 20px 0;
       display: block;
-      &.-disabled {
-        opacity: .5;
-        pointer-events: none;
-      }
     }
     li {
       position: relative;
@@ -103,8 +101,11 @@
       font-size: 16px;
       letter-spacing: .4px;
       transition: opacity linear .1s;
-      &:hover {
+      &:not(.-disabled):hover {
         opacity: .66;
+      }
+      &.-disabled {
+        pointer-events: none;
       }
     }
   }
