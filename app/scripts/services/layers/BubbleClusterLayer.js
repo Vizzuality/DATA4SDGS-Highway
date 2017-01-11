@@ -1,6 +1,14 @@
 import L from 'leaflet';
 import { PruneCluster, PruneClusterForLeaflet } from 'lib/PruneCluster';
 
+const sizesDic = {
+  unit: 5,
+  small: 26,
+  medium: 36,
+  big: 44,
+  huge: 52
+};
+
 /**
  * Creating buble cluster marker for food layers
  * @param  {Array} geoJson
@@ -89,10 +97,20 @@ export default class BubbleClusterLayer {
     };
 
     pruneCluster.BuildLeafletClusterIcon = (cluster) => {
+      const cuantity = cluster.population;
       const icon = pruneCluster.originalIcon(cluster);
-      icon.options.iconSize = new L.Point(30, 30, null);
+      let size = sizesDic.medium;
+
+      if (cuantity <= 100) {
+        size = sizesDic.small;
+      } else if (cuantity > 200 && cuantity <= 300) {
+        size = sizesDic.big;
+      } else if (cuantity > 300) {
+        size = sizesDic.huge;
+      }
+      icon.options.iconSize = new L.Point(size, size, null);
       icon.options.className = 'c-marker-cluster-bubble';
-      icon.text = cluster.population;
+      icon.text = cuantity;
 
       return icon;
     };
