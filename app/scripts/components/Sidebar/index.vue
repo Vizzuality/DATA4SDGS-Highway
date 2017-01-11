@@ -14,6 +14,7 @@
   export default {
     name: 'sidebar-component',
     mounted() {
+      this.$store.dispatch('resetCartoLayerOptions');
       setTimeout(() => {
         const e = {
           target: this.$refs.protected
