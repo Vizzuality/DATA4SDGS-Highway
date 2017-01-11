@@ -1,0 +1,19 @@
+<div class="c-share">
+  <h3 class="share-title">Share this page</h3>
+  <div class="share-url-container">
+    <input readonly ref="copyInput" class="share-input" type="text" v-bind:value="sharedUrl">
+    <button class="c-button -filled" type="button" @click="handleCopy">Copy</button>
+  </div>
+  <ul class="share-links">
+    <li class="share-links-item">
+      <a :href="facebookEncodedUrl" target="_blank" type="button" name="button">
+        <icon-component class="-small" name="icon-facebook"></icon-component>
+      </a>
+    </li>
+    <li class="share-links-item">
+      <a :href="twitterEncodedUrl" target="_blank" type="button" name="button">
+        <icon-component class="-small" name="icon-twitter"></icon-component>
+      </a>
+    </li>
+  </ul>
+</div>

@@ -12,13 +12,5 @@ export default {
       d4sdgLogo,
     };
   },
-  computed: {
-    firstTabClass() {
-      return this.$route.path === '/' ? 'header-tab -active' : 'header-tab';
-    },
-    secondTabClass() {
-      return this.$route.path === '/playground' ? 'header-tab -active' : 'header-tab';
-    },
-  },
 };
 </script>

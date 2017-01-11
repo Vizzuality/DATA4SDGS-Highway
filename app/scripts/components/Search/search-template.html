@@ -1,26 +1,36 @@
-<div class="c-search row align-left">
-    <div class="column small-2">
-      <dropdown-component>
-      <checkbox-component :items="filters" icon="icon-check"></checkbox-component>
-      </dropdown-component>
-    </div>
-    <div class="column small-8">
-      <div class="search-bar">
-        <input type="search" v-model.trim="queryState" placeholder="Search for data..." class="search-input">
-        <ul class="search-results-list">
-          <li v-if="loading" class="search-results-item">{{loadingMessage}}</li>
-          <li v-else-if="error" class="search-results-item -error">{{errorMessage}}</li>
-          <li v-else-if="notFound" class="search-results-item">{{notFoundMessage}}</li>
-          <li
-            v-else-if="query"
-            v-for="result in results"
-            class="search-results-item -item"
-            @click="selectDataset(result)">
-            {{result.name}}
-          </li>
-        </ul>
+<div class="c-search row">
+      <div class="column small-10 medium-5 large-3 small-offset-1 filters-dropdown">
+        <dropdown-component>
+          <checkbox-component :items="filters" icon="icon-check"></checkbox-component>
+        </dropdown-component>
       </div>
-    </div>
+      <div class="column small-10 medium-6 large-7 small-offset-1 medium-offset-0 search-bar">
+          <input
+            type="search"
+            placeholder="Search for data..."
+            class="search-input js-search-input"
+            v-model.trim="queryState"
+            @keyup.down="navigateDown"
+            ref="search-input"
+          >
+          <ul class="search-results-list" ref="search-results-list">
+            <li v-if="loading" class="search-results-item">{{loadingMessage}}</li>
+            <li v-else-if="error" class="search-results-item -error">{{errorMessage}}</li>
+            <li v-else-if="notFound" class="search-results-item">{{notFoundMessage}}</li>
+            <li
+              tabindex="-1"
+              class="search-results-item -item js-search-results-item"
+              v-else-if="query"
+              v-for="(result, index) in results"
+              @click="selectDataset(result)"
+              @keyup.enter="selectDataset(result)"
+              @keyup.down="navigateDown"
+              @keyup.up="navigateUp"
+            >
+              {{result.name}}
+            </li>
+          </ul>
+      </div>
 </div>
 
 

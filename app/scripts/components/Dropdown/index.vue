@@ -2,7 +2,6 @@
 <style lang="scss" src="./dropdown-style.scss"> </style>
 <script>
 import ButtonComponent from 'components/Button';
-import CheckboxComponent from 'components/Checkbox';
 
 export default{
   name: 'dropdown-component',
@@ -37,7 +36,6 @@ export default{
   },
   components: {
     ButtonComponent,
-    CheckboxComponent,
   },
 };
 </script>

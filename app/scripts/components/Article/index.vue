@@ -5,11 +5,11 @@ export default{
   name: 'article-component',
   props: {
     gridRow: {
-      type: [String, Array],
+      type: [String, Boolean],
       default: 'row align-center',
     },
     gridColumn: {
-      type: [String, Array],
+      type: [String, Boolean],
       default: 'columns small-12 medium-10',
     },
   },

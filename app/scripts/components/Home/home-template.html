@@ -1,35 +1,32 @@
 <div class="c-home">
   <article-component class="about-us">
     <h1>Data4SDGs Developer Playground</h1>
-    <h4>DATA4SDGS GOALS</h4>
 
-    <div class="row">
+    <div class="row expanded">
+
       <div class="column small-12 medium-6 large-4 info-column">
-        <icon-component class="-round -small -base" name="icon-data"></icon-component>
+        <icon-component class="-round -medium -base" name="icon-group"></icon-component>
+        <div class="info-column-text">
+          <h3>Increase openness and leverage existing data.</h3>
+          <p>By bringing together high-value data sets across sectors for achieving the SDGs.</p>
+        </div>
+      </div>
+
+      <div class="column small-12 medium-6 large-4 info-column">
+        <icon-component class="-round -medium -base" name="icon-data"></icon-component>
         <div class="info-column-text">
           <h3>Improve the effective use of data.</h3>
           <p>
-            Focus on Lorem ipsum sit amet dolor finius
-            est valentius vincius dolorem valentis.
+            By providing robust APIs to empower data to be combined in new ways for further insights.
           </p>
         </div>
       </div>
 
       <div class="column small-12 medium-6 large-4 info-column">
-        <icon-component class="-round -small -base" name="icon-group"></icon-component>
+        <icon-component class="-round -medium -base" name="icon-tools"></icon-component>
         <div class="info-column-text">
-          <h3>Increase openness and leverage of existing data.</h3>
-          <p>Focus on Lorem ipsum sit amet dolor finius
-            est valentius vincius dolorem valentis.</p>
-        </div>
-      </div>
-
-      <div class="column small-12 medium-6 large-4 info-column">
-        <icon-component class="-round -small -base" name="icon-tools"></icon-component>
-        <div class="info-column-text">
-        <h3>Visualize your Data towards your brand.</h3>
-        <p>Focus on Lorem ipsum sit amet dolor finius
-          est valentius vincius dolorem valentis.</p>
+        <h3>Enable data for action and decision making</h3>
+        <p>By empowering the developer community to create rich applications and visualizations.</p>
         </div>
       </div>
     </div>
@@ -50,39 +47,41 @@
     </div>
   </article-component>
 
-  <article-component class="-alternative -no-padding" grid-row="row expanded" grid-column="small-12">
-    <div class="row expanded">
+  <article-component class="-alternative -no-padding" grid-row="row expanded" :grid-column="false">
 
       <div class="column small-12 medium-6 split-view">
-        <div class="link-column">
-          <h1 class="-clean -left">Playbook</h1>
-          <p class="-clean">
-            Learn how to turn your SDG data into data services and
-            make it available to millions of software developers.
-          </p>
-          <a class="link-column-action">Read Playbook</a>
+        <div class="link-column row">
+          <div class="column small-10 large-7 large-offset-1">
+            <h1 class="-clean -left">Playbook</h1>
+            <p class="-clean">
+              Learn how to turn your SDG data into data services and
+              make it available to millions of software developers.
+            </p>
+            <a href="https://gpsdd.github.io/playbook/" target="_blank" class="link-column-action">Read Playbook</a>
+          </div>
         </div>
       </div>
 
       <div class="column small-12 medium-6 split-view">
-        <div class="link-column">
-          <h1 class="-clean -left">shared, open software</h1>
-          <p class="-clean">
-            All software used in the making of the developer playground is open source
-            and available online. Take a look and if you want, contribute!
-          </p>
-          <a class="link-column-action">Source Code</a>
+        <div class="link-column row">
+          <div class="column small-10 large-7">
+            <h1 class="-clean -left">shared, open software</h1>
+            <p class="-clean">
+              All software used in the making of the developer playground is open source
+              and available online. Take a look and if you want, contribute!
+            </p>
+            <a href="https://github.com/GPSDD" target="_blank" class="link-column-action">Source Code</a>
+          </div>
         </div>
       </div>
 
-    </div>
   </article-component>
 
   <article-component>
     <slider-component>
       <div v-for="tweet in twitterSlides">
         <div class="tweet">
-          <h4 class="-center -uppercase">What our clients have to say</h4>
+          <h4 class="-center -uppercase">What our champions have to say</h4>
           <p class="tweet-message">{{tweet.message}}</p>
           <div class="tweet-user">
             <span class="tweet-user-tag">Twitter user:</span>
@@ -94,10 +93,10 @@
   </article-component>
 
   <article-component class="-complementary">
-    <h1>Partnership</h1>
+    <h1>Data Champions</h1>
     <h4 class="-light -center -uppercase">
-      150+ partners, providing expertise, data, technology,
-      science to meet the data needs of the SDGs. Here they are.
+      180+ Champions globally representing the full range of data producers and users working to
+      harness the data revolution for sustainable development.
     </h4>
   </article-component>
 </div>

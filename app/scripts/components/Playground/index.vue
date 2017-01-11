@@ -23,6 +23,9 @@ export default{
     next();
   },
   computed: {
+    storeRouter() {
+      return this.$store.route;
+    },
     ...mapGetters({
       featuredDatasets: 'getFeaturedListData',
       loading: 'getFeaturedLoading',
@@ -36,15 +39,15 @@ export default{
   methods: {
     closeModal() {
       this.$store.dispatch('closeConsoleModal');
-      router.push('/playground');
+      this.$router.push('/playground');
     },
   },
   watch: {
-    router() {
-      if (router.params.dataset) {
-        this.$store.dispatch('setSelectedDataset', router.to.params.dataset).then(() => store.dispatch('openConsoleModal'));
+    storeRouter() {
+      if (this.$router.params.dataset) {
+        this.$store.dispatch('setSelectedDataset', this.$router.to.params.dataset).then(() => this.$store.dispatch('openConsoleModal'));
       }
-      router.next();
+      this.$router.next();
     }
   },
   components: {

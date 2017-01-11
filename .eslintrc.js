@@ -10,7 +10,8 @@ module.exports = {
     'html'
   ],
   globals: {
-    'fetch': true
+    'fetch': true,
+    'hljs': true
   },
   env: {
     "browser": true
@@ -33,6 +34,10 @@ module.exports = {
     'comma-dangle': ['error', 'only-multiline'],
     'no-unused-expressions': ['error', { 'allowShortCircuit': true }],
     'no-param-reassign': ['error', { "props": false }],
+    'new-cap': ['error', {
+      "newIsCap": false,
+      "capIsNewExceptionPattern": "^pruneCluster\.."
+    }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }

@@ -21,6 +21,15 @@
   }
 
   &.-small {
+    width: 18px;
+    height: 18px;
+    > svg {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  &.-medium {
     height: 50px;
     width: 50px;
     > svg {
@@ -29,7 +38,7 @@
     }
   }
 
-  &.-medium {
+  &.-large {
     height: 60px;
     width: 60px;
     > svg {

@@ -1,16 +1,20 @@
 // Import global variables
 @import '../../../styles/variables';
 
-$checkbox-color: #87929a;
+$checkbox-color: #aea6a6;
 
 .c-search {
   display: flex;
   align-items: center;
   justify-content: space-around;
 
+  .filters-dropdown {
+    z-index: 1;
+  }
+
   .search-bar {
     height: 60px;
-    width: 600px;
+    width: 100%;
 
     .search-input {
       height: 100%;
@@ -18,6 +22,7 @@ $checkbox-color: #87929a;
       padding: 0 $small-margin;
       border-radius: 2px 2px 0 0;
       border: 0;
+      outline: none;
     }
 
     .search-results-list {
@@ -36,6 +41,7 @@ $checkbox-color: #87929a;
 
       .search-results-item {
         padding:  $small-margin / 2 $medium-margin;
+        outline: none;
 
         &.-error {
           color: rgba(red, 0.5);
@@ -43,13 +49,19 @@ $checkbox-color: #87929a;
         }
 
         &.-item {
-          &:hover {
+          &:hover, &:focus {
             background-color: $gold-yellow;
             color: $theme-base;
           }
+
         }
       }
     }
+
+    @media (max-width: 639px) {
+      margin-top: $small-margin;
+    }
+
   }
 
   .c-checkbox-group {
@@ -60,6 +72,7 @@ $checkbox-color: #87929a;
       > label {
         color: $link-font-color;
         font-size: $font-size-xsmall;
+
         > span {
           width: 16px;
           height: 16px;

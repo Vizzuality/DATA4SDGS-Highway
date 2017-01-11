@@ -6,4 +6,14 @@
 
   background-color: transparent;
   color: $base-bg-color;
+
+  &.-over {
+    z-index: 102;
+
+    .header-logo {
+      img {
+        max-width: 78%;
+      }
+    }
+  }
 }

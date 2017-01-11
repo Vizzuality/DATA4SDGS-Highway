@@ -6,6 +6,10 @@ import PlaygroundComponent from 'components/Playground';
 import HeaderComponent from 'components/Header';
 import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
+import VisualizationComponent from 'components/Visualization';
+import OtherVisualizationPage from 'components/OtherVisualization/Page';
+import CountriesComponent from 'components/Countries';
+import CountryComponent from 'components/Country';
 
 Vue.use(VueRouter);
 
@@ -26,23 +30,69 @@ const routes = [
       HeroComponent,
       HeaderComponent,
       FooterComponent,
-    }
+    },
+    children: [
+      {
+        path: ':dataset',
+        components: {
+          default: PlaygroundComponent,
+        },
+      },
+    ],
   },
 
   {
-    path: '/playground/:dataset',
+    path: '/countries',
     components: {
-      default: PlaygroundComponent,
+      default: CountriesComponent,
       HeroComponent,
       HeaderComponent,
       FooterComponent,
-    }
+    },
   },
 
-  { path: '*', redirect: '/' },
+  {
+    path: '/countries/:country',
+    components: {
+      default: CountryComponent,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
+    },
+  },
+
+  {
+    path: '/examples',
+    redirect: '/examples/1'
+  },
+
+  {
+    path: '/examples/1',
+    components: {
+      default: VisualizationComponent,
+      HeaderComponent,
+    },
+  },
+
+  {
+    path: '/examples/2',
+    components: {
+      default: OtherVisualizationPage,
+      HeaderComponent,
+    },
+  },
+
+  {
+    path: '*',
+    redirect: '/'
+  }
 ];
 
 export default new VueRouter({
   mode: 'history',
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) return savedPosition;
+    return { x: 0, y: 0 };
+  },
 });

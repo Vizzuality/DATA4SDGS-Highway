@@ -2,39 +2,109 @@
 @import '../../../styles/variables';
 
 .c-header{
-
-  padding: $medium-margin;
   a {
     color: inherit;
   }
 
-  .header-logo {
-    position: absolute;
-    transform: translate(-96px, 0);
-
-    @media (max-width: 1330px) {
-      transform: translate(0, 0);
+  .header-section {
+    &.-lead {
+      padding: $medium-margin 0;
+      .header-wrapper {
+        justify-content: space-between;
+      }
     }
-  }
-
-  .header-tab {
-    height: $small-margin * 2;
-    position: relative;
-
-    &.-active {
-
-      &:after {
-        position: absolute;
-        content: '';
-        width: 22px;
-        height: 4px;
-        background-color: $theme-accent;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
+    &.-secondary {
+      padding: 14px 0;
+      display: none;
+      .header-wrapper {
+        justify-content: flex-end;
+      }
+    }
+    .-over & {
+      &.-lead {
+        padding-top: rem(18);
+        padding-bottom: rem(18);
+        background-color: rgba(0, 0, 0, .7);
+      }
+      &.-secondary {
+        display: block;
+        background-color: rgba(0, 0, 0, .5);
       }
     }
   }
 
+  .header-wrapper {
+    max-width: 71rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+}
 
+/*
+  Nav Component
+*/
+
+.nav {
+  // Primary
+  &.-primary {
+    a {
+      padding: 20px 0;
+      display: block;
+    }
+    li {
+      position: relative;
+      margin-right: 20px;
+      &:last-child {
+        margin-right: 0;
+      }
+      &.-active {
+        &:after {
+          position: absolute;
+          content: '';
+          width: 22px;
+          height: 4px;
+          background-color: $theme-accent;
+          left: 50%;
+          bottom: 0;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+  // Secondary
+  &.-secondary {
+    ul {
+      margin: 0;
+    }
+    li {
+      padding: 0 30px;
+      border-right: 1px solid rgba(255, 255, 255, .6);
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+        border-right: none;
+      }
+      &.-active {
+        a {
+          color: $mexican-pink;
+        }
+      }
+    }
+    a {
+      display: block;
+      text-transform: none;
+      font-size: 16px;
+      letter-spacing: .4px;
+      transition: opacity linear .1s;
+      &:not(.-disabled):hover {
+        opacity: .66;
+      }
+      &.-disabled {
+        pointer-events: none;
+      }
+    }
+  }
 }

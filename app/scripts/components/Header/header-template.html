@@ -1,20 +1,39 @@
 <div class="c-header">
-  <div class="row align-top">
-    <div class="columns small-6 medium-2">
+  <div class="header-section -lead">
+    <div class="header-wrapper">
+
       <router-link to="/" class="header-logo">
         <img :src="d4sdgLogo">
       </router-link>
-    </div>
 
-    <div class="columns small-6 medium-3 medium-offset-7">
-      <nav>
+      <nav class="nav -primary">
         <ul>
-          <li :class="firstTabClass">
-            <router-link to="/about">About Us</router-link>
-          </li>
-          <li :class="secondTabClass">
-            <router-link to="/playground">Playground</router-link>
-          </li>
+          <router-link active-class="-active" tag="li" to="/" exact>
+            <a>About Us</a>
+          </router-link>
+
+          <router-link active-class="-active" tag="li" to="/playground">
+            <a>Playground</a>
+          </router-link>
+
+          <router-link active-class="-active" tag="li" to="/examples/">
+            <a>Examples</a>
+          </router-link>
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+  <div class="header-section -secondary">
+    <div class="header-wrapper">
+      <nav class="nav -secondary">
+        <ul>
+          <router-link active-class="-active" tag="li" to="/examples/1" exact>
+            <a>Conflicts related to protected areas</a>
+          </router-link>
+          <router-link active-class="-active" tag="li" to="/examples/2" exact>
+            <a class="-disabled">Regions with greatests water risks</a>
+          </router-link>
         </ul>
       </nav>
     </div>
