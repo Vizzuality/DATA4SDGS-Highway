@@ -7,6 +7,7 @@ import HeaderComponent from 'components/Header';
 import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
 import VisualizationComponent from 'components/Visualization';
+import OtherVisualizationPage from 'components/OtherVisualization/Page';
 import CountriesComponent from 'components/Countries';
 import CountryComponent from 'components/Country';
 
@@ -61,14 +62,30 @@ const routes = [
   },
 
   {
-    path: '/map',
+    path: '/examples',
+    redirect: '/examples/1'
+  },
+
+  {
+    path: '/examples/1',
     components: {
       default: VisualizationComponent,
       HeaderComponent,
     },
   },
 
-  { path: '*', redirect: '/' },
+  {
+    path: '/examples/2',
+    components: {
+      default: OtherVisualizationPage,
+      HeaderComponent,
+    },
+  },
+
+  {
+    path: '*',
+    redirect: '/'
+  }
 ];
 
 export default new VueRouter({
