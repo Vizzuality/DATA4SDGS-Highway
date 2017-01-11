@@ -24,7 +24,8 @@
           attributionControl: false,
           zoom: 3
         },
-        basemapUrl: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png',
+        // basemapUrl: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png',
+        basemapUrl: 'https://cartocdn-ashbu.global.ssl.fastly.net/simbiotica/api/v1/map/simbiotica@1eee80db@b4340298f3a3aaeab77afe5fc8ef0c68:1484153391749/0/{z}/{x}/{y}.png',
       };
     },
     computed: {

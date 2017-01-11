@@ -85,12 +85,13 @@
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  color: white!important;
+  color: #483805!important;
+  text-shadow: rem(1) rem(1) rgba(#483805, .4);
   font-weight: 700!important;
   font-size: 12px;
   padding: 10px;
-  background-color: $gold-yellow;
-  box-shadow: 0px 0px 0px 8px rgba($gold-yellow, 0.5);
+  background-color: rgba(#F0A700, 0.9);
+  box-shadow: 0px 0px 0px 8px rgba(#F0A700, 0.5);
   transition: all .3s ease;
 
   &:hover {
