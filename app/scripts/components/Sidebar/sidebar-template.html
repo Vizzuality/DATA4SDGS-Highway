@@ -46,19 +46,59 @@
     <div class="legend-spec">
       <ul class="c-legend">
         <li class="legend-item">
-          <span class="spec -square -orange"></span>
-          Confirmed Deforestation Areas
-        </li>
-
-        <li class="legend-item">
-          <span class="spec -square -blue"></span>
-          Protected Areas
-        </li>
-
-        <li class="legend-item">
           <span class="spec -dot -yellow"></span>
           Deforestation Alerts
         </li>
+
+        <li class="legend-item -list">
+          <button ref="protectedAreas" @click="showLayerLegend">
+            <span class="arrow"></span>
+            Protected Areas
+          </button>
+          <ul>
+            <li class="legend-item">
+              <span class="spec -square -ia"></span>
+              Ia
+            </li>
+            <li class="legend-item">
+              <span class="spec -square -ib"></span>
+              Ib
+            </li>
+            <li class="legend-item">
+              <span class="spec -square -ii"></span>
+              II
+            </li>
+            <li class="legend-item">
+              <span class="spec -square -iii"></span>
+              III
+            </li>
+            <li class="legend-item">
+              <span class="spec -square -iv"></span>
+              IV
+            </li>
+            <li class="legend-item">
+              <span class="spec -square -v"></span>
+              V
+            </li>
+            <li class="legend-item">
+              <span class="spec -square -vi"></span>
+              VI
+            </li>
+            <li class="legend-item">
+              <span class="spec -square -notApplicable"></span>
+              Not Applicable
+            </li>
+            <li class="legend-item">
+              <span class="spec -square -notAssigned"></span>
+              Not Assigned
+            </li>
+            <li class="legend-item">
+              <span class="spec -square -notReported"></span>
+              Not Reported
+            </li>
+          </ul>
+        </li>
+
         <spinner-component :loading="layerLoading" :overlay="true" class="-absolute"></spinner-component>
       </ul>
     </div>

@@ -22,6 +22,8 @@
     }
     .-over & {
       &.-lead {
+        padding-top: rem(18);
+        padding-bottom: rem(18);
         background-color: rgba(0, 0, 0, .5);
       }
       &.-secondary {
