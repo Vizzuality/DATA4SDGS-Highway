@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <header v-if="!location.map" class="l-header">
+    <header :class="{'l-header': true, '-over': isExamplePage }">
       <router-view name="HeaderComponent"></router-view>
     </header>
     <main class="l-main">
       <router-view name="HeroComponent"></router-view>
       <router-view></router-view>
     </main>
-    <footer v-if="!location.map" class="l-footer">
+    <footer v-if="!isExamplePage" class="l-footer">
       <router-view name="FooterComponent"></router-view>
     </footer>
   </div>
@@ -26,6 +26,9 @@ export default {
 
       return computedLocation;
     },
+    isExamplePage() {
+      return this.$route.path.startsWith('/examples/');
+    }
   },
 };
 

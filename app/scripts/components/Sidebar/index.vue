@@ -13,6 +13,11 @@
 
   export default {
     name: 'sidebar-component',
+    data() {
+      return {
+        isOpen: false,
+      };
+    },
     computed: {
       ...mapGetters({
         cartoLayerSpecs: 'getCartoLayerSpecs',
@@ -22,6 +27,14 @@
       }),
       countries() {
         return this.$store.state.countries.list;
+      },
+      contentOpen() {
+        const isOpen = this.isOpen ? ' -active' : '';
+        return `sidebar-content${isOpen}`;
+      },
+      arrowOpen() {
+        const isOpen = this.isOpen ? ' -active' : '';
+        return `arrow-down${isOpen}`;
       },
     },
     methods: {
@@ -45,6 +58,9 @@
         const layer = e.target === this.$refs.protectedAreas ?
           e.target : e.target.parentElement;
         layer.classList.toggle('-active');
+      },
+      openSidebar() {
+        this.isOpen = !this.isOpen;
       },
     },
     components: {

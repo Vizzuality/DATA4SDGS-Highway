@@ -1,4 +1,4 @@
-@import '../../../styles/variables';
+@import '../../../../styles/variables';
 
 .l-map {
   position: absolute;
@@ -22,21 +22,16 @@
     .leaflet-popup-content-wrapper {
       border-radius: 0;
     }
-
-    h3 {
-      text-align: center;
-    }
   }
 
   .leaflet-control-container {
     .leaflet-left {
       left: auto!important;
-      right: rem(72) !important;
+      right: rem(50) !important;
     }
 
     .leaflet-top {
-      top: auto;
-      bottom: rem(176)!important;
+      top: rem(50)!important;
       z-index: 9999999999!important;
     }
   }

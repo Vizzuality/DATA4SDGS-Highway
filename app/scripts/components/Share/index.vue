@@ -6,6 +6,8 @@
 
   import IconComponent from '../Icon';
 
+  const urlEncoded = encodeURIComponent(window.location.href);
+
   export default {
     name: 'share-component',
     components: {
@@ -13,8 +15,22 @@
     },
     data() {
       return {
-        sharedUrl: 'http://www.google.es'
+        sharedUrl: window.location.href,
       };
-    }
+    },
+    computed: {
+      facebookEncodedUrl() {
+        return `https://www.facebook.com/sharer/sharer.php?u=${urlEncoded}&t=DATA4SDGS Highway Map`;
+      },
+      twitterEncodedUrl() {
+        return `https://twitter.com/share?url=${urlEncoded}`;
+      },
+    },
+    methods: {
+      handleCopy() {
+        this.$refs.copyInput.select();
+        document.execCommand('copy');
+      },
+    },
   };
 </script>

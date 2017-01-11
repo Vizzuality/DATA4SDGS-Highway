@@ -4,8 +4,8 @@
   background-color: $white;
   position: absolute;
   width: 333px;
-  top: 190px;
-  left: $visualization-padding-side;
+  top: 136px;
+  right: $visualization-padding-side;
   z-index: 101;
   box-shadow: 5px 0 2px 0 rgba(0, 0, 0, 0.2);
 
@@ -33,6 +33,64 @@
   }
 }
 
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  color: $white;
+  background-color: $mexican-pink;
+
+  h4 {
+    flex-grow: 1;
+    padding: rem(6) rem(30);
+  }
+
+  button {
+    position: relative;
+    padding: 0 rem(30);
+    border-radius: 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    .viel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .15);
+    }
+  }
+
+  .arrow-down {
+    display: inline-block;
+    width: rem(12);
+    height: rem(12);
+    border-right: rem(2) solid $white;
+    border-bottom: rem(2) solid $white;
+    transform: translateY(-2px) rotate(45deg);
+    transition: all .2s ease-out;
+
+    &.-active {
+      transform: translateY(3px) rotate(-135deg);
+    }
+  }
+}
+
+.sidebar-content {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: all .2s ease-in;
+
+  &.-active {
+    opacity: 1;
+    height: auto;
+    overflow: auto;
+  }
+}
+
 .layers-switch {
   padding: 30px;
 }
@@ -40,7 +98,7 @@
 .c-legend {
   list-style-type: none;
   padding: 0;
-  margin: 20px 0 0 0;
+  margin: 0;
 }
 
 .legend-item {
