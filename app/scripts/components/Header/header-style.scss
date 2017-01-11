@@ -50,6 +50,10 @@
     a {
       padding: 20px 0;
       display: block;
+      &.-disabled {
+        opacity: .5;
+        pointer-events: none;
+      }
     }
     li {
       position: relative;
