@@ -3,7 +3,6 @@
 .c-sidebar {
   background-color: $white;
   position: absolute;
-  width: 333px;
   bottom: rem(70);
   right: $visualization-padding-side;
   z-index: 101;
@@ -69,11 +68,11 @@
     height: rem(12);
     border-right: rem(2) solid $white;
     border-bottom: rem(2) solid $white;
-    transform: translateY(-2px) rotate(45deg);
+    transform: translateY(3px) rotate(-135deg);
     transition: all .2s ease-out;
 
     &.-active {
-      transform: translateY(3px) rotate(-135deg);
+      transform: translateY(-2px) rotate(45deg);
     }
   }
 }
@@ -92,7 +91,7 @@
 }
 
 .layers-switch {
-  padding: 30px;
+  padding: rem(22);
 }
 
 .c-legend {
@@ -204,9 +203,11 @@
 }
 
 .legend-spec {
-  padding: 30px;
+  padding: rem(22);
   background-color: $lightgrey;
   border-top: rem(2) solid #aea6a6;
+  max-height: rem(200);
+  overflow: auto;
 
   .c-legend {
     margin-top: 0;
@@ -217,14 +218,38 @@
     width: 14px;
     height: 14px;
     margin-right: rem(14);
-    margin-bottom: rem(2);
+    margin-bottom: rem(3);
 
     &.-dot {
       border-radius: 50%;
+      width: rem(18);
+      height: rem(18);
+      margin-left: rem(-2);
+      margin-right: rem(12);
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: rem(8);
+        height: rem(8);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
 
     &.-yellow {
-      background-color: $gold-yellow;
+      position: relative;
+      background-color: rgba(239, 166, 0, 0.56);
+
+      &:after {
+        background-color: $gold-yellow;
+      }
+    }
+
+    &.-bright-yellow {
+      background-color: $bright-yellow;
     }
 
     &.-ia { background-color: #fdc2b1; }
