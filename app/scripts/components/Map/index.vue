@@ -65,9 +65,9 @@
       addCartoLayer() {
         this.createLayer(this.cartoLayerId);
         this.addLayer(this.cartoLayers[this.slug].layer);
-        this.addLayer(this.cartoLayers[this.slug].utfGrid, {
-          resolution: 2
-        });
+        // this.addLayer(this.cartoLayers[this.slug].utfGrid, {
+        //   resolution: 2
+        // });
 
         this.setCartoLayerTooltip(this.cartoLayers[this.slug].utfGrid);
         this.$store.dispatch('resetCartoLayerId');
@@ -112,14 +112,15 @@
       },
 
       removeCurrentCartoLayer() {
-        this.removeLayer(this.cartoLayers[this.slug].layer);
-        this.removeLayer(this.cartoLayers[this.slug].utfGrid);
-
-        const layers = {};
-        Object.keys(this.cartoLayers).forEach((item) => {
-          if (item !== this.slug) layers[item] = this.cartoLayers[item];
-        });
-        this.cartoLayers = layers;
+        if (this.cartoLayers[this.slug]) {
+          this.removeLayer(this.cartoLayers[this.slug].layer);
+          // this.removeLayer(this.cartoLayers[this.slug].utfGrid);
+          const layers = {};
+          Object.keys(this.cartoLayers).forEach((item) => {
+            if (item !== this.slug) layers[item] = this.cartoLayers[item];
+          });
+          this.cartoLayers = layers;
+        }
       },
     },
 

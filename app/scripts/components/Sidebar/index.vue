@@ -13,9 +13,17 @@
 
   export default {
     name: 'sidebar-component',
+    mounted() {
+      setTimeout(() => {
+        const e = {
+          target: this.$refs.protected
+        };
+        this.toggleLayer(e);
+      }, 0);
+    },
     data() {
       return {
-        isOpen: false,
+        isOpen: true,
       };
     },
     computed: {
