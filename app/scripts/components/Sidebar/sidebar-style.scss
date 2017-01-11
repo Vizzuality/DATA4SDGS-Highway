@@ -4,7 +4,7 @@
   background-color: $white;
   position: absolute;
   width: 333px;
-  top: 136px;
+  bottom: rem(70);
   right: $visualization-padding-side;
   z-index: 101;
   box-shadow: 5px 0 2px 0 rgba(0, 0, 0, 0.2);
