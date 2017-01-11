@@ -9,18 +9,11 @@
 
   &.-over {
     z-index: 102;
-    background-color: rgba(0, 0, 0, .3);
 
     .header-logo {
-      transform: translate(-96px, -8px);
-
       img {
         max-width: 78%;
       }
-    }
-
-    nav ul {
-      margin-bottom: 0;
     }
   }
 }
