@@ -218,14 +218,34 @@
     width: 14px;
     height: 14px;
     margin-right: rem(14);
-    margin-bottom: rem(2);
+    margin-bottom: rem(3);
 
     &.-dot {
       border-radius: 50%;
+      width: rem(18);
+      height: rem(18);
+      margin-left: rem(-2);
+      margin-right: rem(12);
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: rem(8);
+        height: rem(8);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
 
     &.-yellow {
-      background-color: $gold-yellow;
+      position: relative;
+      background-color: rgba(239, 166, 0, 0.56);
+
+      &:after {
+        background-color: $gold-yellow;
+      }
     }
 
     &.-bright-yellow {
