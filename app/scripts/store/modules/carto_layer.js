@@ -87,13 +87,15 @@ const cartoLayer = {
     setMarkerLayer({ commit }) {
       // TODO: make real request to API
       // const url = "https://wri-01.carto.com/api/v2/sql?q=with s as (SELECT iso, region, value, commodity FROM combined01_prepared WHERE year = 2005 and impactparameter='Food Demand' and scenario='SSP2-GFDL' and iso is not null ), r as (SELECT iso, region, sum(value) as value FROM s group by iso, region), d as (SELECT st_asgeojson(st_centroid(the_geom)) as geometry, value, region FROM impact_regions_159 t inner join r on new_region=iso) select json_build_object('type','FeatureCollection','features',json_agg(json_build_object('geometry',cast(geometry as json),'properties', json_build_object('value',value,'country',region),'type','Feature'))) as data from d"; // eslint-disable-line
-      const url = `https://simbiotica.carto.com/api/v2/sql?q=
-        SELECT actor1countrycode AS iso, eventcode, actor1geo_fullname AS name,
-          actor1geo_lat AS lat, actor1geo_long AS lng
-        FROM gdelt_project_data_filtered
-        WHERE actor1geo_lat is not null and actor1geo_long is not null
-        ORDER BY eventcode
-        LIMIT 10000`;
+      // const url = `https://simbiotica.carto.com/api/v2/sql?q=
+      //   SELECT actor1countrycode AS iso, eventcode, actor1geo_fullname AS name,
+      //     actor1geo_lat AS lat, actor1geo_long AS lng
+      //   FROM gdelt_project_data_filtered
+      //   WHERE actor1geo_lat is not null and actor1geo_long is not null
+      //   ORDER BY eventcode
+      //   LIMIT 10000`;
+      const url = 'https://simbiotica.carto.com/api/v2/sql?q=SELECT count, cast(st_asgeojson(st_centroid(the_geom)) as json) as geometry FROM gdelt_project_data_filtered_copy';
+
       commit(SET_CARTO_MARKERS_LAYER_SUCCESS, { url });
     },
 
