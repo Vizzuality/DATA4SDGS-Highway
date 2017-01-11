@@ -14,11 +14,12 @@
   export default {
     name: 'sidebar-component',
     mounted() {
-      const e = {
-        target: document.getElementById('protected')
-      };
-
-      this.toggleLayer(e);
+      setTimeout(() => {
+        const e = {
+          target: this.$refs.protected
+        };
+        this.toggleLayer(e);
+      }, 0);
     },
     data() {
       return {
@@ -64,7 +65,9 @@
       showLayerLegend(e) {
         const layer = e.target === this.$refs.protectedAreas ?
           e.target : e.target.parentElement;
+
         layer.classList.toggle('-active');
+        layer.parentElement.classList.toggle('-active');
       },
       openSidebar() {
         this.isOpen = !this.isOpen;

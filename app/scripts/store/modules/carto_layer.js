@@ -14,7 +14,7 @@ import {
 const baseUrl = 'https://wri-01.cartodb.com/api/v1/map';
 const cartoDic = {
   protected: {
-    cartocss: '#wdpa_protected_areas { polygon-opacity: 0.5; line-width: 0.2; line-opacity: 1;} #wdpa_protected_areas[iucn_cat="Ia"] { polygon-fill: #fdc2b1; line-color: #fdc2b1;} #wdpa_protected_areas[iucn_cat="Ib"] { polygon-fill: #f38d71; line-color: #f38d71;} #wdpa_protected_areas[iucn_cat="II"] { polygon-fill: #ff8b00; line-color: #ff8b00;} #wdpa_protected_areas[iucn_cat="III"] { polygon-fill: #f75e33; line-color: #f75e33;} #wdpa_protected_areas[iucn_cat="IV"] { polygon-fill: #ff3535; line-color: #ff3535;} #wdpa_protected_areas[iucn_cat="V"] { polygon-fill: #cd1717; line-color: #cd1717;} #wdpa_protected_areas[iucn_cat="VI"] { polygon-fill: #8f0303; line-color: #8f0303;} #wdpa_protected_areas[iucn_cat="Not Applicable"] { polygon-fill: #fa578d; line-color: #fa578d;} #wdpa_protected_areas[iucn_cat="Not Assigned"] { polygon-fill: #f88ba2; line-color: #f88ba2;} #wdpa_protected_areas[iucn_cat="Not Reported"] { polygon-fill: #ffbad1; line-color: #ffbad1;}',
+    cartocss: '#wdpa_protected_areas { polygon-opacity: 0.5; line-width: 0.2; line-opacity: 1; polygon-fill: #ffd722; line-color: #ffd722;} ',
     sql: 'SELECT the_geom, the_geom_webmercator, iucn_cat, iso3 FROM wdpa_protected_areas',
     interactivity: ['iucn_cat']
   },
