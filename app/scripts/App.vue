@@ -22,6 +22,7 @@ export default {
     location() {
       const computedLocation = {};
       computedLocation.home = this.$route.path === '/';
+      computedLocation.map = this.$route.path === '/map';
 
       return computedLocation;
     },

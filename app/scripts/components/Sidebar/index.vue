@@ -42,7 +42,9 @@
         this.$store.dispatch('setCartoLayerSlug', { slug: e.target.name, addLayer });
       },
       showLayerLegend(e) {
-        e.target.parentElement.classList.toggle('-active');
+        const layer = e.target === this.$refs.protectedAreas ?
+          e.target : e.target.parentElement;
+        layer.classList.toggle('-active');
       },
     },
     components: {
