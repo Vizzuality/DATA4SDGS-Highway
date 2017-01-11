@@ -57,7 +57,9 @@
       showLayerLegend(e) {
         const layer = e.target === this.$refs.protectedAreas ?
           e.target : e.target.parentElement;
+
         layer.classList.toggle('-active');
+        layer.parentElement.classList.toggle('-active');
       },
       openSidebar() {
         this.isOpen = !this.isOpen;

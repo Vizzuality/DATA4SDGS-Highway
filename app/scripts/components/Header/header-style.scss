@@ -24,12 +24,11 @@
       &.-lead {
         padding-top: rem(18);
         padding-bottom: rem(18);
-        background-color: rgba(0, 0, 0, .5);
+        background-color: rgba(0, 0, 0, .7);
       }
       &.-secondary {
         display: block;
-        background-color: rgba(0, 0, 0, .3);
-        display: block;
+        background-color: rgba(0, 0, 0, .5);
       }
     }
   }
@@ -80,7 +79,7 @@
     }
     li {
       padding: 0 30px;
-      border-right: 1px solid $white;
+      border-right: 1px solid rgba(255, 255, 255, .6);
       &:first-child {
         padding-left: 0;
       }
@@ -90,12 +89,11 @@
       }
       &.-active {
         a {
-          opacity: 1;
+          color: $mexican-pink;
         }
       }
     }
     a {
-      opacity: .44;
       display: block;
       text-transform: none;
       font-size: 16px;
