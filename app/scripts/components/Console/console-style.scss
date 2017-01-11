@@ -47,5 +47,9 @@
     line-height: 18px;
 
     overflow: overlay;
+
+    pre, code {
+      font-family: Menlo, monospace;
+    }
   }
 }

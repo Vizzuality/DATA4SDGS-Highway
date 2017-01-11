@@ -99,8 +99,11 @@
       font-size: 16px;
       letter-spacing: .4px;
       transition: opacity linear .1s;
-      &:hover {
+      &:not(.-disabled):hover {
         opacity: .66;
+      }
+      &.-disabled {
+        pointer-events: none;
       }
     }
   }
