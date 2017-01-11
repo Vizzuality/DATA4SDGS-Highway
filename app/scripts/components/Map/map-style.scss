@@ -38,6 +38,10 @@
       top: rem(186) !important;
       z-index: 9999999999!important;
     }
+
+    .leaflet-control-zoom-in, .leaflet-control-zoom-out {
+      background-color: rgba(0, 0, 0, .5);
+    }
   }
 
   .leaflet-bar {
