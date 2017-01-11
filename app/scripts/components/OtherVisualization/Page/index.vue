@@ -4,6 +4,7 @@
 
 <script>
   import MapFooterComponent from 'components/MapFooter';
+  import SidebarComponent from 'components/Sidebar';
   import OtherMap from '../Map';
   import ToggleMenu from '../ToggleMenu';
 
@@ -12,7 +13,8 @@
     components: {
       OtherMap,
       MapFooterComponent,
-      ToggleMenu
+      ToggleMenu,
+      SidebarComponent
     }
   };
 

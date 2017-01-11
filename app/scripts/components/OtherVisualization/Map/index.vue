@@ -21,8 +21,7 @@
           scrollWheelZoom: false,
           basemap: null,
           attributionControl: false,
-          zoom: 3,
-          zoomControl: false
+          zoom: 3
         },
         basemapUrl: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png',
       };
@@ -46,7 +45,6 @@
 
       createMap() {
         this.map = L.map('map', this.defaults);
-        new L.Control.Zoom({ position: 'bottomright' }).addTo(this.map);
       },
 
       addBasemap() {
