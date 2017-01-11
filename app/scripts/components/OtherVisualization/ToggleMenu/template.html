@@ -1,0 +1,29 @@
+<!-- <aside class="c-toggle-menu l-toggle-menu"> -->
+<aside :class="{'c-toggle-menu': true, 'l-toggle-menu': true, '-closed': closed === true }">
+  <button type="button" class="toggle-menu-btn" @click="toggle"></button>
+  <div class="c-ranking">
+    <h2 class="ranking-title">Regions with greatest water risk</h2>
+    <div class="ranking-content">
+      <table class="ranking-table">
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th>% Surface of Water Lost</th>
+            <th>Large Population</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span>1</span>Europe</td>
+            <td>20%</td>
+            <td>2.000</td>
+          </tr>
+          <tr>
+            <td><span>2</span>South America</td>
+            <td>20%</td>
+            <td>2.000</td>
+          </tr>
+      </table>
+    </div>
+  </div>
+</aside>
