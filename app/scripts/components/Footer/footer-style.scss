@@ -4,7 +4,26 @@
 .c-footer {
   padding: $small-margin;
 
-  .footer-logo {
-    height: rem(40);
+  .footer-wrapper {
+    max-width: 71rem;
+    margin: 0 auto;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+
+    a {
+      display: block;
+    }
+  }
+
+  .sdg-logo {
+    width: 213px;
+  }
+  .vizz-logo {
+    width: 89px;
   }
 }
