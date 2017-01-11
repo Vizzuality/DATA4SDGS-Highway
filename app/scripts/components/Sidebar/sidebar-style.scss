@@ -93,6 +93,7 @@
 
 .layers-switch {
   padding: 30px;
+  background-color: rgba(0, 0, 0, .02);
 }
 
 .c-legend {
@@ -205,8 +206,8 @@
 
 .legend-spec {
   padding: 30px;
-  background-color: $lightgrey;
-  border-top: rem(2) solid #aea6a6;
+  background-color: rgba(0, 0, 0, .02);
+  border-top: rem(1) solid #ded8d8;
 
   .c-legend {
     margin-top: 0;

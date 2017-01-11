@@ -13,9 +13,16 @@
 
   export default {
     name: 'sidebar-component',
+    mounted() {
+      const e = {
+        target: document.getElementById('protected')
+      };
+
+      this.toggleLayer(e);
+    },
     data() {
       return {
-        isOpen: false,
+        isOpen: true,
       };
     },
     computed: {

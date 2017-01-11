@@ -37,9 +37,9 @@ export default class BubbleClusterLayer {
         iconSize: [8, 8],
         // iconSize: [options.size, options.size],
         className: options.className,
-        html: options.htmlIcon
+        // html: options.htmlIcon
       }));
-      leafletMarker.bindPopup(options.htmlInfowindow);
+      // leafletMarker.bindPopup(options.htmlInfowindow);
 
       // BINDINGS
       // leafletMarker.off('mouseover').on('mouseover', function mouseover() {
@@ -58,7 +58,7 @@ export default class BubbleClusterLayer {
         icon: pruneCluster.BuildLeafletClusterIcon(cluster)
       });
 
-      m.bindPopup(BubbleClusterLayer.setInfowindowClusterHtml(cluster));
+      // m.bindPopup(BubbleClusterLayer.setInfowindowClusterHtml(cluster));
 
       // m.on('click', () => {
       //   // Compute the  cluster bounds (it's slow : O(n))
