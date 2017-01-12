@@ -1,6 +1,8 @@
 <!-- <aside class="c-toggle-menu l-toggle-menu"> -->
 <aside :class="{'c-toggle-menu': true, 'l-toggle-menu': true, '-closed': closed === true }">
-  <button type="button" class="toggle-menu-btn" @click="toggle"></button>
+  <button type="button" class="toggle-menu-btn" @click="toggle">
+    <span></span>
+  </button>
   <div class="c-ranking">
     <h2 class="ranking-title">Regions with greatest water risk</h2>
     <div class="ranking-content">
