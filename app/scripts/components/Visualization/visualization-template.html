@@ -11,13 +11,4 @@
   <sidebar-component></sidebar-component>
   <map-component></map-component>
   <map-footer-component></map-footer-component>
-
-  <modal-component :open="openModal" :close="closeModal" class="-center">
-    <div class="row expanded">
-      <div class="column small-12 align-middle flex">
-        <share-component v-if="modalContent === 'share'"></share-component>
-        <p v-else-if="modalContent === 'about'">No data available</p>
-      </div>
-    </div>
-  </modal-component>
 </div>

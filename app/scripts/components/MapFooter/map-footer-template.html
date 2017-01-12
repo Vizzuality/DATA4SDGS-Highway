@@ -1,5 +1,16 @@
+<div>
 <footer class="c-map-footer">
   <button @click="toggleModal">About the Data</button>
   <a href="#">Learn About DATA4SDGS</a>
   <span><a href="https://carto.com/" target="_blank">Carto</a></span>
 </footer>
+
+<modal-component class="-center">
+  <div class="row expanded">
+    <div class="column small-12 align-middle flex">
+      <share-component v-if="modalContent === 'share'"></share-component>
+      <p v-else-if="modalContent === 'about'">No data available</p>
+    </div>
+  </div>
+</modal-component>
+</div>

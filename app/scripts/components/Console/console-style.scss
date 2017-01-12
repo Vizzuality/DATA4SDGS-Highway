@@ -2,58 +2,67 @@
 @import '../../../styles/variables';
 
 .c-console {
-  width: 100%;
-  min-height: 45vh;
-  background-color: $theme-alternative;
-  border-radius: 10px;
-  padding: $small-margin;
-  .tab-bar {
-    margin-bottom: $small-margin;
-    height: 30px;
 
-    .tab-bar-pill {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      float: left;
-      padding: 0 ($small-margin / 2);
-      margin-right: ($small-margin / 2);
+  .console {
+    width: 100%;
+    min-height: 45vh;
+    background-color: $theme-alternative;
+    border-radius: 10px;
+    padding: $small-margin;
 
+    .tab-bar {
+      margin-bottom: $small-margin;
+      height: 30px;
+      padding: 0 $small-margin;
+
+      .tab-bar-pill {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        padding: 0 ($small-margin / 2);
+        margin-right: ($small-margin / 2);
+
+        color: $theme-base;
+        font-weight: $font-weight-bold;
+        min-width: 46px;
+        border-radius: 16px;
+        text-transform: capitalize;
+
+        cursor: pointer;
+
+        &.-active {
+          background-color: #bbbbbb;
+          color: inherit;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+        &:hover {
+          opacity: 0.4;
+        }
+      }
+    }
+
+    .console-content {
+      width: 100%;
       color: $theme-base;
       font-weight: $font-weight-bold;
-      min-width: 46px;
-      border-radius: 16px;
-      text-transform: capitalize;
+      padding: 0 $small-margin;
+      font-size: $font-size-xsmall;
+      line-height: 18px;
 
-      cursor: pointer;
+      overflow: overlay;
 
-      &.-active {
-        background-color: #bbbbbb;
-        color: inherit;
+      pre, code {
+        font-family: Menlo, monospace;
       }
 
-      &:hover {
-        opacity: 0.4;
+      .hljs {
+        background-color: $theme-alternative;
       }
-    }
-  }
-
-  .console-content {
-    width: 100%;
-    color: $theme-base;
-    font-weight: $font-weight-bold;
-    padding: 0 ($small-margin / 2);
-    font-size: $font-size-xsmall;
-    line-height: 18px;
-
-    overflow: overlay;
-
-    pre, code {
-      font-family: Menlo, monospace;
-    }
-
-    .hljs {
-      background-color: $theme-alternative;
     }
   }
 }
