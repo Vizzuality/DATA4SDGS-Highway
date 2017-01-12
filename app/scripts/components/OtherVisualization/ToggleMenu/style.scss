@@ -8,6 +8,9 @@
 
   &.-closed {
     transform: translateX(calc(-100% + 3px));
+    .toggle-menu-btn {
+      transform: rotateY(-180deg);
+    }
   }
 
   .toggle-menu-btn {
@@ -23,18 +26,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    &:after {
-      content: '';
+    span {
       display: block;
-      width: 12px;
-      height: 12px;
-      border-top: 2px solid $mexican-pink;
-      border-right: 2px solid $mexican-pink;
-      transform: rotate(45deg);
-      margin-left: -6px;
+      transition: transform .15s linear;
+      &:after {
+        content: '';
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-top: 2px solid $mexican-pink;
+        border-right: 2px solid $mexican-pink;
+        transform: rotate(45deg);
+        margin-left: -6px;
+      }
     }
-    &:hover:after {
-      // transform: perspective(50em);
+    &:hover span {
+      transform: rotateX(40deg);
     }
   }
 }
@@ -112,7 +119,7 @@
       display: inline-block;
       margin-right: 1rem;
       font-size: 20px;
-      font-family: 'proxima-nova-extrabold';
+      font-family: $base-font-family-bold;
     }
   }
 }
