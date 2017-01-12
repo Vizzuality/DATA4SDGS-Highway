@@ -25,7 +25,8 @@
           zoom: 3
         },
         // basemapUrl: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png',
-        basemapUrl: 'https://cartocdn-ashbu.global.ssl.fastly.net/simbiotica/api/v1/map/simbiotica@1eee80db@b4340298f3a3aaeab77afe5fc8ef0c68:1484153391749/0/{z}/{x}/{y}.png',
+
+        basemapUrl: 'https://api.mapbox.com/styles/v1/arimariza/ciwvyadgs00bl2pnynpbka0bn/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYXJpbWFyaXphIiwiYSI6ImNpdGE3YzJhMDAwMGIydG8zeW05MDI2Nm8ifQ.N2JotMJICNMrIt5dSCN1gg',
       };
     },
     computed: {
@@ -66,9 +67,9 @@
       addCartoLayer() {
         this.createLayer(this.cartoLayerId);
         this.addLayer(this.cartoLayers[this.slug].layer);
-        // this.addLayer(this.cartoLayers[this.slug].utfGrid, {
-        //   resolution: 2
-        // });
+        this.addLayer(this.cartoLayers[this.slug].utfGrid, {
+          resolution: 2
+        });
 
         this.setCartoLayerTooltip(this.cartoLayers[this.slug].utfGrid);
         this.$store.dispatch('resetCartoLayerId');

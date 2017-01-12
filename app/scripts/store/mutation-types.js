@@ -29,11 +29,6 @@ export const ADD_RECENT_DATASETS = 'datasets/ADD_RECENT_DATASETS';
 export const SET_MODAL = 'modal/SET_MODAL';
 
 /**
- * Modal content
- */
-export const SET_MODAL_CONTENT_TYPE = 'modalContent/SET_MODAL_CONTENT_TYPE';
-
-/**
  * Countries
 */
 export const SET_COUNTRIES_SUCCESS = 'countries/SET_COUNTRIES_SUCCESS';

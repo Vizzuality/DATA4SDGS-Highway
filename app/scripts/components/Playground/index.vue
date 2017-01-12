@@ -20,7 +20,10 @@ export default{
       store.dispatch('setSelectedDataset', to.params.dataset)
       .then(() => store.dispatch('setModal', {
         isOpen: true,
-        onClose: () => { router.push('/playground'); },
+        onClose: () => {
+          router.push('/playground');
+          store.dispatch('searchDatasets', '');
+        },
       }));
     }
     next();
@@ -41,6 +44,7 @@ export default{
   methods: {
     closeModal() {
       this.$router.push('/playground');
+      this.$store.dispatch('searchDatasets', '');
     },
   },
   watch: {
