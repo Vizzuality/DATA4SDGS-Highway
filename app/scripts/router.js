@@ -8,8 +8,6 @@ import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
 import VisualizationComponent from 'components/Visualization';
 import OtherVisualizationPage from 'components/OtherVisualization/Page';
-import CountriesComponent from 'components/Countries';
-import CountryComponent from 'components/Country';
 
 Vue.use(VueRouter);
 
@@ -42,32 +40,12 @@ const routes = [
   },
 
   {
-    path: '/countries',
-    components: {
-      default: CountriesComponent,
-      HeroComponent,
-      HeaderComponent,
-      FooterComponent,
-    },
-  },
-
-  {
-    path: '/countries/:country',
-    components: {
-      default: CountryComponent,
-      HeroComponent,
-      HeaderComponent,
-      FooterComponent,
-    },
-  },
-
-  {
     path: '/examples',
-    redirect: '/examples/1'
+    redirect: '/examples/conflicts-related-to-protected-areas'
   },
 
   {
-    path: '/examples/1',
+    path: '/examples/conflicts-related-to-protected-areas',
     components: {
       default: VisualizationComponent,
       HeaderComponent,
@@ -75,7 +53,7 @@ const routes = [
   },
 
   {
-    path: '/examples/2',
+    path: '/examples/regions-with-greatests-water-risks',
     components: {
       default: OtherVisualizationPage,
       HeaderComponent,

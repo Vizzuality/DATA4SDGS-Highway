@@ -6,8 +6,7 @@ import featuredDatasets from './modules/featured_datasets';
 import selectedDataset from './modules/selected_dataset';
 import cartoLayer from './modules/carto_layer';
 import modal from './modules/modal';
-import countries from './modules/countries';
-import countryDetail from './modules/country_detail';
+import waterRiskLayers from './modules/water_risk_layers';
 
 Vue.use(Vuex);
 
@@ -20,8 +19,7 @@ export default new Vuex.Store({
     selectedDataset,
     cartoLayer,
     modal,
-    countries,
-    countryDetail,
+    waterRiskLayers
   },
   strict: debug,
 });
