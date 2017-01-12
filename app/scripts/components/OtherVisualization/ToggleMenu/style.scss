@@ -34,10 +34,10 @@
         display: block;
         width: 12px;
         height: 12px;
-        border-top: 2px solid $mexican-pink;
-        border-right: 2px solid $mexican-pink;
+        border-left: 2px solid $mexican-pink;
+        border-bottom: 2px solid $mexican-pink;
         transform: rotate(45deg);
-        margin-left: -6px;
+        margin-right: -6px;
       }
     }
     &:hover span {
