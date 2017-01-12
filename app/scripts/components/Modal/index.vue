@@ -1,11 +1,11 @@
-<template src="./modal-template.html"> </template>
+<template src="./modal-template.html"></template>
 
-<style lang="scss" src="./modal-style.scss"> </style>
+<style lang="scss" src="./modal-style.scss"></style>
 
 <script>
+import { mapState } from 'vuex';
 import IconComponent from 'components/Icon';
 import ButtonComponent from 'components/Button';
-
 
 export default{
   name: 'modal-component',
@@ -15,15 +15,17 @@ export default{
   beforeDestroy() {
     window.removeEventListener('keyup', this.onKeyup);
   },
-  props: {
-    open: {
-      type: Boolean,
-    },
-    close: {
-      type: Function,
-    },
+  computed: {
+    ...mapState({
+      open: state => state.modal.open,
+      onClose: state => state.modal.onClose
+    }),
   },
   methods: {
+    close() {
+      if (this.onClose) this.onClose();
+      this.$store.dispatch('setModal', { isOpen: false });
+    },
     onKeyup(e) {
       if (e.keyCode === 27) this.close();
     },
@@ -33,4 +35,5 @@ export default{
     ButtonComponent,
   },
 };
+
 </script>

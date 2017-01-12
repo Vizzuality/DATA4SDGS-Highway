@@ -26,7 +26,7 @@ export const ADD_RECENT_DATASETS = 'datasets/ADD_RECENT_DATASETS';
 /**
  * Modal - Console Modal
  */
-export const SET_CONSOLE_MODAL = 'modal/SET_CONSOLE_MODAL';
+export const SET_MODAL = 'modal/SET_MODAL';
 
 /**
  * Modal content
