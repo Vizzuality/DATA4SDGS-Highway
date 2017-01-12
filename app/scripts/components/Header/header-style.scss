@@ -78,6 +78,7 @@
         margin-right: 0;
       }
       &.-active {
+        pointer-events: none;
         &:after {
           width: 22px;
         }
@@ -100,6 +101,7 @@
         border-right: none;
       }
       &.-active {
+        pointer-events: none;
         a {
           color: $mexican-pink;
         }
