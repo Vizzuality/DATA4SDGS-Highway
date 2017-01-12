@@ -9,15 +9,7 @@
     <dataset-list-component :datasets="featuredDatasets"></dataset-list-component>
     <spinner-component :loading="featuresLoading"></spinner-component>
   </article-component>
-
-  <modal-component :open="openModal" :close="closeModal">
-    <div class="row expanded">
-      <div class="column small-12 align-middle flex">
-        <dataset-component :dataset="selectedDataset" large></dataset-component>
-      </div>
-    </div>
-    <div class="row column">
-      <console-component></console-component>
-    </div>
+  <modal-component>
+    <console-component></console-component>
   </modal-component>
 </div>
