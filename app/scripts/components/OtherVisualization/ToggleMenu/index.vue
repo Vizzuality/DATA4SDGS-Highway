@@ -38,6 +38,10 @@
           return a[this.sort.field] > b[this.sort.field] ? -1 : 1;
         });
         this.basinsList = aux;
+      },
+      // TODO: refactor this into a Vue.filter
+      capitalize(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
       }
     },
     watch: {

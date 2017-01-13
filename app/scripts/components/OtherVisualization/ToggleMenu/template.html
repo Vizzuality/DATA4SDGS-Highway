@@ -19,7 +19,7 @@
         </thead>
         <tbody>
           <tr v-for="(basin, index) in basinsList">
-            <td><span>{{index + 1}}</span>{{basin.basin_name}}</td>
+            <td><span>{{index + 1}}</span>{{capitalize(basin.basin_name)}}</td>
             <td>{{basin.water}}</td>
             <td>{{basin.pop}}</td>
           </tr>
