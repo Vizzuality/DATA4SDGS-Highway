@@ -11,7 +11,8 @@ module.exports = {
   ],
   globals: {
     'fetch': true,
-    'hljs': true
+    'hljs': true,
+    'config': true,
   },
   env: {
     "browser": true
