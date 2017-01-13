@@ -7,7 +7,7 @@
   import { mapGetters } from 'vuex';
   import LayerManager from '../../../utils/LayerManager';
   import LegendComponent from '../Legend';
-  // import southAfrica from '../../../../data/south-africa-geom.json';
+  import southAfrica from '../../../../data/south-africa-geom.json';
 
   export default {
     name: 'other-map',
@@ -39,8 +39,12 @@
       renderMap() {
         this.cartoLayers = {};
         this.map = L.map('map', this.defaults);
-        // this.map.fitBounds(southAfrica.geometry);
+        this.fitBounds();
         L.tileLayer(this.basemapUrl).addTo(this.map);
+      },
+      fitBounds() {
+        const geojsonLayer = L.geoJson(southAfrica.geometry);
+        this.map.fitBounds(geojsonLayer.getBounds());
       }
     },
 
