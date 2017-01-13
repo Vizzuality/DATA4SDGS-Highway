@@ -1,3 +1,5 @@
+
+/* eslint-disable */
 import {
   SET_WATER_LAYER_SUCCESS,
   SET_WATER_LAYER_ERROR,
@@ -62,21 +64,21 @@ export default {
     // Fetch layers from api
     getWaterRiskLayers({ commit }) {
       commit(SET_WATER_LAYER_LOADING, true);
-      fetch(new Request('http://api.resourcewatch.org/layer?app=sdg'))
+      fetch(new Request('http://api.resourcewatch.org/dataset?app=data4sdgs&includes=layer&tags=data4sdgs-vizz2&cache=expire'))
       .then((response) => {
         if (response.ok) return response.json();
         throw new Error(response.statusText);
       })
-      .then((layers) => {
-        // Parse data from json-api format
-        const ls = [];
+      .then((datasets) => {
+        const layers = [];
         const lsActives = [];
-        layers.data.forEach((layer) => {
-          ls.push(Object.assign({}, layer.attributes, { id: layer.id }));
-          lsActives.push(layer.id);
+        datasets.data.forEach((dataset) => {
+          const l = Object.assign({}, dataset.attributes.layer[0].attributes, { id: dataset.id });
+          layers.push(l);
+          lsActives.push(dataset.id);
         });
         // Fetch from server ok -> Commit layers
-        commit(SET_WATER_LAYER_SUCCESS, ls);
+        commit(SET_WATER_LAYER_SUCCESS, layers);
         commit(SET_WATER_LAYERS_ACTIVE, lsActives);
         commit(SET_WATER_LAYER_LOADING, false);
       })
