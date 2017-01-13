@@ -8,7 +8,7 @@ import {
 
 const Deserializer = new JSONAPIDeserializer({ keyForAttribute: 'camelCase' });
 
-const BASE_URL = 'https://staging-api.globalforestwatch.org'; // process.env.API_URL;
+const BASE_URL = global.API_BASE_URL;
 
 const restoredDatasets = JSON.parse(localStorage.getItem('recentDatasets'));
 
@@ -74,6 +74,10 @@ const selectedDataset = {
     },
     getRecentDatasets(state) {
       return state.recentDatasets;
+    },
+    getSelectedDatasetURI(state) {
+      if (state.selected) return `${BASE_URL}/dataset/${state.selected.dataset.id}?includes=metadata`;
+      return null;
     },
   },
 };

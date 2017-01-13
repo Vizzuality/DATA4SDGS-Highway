@@ -25,7 +25,7 @@ export default{
   },
   computed: {
     snippet() {
-      let url = this.selectedDataset.connectorUrl;
+      let url = this.selectedDatasetURI;
       if (url) {
         url = encodeURI(url);
         const snippet = new HTTPSnippet({
@@ -38,6 +38,7 @@ export default{
     },
     ...mapGetters({
       selectedDataset: 'getSelectedDataset',
+      selectedDatasetURI: 'getSelectedDatasetURI',
     }),
   },
   methods: {

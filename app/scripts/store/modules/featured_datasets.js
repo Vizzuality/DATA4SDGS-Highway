@@ -7,7 +7,7 @@ import {
 
 const Deserializer = new JSONAPIDeserializer({ keyForAttribute: 'camelCase' });
 
-const BASE_URL = 'https://staging-api.globalforestwatch.org'; // process.env.API_URL;
+const BASE_URL = global.API_BASE_URL;
 
 const featuredDatasets = {
   state: {
