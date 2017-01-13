@@ -13,10 +13,6 @@
     name: 'other-map',
 
     // Component lyfecycle
-    created() {
-      this.$store.dispatch('getWaterRiskLayers');
-    },
-
     mounted() {
       this.renderMap();
       this.layerManager = new LayerManager(this.map);

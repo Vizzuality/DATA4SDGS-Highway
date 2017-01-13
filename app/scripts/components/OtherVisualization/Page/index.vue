@@ -10,6 +10,11 @@
 
   export default {
     name: 'other-visualization-page',
+    created() {
+      // Actions for hydrating store
+      this.$store.dispatch('getWaterRiskLayers');
+      this.$store.dispatch('getWaterBasins');
+    },
     components: {
       OtherMap,
       MapFooterComponent,

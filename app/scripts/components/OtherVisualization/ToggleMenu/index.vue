@@ -11,6 +11,11 @@
         closed: false
       };
     },
+    computed: {
+      basins() {
+        return this.$store.state.waterRiskLayers.basins.list;
+      }
+    },
     methods: {
       toggle() {
         this.closed = !this.closed;
