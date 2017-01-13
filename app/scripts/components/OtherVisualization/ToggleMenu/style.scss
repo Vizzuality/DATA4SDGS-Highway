@@ -82,6 +82,7 @@
   box-shadow: inset -3px 0 0 0 rgba(0, 0, 0, 0.16);
   background-color: #f3f3f3;
   flex: 1;
+  overflow-y: auto;
 }
 
 .ranking-table {
@@ -103,7 +104,21 @@
       padding-left: 5rem;
     }
     span {
+      display: block;
       cursor: pointer;
+      position: relative;
+      padding-right: .75rem;
+      &:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid $black;
+        position: absolute;
+        left: 100%;
+        top: 8px;
+      }
     }
   }
   td {
