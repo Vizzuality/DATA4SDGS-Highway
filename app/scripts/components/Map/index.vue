@@ -67,9 +67,9 @@
       addCartoLayer() {
         this.createLayer(this.cartoLayerId);
         this.addLayer(this.cartoLayers[this.slug].layer);
-        this.addLayer(this.cartoLayers[this.slug].utfGrid, {
-          resolution: 2
-        });
+        // this.addLayer(this.cartoLayers[this.slug].utfGrid, {
+        //  resolution: 2
+        // });
 
         this.setCartoLayerTooltip(this.cartoLayers[this.slug].utfGrid);
         this.$store.dispatch('resetCartoLayerId');
