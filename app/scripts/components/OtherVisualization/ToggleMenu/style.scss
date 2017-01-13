@@ -126,7 +126,7 @@
     font-size: 20px;
     padding: 20px 0;
     &:first-child {
-      font-weight: bold;
+      font-family: $base-font-family-semi;
       width: 40%;
       text-align: left;
     }
@@ -137,10 +137,11 @@
       width: 40%;
     }
     span {
+      font-family: $base-font-family-bold;
+      font-weight: bold;
       display: inline-block;
       margin-right: 1rem;
       font-size: 20px;
-      font-family: $base-font-family-bold;
     }
   }
 }
