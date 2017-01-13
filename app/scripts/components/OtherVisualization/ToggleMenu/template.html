@@ -9,12 +9,16 @@
       <table class="ranking-table">
         <thead>
           <tr>
-            <th colspan="2">Permanent surface water area lost (ha)</th>
-            <th>Large Population</th>
+            <th colspan="2" @click="setSortField('water')">
+              <span>Permanent surface water area lost (ha)</span>
+            </th>
+            <th @click="setSortField('pop')">
+              <span>Large Population</span>
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(basin, index) in basins">
+          <tr v-for="(basin, index) in basinsList">
             <td><span>{{index + 1}}</span>{{basin.basin_name}}</td>
             <td>{{basin.water}}</td>
             <td>{{basin.pop}}</td>
