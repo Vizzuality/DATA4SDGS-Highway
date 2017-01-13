@@ -37,11 +37,11 @@
   position: relative;
   width: 29px;
   height: 14px;
-  background-color: $mexican-pink;
   border-radius: 20px;
   outline: none;
   margin-right: 17px;
   cursor: pointer;
+  background-color: $grey;
 
   &:after {
     content: '';
@@ -49,12 +49,16 @@
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    border: 1px solid $mexican-pink;
+    border: 1px solid $grey;
     background-color: $white;
     transition: transform .1s linear;
   }
 
-  &:checked:after {
-    transform: translateX(calc(100% + 1px));
+  &:checked {
+    background-color: $mexican-pink;
+    &:after {
+      transform: translateX(calc(100% + 1px));
+      border-color: $mexican-pink;
+    }
   }
 }
