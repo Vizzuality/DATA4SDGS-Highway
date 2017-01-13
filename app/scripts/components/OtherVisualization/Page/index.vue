@@ -4,15 +4,22 @@
 
 <script>
   import MapFooterComponent from 'components/MapFooter';
+  import SidebarComponent from 'components/Sidebar';
   import OtherMap from '../Map';
   import ToggleMenu from '../ToggleMenu';
 
   export default {
     name: 'other-visualization-page',
+    created() {
+      // Actions for hydrating store
+      this.$store.dispatch('getWaterRiskLayers');
+      this.$store.dispatch('getWaterBasins');
+    },
     components: {
       OtherMap,
       MapFooterComponent,
-      ToggleMenu
+      ToggleMenu,
+      SidebarComponent
     }
   };
 

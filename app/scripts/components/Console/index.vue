@@ -5,6 +5,8 @@
 <script>
 import HTTPSnippet from 'httpsnippet';
 import { mapGetters } from 'vuex';
+import ArticleComponent from 'components/Article';
+import DatasetComponent from 'components/Dataset';
 
 export default{
   name: 'console-component',
@@ -23,7 +25,7 @@ export default{
   },
   computed: {
     snippet() {
-      let url = this.selectedDataset.connectorUrl;
+      let url = this.selectedDatasetURI;
       if (url) {
         url = encodeURI(url);
         const snippet = new HTTPSnippet({
@@ -36,6 +38,7 @@ export default{
     },
     ...mapGetters({
       selectedDataset: 'getSelectedDataset',
+      selectedDatasetURI: 'getSelectedDatasetURI',
     }),
   },
   methods: {
@@ -45,6 +48,10 @@ export default{
     setDisplayedLang(lang) {
       this.displayedLang = lang;
     },
+  },
+  components: {
+    ArticleComponent,
+    DatasetComponent,
   },
 };
 </script>

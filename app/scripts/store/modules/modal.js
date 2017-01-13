@@ -1,29 +1,23 @@
 import {
-  SET_CONSOLE_MODAL,
-  SET_SEARCH_DATASETS_QUERY,
+  SET_MODAL,
 } from '../mutation-types';
 
 const modal = {
   state: {
-    consoleModal: false,
+    open: false,
+    onClose: null,
+    type: null,
   },
   mutations: {
-    [SET_CONSOLE_MODAL](state, isOpen) {
-      state.consoleModal = isOpen;
+    [SET_MODAL](state, { isOpen, onClose, type }) {
+      state.open = isOpen;
+      state.onClose = onClose;
+      state.type = type;
     },
   },
   actions: {
-    openConsoleModal({ commit }) {
-      commit(SET_CONSOLE_MODAL, true);
-    },
-    closeConsoleModal({ commit }) {
-      commit(SET_CONSOLE_MODAL, false);
-      commit(SET_SEARCH_DATASETS_QUERY, null);
-    },
-  },
-  getters: {
-    getConsoleModal(state) {
-      return state.consoleModal;
+    setModal({ commit }, payload) {
+      commit(SET_MODAL, payload);
     },
   },
 };

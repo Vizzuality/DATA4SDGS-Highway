@@ -1,4 +1,10 @@
 <div class="c-console">
+  <div class="row expanded">
+    <div class="column small-12 align-middle flex">
+      <dataset-component :dataset="selectedDataset" large></dataset-component>
+    </div>
+  </div>
+  <div class="row column console">
   <div class="tab-bar">
     <div v-for="lang in languages" :class="classList(lang)" @click.stop="setDisplayedLang(lang)">{{lang}}</div>
   </div>
@@ -6,5 +12,5 @@
   <pre class="console-content">
     <code ref="snippet">{{snippet}}</code>
   </pre>
-
+  </div>
 </div>

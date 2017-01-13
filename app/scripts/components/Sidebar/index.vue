@@ -7,7 +7,6 @@
     TODO: vue-multiselect pointing to beta version, update to stable release when
     Vue 2.0 compatible version is available
   */
-  import Multiselect from 'vue-multiselect';
   import SpinnerComponent from 'components/Spinner';
   import { mapGetters } from 'vuex';
 
@@ -30,13 +29,8 @@
     computed: {
       ...mapGetters({
         cartoLayerSpecs: 'getCartoLayerSpecs',
-        layerLoading: 'getLayerLoading',
-        selected: 'getSelectedCountryName',
-        options: 'getCountriesForSelect',
+        layerLoading: 'getLayerLoading'
       }),
-      countries() {
-        return this.$store.state.countries.list;
-      },
       contentOpen() {
         const isOpen = this.isOpen ? ' -active' : '';
         return `sidebar-content${isOpen}`;
@@ -47,13 +41,6 @@
       },
     },
     methods: {
-      onChange(selectedCountry) {
-        /*
-          NOTE: Matching by country name is not consistent,
-          but multiselect does not allow a custom search function
-        */
-        this.$store.dispatch('setSelectedCountry', this.countries.find(country => country.properties.name === selectedCountry));
-      },
       toggleLayer(e) {
         const slugStore = this.cartoLayerSpecs.slug;
         const addLayerStore = this.cartoLayerSpecs.addLayer;
@@ -75,8 +62,7 @@
       },
     },
     components: {
-      Multiselect,
-      SpinnerComponent,
+      SpinnerComponent
     },
   };
 </script>

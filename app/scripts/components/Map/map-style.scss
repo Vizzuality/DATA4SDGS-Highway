@@ -1,5 +1,9 @@
 @import '../../../styles/variables';
 
+// Local Vars
+$bubble-cluster-color: #E8D717;
+$bubble-cluster-font-color: #483805;
+
 .l-map {
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
@@ -69,7 +73,7 @@
   -- Map markers --
 */
 .c-marker-bubble {
-  background-color: $gold-yellow;
+  background-color: #FFEA19;
   border-radius: 100%;
   box-shadow: 0px 0px 0px 6px rgba($gold-yellow, 0.5);
   transition: all .3s ease;
@@ -89,13 +93,12 @@
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  color: #483805!important;
-  text-shadow: rem(1) rem(1) rgba(#483805, .4);
+  color: $bubble-cluster-font-color !important;
   font-weight: 700!important;
   font-size: 12px;
   padding: 10px;
-  background-color: rgba(#F0A700, 0.9);
-  box-shadow: 0px 0px 0px 8px rgba(#F0A700, 0.5);
+  background-color: rgba($bubble-cluster-color, 0.9);
+  box-shadow: 0px 0px 0px 8px rgba($bubble-cluster-color, 0.5);
   transition: all .3s ease;
 
   &:hover {

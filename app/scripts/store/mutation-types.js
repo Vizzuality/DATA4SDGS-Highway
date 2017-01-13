@@ -26,19 +26,7 @@ export const ADD_RECENT_DATASETS = 'datasets/ADD_RECENT_DATASETS';
 /**
  * Modal - Console Modal
  */
-export const SET_CONSOLE_MODAL = 'modal/SET_CONSOLE_MODAL';
-
-/**
- * Modal content
- */
-export const SET_MODAL_CONTENT_TYPE = 'modalContent/SET_MODAL_CONTENT_TYPE';
-
-/**
- * Countries
-*/
-export const SET_COUNTRIES_SUCCESS = 'countries/SET_COUNTRIES_SUCCESS';
-export const SET_COUNTRIES_ERROR = 'countries/SET_COUNTRIES_ERROR';
-export const SET_SELECTED_COUNTRY = 'countries/SET_SELECTED_COUNTRY';
+export const SET_MODAL = 'modal/SET_MODAL';
 
 /**
  * Carto layer
@@ -56,9 +44,16 @@ export const SET_CARTO_CLUSTER_LAYER_LOADING = 'layers/SET_CARTO_CLUSTER_LAYER_L
 export const RESET_CARTO_LAYER_OPTIONS = 'layers/RESET_CARTO_LAYER_OPTIONS';
 
 /**
- *  Country Detail
+ * Water risk layers
  */
-export const SET_COUNTRY_DETAIL_SUCCESS = 'country/SET_COUNTRY_DETAIL_SUCCESS';
-export const SET_COUNTRY_DETAIL_ERROR = 'country/SET_COUNTRY_DETAIL_ERROR';
-export const SET_COUNTRY_DETAIL_LOADING = 'country/SET_COUNTRY_DETAIL_LOADING';
+export const SET_WATER_LAYER_SUCCESS = 'water-layers/SET_LAYER_SUCCESS';
+export const SET_WATER_LAYER_ERROR = 'water-layers/SET_LAYER_ERROR';
+export const SET_WATER_LAYER_LOADING = 'water-layers/SET_LAYER_LOADING';
+export const SET_WATER_LAYERS_ACTIVE = 'water-layers/SET_WATER_LAYERS_ACTIVE';
 
+/*
+  Water risk basins
+*/
+export const SET_BASINS_SUCCESS = 'water-layers/SET_BASINS_SUCCESS';
+export const SET_BASINS_ERROR = 'water-layers/SET_BASINS_ERROR';
+export const SET_BASINS_LOADING = 'water-layers/SET_BASINS_LOADING';

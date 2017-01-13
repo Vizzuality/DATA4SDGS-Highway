@@ -7,7 +7,7 @@ import {
 
 const Deserializer = new JSONAPIDeserializer({ keyForAttribute: 'camelCase' });
 
-const BASE_URL = 'https://staging-api.globalforestwatch.org'; // process.env.API_URL;
+const BASE_URL = global.API_BASE_URL;
 
 const featuredDatasets = {
   state: {
@@ -33,7 +33,7 @@ const featuredDatasets = {
       return new Promise(() => {
         commit(SET_FEATURED_DATASETS_LOADING, true);
         commit(SET_FEATURED_DATASETS_ERROR, false);
-        fetch(`${BASE_URL}/dataset?app=data4sdgs&page[size]=6&includes=metadata`)
+        fetch(`${BASE_URL}/dataset?app=data4sdgs&tags=data4sdgs-featured&page[size]=6&includes=metadata`)
           .then((response) => {
             if (response.status >= 400) {
               throw new Error(response.status);
