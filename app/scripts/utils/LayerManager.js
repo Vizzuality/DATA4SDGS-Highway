@@ -9,6 +9,7 @@ export default class LayerManager {
   constructor(map, options = {}) {
     this.map = map;
     this.mapLayers = {};
+    this.mapRequests = {};
     this.onLayerAddedSuccess = options.onLayerAddedSuccess;
     this.onLayerAddedError = options.onLayerAddedError;
   }
@@ -27,6 +28,7 @@ export default class LayerManager {
   }
 
   removeLayer(layerId) {
+    this.abortRequest(layerId);
     if (this.mapLayers[layerId]) {
       this.map.removeLayer(this.mapLayers[layerId]);
       delete this.mapLayers[layerId];
@@ -39,42 +41,48 @@ export default class LayerManager {
     });
   }
 
+  abortRequest(id) {
+    if (this.mapRequests[id]) {
+      if (this.mapRequests[id].readyState !== 4) {
+        this.mapRequests[id].abort();
+        delete this.mapRequests[id];
+      }
+    }
+  }
+
   addCartoLayer(layerSpec) {
     const layer = Object.assign({}, layerSpec.layerConfig, {
       id: layerSpec.id
     });
-    const request = new Request(`https://${layer.account}.carto.com/api/v1/map`, {
-      method: 'POST',
-      headers: new Headers({
-        'Content-Type': 'application/json'
-      }),
-      body: JSON.stringify(layer.body)
-    });
 
-    fetch(request)
-      .then((res) => {
-        if (!res.ok) {
-          const error = new Error(res.statusText);
-          error.response = res;
-          throw error;
-        }
-        return res.json();
-      })
-      .then((data) => {
-        // we can switch off the layer while it is loading
-        const tileUrl = `https://${layer.account}.carto.com/api/v1/map/${data.layergroupid}/{z}/{x}/{y}.png`;
+    this.abortRequest(layer.id);
 
-        this.mapLayers[layer.id] = L.tileLayer(tileUrl).addTo(this.map).setZIndex(999);
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('POST', `https://${layer.account}.carto.com/api/v1/map`);
+    xmlhttp.setRequestHeader('Content-Type', 'application/json');
+    xmlhttp.send(JSON.stringify(layer.body));
 
-        this.mapLayers[layer.id].on('load', () => {
-          this.onLayerAddedSuccess && this.onLayerAddedSuccess(layer);
-        });
-        this.mapLayers[layer.id].on('tileerror', () => {
+    this.mapRequests[layer.id] = xmlhttp;
+
+    xmlhttp.onreadystatechange = () => {
+      if (xmlhttp.readyState === 4) {
+        if (xmlhttp.status === 200) {
+          const data = JSON.parse(xmlhttp.responseText);
+          // we can switch off the layer while it is loading
+          const tileUrl = `https://${layer.account}.carto.com/api/v1/map/${data.layergroupid}/{z}/{x}/{y}.png`;
+
+          this.mapLayers[layer.id] = L.tileLayer(tileUrl).addTo(this.map).setZIndex(999);
+
+          this.mapLayers[layer.id].on('load', () => {
+            this.onLayerAddedSuccess && this.onLayerAddedSuccess(layer);
+          });
+          this.mapLayers[layer.id].on('tileerror', () => {
+            this.onLayerAddedError && this.onLayerAddedError(layer);
+          });
+        } else {
           this.onLayerAddedError && this.onLayerAddedError(layer);
-        });
-      })
-      .catch((err) => {
-        this.onLayerAddedError && this.onLayerAddedError(layer, err);
-      });
+        }
+      }
+    };
   }
 }
