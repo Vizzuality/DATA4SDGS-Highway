@@ -27,7 +27,8 @@
           scrollWheelZoom: false,
           basemap: null,
           attributionControl: false,
-          zoom: 3
+          zoom: 3,
+          minZoom: 5
         },
         basemapUrl: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png',
       };
@@ -44,7 +45,10 @@
       },
       fitBounds() {
         const geojsonLayer = L.geoJson(southAfrica.geometry);
-        this.map.fitBounds(geojsonLayer.getBounds());
+        this.map.fitBounds(geojsonLayer.getBounds(), {
+          paddingTopLeft: [600, 100],
+          paddingBottomRight: [0, 0]
+        });
       }
     },
 
