@@ -1,0 +1,62 @@
+@import '../../../../styles/variables';
+
+.c-legend {
+  background-color: $white;
+  padding: 32px;
+
+  .legend-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      color: $black;
+      margin-bottom: 15px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .legend-title {
+    font-size: 16px;
+    color: $white;
+    background-color: $mexican-pink;
+    margin: -32px -32px 32px -32px;
+    padding: 6px 23px;
+  }
+}
+
+.l-legend {
+  z-index: 999;
+  position: absolute;
+  bottom: 49px;
+  right: 72px;
+}
+
+.c-switch {
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  width: 29px;
+  height: 14px;
+  background-color: $mexican-pink;
+  border-radius: 20px;
+  outline: none;
+  margin-right: 17px;
+  cursor: pointer;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid $mexican-pink;
+    background-color: $white;
+    transition: transform .1s linear;
+  }
+
+  &:checked:after {
+    transform: translateX(calc(100% + 1px));
+  }
+}
