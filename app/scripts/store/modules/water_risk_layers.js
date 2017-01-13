@@ -64,7 +64,7 @@ export default {
     // Fetch layers from api
     getWaterRiskLayers({ commit }) {
       commit(SET_WATER_LAYER_LOADING, true);
-      fetch(new Request('http://api.resourcewatch.org/dataset?app=data4sdgs&includes=layer&tags=data4sdgs-vizz2&cache=expire'))
+      fetch(new Request('https://api.resourcewatch.org/dataset?app=data4sdgs&includes=layer&tags=data4sdgs-vizz2&cache=expire'))
       .then((response) => {
         if (response.ok) return response.json();
         throw new Error(response.statusText);
@@ -95,7 +95,7 @@ export default {
 
     getWaterBasins({ commit }) {
       // TODO: this should be a dataset insted of a requests to carto
-      const url = `http://simbiotica.carto.com/api/v2/sql?q=with r as (SELECT sum(population) pop, basin_name, basinid,
+      const url = `https://simbiotica.carto.com/api/v2/sql?q=with r as (SELECT sum(population) pop, basin_name, basinid,
       sum((transition_types::json->>'3')::numeric*pixel_area/10000) water_area_ha FROM water_basin_sa group by basin_name,
       basinid  order by 4 desc) select round(sum(pop)) as pop, round(sum(water_area_ha)) water,
       basin_name from r where water_area_ha is not null and basin_name != '' group by basin_name order by water desc`;
