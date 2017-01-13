@@ -31,7 +31,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': env,
       global: {
-        API_BASE_URL: process.env.API_BASE_URL,
+        API_BASE_URL: JSON.stringify(process.env.API_BASE_URL),
       },
     }),
     new webpack.optimize.UglifyJsPlugin({
