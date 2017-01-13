@@ -99,6 +99,12 @@
     font-weight: normal;
     text-align: right;
     vertical-align: top;
+    &:first-child {
+      padding-left: 5rem;
+    }
+    span {
+      cursor: pointer;
+    }
   }
   td {
     text-align: right;

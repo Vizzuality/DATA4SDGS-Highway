@@ -1,0 +1,9 @@
+<section class="c-legend l-legend">
+  <h3 class="legend-title">Lost Surface Water</h3>
+  <ul class="legend-list">
+    <li v-for="item in items">
+      <input :id="item.id" class="c-switch" type="checkbox" :checked="activeItems.includes(item.id)" @change="onCboxChange($event, item.id)">
+      <label :for="item.id">{{ item.name }}</label>
+    </li>
+  </ul>
+</section>

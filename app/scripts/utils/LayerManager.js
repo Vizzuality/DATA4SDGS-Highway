@@ -35,17 +35,13 @@ export default class LayerManager {
 
   removeLayers() {
     Object.keys(this.mapLayers).forEach((id) => {
-      if (this.mapLayers[id]) {
-        this.map.removeLayer(this.mapLayers[id]);
-        delete this.mapLayers[id];
-      }
+      this.removeLayer(id);
     });
   }
 
   addCartoLayer(layerSpec) {
     const layer = Object.assign({}, layerSpec.layerConfig, {
-      id: layerSpec.id,
-      category: layerSpec.category
+      id: layerSpec.id
     });
     const request = new Request(`https://${layer.account}.carto.com/api/v1/map`, {
       method: 'POST',
@@ -55,9 +51,6 @@ export default class LayerManager {
       body: JSON.stringify(layer.body)
     });
 
-    // add to the load layers lists before the fetch
-    // to avoid multiples loads while the layer is loading
-    this.mapLayers[layer.id] = true;
     fetch(request)
       .then((res) => {
         if (!res.ok) {
