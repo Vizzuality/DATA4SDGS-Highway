@@ -16,6 +16,7 @@
     mounted() {
       this.renderMap();
       this.layerManager = new LayerManager(this.map);
+      this.activeLayers.forEach(layer => this.layerManager.addLayer(layer));
     },
 
     // Data
@@ -65,6 +66,8 @@
         const setA = new Set(layers);
         const setB = new Set(oldActiveLayers);
         const union = new Set([...layers, ...oldActiveLayers]);
+
+        if (setA.size === setB.size) setB.clear();
 
         for (const layer of union) {
           if (!setB.has(layer)) {
