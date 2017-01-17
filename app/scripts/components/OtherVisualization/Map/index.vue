@@ -38,7 +38,6 @@
     methods: {
       // Instances and renders a Leaflet map
       renderMap() {
-        this.cartoLayers = {};
         this.map = L.map('map', this.defaults);
         this.fitBounds();
         L.tileLayer(this.basemapUrl).addTo(this.map);
@@ -49,7 +48,7 @@
           paddingTopLeft: [600, 100],
           paddingBottomRight: [0, 0]
         });
-      }
+      },
     },
 
     // Computed
@@ -63,16 +62,17 @@
     watch: {
       // Displays active layers on map
       activeLayers(layers, oldActiveLayers) {
-        layers.forEach((layer) => {
-          if (!oldActiveLayers.find(l => l.id === layer.id)) {
+        const setA = new Set(layers);
+        const setB = new Set(oldActiveLayers);
+        const union = new Set([...layers, ...oldActiveLayers]);
+
+        for (const layer of union) {
+          if (!setB.has(layer)) {
             this.layerManager.addLayer(layer);
-          }
-        });
-        oldActiveLayers.forEach((layer) => {
-          if (!layers.find(l => l.id === layer.id)) {
+          } else if (!setA.has(layer)) {
             this.layerManager.removeLayer(layer.id);
           }
-        });
+        }
       }
     },
 
