@@ -5,7 +5,7 @@
     </header>
     <main class="l-main">
       <router-view name="HeroComponent"></router-view>
-      <router-view></router-view>
+        <router-view></router-view>
     </main>
     <footer v-if="!isExamplePage" class="l-footer">
       <router-view name="FooterComponent"></router-view>
@@ -18,6 +18,11 @@
 <script>
 export default {
   name: 'app',
+  created() {
+  // Actions for hydrating store
+    this.$store.dispatch('getWaterRiskLayers');
+    this.$store.dispatch('getWaterBasins');
+  },
   computed: {
     location() {
       const computedLocation = {};
