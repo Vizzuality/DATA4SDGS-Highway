@@ -3,6 +3,8 @@
 <style lang="scss" src="./toggle-menu-style.scss"></style>
 
 <script>
+  import { mapState } from 'vuex';
+  import SpinnerComponent from 'components/Spinner';
 
   export default {
     name: 'toggle-menu',
@@ -20,9 +22,10 @@
       };
     },
     computed: {
-      basins() {
-        return this.$store.state.waterRiskLayers.basins.list;
-      }
+      ...mapState({
+        basins: state => state.waterRiskLayers.basins.list,
+        basinsLoading: state => state.waterRiskLayers.basins.loading,
+      }),
     },
     methods: {
       toggle() {
@@ -57,7 +60,10 @@
       'sort.direction': function() { // eslint-disable-line
         this.sortBasins();
       }
-    }
+    },
+    components: {
+      SpinnerComponent,
+    },
   };
 
 </script>
