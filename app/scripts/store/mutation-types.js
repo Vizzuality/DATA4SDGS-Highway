@@ -51,9 +51,17 @@ export const SET_WATER_LAYER_ERROR = 'water-layers/SET_LAYER_ERROR';
 export const SET_WATER_LAYER_LOADING = 'water-layers/SET_LAYER_LOADING';
 export const SET_WATER_LAYERS_ACTIVE = 'water-layers/SET_WATER_LAYERS_ACTIVE';
 
-/*
-  Water risk basins
-*/
+/**
+ * Water risk basins
+ */
 export const SET_BASINS_SUCCESS = 'water-layers/SET_BASINS_SUCCESS';
 export const SET_BASINS_ERROR = 'water-layers/SET_BASINS_ERROR';
 export const SET_BASINS_LOADING = 'water-layers/SET_BASINS_LOADING';
+
+/**
+ * Twitter slider
+ */
+export const SET_TWITTER_SLIDES_SUCCESS = 'twitter/SET_TWITTER_SLIDES_SUCCESS';
+export const SET_TWITTER_SLIDES_ERROR = 'twitter/SET_TWITTER_SLIDES_ERROR';
+export const SET_TWITTER_SLIDES_LOADING = 'twitter/SET_TWITTER_SLIDES_LOADING';
+
