@@ -6,6 +6,9 @@
 
   export default {
     name: 'toggle-menu',
+    mounted() {
+      this.sortBasins();
+    },
     data() {
       return {
         closed: false,
