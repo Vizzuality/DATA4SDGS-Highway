@@ -18,6 +18,9 @@
 <script>
 export default {
   name: 'app',
+  created() {
+    this.$store.dispatch('setTimeline');
+  },
   computed: {
     location() {
       const computedLocation = {};

@@ -11,21 +11,10 @@ import SliderComponent from 'components/Slider';
 
 export default {
   name: 'home-component',
-  data() {
-    return {
-      twitterSlides: [{
-        message: '“Awesome & timely, particularly given this morning\'s #datarevolution discussion. #TechWomenAfrica”',
-        user: 'Datasc'
-      },
-      {
-        message: '“Awesome & timely, particularly given this morning\'s #datarevolution discussion. #TechWomenAfrica”',
-        user: 'Datasc'
-      },
-      {
-        message: '“Awesome & timely, particularly given this morning\'s #datarevolution discussion. #TechWomenAfrica”',
-        user: 'Datasc'
-      }],
-    };
+  computed: {
+    twitterSlides() {
+      return this.$store.getters.getFormatedTweets;
+    },
   },
   methods: {
     goToPlayground() {

@@ -78,14 +78,14 @@
   </article-component>
 
   <article-component>
+    <h4 class="-center -uppercase">What our champions have to say</h4>
     <slider-component>
       <div v-for="tweet in twitterSlides">
         <div class="tweet">
-          <h4 class="-center -uppercase">What our champions have to say</h4>
-          <p class="tweet-message">{{tweet.message}}</p>
+          <p class="tweet-message">{{tweet.text}}</p>
           <div class="tweet-user">
             <span class="tweet-user-tag">Twitter user:</span>
-            <a class="tweet-username">@{{tweet.user}}</a>
+            <a class="tweet-username" :href="tweet.url">@{{tweet.user}}</a>
           </div>
         </div>
       </div>
