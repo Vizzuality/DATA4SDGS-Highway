@@ -15,10 +15,7 @@
     mounted() {
       this.$store.dispatch('resetCartoLayerOptions');
       setTimeout(() => {
-        const e = {
-          target: this.$refs.protected
-        };
-        this.toggleLayer(e);
+        this.toggleLayer();
       }, 0);
     },
     data() {
@@ -42,6 +39,20 @@
     },
     methods: {
       toggleLayer(e) {
+        // TODO: delete this component and use OtherVisualization/Legend component
+        if (e) {
+          const isActive = e.target.parentElement.classList.contains('-active');
+          if (isActive) {
+            // Google Analytics
+            ga('send', 'event', 'Visualisation', 'Turn Layer Off', e.target.name);
+          } else {
+            // Google Analytics
+            ga('send', 'event', 'Visualisation', 'Turn Layer On', e.target.name);
+          }
+        } else {
+          e = { target: this.$refs.protected_areas }; // eslint-disable-line
+        }
+
         const slugStore = this.cartoLayerSpecs.slug;
         const addLayerStore = this.cartoLayerSpecs.addLayer;
         const addLayer = !slugStore || e.target.name !== slugStore ||

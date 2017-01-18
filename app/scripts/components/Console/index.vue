@@ -46,6 +46,8 @@ export default{
       return item === this.displayedLang ? 'tab-bar-pill -active' : 'tab-bar-pill';
     },
     setDisplayedLang(lang) {
+      // Google Analytics
+      ga('send', 'event', 'Data', 'Change language', lang);
       this.displayedLang = lang;
     },
   },

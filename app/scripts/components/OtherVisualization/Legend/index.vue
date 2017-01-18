@@ -21,10 +21,15 @@
 
     methods: {
       onCboxChange(event, id) {
+        const layerName = event.target.nextElementSibling.innerText;
         const aux = this.activeItems.slice(0);
         if (event.currentTarget.checked) {
+          // Google Analytics
+          ga('send', 'event', 'Visualisation', 'Turn Layer On', layerName);
           aux.push(id);
         } else {
+          // Google Analytics
+          ga('send', 'event', 'Visualisation', 'Turn Layer Off', layerName);
           aux.splice(this.activeItems.indexOf(id), 1);
         }
         this.$store.dispatch('setActiveLayers', aux);
