@@ -18,6 +18,8 @@ export default {
   },
   methods: {
     goToPlayground() {
+      // Google Analytics
+      ga('send', 'event', 'Home', 'Click Start', 'Click');
       this.$router.push('/playground');
     },
   },
