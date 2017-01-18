@@ -1,6 +1,6 @@
-<template src="./template.html"></template>
+<template src="./toggle-menu-template.html"></template>
 
-<style lang="scss" src="./style.scss"></style>
+<style lang="scss" src="./toggle-menu-style.scss"></style>
 
 <script>
 
@@ -14,7 +14,7 @@
         closed: false,
         sort: {
           field: 'water',
-          direction: 1
+          direction: true
         },
         basinsList: []
       };
@@ -29,13 +29,13 @@
         this.closed = !this.closed;
       },
       setSortField(field) {
-        this.sort.direction = field === this.sort.field ? -this.sort.direction : 1;
+        this.sort.direction = field === this.sort.field ? !this.sort.direction : true;
         this.sort.field = field;
       },
       sortBasins() {
         const aux = this.basins.slice(0);
-        aux.sort((a, b) => { // eslint-disable-line
-          if (this.sort.direction === 1) {
+        aux.sort((a, b) => {
+          if (this.sort.direction) {
             return a[this.sort.field] > b[this.sort.field] ? 1 : -1;
           }
           return a[this.sort.field] > b[this.sort.field] ? -1 : 1;

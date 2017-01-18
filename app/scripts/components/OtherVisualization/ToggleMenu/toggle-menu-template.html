@@ -10,10 +10,14 @@
         <thead>
           <tr>
             <th colspan="2" @click="setSortField('water')">
-              <span>Permanent surface water area lost (ha)</span>
+              <span :class="{'-active': sort.field === 'water', '-inverted': !sort.direction}">
+                Permanent surface water area lost (ha)
+              </span>
             </th>
             <th @click="setSortField('pop')">
-              <span>Large Population</span>
+              <span :class="{'-active': sort.field === 'pop', '-inverted': !sort.direction}">
+                Large Population
+              </span>
             </th>
           </tr>
         </thead>
