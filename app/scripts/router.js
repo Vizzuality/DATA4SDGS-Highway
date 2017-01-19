@@ -9,7 +9,6 @@ import HeroComponent from 'components/Hero';
 import VisualizationComponent from 'components/Visualization';
 import OtherVisualizationPage from 'components/OtherVisualization/Page';
 import LandingPage from 'components/Landing/Page';
-import LandingHeader from 'components/Landing/Header';
 import LandingFooter from 'components/Landing/Footer';
 
 Vue.use(VueRouter);
@@ -66,7 +65,7 @@ const routes = [
     path: '/about',
     components: {
       default: LandingPage,
-      HeaderComponent: LandingHeader,
+      HeaderComponent,
       FooterComponent: LandingFooter
     },
   },
