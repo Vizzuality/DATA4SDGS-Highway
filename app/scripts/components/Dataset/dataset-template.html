@@ -1,5 +1,5 @@
 <div class="c-dataset">
-  <h2 class="-left -clean dataset-header" v-if="large">{{name}}</h2>
+  <h2 class="-left -clean dataset-header -large" v-if="large">{{name}}</h2>
   <h4 class="-left dataset-header -selectable" v-else @click="selectDataset">{{name}}</h4>
   <div class="dataset-detail">
     <a class="dataset-link" :href="link">{{source || 'Source'}}</a>

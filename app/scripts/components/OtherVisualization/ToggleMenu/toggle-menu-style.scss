@@ -34,14 +34,11 @@
         display: block;
         width: 12px;
         height: 12px;
-        border-left: 2px solid $mexican-pink;
-        border-bottom: 2px solid $mexican-pink;
+        border-left: 2px solid $theme-accent;
+        border-bottom: 2px solid $theme-accent;
         transform: rotate(45deg);
         margin-right: -6px;
       }
-    }
-    &:hover span {
-      transform: scale(1.35);
     }
   }
 }
@@ -78,7 +75,6 @@
 }
 
 .ranking-content {
-  padding: 38px 62px 0 55px;
   box-shadow: inset -3px 0 0 0 rgba(0, 0, 0, 0.16);
   background-color: #f3f3f3;
   flex: 1;
@@ -89,58 +85,81 @@
   width: 100%;
   font-family: $base-font-family;
   empty-cells: show;
+
   thead tr {
-    border-bottom: none;
+    border-bottom: 1px solid rgba(#87929a, 0.3);
   }
-  tr {
-    border-bottom: 1px solid $white;
-  }
+
   th {
     font-size: 16px;
     font-weight: normal;
     text-align: right;
     vertical-align: top;
+    padding: $small-margin $small-margin * 2;
+    padding-left: $small-margin;
+
     &:first-child {
-      padding-left: 5rem;
+      padding-left: $large-margin * 2;
     }
+
     span {
       display: block;
       cursor: pointer;
       position: relative;
-      padding-right: .75rem;
+      padding-right: $small-margin;
+      color: $theme-alternative;
+
+      &.-active:after{
+        display: block;
+      }
+
+      &.-inverted:after{
+        transform: rotate(225deg);
+      }
+
       &:after {
+        display: none;
         content: '';
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 5px solid $black;
+        width: 8px;
+        height: 8px;
+        border-right: 2px solid rgba($dark-grey, 0.7);
+        border-bottom: 2px solid rgba($dark-grey, 0.7);
+        transform: translateY(-50%) rotate(45deg);
         position: absolute;
         left: 100%;
-        top: 8px;
+        top: 50%;
       }
+
     }
   }
+
   td {
     text-align: right;
     font-size: 20px;
-    padding: 20px 0;
+    padding: $small-margin $small-margin * 2;
+    color: $dark-grey;
+
     &:first-child {
-      font-weight: bold;
+      font-family: $base-font-family-semi;
       width: 40%;
       text-align: left;
     }
+
     &:nth-child(2) {
       width: 20%;
     }
+
     &:nth-child(3) {
       width: 40%;
     }
+
     span {
+      font-family: $base-font-family-bold;
+      font-weight: bold;
       display: inline-block;
       margin-right: 1rem;
       font-size: 20px;
-      font-family: $base-font-family-bold;
     }
+
   }
 }

@@ -13,6 +13,7 @@ module.exports = {
     'fetch': true,
     'hljs': true,
     'config': true,
+    'ga': true,
   },
   env: {
     "browser": true

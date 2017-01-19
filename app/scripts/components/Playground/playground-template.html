@@ -7,7 +7,7 @@
   <article-component grid-column="small-10 medium-10 small-offset-2 medium-offset-0">
     <h1 class="-left">Featured Datasets</h1>
     <dataset-list-component :datasets="featuredDatasets"></dataset-list-component>
-    <spinner-component :loading="featuresLoading"></spinner-component>
+    <spinner-component class="-relative" :loading="featuresLoading"></spinner-component>
   </article-component>
   <modal-component>
     <console-component></console-component>

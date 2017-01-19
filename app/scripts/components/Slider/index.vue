@@ -6,19 +6,45 @@ import Siema from 'siema/dist/siema.min';
 export default {
   name: 'slider-component',
   mounted() {
-    const pause = 5000;
-    const siema = new Siema({
-      selector: '.c-slider',
-      duration: 160,
-      easing: 'ease',
-      perPage: 1,
-      startIndex: 0,
-      draggable: true,
-      threshold: 20,
-      loop: true,
+    this.renderSiema();
+  },
+  updated() {
+    this.$nextTick().then(() => {
+      this.siema.destroy();
+      this.renderSiema();
     });
+  },
+  props: {
+    options: {
+      type: Object,
+    },
+  },
+  data() {
+    return {
+      siema: null,
+    };
+  },
+  methods: {
+    renderSiema() {
+      const defaults = {
+        selector: this.$refs.slider,
+        duration: 160,
+        easing: 'ease-out',
+        perPage: 1,
+        startIndex: 0,
+        draggable: true,
+        threshold: 20,
+        loop: true,
+      };
+      const config = Object.assign(defaults, this.options);
+      const pause = 5000;
+      this.siema = new Siema(config);
 
-    setInterval(() => requestAnimationFrame(siema.next.bind(siema)), pause);
+      clearInterval(this.interval);
+      this.interval = setInterval(
+        () => requestAnimationFrame(this.siema.next.bind(this.siema)
+      ), pause);
+    },
   },
 };
 </script>

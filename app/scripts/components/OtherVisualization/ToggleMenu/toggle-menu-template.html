@@ -10,20 +10,26 @@
         <thead>
           <tr>
             <th colspan="2" @click="setSortField('water')">
-              <span>Permanent surface water area lost (ha)</span>
+              <span :class="{'-active': sort.field === 'water', '-inverted': !sort.direction}">
+                Permanent surface water area lost (ha)
+              </span>
             </th>
             <th @click="setSortField('pop')">
-              <span>Large Population</span>
+              <span :class="{'-active': sort.field === 'pop', '-inverted': !sort.direction}">
+                Large Population
+              </span>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(basin, index) in basinsList">
-            <td><span>{{index + 1}}</span>{{basin.basin_name}}</td>
+            <td><span>{{index + 1}}</span>{{capitalize(basin.basin_name)}}</td>
             <td>{{basin.water}}</td>
             <td>{{basin.pop}}</td>
           </tr>
+        </tbody>
       </table>
+      <spinner-component class="-relative" :loading="basinsLoading"></spinner-component>
     </div>
   </div>
 </aside>

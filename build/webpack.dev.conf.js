@@ -31,7 +31,8 @@ module.exports = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'app/index.html',
-      inject: true
+      inject: true,
+      googleAnalytics: 'UA-XXXXXXXX-YY',
     })
   ]
 })

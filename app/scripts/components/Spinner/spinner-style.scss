@@ -18,7 +18,14 @@
       z-index: 4;
     }
   }
+
+  &.-relative {
+    > .spinner {
+        margin: 0 auto;
+    }
+  }
 }
+
 .spinner {
   height: 70px;
   width: 70px;

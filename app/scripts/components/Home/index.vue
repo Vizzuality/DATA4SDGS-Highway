@@ -8,27 +8,20 @@ import ArticleComponent from 'components/Article';
 import ButtonComponent from 'components/Button';
 import IconComponent from 'components/Icon';
 import SliderComponent from 'components/Slider';
+import PartnersCarousel from 'components/PartnersCarousel';
+import FeedbackComponent from 'components/Feedback';
 
 export default {
   name: 'home-component',
-  data() {
-    return {
-      twitterSlides: [{
-        message: '“Awesome & timely, particularly given this morning\'s #datarevolution discussion. #TechWomenAfrica”',
-        user: 'Datasc'
-      },
-      {
-        message: '“Awesome & timely, particularly given this morning\'s #datarevolution discussion. #TechWomenAfrica”',
-        user: 'Datasc'
-      },
-      {
-        message: '“Awesome & timely, particularly given this morning\'s #datarevolution discussion. #TechWomenAfrica”',
-        user: 'Datasc'
-      }],
-    };
+  computed: {
+    twitterSlides() {
+      return this.$store.getters.getFormatedTweets;
+    },
   },
   methods: {
     goToPlayground() {
+      // Google Analytics
+      ga('send', 'event', 'Home', 'Click Start', 'Click');
       this.$router.push('/playground');
     },
   },
@@ -37,6 +30,8 @@ export default {
     ButtonComponent,
     IconComponent,
     SliderComponent,
+    PartnersCarousel,
+    FeedbackComponent,
     router,
   },
 };
