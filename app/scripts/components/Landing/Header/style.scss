@@ -1,0 +1,10 @@
+@import '../../../../styles/variables';
+
+.c-landing-header {
+  background-color: $black;
+  padding: 25px 0;
+
+  img {
+    display: block;
+  }
+}
