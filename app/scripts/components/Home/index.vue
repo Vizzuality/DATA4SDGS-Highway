@@ -8,6 +8,7 @@ import ArticleComponent from 'components/Article';
 import ButtonComponent from 'components/Button';
 import IconComponent from 'components/Icon';
 import SliderComponent from 'components/Slider';
+import FeedbackComponent from 'components/Feedback';
 
 export default {
   name: 'home-component',
@@ -28,6 +29,7 @@ export default {
     ButtonComponent,
     IconComponent,
     SliderComponent,
+    FeedbackComponent,
     router,
   },
 };

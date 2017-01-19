@@ -1,0 +1,69 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-feedback {
+  display: flex;
+  justify-content: center;
+  margin-top: $large-margin;
+  text-transform: capitalize;
+
+  .feedback-content {
+    padding: $large-margin;
+    border-radius: 5px;
+    background: $theme-alternative;
+    color: $theme-base;
+  }
+
+  .indicates-required {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: $small-margin / 2;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xsmall;
+    opacity: 0.8;
+  }
+
+  .asterisk {
+    color: $theme-accent;
+    margin-right: 5px;
+  }
+
+  .mc-field-group {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .clear {
+    display: flex;
+    justify-content: flex-end;
+
+    > input {
+      width: inherit;
+      font-size: $font-size-xsmall;
+      text-transform: uppercase;
+      text-align: center;
+
+      background-color: transparent;
+      color: $button-font-color;
+
+      padding: $small-margin $medium-margin;
+      margin: 0;
+      border-radius: 2px;
+
+      outline: none;
+    }
+  }
+
+  input {
+    height: 100%;
+    width: 60%;
+    padding: 2px ($small-margin / 2);
+    border-radius: 2px;
+    border: 0;
+    outline: none;
+    background-color: $grayed-black;
+    border: 1px solid rgba($theme-base, 0.2);
+    margin-top: $small-margin / 2;
+    font-size: $font-size-small;
+  }
+}
