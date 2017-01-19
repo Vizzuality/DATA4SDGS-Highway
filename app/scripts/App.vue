@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header :class="{'l-header': true, '-over': isExamplePage }">
+    <header :class="{'l-header': true, '-over': isExamplePage, '-about': isAboutPage }">
       <router-view name="HeaderComponent"></router-view>
     </header>
     <main class="l-main">
@@ -56,6 +56,9 @@ export default {
     },
     isExamplePage() {
       return this.$route.path.startsWith('/examples/');
+    },
+    isAboutPage() {
+      return this.$route.path.startsWith('/about');
     }
   },
   methods: {
