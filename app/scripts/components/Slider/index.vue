@@ -14,6 +14,11 @@ export default {
       this.renderSiema();
     });
   },
+  props: {
+    options: {
+      type: Object,
+    },
+  },
   data() {
     return {
       siema: null,
@@ -21,8 +26,7 @@ export default {
   },
   methods: {
     renderSiema() {
-      const pause = 5000;
-      this.siema = new Siema({
+      const defaults = {
         selector: this.$refs.slider,
         duration: 160,
         easing: 'ease-out',
@@ -31,7 +35,10 @@ export default {
         draggable: true,
         threshold: 20,
         loop: true,
-      });
+      };
+      const config = Object.assign(defaults, this.options);
+      const pause = 5000;
+      this.siema = new Siema(config);
 
       clearInterval(this.interval);
       this.interval = setInterval(
