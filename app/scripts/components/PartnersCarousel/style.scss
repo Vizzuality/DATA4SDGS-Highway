@@ -1,8 +1,14 @@
 .c-partners-carousel {
-  .slick-slide{
-    height: 150px;
-    padding: 0 20px;
-    display: flex !important;
-    align-items: center;
+  .c-slider {
+    div {
+      height: 100px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+
+      img {
+        max-height: 100px;
+      }
+    }
   }
 }
