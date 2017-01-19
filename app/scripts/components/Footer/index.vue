@@ -4,7 +4,6 @@
 
 <script>
 import IconComponent from 'components/Icon';
-import PartnersCarousel from 'components/PartnersCarousel';
 
 export default {
   name: 'footer-component',
@@ -14,8 +13,7 @@ export default {
     };
   },
   components: {
-    IconComponent,
-    PartnersCarousel
+    IconComponent
   }
 };
 </script>

@@ -8,6 +8,7 @@ import ArticleComponent from 'components/Article';
 import ButtonComponent from 'components/Button';
 import IconComponent from 'components/Icon';
 import SliderComponent from 'components/Slider';
+import PartnersCarousel from 'components/PartnersCarousel';
 import FeedbackComponent from 'components/Feedback';
 
 export default {
@@ -29,6 +30,7 @@ export default {
     ButtonComponent,
     IconComponent,
     SliderComponent,
+    PartnersCarousel,
     FeedbackComponent,
     router,
   },
