@@ -33,7 +33,7 @@ const featuredDatasets = {
       return new Promise(() => {
         commit(SET_FEATURED_DATASETS_LOADING, true);
         commit(SET_FEATURED_DATASETS_ERROR, false);
-        fetch(`${BASE_URL}/dataset?app=data4sdgs&tags=data4sdgs-featured&page[size]=6&includes=metadata`)
+        fetch(`${BASE_URL}/dataset?app=data4sdgs&tags=data4sdgs-featured&page[size]=12&includes=metadata&cache=expire`)
           .then((response) => {
             if (response.status >= 400) {
               throw new Error(response.status);
