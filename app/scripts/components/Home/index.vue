@@ -9,6 +9,7 @@ import ButtonComponent from 'components/Button';
 import IconComponent from 'components/Icon';
 import SliderComponent from 'components/Slider';
 import PartnersCarousel from 'components/PartnersCarousel';
+import FeedbackComponent from 'components/Feedback';
 
 export default {
   name: 'home-component',
@@ -30,6 +31,7 @@ export default {
     IconComponent,
     SliderComponent,
     PartnersCarousel,
+    FeedbackComponent,
     router,
   },
 };
