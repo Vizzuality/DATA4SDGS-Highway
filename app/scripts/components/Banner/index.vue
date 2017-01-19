@@ -7,24 +7,26 @@ import ButtonComponent from 'components/Button';
 
 export default{
   name: 'banner-component',
-  mounted() {
-    this.isVisible = !sessionStorage.getItem(this.cookieName);
-  },
   props: {
+    isVisible: {
+      type: Boolean,
+    },
     cookieName: {
       type: String,
       required: true,
     },
-  },
-  data() {
-    return {
-      isVisible: true,
-    };
-  },
-  methods: {
-    hide() {
-      sessionStorage.setItem(this.cookieName, 'true');
-      this.isVisible = false;
+    heading: {
+      type: String,
+    },
+    body: {
+      type: String,
+    },
+    actionName: {
+      type: String,
+    },
+    action: {
+      type: Function,
+      required: true,
     },
   },
   components: {
