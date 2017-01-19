@@ -5,7 +5,8 @@
     </header>
     <main class="l-main">
       <router-view name="HeroComponent"></router-view>
-        <router-view></router-view>
+      <router-view></router-view>
+      <banner-component cookie-name="data4sdg-beta"></banner-component>
     </main>
     <footer v-if="!isExamplePage" class="l-footer">
       <router-view name="FooterComponent"></router-view>
@@ -16,6 +17,8 @@
 <style></style>
 
 <script>
+import BannerComponent from 'components/Banner';
+
 export default {
   name: 'app',
   created() {
@@ -35,6 +38,9 @@ export default {
     isExamplePage() {
       return this.$route.path.startsWith('/examples/');
     }
+  },
+  components: {
+    BannerComponent,
   },
 };
 
