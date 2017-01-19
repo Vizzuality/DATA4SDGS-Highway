@@ -1,13 +1,10 @@
 .c-partners-carousel {
+  margin-bottom: 2rem;
   .c-slider {
     div {
-      height: 100px;
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
-
+      text-align: center;
       img {
-        max-height: 100px;
+        height: 50px;
       }
     }
   }
