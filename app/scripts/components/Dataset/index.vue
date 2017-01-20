@@ -16,6 +16,18 @@ export default{
       type: Boolean
     },
   },
+  data() {
+    return {
+      sources: {
+        worldbank: 'WORLDBANK',
+        joe_casola: 'JOE CASOLA, U. OF WASHINGTON',
+        cait: 'CAIT',
+        nasa: 'NASA',
+        noaa: 'NOAA',
+        iucn_unep_wcmc: 'IUCN & UNEP-WCMC',
+      },
+    };
+  },
   computed: {
     idRoute() {
       return `/playground/${this.dataset.id}`;
@@ -31,7 +43,7 @@ export default{
     },
     source() {
       const info = this.getMetadataInfo();
-      return info ? info.organization : null;
+      return info && info.organization ? info.organization : this.getSourceByTag();
     },
     link() {
       const info = this.getMetadataInfo();
@@ -51,6 +63,16 @@ export default{
         }
       }
       return null;
+    },
+    getSourceByTag() {
+      const tags = this.dataset.tags;
+      let source = null;
+      tags.forEach((tag) => {
+        if (this.sources[tag]) {
+          source = this.sources[tag];
+        }
+      });
+      return source;
     },
   },
   components: {
