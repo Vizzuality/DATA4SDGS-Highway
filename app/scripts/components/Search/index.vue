@@ -22,19 +22,23 @@ export default{
       },
       {
         value: 'nasa',
-        label: 'NASA'
+        label: 'NASA',
       },
       {
         value: 'iucn_unep_wcmc',
-        label: 'IUCN & UNEP-WCMC'
+        label: 'IUCN & UNEP-WCMC',
       },
       {
         value: 'cait',
-        label: 'CAIT'
+        label: 'CAIT',
       },
       {
         value: 'joe_casola',
-        label: 'JOE CASOLA, U. OF WASHINGTON'
+        label: 'JOE CASOLA, U. OF WASHINGTON',
+      },
+      {
+        value: 'worldbank',
+        label: 'WORLDBANK',
       }],
       loadingMessage: 'Searching...',
       errorMessage: 'Something weird happened!',
