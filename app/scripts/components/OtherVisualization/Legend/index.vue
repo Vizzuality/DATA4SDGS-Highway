@@ -6,7 +6,11 @@
   export default {
 
     name: 'legend-component',
-
+    data() {
+      return {
+        isOpen: true,
+      };
+    },
     computed: {
       /* TODO: pass activeItems and items as property from parent component
         for making this component reusable
@@ -20,6 +24,9 @@
     },
 
     methods: {
+      toggle() {
+        this.isOpen = !this.isOpen;
+      },
       onCboxChange(event, id) {
         const layerName = event.target.nextElementSibling.innerText;
         const aux = this.activeItems.slice(0);

@@ -2,7 +2,7 @@
 
 .c-legend {
   background-color: $white;
-
+  min-width: 360px;
   .legend-list {
     list-style-type: none;
     margin: 0;
@@ -17,10 +17,48 @@
   }
 
   .legend-title {
-    font-size: 16px;
     color: $white;
     background-color: $mexican-pink;
-    padding: 6px 23px;
+    display: flex;
+    justify-content: space-between;
+
+    h3 {
+      flex-grow: 1;
+      padding: 5px $small-margin;
+      font-size: 16px;
+    }
+    button {
+      position: relative;
+      padding: 0 $small-margin;
+      border-radius: 0;
+
+      &:focus {
+        outline: none;
+      }
+
+      .viel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .15);
+      }
+
+      .legend-title-arrow {
+        display: inline-block;
+        width: rem(12);
+        height: rem(12);
+        border-right: rem(2) solid $white;
+        border-bottom: rem(2) solid $white;
+        transform: translateY(3px) rotate(-135deg);
+        transition: all .2s ease-out;
+
+        &.-active {
+          transform: translateY(-2px) rotate(45deg);
+        }
+      }
+    }
   }
 }
 
