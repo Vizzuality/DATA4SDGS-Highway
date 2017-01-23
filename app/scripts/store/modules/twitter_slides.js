@@ -55,8 +55,10 @@ const twitter = {
               reject();
             });
         } else {
-          setTimeout(commit(SET_TWITTER_SLIDES_SUCCESS, dummieData), 1000);
-          resolve();
+          setTimeout(() => {
+            commit(SET_TWITTER_SLIDES_SUCCESS, dummieData);
+            resolve();
+          }, 1000);
         }
       });
     },
