@@ -76,31 +76,41 @@
     }
   }
 
-  .tweet {
+  .twitter-slider {
+    .tweet {
 
-    > .tweet-message {
-      margin-top: $small-margin;
-      margin-bottom: 0;
-      font-style: italic;
-      font-size: $font-size-small;
-      text-align: center;
-    }
-
-    > .tweet-user {
-      display: flex;
-      align-items: baseline;
-      justify-content: center;
-
-      > .tweet-user-tag {
-        font-weight: $font-weight-bold;
-        font-size: $font-size-xsmall;
+      > .tweet-message {
+        margin-top: $small-margin;
+        margin-bottom: 0;
+        font-style: italic;
+        font-size: $font-size-small;
+        text-align: center;
       }
 
-      > .tweet-username {
-        margin-left: $small-margin / 3;
-        text-transform: lowercase;
+      > .tweet-user {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+
+        > .tweet-user-tag {
+          font-weight: $font-weight-bold;
+          font-size: $font-size-xsmall;
+        }
+
+        > .tweet-username {
+          margin-left: $small-margin / 3;
+          text-transform: lowercase;
+        }
       }
     }
+  }
+
+  .no-tweets {
+    margin-top: $medium-margin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
 }

@@ -35,9 +35,9 @@ const twitter = {
   actions: {
     setTimeline({ commit }) {
       return new Promise((resolve, reject) => {
+        commit(SET_TWITTER_SLIDES_LOADING, true);
+        commit(SET_TWITTER_SLIDES_ERROR, false);
         if (process.env.NODE_ENV === 'production') {
-          commit(SET_TWITTER_SLIDES_LOADING, true);
-          commit(SET_TWITTER_SLIDES_ERROR, false);
           fetch('/api/twitter')
             .then((response) => {
               if (response.status >= 400) throw new Error(response.status);
@@ -55,8 +55,11 @@ const twitter = {
               reject();
             });
         } else {
-          setTimeout(commit(SET_TWITTER_SLIDES_SUCCESS, dummieData), 1000);
-          resolve();
+          setTimeout(() => {
+            commit(SET_TWITTER_SLIDES_LOADING, false);
+            commit(SET_TWITTER_SLIDES_SUCCESS, dummieData);
+            resolve();
+          }, 4000);
         }
       });
     },
@@ -68,6 +71,9 @@ const twitter = {
         text: tweet.text,
         user: tweet.user.screen_name
       }));
+    },
+    getTweetsAvailability(state) {
+      return !state.loading || state.error;
     },
   },
 };

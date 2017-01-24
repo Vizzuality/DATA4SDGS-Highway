@@ -80,7 +80,7 @@
 
   </article-component>
 
-  <article-component>
+  <article-component class="twitter-slider">
     <h4 class="-center -uppercase">What our champions have to say</h4>
     <slider-component>
       <div v-for="tweet in twitterSlides">
@@ -93,6 +93,12 @@
         </div>
       </div>
     </slider-component>
+    <div v-show="!tweetsAvailable" class="tweet">
+      <div class="no-tweets">
+        <icon-component name="icon-twitter" class="-small -alternative"></icon-component>
+        <p>No tweets available</p>
+      </div>
+    </div>
   </article-component>
 
   <article-component class="-accent -no-padding">

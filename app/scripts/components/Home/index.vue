@@ -17,6 +17,9 @@ export default {
     twitterSlides() {
       return this.$store.getters.getFormatedTweets;
     },
+    tweetsAvailable() {
+      return this.$store.getters.getTweetsAvailability;
+    },
   },
   methods: {
     goToPlayground() {

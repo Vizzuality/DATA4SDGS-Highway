@@ -29,6 +29,10 @@
     color: $theme-base;
     font-size: $font-size-xsmall;
     margin: 0;
+
+    a {
+      text-transform: lowercase;
+    }
   }
 
   @keyframes appear {

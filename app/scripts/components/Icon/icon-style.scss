@@ -52,6 +52,11 @@
     stroke: $theme-base;
   }
 
+  &.-alternative > svg {
+    fill: $theme-alternative;
+    stroke: $theme-alternative;
+  }
+
   &.-complementary > svg {
     fill: $theme-complementary;
     stroke: $theme-complementary;
