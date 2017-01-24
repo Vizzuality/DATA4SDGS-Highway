@@ -10,10 +10,12 @@
         :cookie-name="bannerCookie"
         :action="hideBanner"
         :isVisible="bannerVisibility"
-        heading="Welcome! This is still a beta."
-        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-              ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-              ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        heading="Welcome! This is a proof of concept website."
+        body='Thank you for taking a look at SDG Data Highways. We would love to hear your feedback,
+         in particular from your software engineers. The aim is to make it as fast as possible to
+         discover and use SDG data in your applications. If you think we’re meeting the aim, or have
+         some suggestions to help us improve the site, please send us feedback using
+         <a href="https://insights.hotjar.com/s?siteId=395952&surveyId=18062">this survey.</a>'
         actionName="Got it!"
       >
       </banner-component>
