@@ -1,0 +1,15 @@
+<section class="c-legend l-legend">
+  <div class="legend-title">
+    <h3>Lost Surface Water</h3>
+    <button type="button" @click="toggle">
+      <div class="viel"></div>
+      <span :class="{'legend-title-arrow':true, '-active': isOpen }"></span>
+    </button>
+  </div>
+  <ul class="legend-list" v-show="isOpen">
+    <li v-for="item in items">
+      <input :id="item.id" class="c-switch" type="checkbox" :checked="activeItems.includes(item.id)" @change="onCboxChange($event, item.id)">
+      <label :for="item.id">{{ item.name }}</label>
+    </li>
+  </ul>
+</section>

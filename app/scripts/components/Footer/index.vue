@@ -3,17 +3,17 @@
 <style lang="scss" src="./footer-style.scss"></style>
 
 <script>
-import logoGlobalSDD from 'static/logos/global_partnership_sdg.jpg';
-import logoVizz from 'static/logos/vizzuality.jpg';
+import IconComponent from 'components/Icon';
 
 export default {
   name: 'footer-component',
   data() {
     return {
-      logoGlobalSDD,
-      logoVizz,
       msg: 'Footer',
     };
   },
+  components: {
+    IconComponent
+  }
 };
 </script>

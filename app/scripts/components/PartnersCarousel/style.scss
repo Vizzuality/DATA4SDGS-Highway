@@ -1,0 +1,15 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-partners-carousel {
+  margin-top: $large-margin;
+  margin-bottom: $medium-margin;
+  .c-slider {
+    div {
+      text-align: center;
+      img {
+        height: 50px;
+      }
+    }
+  }
+}

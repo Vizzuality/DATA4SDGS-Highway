@@ -2,13 +2,123 @@
 @import '../../../styles/variables';
 
 .c-header{
-  padding: $medium-margin;
   a {
     color: inherit;
   }
 
-  .header-logo {
-    position: absolute;
-    transform: translate(-50%, 0);
+  .header-section {
+    &.-lead {
+      padding: $medium-margin 0;
+      .header-wrapper {
+        justify-content: space-between;
+      }
+    }
+    &.-secondary {
+      padding: 14px 0;
+      display: none;
+      .header-wrapper {
+        justify-content: flex-end;
+      }
+    }
+    .-over & {
+      &.-lead {
+        padding-top: rem(18);
+        padding-bottom: rem(18);
+        background-color: rgba(0, 0, 0, .8);
+        box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.5);
+      }
+      &.-secondary {
+        display: block;
+        background-color: rgba(0, 0, 0, .7);
+      }
+    }
+  }
+
+  .header-wrapper {
+    max-width: 71rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/*
+  Nav Component
+*/
+
+.nav {
+  // Primary
+  &.-primary {
+    a {
+      padding: 20px 0;
+      display: block;
+    }
+    li {
+      position: relative;
+      margin-right: 20px;
+      overflow: hidden;
+      &:after {
+        display: block;
+        position: absolute;
+        content: '';
+        width: 0;
+        height: 4px;
+        background-color: $theme-accent;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        transition: width .15s $ease-out-cubic;
+      }
+      &:hover {
+        &:after {
+          width: 22px;
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &.-active {
+        pointer-events: none;
+        &:after {
+          width: 22px;
+        }
+      }
+    }
+  }
+  // Secondary
+  &.-secondary {
+    ul {
+      margin: 0;
+    }
+    li {
+      padding: 0 30px;
+      border-right: 1px solid rgba(255, 255, 255, .6);
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+        border-right: none;
+      }
+      &.-active {
+        pointer-events: none;
+        a {
+          color: $mexican-pink;
+        }
+      }
+    }
+    a {
+      display: block;
+      text-transform: none;
+      font-size: 16px;
+      letter-spacing: .4px;
+      transition: opacity linear .1s;
+      &:not(.-disabled):hover {
+        opacity: .66;
+      }
+      &.-disabled {
+        pointer-events: none;
+      }
+    }
   }
 }

@@ -1,0 +1,23 @@
+@import '../../../styles/variables';
+
+.visualization-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 101;
+  padding: 44px $visualization-padding-side;
+  margin: 0 80px;
+
+  .header-logo {
+    position: absolute;
+    left: -8px;
+  }
+
+  & .header-title {
+    font-family: $base-font-family;
+    color: $white;
+    text-transform: capitalize;
+    font-weight: normal;
+  }
+}

@@ -1,0 +1,20 @@
+<div class="c-banner" v-if="isVisible">
+  <div class="content">
+    <div class="row align-center">
+      <div class="columns small-12 medium-10">
+        <div class="row">
+          <div class="column small-6 medium-8 align-middle">
+            <h3 class="banner-heading -light">{{heading}}</h3>
+            <p class="banner-body" v-html="body"></p>
+          </div>
+
+          <div class="column small-6 medium-4">
+            <div class="c-button-group -center">
+              <button-component class="-bordered -big" :click="action">{{actionName}}</button-component>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

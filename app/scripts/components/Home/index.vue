@@ -6,42 +6,35 @@
 import router from 'router';
 import ArticleComponent from 'components/Article';
 import ButtonComponent from 'components/Button';
-import SwiperComponent from 'components/Swiper';
-import { SwipeItem } from 'vue-swipe';
 import IconComponent from 'components/Icon';
+import SliderComponent from 'components/Slider';
+import PartnersCarousel from 'components/PartnersCarousel';
+import FeedbackComponent from 'components/Feedback';
 
 export default {
   name: 'home-component',
-  data() {
-    return {
-      twitterSlides: [{
-        id: 0,
-        message: '“Awesome & timely, particularly given this morning\'s #datarevolution discussion. #TechWomenAfrica”',
-        user: 'Datasc'
-      },
-      {
-        id: 1,
-        message: '“Awesome & timely, particularly given this morning\'s #datarevolution discussion. #TechWomenAfrica”',
-        user: 'Datasc'
-      },
-      {
-        id: 2,
-        message: '“Awesome & timely, particularly given this morning\'s #datarevolution discussion. #TechWomenAfrica”',
-        user: 'Datasc'
-      }],
-    };
+  computed: {
+    twitterSlides() {
+      return this.$store.getters.getFormatedTweets;
+    },
+    tweetsAvailable() {
+      return this.$store.getters.getTweetsAvailability;
+    },
   },
   methods: {
     goToPlayground() {
-      router.push('/playground');
+      // Google Analytics
+      ga('send', 'event', 'Home', 'Click Start', 'Click');
+      this.$router.push('/playground');
     },
   },
   components: {
     ArticleComponent,
     ButtonComponent,
-    SwiperComponent,
-    SwipeItem,
     IconComponent,
+    SliderComponent,
+    PartnersCarousel,
+    FeedbackComponent,
     router,
   },
 };

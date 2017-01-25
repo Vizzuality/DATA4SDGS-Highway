@@ -1,3 +1,4 @@
+require('dotenv').config();
 var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
@@ -29,7 +30,11 @@ module.exports = {
       'styles': path.resolve(__dirname, '../app/styles'),
       'components': path.resolve(__dirname, '../app/scripts/components'),
       'router': path.resolve(__dirname, '../app/scripts/router'),
+      'store': path.resolve(__dirname, '../app/scripts/store'),
+      'services': path.resolve(__dirname, '../app/scripts/services'),
       'static': path.resolve(__dirname, '../static'),
+      'lib': path.resolve(__dirname, '../app/scripts/lib'),
+      'data': path.resolve(__dirname, '../app/data'),
     }
   },
   resolveLoader: {

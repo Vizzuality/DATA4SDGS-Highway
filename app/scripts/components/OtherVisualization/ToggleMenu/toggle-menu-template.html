@@ -1,0 +1,35 @@
+<!-- <aside class="c-toggle-menu l-toggle-menu"> -->
+<aside :class="{'c-toggle-menu': true, 'l-toggle-menu': true, '-closed': closed === true }">
+  <button type="button" class="toggle-menu-btn" @click="toggle">
+    <span></span>
+  </button>
+  <div class="c-ranking">
+    <h2 class="ranking-title">Regions with greatest water risk</h2>
+    <div class="ranking-content">
+      <table class="ranking-table">
+        <thead>
+          <tr>
+            <th colspan="2" @click="setSortField('water')">
+              <span :class="{'-active': sort.field === 'water', '-inverted': !sort.direction}">
+                Permanent surface water area lost (ha)
+              </span>
+            </th>
+            <th @click="setSortField('pop')">
+              <span :class="{'-active': sort.field === 'pop', '-inverted': !sort.direction}">
+                Large Population
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(basin, index) in basinsList">
+            <td><span>{{index + 1}}</span>{{capitalize(basin.basin_name)}}</td>
+            <td>{{basin.water}}</td>
+            <td>{{basin.pop}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <spinner-component class="-relative" :loading="basinsLoading"></spinner-component>
+    </div>
+  </div>
+</aside>

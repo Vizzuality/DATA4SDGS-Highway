@@ -1,0 +1,25 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-map-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  padding: rem(3) rem(65) rem(2) rem(65);
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: $grayed-black;
+  z-index: 100;
+
+  & * {
+    color: $mexican-pink;
+    font-size: $font-size-xsmall;
+    font-weight: bold;
+  }
+
+  a {
+    text-transform: none;
+  }
+}

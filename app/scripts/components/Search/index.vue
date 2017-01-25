@@ -1,17 +1,49 @@
 <template src="./search-template.html"> </template>
 <style lang="scss" src="./search-style.scss"> </style>
 <script>
+import router from 'router';
 import { mapGetters } from 'vuex';
 import DropdownComponent from 'components/Dropdown';
+import CheckboxComponent from 'components/Checkbox';
 
 export default{
   name: 'search-component',
+  created() {
+    window.addEventListener('keydown', this.onKeydown);
+  },
+  beforeDestroy() {
+    window.removeEventListener('keydown', this.onKeydown);
+  },
   data() {
     return {
-      filters: ['all', 'noaa', 'nasa', 'wri', 'other'],
+      filters: [{
+        value: 'noaa',
+        label: 'NOAA',
+      },
+      {
+        value: 'nasa',
+        label: 'NASA',
+      },
+      {
+        value: 'iucn_unep_wcmc',
+        label: 'IUCN & UNEP-WCMC',
+      },
+      {
+        value: 'cait',
+        label: 'CAIT',
+      },
+      {
+        value: 'joe_casola',
+        label: 'JOE CASOLA, U. OF WASHINGTON',
+      },
+      {
+        value: 'worldbank',
+        label: 'WORLDBANK',
+      }],
       loadingMessage: 'Searching...',
       errorMessage: 'Something weird happened!',
       notFoundMessage: 'No Datasets were found',
+      timeout: null,
     };
   },
   computed: {
@@ -20,19 +52,57 @@ export default{
         return this.query;
       },
       set(value) {
-        this.$store.dispatch('updateQuery', value);
+        if (value.split('').length > 1 || value === '') {
+          this.debounce(this.$store.dispatch, ['searchDatasets', value]);
+        }
       }
     },
     ...mapGetters({
-      notFound: 'getNotFound',
-      results: 'getListData',
-      query: 'getQuery',
-      loading: 'getLoading',
-      error: 'getError',
+      notFound: 'getSearchNotFound',
+      results: 'getSearchListData',
+      query: 'getSearchQuery',
+      loading: 'getSearchLoading',
+      error: 'getSearchError',
     }),
+  },
+  methods: {
+    debounce(callback, params) {
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        callback(...params);
+      }, 700);
+    },
+    selectDataset(dataset) {
+      this.$router.push(`/playground/${dataset.id}`);
+    },
+    navigateDown(e) {
+      const element = e.target.tagName === 'LI'
+      ? e.target.nextElementSibling
+      : this.$refs['search-results-list'].firstChild;
+
+      element && element.focus();
+    },
+    navigateUp(e) {
+      const element = e.target.previousElementSibling
+      ? e.target.previousElementSibling
+      : this.$refs['search-input'];
+
+      element && element.focus();
+    },
+    onKeydown(e) {
+      const focusedElement = document.activeElement;
+      if (e.which === 40 || e.which === 38) {
+        if (focusedElement.classList.contains('js-search-input')
+        || focusedElement.classList.contains('js-search-results-item')) {
+          e.preventDefault();
+        }
+      }
+    },
   },
   components: {
     DropdownComponent,
+    CheckboxComponent,
+    router,
   },
 };
 </script>

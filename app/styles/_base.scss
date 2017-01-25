@@ -17,13 +17,10 @@ body {
   height: 100%;
 }
 
-h1 {
-  font-family: $heading-font-family;
-  color: $heading-font-color;
-  line-height: 1.2;
-  margin-top: 0;
-  margin-bottom: $small-margin;
-  text-transform: uppercase;
+h1, h2 {
+  &.-left {
+    text-align: left;
+  }
 
   &.-clean {
     color: inherit;
@@ -37,18 +34,28 @@ h3, h4 {
     font-weight: $font-weight-normal;
   }
 
+  &.-uppercase {
+    text-transform: uppercase;
+  }
+
+  &.-left {
+    text-align: left;
+  }
+
   &.-center {
     text-align: center;
   }
 }
 
 h1 {
+  font-family: $heading-font-family;
+  color: $heading-font-color;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: $small-margin;
+  text-transform: uppercase;
   font-size: $h1-font-size;
   text-align: center;
-
-  &.-left {
-    text-align: left;
-  }
 }
 
 h2 {
@@ -66,11 +73,6 @@ h3 {
 
 h4 {
   font-size: $h4-font-size;
-  text-align: center;
-  text-transform: uppercase;
-  &.-left {
-    text-align: left;
-  }
 }
 
 a {
@@ -79,16 +81,17 @@ a {
   text-transform: uppercase;
   font-size: $font-size-xsmall;
   font-weight: $font-weight-bold;
+  cursor: pointer;
 }
 
 nav > ul {
   display: flex;
   list-style: none;
   padding: 0;
+  margin: 0;
 
   & > li {
     list-style: none;
-    margin: 0 10px;
   }
 }
 

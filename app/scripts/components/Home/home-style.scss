@@ -30,7 +30,7 @@
       background-size: cover;
       min-height: 532px;
 
-      border: 1px solid $theme-accent;
+      border: 1px solid $theme-alternative;
     }
 
     &:last-child {
@@ -39,18 +39,21 @@
       background-size: cover;
       min-height: 532px;
 
-      border: 1px solid $theme-accent;
+      border: 1px solid $theme-alternative;
       border-left: 0;
     }
   }
 
   .link-column {
-    height: 50%;
-    width: 70%;
+    height: 30%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    > .link-column-action {
+    align-items: flex-start;
+    padding-left: $medium-margin * 2;
+
+    .link-column-action {
       color: $theme-accent;
 
       &:after {
@@ -67,33 +70,47 @@
 
       }
     }
+
+    @media (min-width: 640px) and (max-width: 726px) {
+      height: 60%;
+    }
   }
 
-  .tweet {
+  .twitter-slider {
+    .tweet {
 
-    > .tweet-message {
-      margin-top: $small-margin;
-      margin-bottom: 0;
-      font-style: italic;
-      font-size: $font-size-small;
-      text-align: center;
-    }
-
-    > .tweet-user {
-      display: flex;
-      align-items: baseline;
-      justify-content: center;
-
-      > .tweet-user-tag {
-        font-weight: $font-weight-bold;
-        font-size: $font-size-xsmall;
+      > .tweet-message {
+        margin-top: $small-margin;
+        margin-bottom: 0;
+        font-style: italic;
+        font-size: $font-size-small;
+        text-align: center;
       }
 
-      > .tweet-username {
-        margin-left: $small-margin / 3;
-        text-transform: lowercase;
+      > .tweet-user {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+
+        > .tweet-user-tag {
+          font-weight: $font-weight-bold;
+          font-size: $font-size-xsmall;
+        }
+
+        > .tweet-username {
+          margin-left: $small-margin / 3;
+          text-transform: lowercase;
+        }
       }
     }
+  }
+
+  .no-tweets {
+    margin-top: $medium-margin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
 }

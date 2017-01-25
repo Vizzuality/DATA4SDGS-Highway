@@ -1,0 +1,34 @@
+@import '../../../../styles/variables';
+
+.l-other-visualization {
+  height: 100vh;
+}
+
+  .legend-list {
+    li {
+      display: flex;
+      align-items: center;
+      font-size: $font-size-xsmall;
+
+      .c-switch:after {
+        border-color: rgba($grey, 0.7);
+      }
+
+      &:first-child {
+        .c-switch:checked {
+          background-color: rgba(212, 18, 89, 1);;
+        }
+      }
+
+      &:nth-child(2) {
+        .c-switch:checked {
+          background-color: #0000dd;
+        }
+      }
+      &:nth-child(3) {
+        .c-switch:checked {
+          background-color: #d8d333;
+        }
+      }
+    }
+  }

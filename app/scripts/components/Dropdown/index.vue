@@ -7,18 +7,23 @@ export default{
   name: 'dropdown-component',
   props: {
     items: {
-      type: Array,
-      required: true,
+      type: Array
     },
   },
   data() {
     return {
       open: false,
-      selected: null
+      selected: null,
+      buttonClasses: '-bordered dropdown-button',
     };
   },
-  components: {
-    ButtonComponent,
+  computed: {
+    getButtonClasses() {
+      if (this.open) {
+        return `${this.buttonClasses} -opened`;
+      }
+      return this.buttonClasses;
+    },
   },
   methods: {
     toggleVisibility() {
@@ -28,6 +33,9 @@ export default{
       this.selected = this.items[index];
       this.toggleVisibility();
     },
+  },
+  components: {
+    ButtonComponent,
   },
 };
 </script>

@@ -5,9 +5,11 @@ $white: #FFFFFF;
 $mexican-pink: #ff0065;
 $dark-grey: #2F2F2F;
 $gold-yellow: #EFA600;
+$bright-yellow: #ffd722;
 $lightgrey: #F3F3F3;
 $grey: grey;
 $medium-grey: #E8E8E8;
+$subtle-grey: #F2F2F2;
 
 // Fonts
 $heading-font-family: "bebas-neue", sans-serif;
@@ -19,6 +21,7 @@ $h2-font-size: rem(44);
 $h3-font-size: rem(20);
 $h4-font-size: rem(16);
 
+$font-size-large: rem(28);
 $font-size-normal: rem(18);
 $font-size-small: rem(16);
 $font-size-xsmall: rem(14);
@@ -35,10 +38,13 @@ $theme-alternative: $black;
 
 // General Settings
 $base-font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+$base-font-family-bold: 'proxima-nova-extrabold', Helvetica, Arial, sans-serif;
+$base-font-family-semi: 'proxima-nova-semibold', Helvetica, Arial, sans-serif;
+
 $base-font-size: $font-size-normal;
 $base-line-height: 1.5;
 
-$base-bg-color: $theme-base;
+$base-bg-color: $subtle-grey;
 $base-font-color: $dark-grey;
 
 $header-bg-color: $grayed-black;
@@ -50,6 +56,7 @@ $button-font-color: $theme-base;
 // Borders
 $border-1: solid 1px #e0e0e0;
 $box-shadow-1: 0 2px 1px 0 rgba(0, 0, 0, 0.17);
+$box-shadow-2: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
 
 // Links and Buttons
 $link-font-color: $gold-yellow;
@@ -65,3 +72,22 @@ $footer-height: 10vh;
 // Breakpoints
 
 // Media Queries
+
+// Visualization
+$visualization-padding-side: 72px;
+
+/*
+  Animation
+*/
+
+// Times
+$transition-duration: .3s;
+
+// Eases
+$ease-in-cubic: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+$ease-out-cubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+$ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+
+$ease-in-sine: cubic-bezier(0.470, 0.000, 0.745, 0.715);
+$ease-out-sine: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+$ease-in-out-sine: cubic-bezier(0.445, 0.050, 0.550, 0.950);

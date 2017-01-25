@@ -2,24 +2,63 @@
 @import '../../../styles/variables';
 
 .c-icon {
-
-  &.-normal {
-    height: 50px;
-    width: 50px;
+  flex-shrink: 0;
+  &.-round {
     display: flex;
-    flex-shrink: 0;
     align-items: center;
     justify-content: center;
     border: $border-1;
     border-radius: 50%;
+  }
+
+  &.-xsmall {
+    height: 12px;
+    width: 12px;
+    > svg {
+      height: 12px;
+      width: 12px;
+    }
+  }
+
+  &.-small {
+    width: 18px;
+    height: 18px;
+    > svg {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  &.-medium {
+    height: 50px;
+    width: 50px;
     > svg {
       height: 35px;
       width: 35px;
     }
   }
 
+  &.-large {
+    height: 60px;
+    width: 60px;
+    > svg {
+      height: 60px;
+      width: 60px;
+    }
+  }
+
   &.-base > svg {
-    fill: $link-font-color;
-    stroke: $link-font-color;
+    fill: $theme-base;
+    stroke: $theme-base;
+  }
+
+  &.-alternative > svg {
+    fill: $theme-alternative;
+    stroke: $theme-alternative;
+  }
+
+  &.-complementary > svg {
+    fill: $theme-complementary;
+    stroke: $theme-complementary;
   }
 }

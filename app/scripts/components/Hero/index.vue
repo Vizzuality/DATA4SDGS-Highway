@@ -23,9 +23,16 @@ export default {
     },
     location() {
       const computedLocation = {};
-      if (this.$route.path === '/') {
-        computedLocation.home = true;
-      }
+      let location = this.$route.path;
+      let params = [...Object.values(this.$route.params)];
+
+      params = params.join('/');
+      params = params && `/${params}`;
+      location = params ? location.split(params)[0] : location;
+
+      computedLocation.home = location === '/';
+      computedLocation.playground = location === '/playground';
+
       return computedLocation;
     },
   },

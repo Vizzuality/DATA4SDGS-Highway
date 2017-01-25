@@ -1,0 +1,38 @@
+<aside class="c-sidebar">
+  <div class="sidebar-title">
+    <h4>Conflicts related to protected areas</h4>
+    <button type="button" @click="openSidebar">
+      <div class="viel"></div>
+      <span :class="arrowOpen"></span>
+    </button>
+  </div>
+  <div :class="contentOpen">
+    <div class="layers-switch">
+      <ul class="c-legend">
+        <li class="legend-item">
+          <div class="switch">
+            <input type="checkbox" name="protected_areas" ref="protected_areas" @click="toggleLayer">
+            <span class="toggle"></span>
+          </div>
+          Protected Areas
+        </li>
+        <spinner-component :loading="layerLoading" :overlay="true" class="-absolute"></spinner-component>
+      </ul>
+    </div>
+    <div class="legend-spec">
+      <ul class="c-legend">
+        <li class="legend-item">
+          <span class="spec -square -pink"></span>
+          Protected Areas Surface
+        </li>
+
+        <li class="legend-item">
+          <span class="spec -dot -yellow"></span>
+          Events or conflicts
+        </li>
+
+        <spinner-component :loading="layerLoading" :overlay="true" class="-absolute"></spinner-component>
+      </ul>
+    </div>
+  </div>
+</aside>
