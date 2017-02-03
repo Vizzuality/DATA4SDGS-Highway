@@ -21,6 +21,10 @@
       toggleModal() {
         this.$store.dispatch('setModal', { isOpen: true, type: 'about' });
       },
+      goTo(path) {
+        this.$store.dispatch('setModal', { isOpen: false });
+        this.$router.push(path);
+      },
     },
     components: {
       ModalComponent,
