@@ -18,7 +18,7 @@
 
   .legend-title {
     color: $white;
-    background-color: $mexican-pink;
+    background-color: $theme-accent;
     display: flex;
     justify-content: space-between;
 
@@ -93,7 +93,7 @@
   }
 
   &:checked {
-    background-color: $mexican-pink;
+    background-color: $theme-accent;
     &:after {
       transform: translateX(calc(100% + 1px));
       border-color: $mexican-pink;

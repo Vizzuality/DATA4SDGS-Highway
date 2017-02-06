@@ -14,7 +14,7 @@
   z-index: 100;
 
   & * {
-    color: $mexican-pink;
+    color: $theme-accent;
     font-size: $font-size-xsmall;
     font-weight: bold;
   }
@@ -22,4 +22,5 @@
   a {
     text-transform: none;
   }
+
 }
