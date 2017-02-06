@@ -22,7 +22,7 @@
     justify-content: center;
 
     svg {
-      fill: $mexican-pink;
+      fill: $theme-accent;
     }
   }
   .share-links-item {
@@ -39,7 +39,7 @@
   width: 35px;
   height: 35px;
   display: inline-block;
-  background-color: $mexican-pink;
+  background-color: $theme-accent;
   top: rem(288);
   right: rem(72);
   border-radius: 0;
