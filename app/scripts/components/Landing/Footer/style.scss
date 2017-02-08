@@ -29,8 +29,7 @@
   display: flex;
   font-size: $font-size-normal;
   li {
-    border-right: 1px solid rgba($white, .5);
-    padding: 0 10px;
+    padding: 0 20px;
     a {
       font-size: inherit;
       font-weight: normal;
@@ -40,9 +39,11 @@
     }
     &:first-child {
       padding-left: 0;
+      border-right: 1px solid rgba($white, .5);
     }
     &:last-child {
       border-right: none;
+      padding-right: 0;
     }
   }
 }
