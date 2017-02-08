@@ -3,7 +3,7 @@
 
 .c-footer {
   padding: $small-margin;
-
+  height: 100%;
   .footer-wrapper {
     max-width: 71rem;
     margin: 0 auto;
@@ -19,15 +19,32 @@
     a {
       display: block;
     }
+    .footnote {
+      font-size: $font-size-xsmall;
+    }
+  }
+
+  .footer-link-section {
+    display: flex;
+    justify-content: space-between;
   }
 
   .sdg-logo {
     width: 213px;
     height: 58px;
   }
-  .vizz-logo svg{
-    width: 89px;
-    height: 21px;
-    fill: #64d1b8;
+
+  .rw-logo {
+    height: 50%;
+    width: 50%;
+  }
+  .vizz-logo {
+    display: flex;
+    align-items: center;
+    svg {
+      width: 89px;
+      height: 21px;
+      fill: #64d1b8;
+    }
   }
 }
