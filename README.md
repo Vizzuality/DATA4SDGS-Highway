@@ -16,6 +16,8 @@ npm install
 
 ## Usage
 
+Create a new file `.env` based on the `.env.sample` file and insert your credentials.
+
 ``` bash
 
 # serve with hot reload at 127.0.0.1:3000
@@ -30,6 +32,15 @@ npm run unit
 # run all tests
 npm test
 ```
+
+## .env variables
+* API_BASE_URL - Map layers + datasets api base url.
+* TWITTER_CONSUMER_KEY - twitter consumer key (needed for tweets slider).
+* TWITTER_CONSUMER_SECRET - twitter consumer secret (needed for tweets slider).
+* TWITTER_ACCESS_TOKEN_KEY - twitter access token key (needed for tweets slider).
+* TWITTER_ACCESS_TOKEN_SECRET - twitter access token secret (needed for tweets slider).
+* GOOGLE_ANALYTICS - google analytics app id
+* SHOW_FEEDBACK - flag to activate the landing's page feedback form
 
 ## Contributing
 

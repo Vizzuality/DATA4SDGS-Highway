@@ -32,6 +32,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       'process.env': env,
       global: {
         API_BASE_URL: JSON.stringify(process.env.API_BASE_URL),
+        SHOW_FEEDBACK: process.env.SHOW_FEEDBACK === 'true'
       },
     }),
     new webpack.optimize.UglifyJsPlugin({

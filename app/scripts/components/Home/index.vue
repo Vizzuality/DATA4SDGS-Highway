@@ -11,8 +11,15 @@ import SliderComponent from 'components/Slider';
 import PartnersCarousel from 'components/PartnersCarousel';
 import FeedbackComponent from 'components/Feedback';
 
+const SHOW_FEEDBACK = global.SHOW_FEEDBACK;
+
 export default {
   name: 'home-component',
+  data() {
+    return {
+      showFeedback: SHOW_FEEDBACK,
+    };
+  },
   computed: {
     twitterSlides() {
       return this.$store.getters.getFormatedTweets;

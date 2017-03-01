@@ -21,6 +21,7 @@ module.exports = merge(baseWebpackConfig, {
       'process.env': config.dev.env,
       global: {
         API_BASE_URL: JSON.stringify(process.env.API_BASE_URL),
+        SHOW_FEEDBACK: process.env.SHOW_FEEDBACK === 'true'
       },
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
