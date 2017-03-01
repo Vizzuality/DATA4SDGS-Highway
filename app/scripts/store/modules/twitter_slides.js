@@ -73,7 +73,7 @@ const twitter = {
       }));
     },
     getTweetsAvailability(state) {
-      return !state.loading || state.error;
+      return !state.loading && !state.error && state.timeline.length;
     },
   },
 };
