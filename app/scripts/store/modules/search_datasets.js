@@ -53,8 +53,8 @@ const searchDatasets = {
         if (state.search.query !== '') {
           commit(SET_SEARCH_DATASETS_LOADING, true);
           commit(SET_SEARCH_DATASETS_ERROR, false);
-          const tags = state.search.filters ? `&tags=${state.search.filters}` : '';
-          fetch(`${BASE_URL}/dataset?app=data4sdgs&page[size]=10000&name=${state.search.query}${tags}`)
+          const tags = state.search.filters ? `&includes=vocabulary&vocabulary[legacy]=${state.search.filters}` : '';
+          fetch(`${BASE_URL}/dataset?application=data4sdgs&page[size]=10000&name=${state.search.query}${tags}`)
             .then((response) => {
               if (response.status >= 400) {
                 throw new Error(response.status);
