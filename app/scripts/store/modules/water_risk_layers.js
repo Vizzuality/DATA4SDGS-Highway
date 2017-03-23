@@ -10,6 +10,8 @@ import {
   SET_BASINS_LOADING
 } from '../mutation-types';
 
+const BASE_URL = global.API_BASE_URL;
+
 export default {
   /*
     INITIAL STATE
@@ -64,7 +66,7 @@ export default {
     // Fetch layers from api
     getWaterRiskLayers({ commit }) {
       commit(SET_WATER_LAYER_LOADING, true);
-      fetch(new Request('https://api.resourcewatch.org/dataset?app=data4sdgs&includes=layer&tags=data4sdgs-vizz2&cache=expire'))
+      fetch(new Request(`${BASE_URL}/dataset?application=data4sdgs&includes=vocabulary,layer&vocabulary[legacy]=data4sdgs-vizz2&cache=expire`))
       .then((response) => {
         if (response.ok) return response.json();
         throw new Error(response.statusText);

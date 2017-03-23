@@ -30,10 +30,10 @@ const featuredDatasets = {
   },
   actions: {
     getFeaturedDatasets({ commit }) {
-      return new Promise(() => {
+      return new Promise((resolve, reject) => {
         commit(SET_FEATURED_DATASETS_LOADING, true);
         commit(SET_FEATURED_DATASETS_ERROR, false);
-        fetch(`${BASE_URL}/dataset?app=data4sdgs&tags=data4sdgs-featured&page[size]=12&includes=metadata&cache=expire`)
+        fetch(`${BASE_URL}/dataset?app=data4sdgs&tags=data4sdgs-featured&page[size]=12&includes=vocabulary,metadata&cache=expire`)
           .then((response) => {
             if (response.status >= 400) {
               throw new Error(response.status);
@@ -44,10 +44,12 @@ const featuredDatasets = {
               if (err) throw new Error('Error deserializing json api');
               commit(SET_FEATURED_DATASETS_LOADING, false);
               commit(SET_FEATURED_DATASETS_SUCCESS, list);
+              resolve(list);
             });
           }).catch((error) => {
             commit(SET_FEATURED_DATASETS_LOADING, false);
             commit(SET_FEATURED_DATASETS_ERROR, error);
+            reject(error);
           });
       });
     },

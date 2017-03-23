@@ -56,7 +56,7 @@ export default{
     },
     getMetadataInfo() {
       const metadata = this.dataset.metadata[0];
-      if (metadata) {
+      if (typeof metadata !== 'undefined') {
         const attributes = metadata.attributes;
         if (attributes.info) {
           return attributes.info;
@@ -65,7 +65,10 @@ export default{
       return null;
     },
     getSourceByTag() {
-      const tags = this.dataset.tags;
+      const tags = this.dataset.vocabulary
+        .filter(v => v.attributes.name === 'legacy')
+        .map(v => (v.attributes.tags));
+
       let source = null;
       tags.forEach((tag) => {
         if (this.sources[tag]) {
