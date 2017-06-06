@@ -6,7 +6,7 @@
 
 Requirements:
 
-* NodeJs 6.0+ [How to install](https://nodejs.org/download/)
+* NodeJs 7.4+ [How to install](https://nodejs.org/download/)
 
 Install dependencies:
 
