@@ -34,11 +34,6 @@ node {
       sh("docker build -t ${dockerUsername}/${appName}:latest .")
     }
 
-    stage ('Run Tests') {
-      sh('docker-compose -f docker-compose-test.yml build')
-      sh('docker-compose -f docker-compose-test.yml run --rm test')
-      sh('docker-compose -f docker-compose-test.yml stop')
-    }
 
     stage('Push Docker') {
       withCredentials([usernamePassword(credentialsId: 'Vizzuality_Docker_Hub', usernameVariable: 'DOCKER_HUB_USERNAME', passwordVariable: 'DOCKER_HUB_PASSWORD')]) {
