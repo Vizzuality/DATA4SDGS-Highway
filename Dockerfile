@@ -16,7 +16,7 @@ ENV SHOW_FEEDBACK $SHOW_FEEDBACK
 
 COPY . .
 
-RUN npm i
+RUN npm i && npm run build
 
 EXPOSE 5000
 
