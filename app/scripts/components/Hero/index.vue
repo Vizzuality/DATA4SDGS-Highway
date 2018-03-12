@@ -31,7 +31,7 @@ export default {
       location = params ? location.split(params)[0] : location;
 
       computedLocation.home = location === '/';
-      computedLocation.playground = location === '/playground';
+      computedLocation.playground = location === '/data-sets';
 
       return computedLocation;
     },

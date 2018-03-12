@@ -21,7 +21,7 @@ export default{
       .then(() => store.dispatch('setModal', {
         isOpen: true,
         onClose: () => {
-          router.push('/playground');
+          router.push('/data-sets');
           store.dispatch('searchDatasets', '');
         },
       }));
@@ -43,7 +43,7 @@ export default{
   },
   methods: {
     closeModal() {
-      this.$router.push('/playground');
+      this.$router.push('/data-sets');
       this.$store.dispatch('searchDatasets', '');
     },
   },
