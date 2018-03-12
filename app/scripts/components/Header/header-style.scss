@@ -54,34 +54,17 @@
       display: block;
     }
     li {
+      color: rgba(#222, 0.6);
       position: relative;
-      margin-right: 20px;
+      margin-left: 50px;
       overflow: hidden;
-      &:after {
-        display: block;
-        position: absolute;
-        content: '';
-        width: 0;
-        height: 4px;
-        background-color: $theme-accent;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
-        transition: width .15s $ease-out-cubic;
-      }
+
       &:hover {
-        &:after {
-          width: 22px;
-        }
-      }
-      &:last-child {
-        margin-right: 0;
+        color: $theme-blue;
       }
       &.-active {
         pointer-events: none;
-        &:after {
-          width: 22px;
-        }
+        color: $theme-blue;
       }
     }
   }

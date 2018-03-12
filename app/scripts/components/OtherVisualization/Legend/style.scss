@@ -96,7 +96,7 @@
     background-color: $theme-accent;
     &:after {
       transform: translateX(calc(100% + 1px));
-      border-color: $mexican-pink;
+      border-color: $theme-blue;
     }
   }
 }
