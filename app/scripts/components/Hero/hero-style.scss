@@ -2,17 +2,41 @@
 @import '../../../styles/variables';
 
 .c-hero {
-  padding-top: rem(166);
   background-color: $header-bg-color;
   position: relative;
   z-index: 1;
+  font-size: rem(60);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &.-home {
     background-image: url('/static/layouts/Back.png');
     background-size: cover;
+    min-height: rem(500);
 
     .hero-home-content {
-      padding: ($medium-margin * 4) 0;
+      max-width: rem(600);
+      color: $white;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: rem(50);
+        border: solid 1px $gold-yellow;
+        top: 50%;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        width: rem(50);
+        border: solid 1px $gold-yellow;
+        top: 50%;
+      }
     }
   }
 
