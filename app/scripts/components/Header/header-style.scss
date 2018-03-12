@@ -2,6 +2,7 @@
 @import '../../../styles/variables';
 
 .c-header{
+  position: relative;
   a {
     color: inherit;
   }
@@ -9,6 +10,7 @@
   .header-section {
     &.-lead {
       padding: $medium-margin 0;
+      box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.15);
       .header-wrapper {
         justify-content: space-between;
       }
@@ -27,7 +29,13 @@
       }
       &.-secondary {
         display: block;
-        background-color: rgba(0, 0, 0, .7);
+        background-color: $white;
+        opacity: 0.9;
+        position: absolute;
+        bottom: rem(-50);
+        left: 0;
+        right: 0;
+        z-index: 1000;
       }
     }
   }
@@ -72,14 +80,22 @@
       margin: 0;
     }
     li {
+      display: flex;
+      align-items: center;
       padding: 0 30px;
-      border-right: 1px solid rgba(255, 255, 255, .6);
+      color: $theme-alternative;
+      font-weight: 300;
       &:first-child {
         padding-left: 0;
       }
       &:last-child {
         padding-right: 0;
         border-right: none;
+      }
+      &:hover {
+        a {
+          color: $theme-accent;
+        }
       }
       &.-active {
         pointer-events: none;
@@ -94,9 +110,6 @@
       font-size: 16px;
       letter-spacing: .4px;
       transition: opacity linear .1s;
-      &:not(.-disabled):hover {
-        opacity: .66;
-      }
       &.-disabled {
         pointer-events: none;
       }

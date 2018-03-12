@@ -68,7 +68,6 @@
 }
 
 .layers-switch {
-  background-color: rgba(0, 0, 0, .02);
   padding: rem(22);
 }
 
@@ -182,8 +181,6 @@
 
 .legend-spec {
   padding: rem(22);
-  // background-color: $lightgrey;
-  background-color: rgba(0, 0, 0, .02);
   border-top: rem(1) solid #ded8d8;
   max-height: rem(200);
   overflow: auto;
@@ -228,7 +225,7 @@
     }
 
     &.-pink {
-      background-color: #CC0051;
+      background-color: $theme-blue;
     }
 
     &.-ia { background-color: #fdc2b1; }
