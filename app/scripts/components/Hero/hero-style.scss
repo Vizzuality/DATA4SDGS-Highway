@@ -9,6 +9,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #f0f0f0;
+  width: 100%;
+
+  > div {
+    width: 100%;
+  }
 
   &.-home {
     background-image: url('/static/layouts/home-bg.jpg');
@@ -21,6 +27,7 @@
       max-width: rem(600);
       color: $white;
       position: relative;
+      margin: auto;
 
       &::before {
         content: "";
@@ -43,6 +50,10 @@
   }
 
   .hero-app-content {
-    padding: ($medium-margin * 3) 0;
+    padding-top: rem(100);
+
+    h1 {
+      margin-bottom: rem(60);
+    }
   }
 }
