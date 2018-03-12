@@ -3,6 +3,11 @@
 
 .c-playground {
   min-height: 50vh;
+  background-color: $theme-blue;
+
+  h1 {
+    color: $white;
+  }
 
   .c-article {
 

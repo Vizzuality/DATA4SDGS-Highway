@@ -26,7 +26,7 @@
     width: 50vw;
     min-height: 75vh;
     background-color: $theme-base;
-    top: 25vh;
+    top: rem(450);
     padding: $medium-margin + $small-margin;
     box-shadow: $box-shadow-2;
 
@@ -34,6 +34,10 @@
       position: absolute;
       right: 0;
       top: 0;
+
+      svg {
+        fill: $black;
+      }
     }
   }
 }
