@@ -30,7 +30,7 @@ export default{
   },
   computed: {
     idRoute() {
-      return `/playground/${this.dataset.id}`;
+      return `/data-sets/${this.dataset.id}`;
     },
     name() {
       return this.dataset.name;
@@ -52,7 +52,7 @@ export default{
   },
   methods: {
     selectDataset() {
-      this.$router.push(`/playground/${this.dataset.id}`);
+      this.$router.push(`/data-sets/${this.dataset.id}`);
     },
     getMetadataInfo() {
       const metadata = this.dataset.metadata[0];
