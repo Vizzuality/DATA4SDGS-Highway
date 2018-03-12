@@ -1,7 +1,7 @@
 @import '../../../../styles/variables';
 
 .l-other-visualization {
-  height: 100vh;
+  height: calc(100vh - 97px);
 }
 
   .legend-list {
@@ -16,18 +16,18 @@
 
       &:first-child {
         .c-switch:checked {
-          background-color: rgba(212, 18, 89, 1);;
+          background-color: $theme-blue;
         }
       }
 
       &:nth-child(2) {
         .c-switch:checked {
-          background-color: #0000dd;
+          background-color: $gold-yellow;
         }
       }
       &:nth-child(3) {
         .c-switch:checked {
-          background-color: #d8d333;
+          background-color: #007fae;
         }
       }
     }

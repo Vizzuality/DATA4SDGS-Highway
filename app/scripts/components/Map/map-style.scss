@@ -1,8 +1,8 @@
 @import '../../../styles/variables';
 
 // Local Vars
-$bubble-cluster-color: #E8D717;
-$bubble-cluster-font-color: #483805;
+$bubble-cluster-color: $gold-yellow;
+$bubble-cluster-font-color: $white;
 
 .l-map {
   position: absolute;
@@ -39,7 +39,7 @@ $bubble-cluster-font-color: #483805;
     }
 
     .leaflet-top {
-      top: rem(186) !important;
+      top: rem(86) !important;
       z-index: 9999999999!important;
     }
 
@@ -73,7 +73,7 @@ $bubble-cluster-font-color: #483805;
   -- Map markers --
 */
 .c-marker-bubble {
-  background-color: #FFEA19;
+  background-color: $gold-yellow;
   border-radius: 100%;
   box-shadow: 0px 0px 0px 6px rgba($gold-yellow, 0.5);
   transition: all .3s ease;
