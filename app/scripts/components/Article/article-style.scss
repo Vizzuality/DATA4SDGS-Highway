@@ -11,6 +11,16 @@
 
   &.-complementary {
     background-color: $theme-complementary;
+    color: #454545;
+
+    .desc {
+      max-width: rem(640);
+      margin: auto;
+    }
+  }
+
+  &.twitter-slider {
+    color: #454545;
   }
 
   &.-alternative {
