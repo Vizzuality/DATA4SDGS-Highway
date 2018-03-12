@@ -5,7 +5,8 @@
 
   .info-column {
     display: flex;
-    margin-top: $medium-margin;
+    margin-top: rem(30);
+    margin-bottom: rem(30);
 
     .info-column-text {
       margin-left: $small-margin;
