@@ -42,35 +42,31 @@ const searchDatasets = {
     setSearchDatasetsFilters({ commit, dispatch, state }, filters) {
       return new Promise(() => {
         commit(SET_SEARCH_DATASETS_FILTERS, filters);
-        if (state.search.query) {
-          dispatch('searchDatasets', state.search.query);
-        }
+        dispatch('searchDatasets', state.search.query);
       });
     },
     searchDatasets({ commit, state }, query) {
       return new Promise(() => {
         commit(SET_SEARCH_DATASETS_QUERY, query);
-        if (state.search.query !== '') {
-          commit(SET_SEARCH_DATASETS_LOADING, true);
-          commit(SET_SEARCH_DATASETS_ERROR, false);
-          const tags = state.search.filters ? `&includes=vocabulary&vocabulary[legacy]=${state.search.filters}` : '';
-          fetch(`${BASE_URL}/dataset?application=data4sdgs&page[size]=10000&name=${state.search.query}${tags}`)
-            .then((response) => {
-              if (response.status >= 400) {
-                throw new Error(response.status);
-              }
-              return response.json();
-            }).then((data) => {
-              Deserializer.deserialize(data, (err, list) => {
-                if (err) throw new Error('Error deserializing json api');
-                commit(SET_SEARCH_DATASETS_LOADING, false);
-                commit(SET_SEARCH_DATASETS_SUCCESS, list);
-              });
-            }).catch((error) => {
+        commit(SET_SEARCH_DATASETS_LOADING, true);
+        commit(SET_SEARCH_DATASETS_ERROR, false);
+        const tags = state.search.filters ? `&includes=vocabulary&vocabulary[legacy]=${state.search.filters}` : '';
+        fetch(`${BASE_URL}/dataset?application=data4sdgs&includes=vocabulary,metadata&page[size]=12${state.search.query !== '' ? `&name=${state.search.query}` : ''}${tags}`)
+          .then((response) => {
+            if (response.status >= 400) {
+              throw new Error(response.status);
+            }
+            return response.json();
+          }).then((data) => {
+            Deserializer.deserialize(data, (err, list) => {
+              if (err) throw new Error('Error deserializing json api');
               commit(SET_SEARCH_DATASETS_LOADING, false);
-              commit(SET_SEARCH_DATASETS_ERROR, error);
+              commit(SET_SEARCH_DATASETS_SUCCESS, list);
             });
-        }
+          }).catch((error) => {
+            commit(SET_SEARCH_DATASETS_LOADING, false);
+            commit(SET_SEARCH_DATASETS_ERROR, error);
+          });
       });
     },
   },

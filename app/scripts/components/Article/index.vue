@@ -6,7 +6,7 @@ export default{
   props: {
     gridRow: {
       type: [String, Boolean],
-      default: 'row align-center',
+      default: 'row',
     },
     gridColumn: {
       type: [String, Boolean],

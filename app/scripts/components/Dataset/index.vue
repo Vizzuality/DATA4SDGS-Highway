@@ -65,12 +65,12 @@ export default{
       return null;
     },
     getSourceByTag() {
-      const tags = this.dataset.vocabulary
+      const tags = this.dataset.vocabulary && this.dataset.vocabulary
         .filter(v => v.attributes.name === 'legacy')
         .map(v => (v.attributes.tags));
 
       let source = null;
-      tags.forEach((tag) => {
+      tags && tags.forEach((tag) => {
         if (this.sources[tag]) {
           source = this.sources[tag];
         }

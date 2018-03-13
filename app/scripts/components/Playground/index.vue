@@ -12,10 +12,10 @@ import ConsoleComponent from 'components/Console';
 import SpinnerComponent from 'components/Spinner';
 import CheckboxComponent from 'components/Checkbox';
 
-export default{
+export default {
   name: 'playground-component',
   created() {
-    if (!this.featuredDatasets.length) this.$store.dispatch('getFeaturedDatasets');
+    this.$store.dispatch('searchDatasets', '');
   },
   beforeRouteEnter(to, from, next) {
     if (to.params.dataset) {
@@ -24,7 +24,6 @@ export default{
         isOpen: true,
         onClose: () => {
           router.push('/data-sets');
-          store.dispatch('searchDatasets', '');
         },
       }));
     }
@@ -67,12 +66,12 @@ export default{
       return this.$store.route;
     },
     ...mapGetters({
-      featuredDatasets: 'getFeaturedListData',
-      loading: 'getFeaturedLoading',
-      error: 'getFeaturedError',
+      searchDatasets: 'getSearchListData',
+      loading: 'getSearchLoading',
+      error: 'getSearchError',
       selectedDataset: 'getSelectedDataset',
       recentDatasets: 'getRecentDatasets',
-      featuresLoading: 'getFeaturedLoading',
+      searchLoading: 'getSearchLoading',
     }),
   },
   methods: {

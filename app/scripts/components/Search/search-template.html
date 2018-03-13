@@ -8,17 +8,18 @@
         v-model.trim="queryState"
         @keyup.down="navigateDown"
         ref="search-input"
+        v-click-outside="onClickOutside"
+        v-on:click="isOpen = true"
       >
       <icon-component class="search-icon -round -medium" name="icon-search"></icon-component>
     </div>
-    <ul class="search-results-list" ref="search-results-list">
+    <ul v-if="isOpen" class="search-results-list" ref="search-results-list">
       <li v-if="loading" class="search-results-item">{{loadingMessage}}</li>
       <li v-else-if="error" class="search-results-item -error">{{errorMessage}}</li>
       <li v-else-if="notFound" class="search-results-item">{{notFoundMessage}}</li>
       <li
         tabindex="-1"
         class="search-results-item -item js-search-results-item"
-        v-else-if="query"
         v-for="(result, index) in results"
         @click="selectDataset(result)"
         @keyup.enter="selectDataset(result)"

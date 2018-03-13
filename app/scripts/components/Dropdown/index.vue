@@ -2,6 +2,7 @@
 <style lang="scss" src="./dropdown-style.scss"> </style>
 <script>
 import ButtonComponent from 'components/Button';
+import vClickOutside from 'v-click-outside';
 
 export default{
   name: 'dropdown-component',
@@ -9,6 +10,9 @@ export default{
     items: {
       type: Array
     },
+  },
+  directives: {
+    clickOutside: vClickOutside.directive
   },
   data() {
     return {
@@ -28,6 +32,9 @@ export default{
   methods: {
     toggleVisibility() {
       this.open = !this.open;
+    },
+    onClickOutside() {
+      this.open = false;
     },
     selectItem(index) {
       this.selected = this.items[index];

@@ -1,4 +1,4 @@
-<div class="c-dropdown">
+<div class="c-dropdown" v-click-outside="onClickOutside">
   <button-component :class="getButtonClasses" :click="toggleVisibility">{{selected || 'Filter by'}}</button-component>
   <ul class="dropdown-list" v-show="open">
     <li v-for="(item, index) in items" class="dropdown-list-item" @click="selectItem(index)">

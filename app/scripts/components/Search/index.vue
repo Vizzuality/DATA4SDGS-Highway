@@ -4,14 +4,24 @@
 import router from 'router';
 import { mapGetters } from 'vuex';
 import IconComponent from 'components/Icon';
+import vClickOutside from 'v-click-outside';
 
-export default{
+export default {
   name: 'search-component',
   created() {
+    this.$store.dispatch('searchDatasets', '');
     window.addEventListener('keydown', this.onKeydown);
   },
   beforeDestroy() {
     window.removeEventListener('keydown', this.onKeydown);
+  },
+  directives: {
+    clickOutside: vClickOutside.directive
+  },
+  data() {
+    return {
+      isOpen: false
+    };
   },
   computed: {
     queryState: {
@@ -39,8 +49,11 @@ export default{
         callback(...params);
       }, 700);
     },
+    onClickOutside() {
+      this.isOpen = false;
+    },
     selectDataset(dataset) {
-      this.$router.push(`/data-sets/${dataset.id}`);
+      this.$store.dispatch('searchDatasets', dataset.name);
     },
     navigateDown(e) {
       const element = e.target.tagName === 'LI'
