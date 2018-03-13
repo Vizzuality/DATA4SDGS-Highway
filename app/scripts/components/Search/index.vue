@@ -3,8 +3,7 @@
 <script>
 import router from 'router';
 import { mapGetters } from 'vuex';
-import DropdownComponent from 'components/Dropdown';
-import CheckboxComponent from 'components/Checkbox';
+import IconComponent from 'components/Icon';
 
 export default{
   name: 'search-component',
@@ -13,38 +12,6 @@ export default{
   },
   beforeDestroy() {
     window.removeEventListener('keydown', this.onKeydown);
-  },
-  data() {
-    return {
-      filters: [{
-        value: 'noaa',
-        label: 'NOAA',
-      },
-      {
-        value: 'nasa',
-        label: 'NASA',
-      },
-      {
-        value: 'iucn_unep_wcmc',
-        label: 'IUCN & UNEP-WCMC',
-      },
-      {
-        value: 'cait',
-        label: 'CAIT',
-      },
-      {
-        value: 'joe_casola',
-        label: 'JOE CASOLA, U. OF WASHINGTON',
-      },
-      {
-        value: 'worldbank',
-        label: 'WORLDBANK',
-      }],
-      loadingMessage: 'Searching...',
-      errorMessage: 'Something weird happened!',
-      notFoundMessage: 'No Datasets were found',
-      timeout: null,
-    };
   },
   computed: {
     queryState: {
@@ -100,9 +67,8 @@ export default{
     },
   },
   components: {
-    DropdownComponent,
-    CheckboxComponent,
     router,
+    IconComponent
   },
 };
 </script>

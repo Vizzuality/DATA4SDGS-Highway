@@ -1,15 +1,20 @@
 <div class="c-playground">
-  <article-component v-if="recentDatasets.length" grid-column="small-10 medium-10 small-offset-2 medium-offset-0">
-    <h1>Recently viewed datasets</h1>
+  <article-component v-if="recentDatasets.length" grid-column="small-10 medium-10 small-offset-2 medium-offset-0 data-sets">
+    <h1>Browse Datasets</h1>
+    <div class="filters-dropdown">
+      <dropdown-component>
+        <checkbox-component :items="filters" icon="icon-check"></checkbox-component>
+      </dropdown-component>
+    </div>
     <dataset-list-component :datasets="recentDatasets"></dataset-list-component>
   </article-component>
 
-  <article-component grid-column="small-10 medium-10 small-offset-2 medium-offset-0">
+  <!-- <article-component grid-column="small-10 medium-10 small-offset-2 medium-offset-0">
     <h1>Featured Datasets</h1>
     <dataset-list-component :datasets="featuredDatasets"></dataset-list-component>
     <spinner-component class="-relative" :loading="featuresLoading"></spinner-component>
   </article-component>
   <modal-component>
     <console-component></console-component>
-  </modal-component>
+  </modal-component> -->
 </div>

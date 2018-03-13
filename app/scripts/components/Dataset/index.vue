@@ -77,6 +77,9 @@ export default{
       });
       return source;
     },
+    isDataSetsPage() {
+      return this.$route.params.dataset;
+    }
   },
   components: {
     router,
