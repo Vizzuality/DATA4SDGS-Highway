@@ -8,6 +8,9 @@
     color: inherit;
     text-transform: none;
   }
+  .logo, svg {
+    max-height: rem(70);
+  }
 }
 
 img {

@@ -1,7 +1,7 @@
 @import '../../../../styles/variables';
 
 .c-landing {
-  padding: 150px 0 200px;
+  padding: 120px 0 160px;
   background-image: url("/static/landing/bg.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -72,7 +72,8 @@
     font-family: $heading-font-family;
     text-transform: uppercase;
     font-size: 40px;
-    margin-bottom: 35px;
+    font-weight: 400;
+    margin-bottom: 15px;
   }
   .content-text {
     font-size: $font-size-normal;
