@@ -1,14 +1,27 @@
 @import '../../../../styles/variables';
 
 .c-landing-footer {
-  background-color: $theme-accent;
+  background-color: $theme-alternative;
   min-height: 15vh;
   padding: 36px 0;
   a {
     color: inherit;
     text-transform: none;
   }
+  .logo, svg {
+    max-height: rem(70);
+  }
 }
+
+img {
+  max-height: rem(70);
+}
+
+.footer-info {
+  display: flex;
+  align-items: center;
+}
+
 .footer-text {
   font-size: $font-size-normal;
   color: $white;
@@ -21,6 +34,7 @@
     }
   }
 }
+
 .footer-links {
   color: $white;
   list-style-type: none;
@@ -30,6 +44,7 @@
   font-size: $font-size-normal;
   li {
     padding: 0 20px;
+    border-right: 1px solid rgba($white, .5);
     a {
       font-size: inherit;
       font-weight: normal;
@@ -39,7 +54,6 @@
     }
     &:first-child {
       padding-left: 0;
-      border-right: 1px solid rgba($white, .5);
     }
     &:last-child {
       border-right: none;

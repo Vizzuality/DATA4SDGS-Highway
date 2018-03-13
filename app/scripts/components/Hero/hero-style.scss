@@ -11,21 +11,11 @@
   align-items: center;
 
   &.-home {
-    background-image: url('/static/layouts/Back.jpg');
+    background-image: url('/static/layouts/home-bg.jpg');
     background-size: cover;
     background-position: center;
     min-height: rem(500);
     position: relative;
-
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      background-color: rgba($theme-blue, 0.4);
-    }
 
     .hero-home-content {
       max-width: rem(600);
