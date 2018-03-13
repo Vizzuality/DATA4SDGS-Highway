@@ -15,7 +15,21 @@ import {
 const baseUrl = 'https://wri-01.cartodb.com/api/v1/map';
 const cartoDic = {
   protected_areas: {
-    cartocss: '#wdpa_protected_areas { polygon-opacity: 0.8; line-width: 0.2; line-opacity: 1; polygon-fill: transparent; line-color: #334285;} ',
+    cartocss: `#wdpa_protected_areas {
+      polygon-opacity: 0.8;
+      line-width: 0.25;
+      line-opacity: 0.75;
+      polygon-fill: transparent;
+      line-color: #007FAE;
+    }
+    #wdpa_protected_areas [zoom >= 6] {
+      polygon-opacity: 1;
+      line-width: 5;
+      line-opacity: 1;
+      polygon-fill: transparent;
+      line-color: black;
+    }
+    `,
     sql: 'SELECT the_geom, the_geom_webmercator, iucn_cat, iso3 FROM wdpa_protected_areas',
     interactivity: ['iucn_cat']
   },

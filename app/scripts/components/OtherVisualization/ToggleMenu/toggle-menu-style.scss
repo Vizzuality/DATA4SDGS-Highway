@@ -1,9 +1,8 @@
 @import '../../../../styles/variables';
 
 .c-toggle-menu {
-  padding-top: 60px;
   position: relative;
-	box-shadow: inset -3px 0 0 0 rgba(0, 0, 0, 0.16);
+	box-shadow: -3px 0 0 0 rgba(0, 0, 0, 0.16);
   transition: transform $ease-out-cubic $transition-duration;
 
   &.-closed {
@@ -22,7 +21,6 @@
     left: 100%;
     width: 39px;
     height: 50px;
-    margin-left: -3px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,121 +42,119 @@
 }
 
 .l-toggle-menu {
-  position: absolute;
+  position: fixed;
   width: 585px;
   z-index: 999;
   background-color: $white;
-  top: rem(50); // Header height
+  top: rem(147); // Header height
   bottom: 26px; // footer height
-  // left: 0;
 }
-
 
 /*
   Ranking component
 */
 .c-ranking {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-}
 
-.ranking-title {
-  font-family: $heading-font-family;
-  color: $black;
-  text-transform: uppercase;
-  font-size: 42px;
-  padding: 0 122px 46px 72px;
-  letter-spacing: .3px;
-  line-height: 1.2;
-  margin: 0;
-}
-
-.ranking-content {
-  box-shadow: inset -3px 0 0 0 rgba(0, 0, 0, 0.16);
-  flex: 1;
-  overflow-y: auto;
-}
-
-.ranking-table {
-  width: 100%;
-  font-family: $base-font-family;
-  empty-cells: show;
-
-  thead tr {
-    border-bottom: 1px solid rgba(#87929a, 0.3);
+  .ranking-title {
+    font-family: $heading-font-family;
+    color: $black;
+    text-transform: uppercase;
+    font-size: 42px;
+    padding: 50px;
+    letter-spacing: .3px;
+    line-height: 1.2;
+    margin: 0;
   }
 
-  th {
-    font-size: 16px;
-    font-weight: normal;
-    text-align: right;
-    vertical-align: top;
-    padding: $small-margin $small-margin * 2;
-    padding-left: $small-margin;
-
-    &:first-child {
-      padding-left: $large-margin * 2;
-    }
-
-    span {
-      display: block;
-      cursor: pointer;
-      position: relative;
-      padding-right: $small-margin;
-      color: $theme-alternative;
-
-      &.-active:after{
-        display: block;
-      }
-
-      &.-inverted:after{
-        transform: rotate(225deg);
-      }
-
-      &:after {
-        display: none;
-        content: '';
-        width: 8px;
-        height: 8px;
-        border-right: 2px solid rgba($dark-grey, 0.7);
-        border-bottom: 2px solid rgba($dark-grey, 0.7);
-        transform: translateY(-50%) rotate(45deg);
-        position: absolute;
-        left: 100%;
-        top: 50%;
-      }
-
-    }
+  .ranking-content {
+    height: calc(100% - 200px);
   }
 
-  td {
-    text-align: right;
-    font-size: 20px;
-    padding: $small-margin $small-margin * 2;
-    color: $dark-grey;
+  .ranking-table {
+    width: 100%;
+    height: 100%;
+    font-family: $base-font-family;
+    empty-cells: show;
+    display: inline-block;
+    position: relative;
 
-    &:first-child {
-      font-family: $base-font-family-semi;
-      width: 40%;
-      text-align: left;
-    }
-
-    &:nth-child(2) {
-      width: 20%;
-    }
-
-    &:nth-child(3) {
-      width: 40%;
-    }
-
-    span {
-      font-family: $base-font-family-bold;
-      font-weight: bold;
+    thead {
       display: inline-block;
-      margin-right: 1rem;
-      font-size: 20px;
+      border-bottom: solid 2px rgba(#87929a, 0.5);
+      padding: rem(10) rem(60) rem(10) rem(40);
+
+      th {
+        text-align: right;
+        width: 40%;
+
+        &:first-child {
+          text-align: left;
+          width: 20%;
+        }
+      }
+
+      span {
+        display: block;
+        cursor: pointer;
+        position: relative;
+        color: $theme-alternative;
+        &:after {
+          opacity: 0;
+          content: '';
+          width: 8px;
+          height: 8px;
+          border-right: 2px solid rgba($dark-grey, 0.7);
+          border-bottom: 2px solid rgba($dark-grey, 0.7);
+          transform: translateY(-50%) rotate(45deg);
+          position: absolute;
+          left: 110%;
+          top: 50%;
+        }
+        &.-inverted:after{
+          transform: rotate(225deg);
+        }
+        &.-active:after{
+          opacity: 1;
+        }
+      }
     }
 
+    tbody {
+      display: inline-block;
+      width: 100%;
+      padding: rem(10) rem(60) rem(10) rem(40);
+      position: absolute;
+      top: rem(76);
+      bottom: 0;
+      overflow-y: scroll;
+      tr {
+        width: 100%;
+        display: inline-flex;
+        padding: rem(20) 0;
+      }
+      td {
+        text-align: right;
+        width: 20%;
+        font-size: 20px;
+        color: $dark-grey;
+
+        &:first-child {
+          text-align: left;
+          font-family: $base-font-family-semi;
+          width: 40%;
+        }
+        &:last-child {
+          width: 40%;
+        }
+      }
+      span {
+        font-family: $base-font-family-bold;
+        font-weight: bold;
+        display: inline-block;
+        margin-right: 1rem;
+        font-size: 20px;
+      }
+    }
   }
 }

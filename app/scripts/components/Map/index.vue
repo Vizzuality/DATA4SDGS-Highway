@@ -26,7 +26,7 @@
         },
         // basemapUrl: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png',
 
-        basemapUrl: 'https://api.mapbox.com/styles/v1/arimariza/ciwvyadgs00bl2pnynpbka0bn/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYXJpbWFyaXphIiwiYSI6ImNpdGE3YzJhMDAwMGIydG8zeW05MDI2Nm8ifQ.N2JotMJICNMrIt5dSCN1gg',
+        basemapUrl: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
       };
     },
     computed: {
