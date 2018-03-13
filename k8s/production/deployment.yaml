@@ -30,7 +30,7 @@ spec:
           - name: API_BASE_URL
             value: production
           - name: SHOW_FEEDBACK
-            value: false
+            value: "false"
           - name: GOOGLE_ANALYTICS
             value: "UA-90561944-1"
           - name: TWITTER_ACCESS_TOKEN_KEY
