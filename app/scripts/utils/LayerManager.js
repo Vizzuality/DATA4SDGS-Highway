@@ -56,7 +56,6 @@ export default class LayerManager {
     });
 
     this.abortRequest(layer.id);
-
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.open('POST', `https://${layer.account}.carto.com/api/v1/map`);
     xmlhttp.setRequestHeader('Content-Type', 'application/json');
