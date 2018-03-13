@@ -31,6 +31,8 @@ spec:
             value: production
           - name: SHOW_FEEDBACK
             value: false
+          - name: GOOGLE_ANALYTICS
+            value: false
           - name: TWITTER_ACCESS_TOKEN_KEY
             valueFrom:
                 secretKeyRef:
@@ -51,11 +53,6 @@ spec:
                 secretKeyRef:
                   name: mssecrets
                   key: WEB_TWITTER_CONSUMER_SECRET
-          - name: GOOGLE_ANALYTICS
-            valueFrom:
-                secretKeyRef:
-                  name: mssecrets
-                  key: WEB_GOOGLE_ANALYTICS
 
         ports:
           - containerPort: 3000
