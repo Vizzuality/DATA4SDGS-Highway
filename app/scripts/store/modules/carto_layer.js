@@ -16,24 +16,10 @@ const baseUrl = 'https://wri-01.cartodb.com/api/v1/map';
 const cartoDic = {
   protected_areas: {
     cartocss: `#wdpa_protected_areas {
-      polygon-opacity: 0.8;
-      line-width: 0.25;
-      line-opacity: 0.75;
-      polygon-fill: transparent;
-      line-color: #334285;
-    }
-    #wdpa_protected_areas [zoom >= 6] {
-      polygon-opacity: 1;
-      line-width: 1;
+      line-width: 0.1;
       line-opacity: 1;
-      polygon-fill: transparent;
-      line-color: #334285;
-    }
-    #wdpa_protected_areas [zoom >= 10] {
-      polygon-opacity: 1;
-      line-width: 2;
-      line-opacity: 1;
-      polygon-fill: transparent;
+      polygon-fill: #334285;
+      polygon-opacity: 0.1;
       line-color: #334285;
     }
     `,
