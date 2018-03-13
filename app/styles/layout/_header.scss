@@ -5,7 +5,10 @@
   color: $base-bg-color;
 
   .header-logo {
-    max-width: 260px;
+    max-height: 70px;
+    svg {
+      max-height: 70px;
+    }
   }
 
   &.-over {
