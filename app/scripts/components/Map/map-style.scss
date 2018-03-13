@@ -39,12 +39,12 @@ $bubble-cluster-font-color: $white;
     }
 
     .leaflet-top {
-      top: rem(86) !important;
+      top: rem(80) !important;
       z-index: 9999999999!important;
     }
 
     .leaflet-control-zoom-in, .leaflet-control-zoom-out {
-      background-color: rgba(0, 0, 0, .5);
+      background-color: rgba($white, .2);
     }
   }
 

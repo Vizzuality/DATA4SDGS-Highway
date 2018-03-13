@@ -4,12 +4,13 @@
     <span></span>
   </button>
   <div class="c-ranking">
-    <h2 class="ranking-title">Regions with greatest water risk</h2>
+    <h2 class="ranking-title">Regions of South Africa with greatest water risk (2010-2015)</h2>
     <div class="ranking-content">
       <table class="ranking-table">
         <thead>
           <tr>
-            <th colspan="2" @click="setSortField('water')">
+            <th></th>
+            <th @click="setSortField('water')">
               <span :class="{'-active': sort.field === 'water', '-inverted': !sort.direction}">
                 Permanent surface water area lost (ha)
               </span>
