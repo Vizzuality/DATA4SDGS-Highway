@@ -24,8 +24,6 @@
           attributionControl: false,
           zoom: 3
         },
-        // basemapUrl: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png',
-
         basemapUrl: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
       };
     },
