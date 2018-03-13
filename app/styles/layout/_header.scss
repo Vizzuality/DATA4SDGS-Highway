@@ -1,11 +1,12 @@
 .l-header {
-  position: absolute;
-  left: 0;
-  right: 0;
   z-index: 2;
 
-  background-color: transparent;
+  background-color: $white;
   color: $base-bg-color;
+
+  .header-logo {
+    max-width: 260px;
+  }
 
   &.-over {
     z-index: 102;
@@ -15,9 +16,5 @@
         max-width: 78%;
       }
     }
-  }
-
-  &.-about {
-    background-color: $grayed-black;
   }
 }
