@@ -32,7 +32,7 @@ export default {
     goToPlayground() {
       // Google Analytics
       ga('send', 'event', 'Home', 'Click Start', 'Click');
-      this.$router.push('/playground');
+      this.$router.push('/data-sets');
     },
   },
   components: {

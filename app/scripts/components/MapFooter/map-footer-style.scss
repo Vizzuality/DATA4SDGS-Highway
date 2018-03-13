@@ -10,8 +10,9 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: $grayed-black;
+  background-color: rgba($white, 0.9);
   z-index: 100;
+  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.11);
 
   & * {
     color: $theme-accent;

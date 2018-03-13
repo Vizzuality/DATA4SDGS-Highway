@@ -73,7 +73,7 @@ export default{
       }, 700);
     },
     selectDataset(dataset) {
-      this.$router.push(`/playground/${dataset.id}`);
+      this.$router.push(`/data-sets/${dataset.id}`);
     },
     navigateDown(e) {
       const element = e.target.tagName === 'LI'
