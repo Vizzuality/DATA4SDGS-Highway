@@ -20,14 +20,21 @@ const cartoDic = {
       line-width: 0.25;
       line-opacity: 0.75;
       polygon-fill: transparent;
-      line-color: #007FAE;
+      line-color: #334285;
     }
     #wdpa_protected_areas [zoom >= 6] {
       polygon-opacity: 1;
-      line-width: 5;
+      line-width: 1;
       line-opacity: 1;
       polygon-fill: transparent;
-      line-color: black;
+      line-color: #334285;
+    }
+    #wdpa_protected_areas [zoom >= 10] {
+      polygon-opacity: 1;
+      line-width: 2;
+      line-opacity: 1;
+      polygon-fill: transparent;
+      line-color: #334285;
     }
     `,
     sql: 'SELECT the_geom, the_geom_webmercator, iucn_cat, iso3 FROM wdpa_protected_areas',
