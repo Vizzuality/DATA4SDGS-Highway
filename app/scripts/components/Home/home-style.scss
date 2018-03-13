@@ -35,14 +35,14 @@
     }
 
     &:first-child {
-      background-image: url('/static/layouts/laptop.png');
+      background-image: url('/static/layouts/laptop.jpg');
       background-repeat: no-repeat;
       background-size: cover;
       min-height: 532px;
     }
 
     &:last-child {
-      background-image: url('/static/layouts/lights.png');
+      background-image: url('/static/layouts/lights.jpg');
       background-repeat: no-repeat;
       background-size: cover;
       min-height: 532px;
@@ -107,6 +107,7 @@
         > .tweet-username {
           margin-left: $small-margin / 3;
           text-transform: lowercase;
+          color: $theme-blue;
         }
       }
     }
