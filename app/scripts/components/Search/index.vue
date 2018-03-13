@@ -9,7 +9,7 @@ import vClickOutside from 'v-click-outside';
 export default {
   name: 'search-component',
   created() {
-    this.$store.dispatch('searchDatasets', '');
+    // this.$store.dispatch('searchDatasets', value'');
     window.addEventListener('keydown', this.onKeydown);
   },
   beforeDestroy() {
@@ -30,7 +30,7 @@ export default {
       },
       set(value) {
         if (value.split('').length > 1 || value === '') {
-          this.debounce(this.$store.dispatch, ['searchDatasets', value]);
+          this.debounce(this.$store.dispatch, ['searchDatasets', { value, page: 1 }]);
         }
       }
     },
@@ -53,7 +53,7 @@ export default {
       this.isOpen = false;
     },
     selectDataset(dataset) {
-      this.$store.dispatch('searchDatasets', dataset.name);
+      this.$store.dispatch('searchDatasets', { value: dataset.name, page: 1 });
     },
     navigateDown(e) {
       const element = e.target.tagName === 'LI'

@@ -4,7 +4,7 @@ import {
   SET_SEARCH_DATASETS_ERROR,
   SET_SEARCH_DATASETS_LOADING,
   SET_SEARCH_DATASETS_QUERY,
-  SET_SEARCH_DATASETS_FILTERS,
+  SET_SEARCH_DATASETS_FILTERS
 } from '../mutation-types';
 
 const Deserializer = new JSONAPIDeserializer({ keyForAttribute: 'camelCase' });
@@ -19,6 +19,7 @@ const searchDatasets = {
       query: null,
       loading: false,
       error: false,
+      page: 1
     },
   },
   mutations: {
@@ -39,19 +40,19 @@ const searchDatasets = {
     },
   },
   actions: {
-    setSearchDatasetsFilters({ commit, dispatch, state }, filters) {
+    setSearchDatasetsFilters({ commit, dispatch, state }, { filters, page }) {
       return new Promise(() => {
         commit(SET_SEARCH_DATASETS_FILTERS, filters);
-        dispatch('searchDatasets', state.search.query);
+        dispatch('searchDatasets', { value: state.search.query, page });
       });
     },
-    searchDatasets({ commit, state }, query) {
+    searchDatasets({ commit, state }, { value, page }) {
       return new Promise(() => {
-        commit(SET_SEARCH_DATASETS_QUERY, query);
+        commit(SET_SEARCH_DATASETS_QUERY, value);
         commit(SET_SEARCH_DATASETS_LOADING, true);
         commit(SET_SEARCH_DATASETS_ERROR, false);
         const tags = state.search.filters ? `&includes=vocabulary&vocabulary[legacy]=${state.search.filters}` : '';
-        fetch(`${BASE_URL}/dataset?application=data4sdgs&includes=vocabulary,metadata&page[size]=12${state.search.query !== '' ? `&name=${state.search.query}` : ''}${tags}`)
+        fetch(`${BASE_URL}/dataset?application=data4sdgs&includes=vocabulary,metadata&page[size]=12&page[number]=${page}${state.search.query && state.search.query !== '' ? `&name=${state.search.query}` : ''}${tags}`)
           .then((response) => {
             if (response.status >= 400) {
               throw new Error(response.status);

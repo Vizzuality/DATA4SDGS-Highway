@@ -15,7 +15,7 @@ import CheckboxComponent from 'components/Checkbox';
 export default {
   name: 'playground-component',
   created() {
-    this.$store.dispatch('searchDatasets', '');
+    this.$store.dispatch('searchDatasets', { value: '', page: 1 });
   },
   beforeRouteEnter(to, from, next) {
     if (to.params.dataset) {
@@ -59,6 +59,7 @@ export default {
       errorMessage: 'Something weird happened!',
       notFoundMessage: 'No Datasets were found',
       timeout: null,
+      page: 0
     };
   },
   computed: {
@@ -71,13 +72,13 @@ export default {
       error: 'getSearchError',
       selectedDataset: 'getSelectedDataset',
       recentDatasets: 'getRecentDatasets',
-      searchLoading: 'getSearchLoading',
+      searchLoading: 'getSearchLoading'
     }),
   },
   methods: {
     closeModal() {
       this.$router.push('/data-sets');
-      this.$store.dispatch('searchDatasets', '');
+      // this.$store.dispatch('searchDatasets', { value: '', page: this.page });
     },
   },
   watch: {

@@ -55,7 +55,7 @@ export default{
       this.$router.push(`/data-sets/${this.dataset.id}`);
     },
     getMetadataInfo() {
-      const metadata = this.dataset.metadata[0];
+      const metadata = this.dataset.metadata && this.dataset.metadata[0];
       if (typeof metadata !== 'undefined') {
         const attributes = metadata.attributes;
         if (attributes.info) {
