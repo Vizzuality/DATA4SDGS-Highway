@@ -32,7 +32,7 @@ spec:
           - name: SHOW_FEEDBACK
             value: false
           - name: GOOGLE_ANALYTICS
-            value: false
+            value: "UA-90561944-1"
           - name: TWITTER_ACCESS_TOKEN_KEY
             valueFrom:
                 secretKeyRef:
