@@ -1,10 +1,12 @@
 // Colors
-$black: #212020;
-$grayed-black: #292929;
+$black: #222222;
+$dark-grey: #454545;
 $white: #FFFFFF;
-$mexican-pink: #ff0065;
-$dark-grey: #2F2F2F;
-$gold-yellow: #EFA600;
+$theme-blue: #334285;
+$gold-yellow: #f3b641;
+
+$grayed-black: #292929;
+$gold-yellow: #f3b641;
 $bright-yellow: #ffd722;
 $lightgrey: #F3F3F3;
 $grey: grey;
@@ -31,8 +33,8 @@ $font-weight-bold: 700;
 
 // App Palette
 $theme-base: $white;
-$theme-complementary: $lightgrey;
-$theme-accent: $mexican-pink;
+$theme-complementary: #f0f0f0;
+$theme-accent: $theme-blue;
 $theme-alternative: $black;
 
 
@@ -44,7 +46,7 @@ $base-font-family-semi: 'proxima-nova-semibold', Helvetica, Arial, sans-serif;
 $base-font-size: $font-size-normal;
 $base-line-height: 1.5;
 
-$base-bg-color: $subtle-grey;
+$base-bg-color: $white;
 $base-font-color: $dark-grey;
 
 $header-bg-color: $grayed-black;

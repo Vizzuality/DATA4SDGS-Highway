@@ -30,8 +30,10 @@
   }
 
   .sdg-logo {
-    width: 213px;
-    height: 58px;
+    max-height: 70px;
+    svg {
+      max-height: 70px;
+    }
   }
 
   .rw-logo {

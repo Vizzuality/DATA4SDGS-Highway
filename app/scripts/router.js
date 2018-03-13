@@ -24,7 +24,7 @@ const routes = [
     },
   },
   {
-    path: '/playground',
+    path: '/data-sets',
     components: {
       default: PlaygroundComponent,
       HeroComponent,

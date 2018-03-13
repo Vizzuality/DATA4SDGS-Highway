@@ -1,8 +1,8 @@
 @import '../../../styles/variables';
 
 // Local Vars
-$bubble-cluster-color: #E8D717;
-$bubble-cluster-font-color: #483805;
+$bubble-cluster-color: $gold-yellow;
+$bubble-cluster-font-color: $white;
 
 .l-map {
   position: absolute;
@@ -39,12 +39,12 @@ $bubble-cluster-font-color: #483805;
     }
 
     .leaflet-top {
-      top: rem(186) !important;
+      top: rem(80) !important;
       z-index: 9999999999!important;
     }
 
     .leaflet-control-zoom-in, .leaflet-control-zoom-out {
-      background-color: rgba(0, 0, 0, .5);
+      background-color: rgba($white, .2);
     }
   }
 
@@ -55,7 +55,7 @@ $bubble-cluster-font-color: #483805;
     & a {
       border: 1px solid $theme-accent !important;
       border-radius: 0!important;
-      color: $mexican-pink;
+      color: $theme-blue;
       background-color: transparent;
       font-weight: lighter;
       line-height: rem(31);
@@ -73,7 +73,7 @@ $bubble-cluster-font-color: #483805;
   -- Map markers --
 */
 .c-marker-bubble {
-  background-color: #FFEA19;
+  background-color: $gold-yellow;
   border-radius: 100%;
   box-shadow: 0px 0px 0px 6px rgba($gold-yellow, 0.5);
   transition: all .3s ease;
@@ -95,6 +95,7 @@ $bubble-cluster-font-color: #483805;
   border-radius: 100%;
   color: $bubble-cluster-font-color !important;
   font-weight: 700!important;
+  font-family: $base-font-family;
   font-size: 12px;
   padding: 10px;
   background-color: rgba($bubble-cluster-color, 0.9);

@@ -5,36 +5,44 @@
 
   .info-column {
     display: flex;
-    margin-top: $medium-margin;
+    flex-direction: column;
+    margin-top: rem(30);
+    margin-bottom: rem(30);
 
     .info-column-text {
-      margin-left: $small-margin;
+      margin-top: $small-margin;
 
-      > * {
-        margin-top: $small-margin;
-
-        &:first-child {
-          margin-top: 0;
-        }
+      h3 {
+        margin-bottom: $small-margin;
       }
     }
   }
 
   .split-view {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background-color: rgba($theme-blue, 0.2);
+    }
+
     &:first-child {
-      background-image: url('/static/layouts/laptop.png');
+      background-image: url('/static/layouts/laptop.jpg');
       background-repeat: no-repeat;
       background-size: cover;
       min-height: 532px;
-
-      border: 1px solid $theme-alternative;
     }
 
     &:last-child {
-      background-image: url('/static/layouts/lights.png');
+      background-image: url('/static/layouts/lights.jpg');
       background-repeat: no-repeat;
       background-size: cover;
       min-height: 532px;
@@ -52,10 +60,9 @@
     justify-content: space-between;
     align-items: flex-start;
     padding-left: $medium-margin * 2;
+    z-index: 2;
 
     .link-column-action {
-      color: $theme-accent;
-
       &:after {
         position: relative;
         display: inline-block;
@@ -65,8 +72,8 @@
         margin-left: $small-margin;
         transform: rotate(45deg);
         border: 2px solid transparent;
-        border-top: 2px solid $theme-accent;
-        border-right: 2px solid $theme-accent;
+        border-top: 2px solid $gold-yellow;
+        border-right: 2px solid $gold-yellow;
 
       }
     }
@@ -100,6 +107,7 @@
         > .tweet-username {
           margin-left: $small-margin / 3;
           text-transform: lowercase;
+          color: $theme-blue;
         }
       }
     }

@@ -1,12 +1,13 @@
 @import '../../../../styles/variables';
 
 .c-landing {
-  padding: 216px 0 150px;
+  padding: 120px 0 160px;
   background-image: url("/static/landing/bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   position: relative;
+
   &:after {
     content: '';
     display: block;
@@ -21,6 +22,8 @@
 
 .landing-wrapper {
   max-width: 1000px;
+  z-index: 2;
+  position: relative;
   margin: 0 auto;
   &.-footer {
     display: flex;
@@ -53,22 +56,24 @@
 }
 
 .landing-content {
-  margin-top: 150px;
+  margin-top: 80px;
 
   &:before {
     content: '';
     display: block;
     width: 80px;
     height: 3px;
-    background-color: $mexican-pink;
-    margin: 0 0 20px 10px;
+    background-color: $gold-yellow;
+    margin: 0 0 25px 0;
   }
 
   .content-title {
+    max-width: rem(500);
     font-family: $heading-font-family;
     text-transform: uppercase;
     font-size: 40px;
-    margin-bottom: 35px;
+    font-weight: 400;
+    margin-bottom: 15px;
   }
   .content-text {
     font-size: $font-size-normal;

@@ -1,13 +1,14 @@
 <div :class="styles">
 
-  <div class="row" v-if="location.home">
-    <div class="column small-11 medium-6 small-offset-1 medium-offset-1 hero-home-content">
-      <h2>Transform data on SDGs into effective applications and visualisations</h2>
+  <div v-if="location.home">
+    <div class="hero-home-content">
+      <h1>Transform data on SDGs into effective applications</h1>
     </div>
   </div>
 
-  <div class="row" v-if="location.playground">
-    <div class="column small-12 medium-10 hero-app-content" v-if="!location.home">
+  <div v-if="location.playground">
+    <div class="hero-app-content" v-if="!location.home">
+      <h1>API Highways data sets</h1>
       <search-component></search-component>
     </div>
   </div>

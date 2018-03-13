@@ -2,21 +2,58 @@
 @import '../../../styles/variables';
 
 .c-hero {
-  padding-top: rem(166);
   background-color: $header-bg-color;
   position: relative;
   z-index: 1;
+  font-size: rem(60);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  width: 100%;
+
+  > div {
+    width: 100%;
+  }
 
   &.-home {
-    background-image: url('/static/layouts/Back.png');
+    background-image: url('/static/layouts/home-bg.jpg');
     background-size: cover;
+    background-position: center;
+    min-height: rem(500);
+    position: relative;
 
     .hero-home-content {
-      padding: ($medium-margin * 4) 0;
+      max-width: rem(600);
+      color: $white;
+      position: relative;
+      margin: auto;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: rem(50);
+        border: solid 1px $gold-yellow;
+        top: 50%;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        width: rem(50);
+        border: solid 1px $gold-yellow;
+        top: 50%;
+      }
     }
   }
 
   .hero-app-content {
-    padding: ($medium-margin * 3) 0;
+    padding-top: rem(100);
+
+    h1 {
+      margin-bottom: rem(60);
+    }
   }
 }

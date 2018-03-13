@@ -1,23 +1,23 @@
 .l-header {
-  position: absolute;
-  left: 0;
-  right: 0;
   z-index: 2;
 
-  background-color: transparent;
+  background-color: $white;
   color: $base-bg-color;
 
-  &.-over {
-    z-index: 102;
+  .header-logo {
+    max-height: 70px;
+    svg {
+      max-height: 70px;
+    }
+  }
 
-    .header-logo {
-      img {
-        max-width: 78%;
-      }
+  &.-map {
+    .-secondary {
+      display: block !important;
     }
   }
 
   &.-about {
-    background-color: $grayed-black;
+    box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.15);
   }
 }
