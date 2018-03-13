@@ -11,13 +11,9 @@
     }
   }
 
-  &.-over {
-    z-index: 102;
-
-    .header-logo {
-      img {
-        max-width: 78%;
-      }
+  &.-map {
+    .-secondary {
+      display: block !important;
     }
   }
 
