@@ -27,6 +27,10 @@ spec:
             value: "5000"
           - name: NODE_ENV
             value: production
+          - name: API_BASE_URL
+            value: production
+          - name: SHOW_FEEDBACK
+            value: false
           - name: TWITTER_ACCESS_TOKEN_KEY
             valueFrom:
                 secretKeyRef:
@@ -47,6 +51,11 @@ spec:
                 secretKeyRef:
                   name: mssecrets
                   key: WEB_TWITTER_CONSUMER_SECRET
+          - name: GOOGLE_ANALYTICS
+            valueFrom:
+                secretKeyRef:
+                  name: mssecrets
+                  key: WEB_GOOGLE_ANALYTICS
 
         ports:
           - containerPort: 3000
