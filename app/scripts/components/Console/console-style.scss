@@ -20,19 +20,20 @@
         align-items: center;
         justify-content: center;
         float: left;
-        padding: 0 ($small-margin / 2);
+        padding: 5px 10px;
         margin-right: ($small-margin / 2);
 
         color: $theme-base;
         font-weight: $font-weight-bold;
         min-width: 46px;
         border-radius: 16px;
-        text-transform: capitalize;
+        text-transform: uppercase;
+        font-size: rem(12);
 
         cursor: pointer;
 
         &.-active {
-          background-color: #bbbbbb;
+          background-color: $gold-yellow;
           color: inherit;
 
           &:hover {
@@ -49,6 +50,7 @@
 
     .console-content {
       width: 100%;
+      height: rem(300);
       color: $theme-base;
       font-weight: $font-weight-bold;
       padding: 0 $small-margin;

@@ -35,13 +35,13 @@
     outline: none;
     padding: 0px;
     margin: auto;
-    // max-width: 71em;
   }
 
   .close-modal {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: rem(20);
+    top: rem(20);
+    z-index: 1;
   }
 
   .modal-content {
