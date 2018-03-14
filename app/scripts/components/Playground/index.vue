@@ -15,7 +15,7 @@ import CheckboxComponent from 'components/Checkbox';
 export default {
   name: 'playground-component',
   created() {
-    this.$store.dispatch('searchDatasets', { value: '', page: 1 });
+    this.$store.dispatch('searchDatasets', '');
   },
   beforeRouteEnter(to, from, next) {
     if (to.params.dataset) {
@@ -78,7 +78,6 @@ export default {
   methods: {
     closeModal() {
       this.$router.push('/data-sets');
-      // this.$store.dispatch('searchDatasets', { value: '', page: this.page });
     },
   },
   watch: {

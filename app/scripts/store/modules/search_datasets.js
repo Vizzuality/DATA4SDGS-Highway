@@ -40,19 +40,19 @@ const searchDatasets = {
     },
   },
   actions: {
-    setSearchDatasetsFilters({ commit, dispatch, state }, { filters, page }) {
+    setSearchDatasetsFilters({ commit, dispatch, state }, filters) {
       return new Promise(() => {
         commit(SET_SEARCH_DATASETS_FILTERS, filters);
-        dispatch('searchDatasets', { value: state.search.query, page });
+        dispatch('searchDatasets', state.search.query);
       });
     },
-    searchDatasets({ commit, state }, { value, page }) {
+    searchDatasets({ commit, state }, value) {
       return new Promise(() => {
         commit(SET_SEARCH_DATASETS_QUERY, value);
         commit(SET_SEARCH_DATASETS_LOADING, true);
         commit(SET_SEARCH_DATASETS_ERROR, false);
         const tags = state.search.filters ? `&includes=vocabulary&vocabulary[legacy]=${state.search.filters}` : '';
-        fetch(`${BASE_URL}/dataset?application=data4sdgs&includes=vocabulary,metadata&page[size]=12&page[number]=${page}${state.search.query && state.search.query !== '' ? `&name=${state.search.query}` : ''}${tags}`)
+        fetch(`${BASE_URL}/dataset?application=data4sdgs&includes=vocabulary,metadata&page[size]=10000${state.search.query && state.search.query !== '' ? `&name=${state.search.query}` : ''}${tags}`)
           .then((response) => {
             if (response.status >= 400) {
               throw new Error(response.status);

@@ -9,7 +9,6 @@ import vClickOutside from 'v-click-outside';
 export default {
   name: 'search-component',
   created() {
-    // this.$store.dispatch('searchDatasets', value'');
     window.addEventListener('keydown', this.onKeydown);
   },
   beforeDestroy() {
@@ -30,7 +29,7 @@ export default {
       },
       set(value) {
         if (value.split('').length > 1 || value === '') {
-          this.debounce(this.$store.dispatch, ['searchDatasets', { value, page: 1 }]);
+          this.debounce(this.$store.dispatch, ['searchDatasets', value]);
         }
       }
     },
@@ -47,13 +46,13 @@ export default {
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         callback(...params);
-      }, 700);
+      }, 150);
     },
     onClickOutside() {
       this.isOpen = false;
     },
     selectDataset(dataset) {
-      this.$store.dispatch('searchDatasets', { value: dataset.name, page: 1 });
+      this.$store.dispatch('searchDatasets', dataset.name);
     },
     navigateDown(e) {
       const element = e.target.tagName === 'LI'

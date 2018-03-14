@@ -29,7 +29,7 @@ export default {
   watch: {
     selectedFilters() {
       const newFilters = this.selectedFilters.join(',');
-      this.$store.dispatch('setSearchDatasetsFilters', { filters: newFilters, page: 1 });
+      this.$store.dispatch('setSearchDatasetsFilters', newFilters);
     },
   },
   components: {
