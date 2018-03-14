@@ -1,14 +1,8 @@
 <div class="c-playground">
-  <!-- <article-component v-if="recentDatasets.length" grid-column="small-10 medium-10 small-offset-2 medium-offset-0 data-sets">
-    <h1>Recent Datasets</h1>
-
-    <dataset-list-component :datasets="recentDatasets"></dataset-list-component>
-  </article-component> -->
-
   <article-component grid-column="column small-12 data-sets">
     <div class="row">
       <div class="column small-12 medium-4 medium-offset-4">
-        <h1>Browse Datasets</h1>
+        <h1>{{ showRecentDatasets && recentDatasets.length ? 'Recent Data Sets' : 'Browse Datasets' }}</h1>
       </div>
       <div class="column small-12 medium-3 medium-offset-1">
         <div class="filters-dropdown">
@@ -16,11 +10,16 @@
         </div>
       </div>
     </div>
-    <dataset-list-component v-if="searchDatasets && searchDatasets.length && !loading" :datasets="searchDatasets"></dataset-list-component>
+    <dataset-list-component v-if="datasets && datasets.length && !loading" :datasets="datasets"></dataset-list-component>
     <div v-else-if="!loading" class="no-datasets">
-      No datasets for this search or filters
+      No {{ showRecentDatasets && recentDatasets.length ? 'recent' : '' }} datasets for this search or filters
     </div>
     <spinner-component class="-absolute" :loading="searchLoading"></spinner-component>
+    <div class="row">
+      <div class="column small-12 medium-4 medium-offset-4">
+        <button-component v-if="showRecentDatasets && recentDatasets.length && !loading" class="-bordered -full -white browse-all" :click="showAllDatasets">Browse all datasets</button-component>
+      </div>
+    </div>
   </article-component>
   <modal-component>
     <console-component></console-component>

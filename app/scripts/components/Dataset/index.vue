@@ -4,6 +4,7 @@
 
 <script>
 import router from 'router';
+// import uniq from 'lodash/uniq';
 
 export default{
   name: 'dataset-component',
@@ -53,6 +54,10 @@ export default{
   methods: {
     selectDataset() {
       this.$router.push(`/data-sets/${this.dataset.id}`);
+      // const recentDatasets = uniq([...localStorage.getItem('recentDatasets'), this.dataset.id]);
+      // if (recentDatasets.indexOf(this.dataset.id) === -1) {
+      //   localStorage.setItem('recentDatasets', recentDatasets);
+      // }
     },
     getMetadataInfo() {
       const metadata = this.dataset.metadata && this.dataset.metadata[0];

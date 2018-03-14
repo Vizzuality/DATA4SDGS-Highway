@@ -10,6 +10,7 @@ import ModalComponent from 'components/Modal';
 import DropdownComponent from 'components/Dropdown';
 import ConsoleComponent from 'components/Console';
 import SpinnerComponent from 'components/Spinner';
+import ButtonComponent from 'components/Button';
 
 export default {
   name: 'playground-component',
@@ -59,7 +60,8 @@ export default {
       errorMessage: 'Something weird happened!',
       notFoundMessage: 'No Datasets were found',
       timeout: null,
-      page: 0
+      page: 0,
+      showRecentDatasets: true
     };
   },
   computed: {
@@ -75,10 +77,20 @@ export default {
       searchLoading: 'getSearchLoading',
       selectedFilters: 'getSearchFilters'
     }),
+    datasets() {
+      if (this.showRecentDatasets && this.recentDatasets.length) {
+        const recentIds = this.recentDatasets.map(d => d.id);
+        return this.searchDatasets.filter(d => recentIds.indexOf(d.id) > -1);
+      }
+      return this.searchDatasets;
+    }
   },
   methods: {
     closeModal() {
       this.$router.push('/data-sets');
+    },
+    showAllDatasets() {
+      this.showRecentDatasets = false;
     },
   },
   watch: {
@@ -101,6 +113,7 @@ export default {
     SpinnerComponent,
     ConsoleComponent,
     router,
+    ButtonComponent
   },
 };
 
