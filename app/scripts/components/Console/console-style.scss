@@ -3,6 +3,29 @@
 
 .c-console {
 
+  .data-link {
+    margin-bottom: rem(5);
+
+    .c-icon {
+      margin-right: rem(8);
+    }
+
+    svg {
+      fill: rgba(69, 69, 69, 0.5);
+    }
+
+    a {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      color: rgba(69, 69, 69, 0.5);
+      text-transform: none;
+      font-size: rem(16);
+      font-family: $base-font-family;
+    }
+  }
+
   .console {
     width: 100%;
     min-height: 45vh;

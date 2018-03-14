@@ -7,6 +7,7 @@ import HTTPSnippet from 'httpsnippet';
 import { mapGetters } from 'vuex';
 import ArticleComponent from 'components/Article';
 import DatasetComponent from 'components/Dataset';
+import IconComponent from 'components/Icon';
 
 export default{
   name: 'console-component',
@@ -54,6 +55,7 @@ export default{
   components: {
     ArticleComponent,
     DatasetComponent,
+    IconComponent
   },
 };
 </script>
