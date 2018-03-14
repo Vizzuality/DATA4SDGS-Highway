@@ -2,7 +2,7 @@
   <article-component grid-column="column small-12 data-sets">
     <div class="row">
       <div class="column small-12 medium-4 medium-offset-4">
-        <h1>{{ showRecentDatasets && recentDatasets.length ? 'Recent Data Sets' : 'Browse Datasets' }}</h1>
+        <h2>{{ showRecentDatasets && recentDatasets.length ? 'Recently viewed datasets' : 'Browse Datasets' }}</h2>
       </div>
       <div class="column small-12 medium-3 medium-offset-1">
         <div class="filters-dropdown">
@@ -12,7 +12,7 @@
     </div>
     <dataset-list-component v-if="datasets && datasets.length && !loading" :datasets="datasets"></dataset-list-component>
     <div v-else-if="!loading" class="no-datasets">
-      No {{ showRecentDatasets && recentDatasets.length ? 'recent' : '' }} datasets for this search or filters
+      No datasets for this search or filters
     </div>
     <spinner-component class="-absolute" :loading="searchLoading"></spinner-component>
     <div class="row">

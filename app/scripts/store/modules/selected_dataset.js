@@ -1,4 +1,5 @@
 import { Deserializer as JSONAPIDeserializer } from 'jsonapi-serializer';
+import uniqBy from 'lodash/uniqBy';
 import {
   SET_SELECTED_DATASET_SUCCESS,
   SET_SELECTED_DATASET_LOADING,
@@ -32,13 +33,10 @@ const selectedDataset = {
       state.selected.error = error.message;
     },
     [ADD_RECENT_DATASETS](state, dataset) {
-      const repeated = state.recentDatasets.find(item => item.id === dataset.id);
-      if (!repeated) {
-        const list = [dataset, ...state.recentDatasets];
-        if (list.length > 6) list.pop();
-        state.recentDatasets = list;
-        localStorage.setItem('recentDatasets', JSON.stringify(state.recentDatasets));
-      }
+      const recentDatasets = uniqBy([dataset, ...state.recentDatasets], 'name');
+      if (recentDatasets.length > 6) recentDatasets.pop();
+      state.recentDatasets = recentDatasets;
+      localStorage.setItem('recentDatasets', JSON.stringify(recentDatasets));
     },
   },
   actions: {

@@ -3,6 +3,7 @@
 <script>
 import router from 'router';
 import store from 'store';
+import sortBy from 'lodash/sortBy';
 import { mapGetters } from 'vuex';
 import ArticleComponent from 'components/Article';
 import DatasetListComponent from 'components/DatasetList';
@@ -80,7 +81,9 @@ export default {
     datasets() {
       if (this.showRecentDatasets && this.recentDatasets.length) {
         const recentIds = this.recentDatasets.map(d => d.id);
-        return this.searchDatasets.filter(d => recentIds.indexOf(d.id) > -1);
+        return sortBy(this.searchDatasets.filter(d => recentIds.indexOf(d.id) > -1),
+          item => recentIds.indexOf(item.id)
+        );
       }
       return this.searchDatasets;
     }

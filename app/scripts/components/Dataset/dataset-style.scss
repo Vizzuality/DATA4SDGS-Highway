@@ -21,6 +21,7 @@
       text-transform: uppercase;
       font-family: $heading-font-family;
       padding-right: rem(30);
+      color: #454545;
     }
   }
 
@@ -40,6 +41,13 @@
     &.-large {
       font-size: 38px;
     }
+  }
+
+  span {
+    color: $gold-yellow;
+    font-size: rem(16);
+    text-transform: uppercase;
+    font-family: $base-font-family;
   }
 
   .dataset-detail {

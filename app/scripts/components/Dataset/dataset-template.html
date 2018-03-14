@@ -2,7 +2,7 @@
   <h2 class="-left -clean dataset-header -large" v-if="large">{{name}}</h2>
   <h4 class="-left dataset-header -selectable" v-else @click="selectDataset">{{name}}</h4>
   <div class="dataset-detail">
-    <a class="dataset-link" :href="link">{{source || 'Source'}}</a>
+    <span>{{source || 'Source'}}</span>
     <div class="dataset-badge" v-if="goal && target">
       <div class="dataset-badge-item">Goal {{goal}}</div>
       <div class="dataset-badge-item">Target {{target}}</div>

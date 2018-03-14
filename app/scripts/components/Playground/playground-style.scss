@@ -5,9 +5,13 @@
   background-color: $theme-blue;
   padding-top: rem(80);
 
-  h1 {
+  h2 {
     color: $white;
+    text-transform: uppercase;
     margin-bottom: 0;
+    font-size: rem(40);
+    font-family: $heading-font-family;
+    margin-top: 0;
   }
 
   .data-sets {
@@ -29,6 +33,7 @@
   .filters-dropdown {
     float: right;
     z-index: 10;
+    margin-top: rem(-10);
   }
 
   .no-datasets {
