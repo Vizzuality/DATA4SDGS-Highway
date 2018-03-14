@@ -4,11 +4,6 @@
 .c-footer {
   padding: $small-margin;
 
-  .footer-wrapper {
-    max-width: 71rem;
-    margin: 0 auto;
-  }
-
   .footer-links {
     display: flex;
     justify-content: space-between;
@@ -31,8 +26,10 @@
 
   .sdg-logo {
     max-height: 70px;
+    max-width: 200px;
     svg {
       max-height: 70px;
+      max-width: 200px;
     }
   }
 

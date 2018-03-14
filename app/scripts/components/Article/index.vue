@@ -10,7 +10,7 @@ export default{
     },
     gridColumn: {
       type: [String, Boolean],
-      default: 'columns small-12 medium-10',
+      default: 'columns small-12 medium-10 medium-offset-1',
     },
   },
   data() {
