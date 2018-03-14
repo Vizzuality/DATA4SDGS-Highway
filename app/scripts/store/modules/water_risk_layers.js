@@ -35,7 +35,7 @@ const DEFAULT_LAYERS = [{
         'type': 'cartodb',
         'options': {
           'sql': 'Select * from water_final',
-          'cartocss': '#year1 {raster-opacity:1; raster-scaling:near; raster-colorizer-default-mode:exact; raster-colorizer-default-color:  transparent; raster-colorizer-epsilon:0.11; raster-colorizer-stops: stop(1, #0000dd) stop(2, #22b14c) stop(3, #d12d3e) stop(4, #99d9ea) stop(5, #b5e61d) stop(6, #e6a1aa) stop(7, #ff7f27) stop(8, #ffc90e) stop(9, #7f7f7f) stop(10, #c3c3c3)}',
+          'cartocss': '#year1 {raster-opacity:1; raster-scaling:near; raster-colorizer-default-mode:exact; raster-colorizer-default-color:  transparent; raster-colorizer-epsilon:0.11; raster-colorizer-stops: stop(1, #334285) stop(2, #22b14c) stop(3, #d12d3e) stop(4, #99d9ea) stop(5, #b5e61d) stop(6, #e6a1aa) stop(7, #ff7f27) stop(8, #ffc90e) stop(9, #7f7f7f) stop(10, #c3c3c3)}',
           'cartocss_version': '2.3.0',
           'geom_column': 'the_raster_webmercator',
           'geom_type': 'raster',
@@ -106,7 +106,7 @@ const DEFAULT_LAYERS = [{
         'type': 'cartodb',
         'options': {
           'sql': 'Select * from pop_well',
-          'cartocss': '#pop_well {raster-opacity:1; raster-scaling:near; raster-colorizer-default-mode: linear; raster-colorizer-default-color:  transparent; raster-colorizer-epsilon:0.11; raster-colorizer-stops: stop(1, #FFF6CC) stop(20, #FFEE99) stop(70, #E5CC4C) stop(150, #E5C319) stop(300, #B29919) stop(500, #998319) }',
+          'cartocss': '#pop_well {raster-opacity:1; raster-scaling:near; raster-colorizer-default-mode: linear; raster-colorizer-default-color:  transparent; raster-colorizer-epsilon:0.11; raster-colorizer-stops: stop(1, #f3b641) stop(20, #FFEE99) stop(70, #E5CC4C) stop(150, #E5C319) stop(300, #B29919) stop(500, #998319) }',
           'cartocss_version': '2.3.0',
           'geom_column': 'the_raster_webmercator',
           'geom_type': 'raster',
@@ -147,7 +147,7 @@ const DEFAULT_LAYERS = [{
         'type': 'cartodb',
         'options': {
           'sql': 'SELECT min(cartodb_id) cartodb_id, st_union(the_geom_webmercator) the_geom_webmercator, basinid, basin_name  FROM water_basin_sa group by basinid, basin_name',
-          'cartocss': '#water_basin_sa {    polygon-opacity: 0;    line-color: rgba(212,18,89,1);    line-width: 1;    line-opacity: 1; }',
+          'cartocss': '#water_basin_sa {    polygon-opacity: 0;    line-color: #007fae;    line-width: 1;    line-opacity: 1; }',
           'cartocss_version': '2.3.0'
         }
       }]
