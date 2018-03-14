@@ -7,12 +7,12 @@
 
   h1 {
     color: $white;
-    margin-bottom: rem(60);
+    margin-bottom: 0;
   }
 
   .data-sets {
     position: relative;
-    min-height: 600px;
+    min-height: 400px;
   }
 
   .c-article {
@@ -29,5 +29,18 @@
   .filters-dropdown {
     float: right;
     z-index: 10;
+  }
+
+  .no-datasets {
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-family: $base-font-family;
+  }
+
+  .c-dataset-list {
+    padding-top: rem(60);
   }
 }

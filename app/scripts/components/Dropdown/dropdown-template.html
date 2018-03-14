@@ -1,9 +1,9 @@
 <div class="c-dropdown" v-click-outside="onClickOutside">
-  <button-component :class="getButtonClasses" :click="toggleVisibility">{{selected || 'Filter by'}}</button-component>
+  <button-component :class="getButtonClasses" :click="toggleVisibility">{{ selectedLength }}</button-component>
   <ul class="dropdown-list" v-show="open">
-    <li v-for="(item, index) in items" class="dropdown-list-item" @click="selectItem(index)">
+    <checkbox-component v-if="checkbox = true" :items="items" icon="icon-check"></checkbox-component>
+    <li v-else v-for="(item, index) in items" class="dropdown-list-item" @click="selectItem(index)">
       {{item}}
     </li>
-    <slot></slot>
   </ul>
 </div>

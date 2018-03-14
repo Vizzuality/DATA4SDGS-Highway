@@ -12,13 +12,14 @@
       </div>
       <div class="column small-12 medium-3 medium-offset-1">
         <div class="filters-dropdown">
-          <dropdown-component>
-            <checkbox-component :items="filters" icon="icon-check"></checkbox-component>
-          </dropdown-component>
+          <dropdown-component :items="filters" :selectedItems="selectedFilters" :checkbox="true"></dropdown-component>
         </div>
       </div>
     </div>
-    <dataset-list-component :datasets="searchDatasets"></dataset-list-component>
+    <dataset-list-component v-if="searchDatasets && searchDatasets.length && !loading" :datasets="searchDatasets"></dataset-list-component>
+    <div v-else-if="!loading" class="no-datasets">
+      No datasets for this search or filters
+    </div>
     <spinner-component class="-absolute" :loading="searchLoading"></spinner-component>
   </article-component>
   <modal-component>

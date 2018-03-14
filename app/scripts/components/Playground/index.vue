@@ -10,12 +10,12 @@ import ModalComponent from 'components/Modal';
 import DropdownComponent from 'components/Dropdown';
 import ConsoleComponent from 'components/Console';
 import SpinnerComponent from 'components/Spinner';
-import CheckboxComponent from 'components/Checkbox';
 
 export default {
   name: 'playground-component',
   created() {
     this.$store.dispatch('searchDatasets', '');
+    this.$store.dispatch('setSearchDatasetsFilters', '');
   },
   beforeRouteEnter(to, from, next) {
     if (to.params.dataset) {
@@ -72,7 +72,8 @@ export default {
       error: 'getSearchError',
       selectedDataset: 'getSelectedDataset',
       recentDatasets: 'getRecentDatasets',
-      searchLoading: 'getSearchLoading'
+      searchLoading: 'getSearchLoading',
+      selectedFilters: 'getSearchFilters'
     }),
   },
   methods: {
@@ -96,7 +97,6 @@ export default {
     ArticleComponent,
     DatasetListComponent,
     DropdownComponent,
-    CheckboxComponent,
     ModalComponent,
     SpinnerComponent,
     ConsoleComponent,
