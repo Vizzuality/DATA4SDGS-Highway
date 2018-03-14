@@ -42,4 +42,7 @@
     color: darken($button-font-color, 12.5%);
   }
 
+  &.-white {
+    color: $white;
+  }
 }
