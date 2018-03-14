@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="editor-header">
-    <div class="tab-panel">
+    <div v-if="selectedDataset.metadata.length" class="tab-panel">
       <div :class="{'tab':true, 'active': tab === 'code' }" v-on:click="setTab('code')">
         Code examples
       </div>
@@ -13,14 +13,14 @@
         Metadata
       </div>
     </div>
-    <div class="data-link">
-      <a href="">
+    <div v-if="dataSourceUrl" class="data-link">
+      <a :href="dataSourceUrl">
         <icon-component name="icon-link" class="-small"></icon-component>
         See data source
       </a>
     </div>
   </div>
-  <div class="row column console">
+  <div :class="{'row column console': true, 'has-tabs': selectedDataset.metadata.length }">
     <div class="tab-bar">
       <div v-if="tab === 'code'" v-for="lang in codeLanguages" :class="classListCode(lang)" @click.stop="setDisplayedCodeLang(lang)">{{lang}}</div>
       <div v-if="tab === 'meta'" v-for="lang in languages" :class="classList(lang)" @click.stop="setDisplayedLang(lang)">{{lang}}</div>

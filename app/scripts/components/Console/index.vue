@@ -49,6 +49,10 @@ export default {
     languages() {
       return uniq(this.selectedDataset.metadata.map(m => m.attributes.language));
     },
+    dataSourceUrl() {
+      return this.selectedDataset.metadata.length &&
+        this.selectedDataset.metadata[0].attributes.dataSourceUrl;
+    },
     ...mapGetters({
       selectedDataset: 'getSelectedDataset',
       selectedDatasetURI: 'getSelectedDatasetURI',
