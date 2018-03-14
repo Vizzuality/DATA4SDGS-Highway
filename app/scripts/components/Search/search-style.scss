@@ -23,11 +23,16 @@ $checkbox-color: #aea6a6;
       height: 60px;
       position: absolute;
       padding: 0 $medium-margin;
+      padding-right: 80px;
       border-radius: 2px 2px 0 0;
       border: 0;
       outline: none;
       font-size: rem(16);
       border: solid 1px rgba(69, 69, 69, 0.5);
+      display: table;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .search-icon {
