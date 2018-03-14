@@ -54,10 +54,6 @@ export default{
   methods: {
     selectDataset() {
       this.$router.push(`/data-sets/${this.dataset.id}`);
-      // const recentDatasets = uniq([...localStorage.getItem('recentDatasets'), this.dataset.id]);
-      // if (recentDatasets.indexOf(this.dataset.id) === -1) {
-      //   localStorage.setItem('recentDatasets', recentDatasets);
-      // }
     },
     getMetadataInfo() {
       const metadata = this.dataset.metadata && this.dataset.metadata[0];
@@ -70,9 +66,9 @@ export default{
       return null;
     },
     getSourceByTag() {
-      const tags = this.dataset.vocabulary && this.dataset.vocabulary
+      const tags = (this.dataset && this.dataset.vocabulary) ? this.dataset.vocabulary
         .filter(v => v.attributes.name === 'legacy')
-        .map(v => (v.attributes.tags));
+        .map(v => (v.attributes.tags)) : [];
 
       let source = null;
       tags && tags.forEach((tag) => {

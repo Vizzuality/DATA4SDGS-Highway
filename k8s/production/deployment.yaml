@@ -27,6 +27,12 @@ spec:
             value: "5000"
           - name: NODE_ENV
             value: production
+          - name: API_BASE_URL
+            value: production
+          - name: SHOW_FEEDBACK
+            value: false
+          - name: GOOGLE_ANALYTICS
+            value: "UA-90561944-1"
           - name: TWITTER_ACCESS_TOKEN_KEY
             valueFrom:
                 secretKeyRef:
