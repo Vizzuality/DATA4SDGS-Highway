@@ -3,6 +3,11 @@
 
 .c-console {
 
+  .editor-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .data-link {
     margin-bottom: rem(5);
 
@@ -26,12 +31,70 @@
     }
   }
 
+  .tab-panel {
+    display: flex;
+    justify-content: flex-start;
+
+    .tab {
+      background-color: #454545;
+      height: 30px;
+      width: 150px;
+      color: $white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      font-size: rem(12);
+      font-weight: 600;
+      position: relative;
+      border-radius: 5px 5px 0 0;
+      margin-left: rem(16);
+      z-index: 1;
+      cursor: pointer;
+
+      &:before {
+        content: "";
+        width: 20px;
+        height: 40px;
+        transform: rotate(30deg);
+        position: absolute;
+        top: 1px;
+        left: -9px;
+        border-radius: 5px;
+        background-color: #454545;
+      }
+
+      &:after {
+        content: "";
+        width: 20px;
+        height: 40px;
+        transform: rotate(-30deg);
+        position: absolute;
+        top: 1px;
+        right: -9px;
+        border-radius: 5px;
+        background-color: #454545;
+      }
+
+      &.active {
+        background-color: #212024;
+        z-index: 2;
+        &:before,
+        &:after {
+          background-color: #212024;
+        }
+      }
+    }
+  }
+
   .console {
     width: 100%;
     min-height: 45vh;
     background-color: $theme-alternative;
-    border-radius: 10px;
+    border-radius: 2px 10px 10px 10px;
     padding: $small-margin;
+    z-index: 3;
+    position: relative;
 
     .tab-bar {
       margin-bottom: $small-margin;

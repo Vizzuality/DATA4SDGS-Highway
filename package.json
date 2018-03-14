@@ -57,6 +57,7 @@
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.7.0",
     "leaflet": "^1.0.2",
+    "lodash": "^4.17.5",
     "lolex": "^1.4.0",
     "mocha": "^3.1.0",
     "node-sass": "^4.2.0",
