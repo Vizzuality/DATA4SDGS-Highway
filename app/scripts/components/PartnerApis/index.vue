@@ -11,7 +11,20 @@
     },
     data() {
       return {
-        cols: ['name', 'relatedOrganization', 'description'],
+        cols: [
+          {
+            label: 'Name',
+            key: 'name'
+          },
+          {
+            label: 'Related Organization',
+            key: 'relatedOrganization'
+          },
+          {
+            label: 'description',
+            key: 'description'
+          }
+        ],
         apis: [
           {
             name: 'OpenAerialMap meta API',
