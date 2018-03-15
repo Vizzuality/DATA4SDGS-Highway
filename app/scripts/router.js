@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 
 import HomeComponent from 'components/Home';
 import PlaygroundComponent from 'components/Playground';
+import PartnerComponent from 'components/PartnerApis';
 import HeaderComponent from 'components/Header';
 import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
@@ -45,6 +46,16 @@ const routes = [
     path: '/token',
     components: {
       default: TokenPage,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
+    },
+  },
+
+  {
+    path: '/partner-apis',
+    components: {
+      default: PartnerComponent,
       HeroComponent,
       HeaderComponent,
       FooterComponent,
