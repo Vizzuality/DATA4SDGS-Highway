@@ -10,6 +10,21 @@
   justify-content: space-between;
   min-height: rem(200);
 
+  &.modal-dataset {
+    padding: 0;
+    justify-content: flex-start;
+    min-height: 0;
+    margin-bottom: rem(50);
+
+    h2 {
+      margin-bottom: rem(10);
+      text-transform: uppercase;
+      font-family: $heading-font-family;
+      padding-right: rem(30);
+      color: #454545;
+    }
+  }
+
   .dataset-header {
     margin: 0;
 
@@ -28,11 +43,16 @@
     }
   }
 
+  span {
+    color: $gold-yellow;
+    font-size: rem(16);
+    text-transform: uppercase;
+    font-family: $base-font-family;
+  }
+
   .dataset-detail {
     display: flex;
-
     margin-top: ($small-margin / 2);
-    // margin-bottom: $medium-margin;
     align-items: center;
 
     .dataset-link {

@@ -1,34 +1,35 @@
-      <!-- <div class="column small-10 medium-5 large-3 small-offset-1 filters-dropdown">
-        <dropdown-component>
-          <checkbox-component :items="filters" icon="icon-check"></checkbox-component>
-        </dropdown-component>
-      </div> -->
-      <div class="c-search">
-          <input
-            type="search"
-            placeholder="Search for data..."
-            class="search-input js-search-input"
-            v-model.trim="queryState"
-            @keyup.down="navigateDown"
-            ref="search-input"
-          >
-          <ul class="search-results-list" ref="search-results-list">
-            <li v-if="loading" class="search-results-item">{{loadingMessage}}</li>
-            <li v-else-if="error" class="search-results-item -error">{{errorMessage}}</li>
-            <li v-else-if="notFound" class="search-results-item">{{notFoundMessage}}</li>
-            <li
-              tabindex="-1"
-              class="search-results-item -item js-search-results-item"
-              v-else-if="query"
-              v-for="(result, index) in results"
-              @click="selectDataset(result)"
-              @keyup.enter="selectDataset(result)"
-              @keyup.down="navigateDown"
-              @keyup.up="navigateUp"
-            >
-              {{result.name}}
-            </li>
-          </ul>
-      </div>
+<div class="c-search">
+  <div class="container">
+    <div class="input">
+      <input
+        type="search"
+        placeholder="Search for data..."
+        class="search-input js-search-input"
+        v-model.trim="queryState"
+        @keyup.down="navigateDown"
+        ref="search-input"
+        v-click-outside="onClickOutside"
+        v-on:click="isOpen = true"
+      >
+      <icon-component class="search-icon -round -medium" name="icon-search"></icon-component>
+    </div>
+    <ul v-if="isOpen && results.length > 0" class="search-results-list" ref="search-results-list">
+      <li v-if="loading" class="search-results-item">Searching...</li>
+      <li v-else-if="error" class="search-results-item -error">No datasets found</li>
+      <li
+        v-if="!loading"
+        tabindex="-1"
+        class="search-results-item -item js-search-results-item"
+        v-for="(result, index) in results"
+        @click="selectDataset(result)"
+        @keyup.enter="selectDataset(result)"
+        @keyup.down="navigateDown"
+        @keyup.up="navigateUp"
+      >
+        {{result.name}}
+      </li>
+    </ul>
+  </div>
+</div>
 
 

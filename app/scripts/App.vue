@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{'modal-open': isDataSetsPage}">
     <header :class="{'l-header': true, '-map': isExamplePage }">
       <router-view name="HeaderComponent"></router-view>
     </header>
@@ -61,6 +61,9 @@ export default {
     },
     isAboutPage() {
       return this.$route.path.startsWith('/about');
+    },
+    isDataSetsPage() {
+      return this.$route.params.dataset;
     }
   },
   methods: {

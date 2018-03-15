@@ -1,45 +1,54 @@
 <div class="c-header">
   <div class="header-section -lead">
-    <div class="header-wrapper">
-
-      <router-link to="/" class="header-logo">
-        <icon-component name="logo-api-highways"></icon-component>
-      </router-link>
-
-      <nav class="nav -primary">
-        <ul>
-          <router-link active-class="-active" tag="li" to="/" exact>
-            <a>Home</a>
+    <div class="row">
+      <div class="column small-12">
+        <div class="header-wrapper">
+          <router-link to="/" class="header-logo">
+            <icon-component name="logo-api-highways"></icon-component>
           </router-link>
+          <nav class="nav -primary">
+            <ul>
+              <router-link active-class="-active" tag="li" to="/" exact>
+                <a>Home</a>
+              </router-link>
 
-          <router-link active-class="-active" tag="li" to="/data-sets">
-            <a>Data sets</a>
-          </router-link>
+              <router-link active-class="-active" tag="li" to="/data-sets">
+                <a>Data sets</a>
+              </router-link>
 
-          <router-link active-class="-active" tag="li" to="/examples/">
-            <a>Examples</a>
-          </router-link>
+              <router-link active-class="-active" tag="li" to="/examples/">
+                <a>Examples</a>
+              </router-link>
 
-          <router-link active-class="-active" tag="li" to="/about" exact>
-            <a>About Us</a>
-          </router-link>
-        </ul>
-      </nav>
+              <router-link active-class="-active" tag="li" to="/about" exact>
+                <a>About Us</a>
+              </router-link>
 
+              <a href="https://api.apihighways.org/auth/login" class="login" target="_blank" rel="noopener nofollower">
+                <icon-component name="icon-user" class="-xsmall"></icon-component>
+              </a>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
   </div>
   <div class="header-section -secondary">
-    <div class="header-wrapper">
-      <nav class="nav -secondary">
-        <ul>
-          <router-link active-class="-active" tag="li" to="/examples/conflicts-related-to-protected-areas" exact>
-            <a>Conflicts related to protected areas</a>
-          </router-link>
-          <router-link active-class="-active" tag="li" to="/examples/regions-with-greatests-water-risks" exact>
-            <a>Regions with greatests water risks</a>
-          </router-link>
-        </ul>
-      </nav>
+    <div class="row">
+      <div class="column small-12">
+        <div class="header-wrapper">
+          <nav class="nav -secondary">
+            <ul>
+              <router-link active-class="-active" tag="li" to="/examples/conflicts-related-to-protected-areas" exact>
+                <a>Conflicts related to protected areas</a>
+              </router-link>
+              <router-link active-class="-active" tag="li" to="/examples/regions-with-greatests-water-risks" exact>
+                <a>Regions with greatests water risks</a>
+              </router-link>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -13,8 +13,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin: auto;
-      max-width: 71em;
       height: 100%;
     }
     &.-lead {
@@ -31,8 +29,13 @@
       border-top: solid 1px rgba($black, 0.1);
       z-index: 1000;
 
+      a {
+        color: rgba(34, 34, 34, 0.6);
+      }
+
       .header-wrapper {
         justify-content: flex-end;
+        height: 50px;
       }
     }
   }
@@ -105,6 +108,14 @@
       &.-disabled {
         pointer-events: none;
       }
+    }
+  }
+
+  .login {
+    margin-left: rem(35);
+    svg {
+      height: 15px;
+      width: 15px;
     }
   }
 }

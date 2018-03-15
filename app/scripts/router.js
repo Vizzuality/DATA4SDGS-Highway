@@ -80,7 +80,7 @@ export default new VueRouter({
   mode: 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) return savedPosition;
+    if (to.params.dataset || from.params.dataset) return savedPosition;
     return { x: 0, y: 0 };
   },
 });

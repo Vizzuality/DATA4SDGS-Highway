@@ -29,7 +29,7 @@
 .spinner {
   height: 70px;
   width: 70px;
-  background: rgba($grayed-black, 0.7);
+  // background: rgba($grayed-black, 0.7);
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -42,13 +42,18 @@
     .spinner-content {
       height: 100%;
       width: 100%;
-      border-radius: 50%;
-      border: $theme-base 13px dashed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       animation-name: spin;
-      animation-duration: 4000ms;
+      animation-duration: 3000ms;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
+
+      svg {
+        stroke: $white;
+      }
 
       @keyframes spin {
         from {

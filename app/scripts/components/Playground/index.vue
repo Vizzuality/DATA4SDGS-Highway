@@ -3,17 +3,21 @@
 <script>
 import router from 'router';
 import store from 'store';
+import sortBy from 'lodash/sortBy';
 import { mapGetters } from 'vuex';
 import ArticleComponent from 'components/Article';
 import DatasetListComponent from 'components/DatasetList';
 import ModalComponent from 'components/Modal';
+import DropdownComponent from 'components/Dropdown';
 import ConsoleComponent from 'components/Console';
 import SpinnerComponent from 'components/Spinner';
+import ButtonComponent from 'components/Button';
 
-export default{
+export default {
   name: 'playground-component',
   created() {
-    if (!this.featuredDatasets.length) this.$store.dispatch('getFeaturedDatasets');
+    this.$store.dispatch('searchDatasets', '');
+    this.$store.dispatch('setSearchDatasetsFilters', '');
   },
   beforeRouteEnter(to, from, next) {
     if (to.params.dataset) {
@@ -22,29 +26,74 @@ export default{
         isOpen: true,
         onClose: () => {
           router.push('/data-sets');
-          store.dispatch('searchDatasets', '');
         },
       }));
     }
     next();
+  },
+  data() {
+    return {
+      filters: [{
+        value: 'noaa',
+        label: 'NOAA',
+      },
+      {
+        value: 'nasa',
+        label: 'NASA',
+      },
+      {
+        value: 'iucn_unep_wcmc',
+        label: 'IUCN & UNEP-WCMC',
+      },
+      {
+        value: 'cait',
+        label: 'CAIT',
+      },
+      {
+        value: 'joe_casola',
+        label: 'JOE CASOLA, U. OF WASHINGTON',
+      },
+      {
+        value: 'worldbank',
+        label: 'WORLDBANK',
+      }],
+      loadingMessage: 'Searching...',
+      errorMessage: 'Something weird happened!',
+      notFoundMessage: 'No Datasets were found',
+      timeout: null,
+      page: 0,
+      showRecentDatasets: true
+    };
   },
   computed: {
     storeRouter() {
       return this.$store.route;
     },
     ...mapGetters({
-      featuredDatasets: 'getFeaturedListData',
-      loading: 'getFeaturedLoading',
-      error: 'getFeaturedError',
+      searchDatasets: 'getSearchListData',
+      loading: 'getSearchLoading',
+      error: 'getSearchError',
       selectedDataset: 'getSelectedDataset',
       recentDatasets: 'getRecentDatasets',
-      featuresLoading: 'getFeaturedLoading',
+      searchLoading: 'getSearchLoading',
+      selectedFilters: 'getSearchFilters'
     }),
+    datasets() {
+      if (this.showRecentDatasets && this.recentDatasets.length) {
+        const recentIds = this.recentDatasets.map(d => d.id);
+        return sortBy(this.searchDatasets.filter(d => recentIds.indexOf(d.id) > -1),
+          item => recentIds.indexOf(item.id)
+        );
+      }
+      return this.searchDatasets;
+    }
   },
   methods: {
     closeModal() {
       this.$router.push('/data-sets');
-      this.$store.dispatch('searchDatasets', '');
+    },
+    showAllDatasets() {
+      this.showRecentDatasets = false;
     },
   },
   watch: {
@@ -62,10 +111,12 @@ export default{
   components: {
     ArticleComponent,
     DatasetListComponent,
+    DropdownComponent,
     ModalComponent,
     SpinnerComponent,
     ConsoleComponent,
     router,
+    ButtonComponent
   },
 };
 

@@ -7,16 +7,10 @@
   import SidebarComponent from 'components/Sidebar';
   import TimelineComponent from 'components/Timeline';
   import MapFooterComponent from 'components/MapFooter';
-  import d4sdgLogo from 'static/logos/logo_D4SDG.png';
   import IconComponent from '../Icon';
 
   export default {
     name: 'visualization-component',
-    data() {
-      return {
-        d4sdgLogo,
-      };
-    },
     components: {
       MapComponent,
       SidebarComponent,
