@@ -3,6 +3,8 @@
 <style lang="scss" src="./spinner-style.scss"> </style>
 
 <script>
+import IconComponent from 'components/Icon';
+
 export default{
   name: 'spinner-component',
   props: {
@@ -14,6 +16,9 @@ export default{
       type: Boolean,
       default: false,
     },
+  },
+  components: {
+    IconComponent,
   },
 };
 </script>

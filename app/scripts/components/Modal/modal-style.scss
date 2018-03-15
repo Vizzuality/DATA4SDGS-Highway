@@ -1,10 +1,6 @@
 // Import global variables
 @import '../../../styles/variables';
 
-// .modal-open {
-//   overflow: hidden;
-// }
-
 .c-modal {
   position: fixed;
   display: flex;
@@ -42,6 +38,11 @@
     right: rem(20);
     top: rem(20);
     z-index: 1;
+
+    svg {
+      width: 25px;
+      height: 25px;
+    }
   }
 
   .modal-content {
