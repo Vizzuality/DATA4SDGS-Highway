@@ -55,7 +55,7 @@ const routes = [
   },
 
   {
-    path: '/examples/regions-with-greatests-water-risks',
+    path: '/examples/regions-with-greatest-water-risks',
     components: {
       default: OtherVisualizationPage,
       HeaderComponent,
