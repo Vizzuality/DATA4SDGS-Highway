@@ -4,6 +4,7 @@
 
 <script>
 import router from 'router';
+// import uniq from 'lodash/uniq';
 
 export default{
   name: 'dataset-component',
@@ -55,7 +56,7 @@ export default{
       this.$router.push(`/data-sets/${this.dataset.id}`);
     },
     getMetadataInfo() {
-      const metadata = this.dataset.metadata[0];
+      const metadata = this.dataset.metadata && this.dataset.metadata[0];
       if (typeof metadata !== 'undefined') {
         const attributes = metadata.attributes;
         if (attributes.info) {
@@ -70,13 +71,16 @@ export default{
         .map(v => (v.attributes.tags)) : [];
 
       let source = null;
-      tags.forEach((tag) => {
+      tags && tags.forEach((tag) => {
         if (this.sources[tag]) {
           source = this.sources[tag];
         }
       });
       return source;
     },
+    isDataSetsPage() {
+      return this.$route.params.dataset;
+    }
   },
   components: {
     router,

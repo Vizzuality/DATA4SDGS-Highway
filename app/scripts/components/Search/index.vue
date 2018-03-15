@@ -3,10 +3,10 @@
 <script>
 import router from 'router';
 import { mapGetters } from 'vuex';
-import DropdownComponent from 'components/Dropdown';
-import CheckboxComponent from 'components/Checkbox';
+import IconComponent from 'components/Icon';
+import vClickOutside from 'v-click-outside';
 
-export default{
+export default {
   name: 'search-component',
   created() {
     window.addEventListener('keydown', this.onKeydown);
@@ -14,36 +14,12 @@ export default{
   beforeDestroy() {
     window.removeEventListener('keydown', this.onKeydown);
   },
+  directives: {
+    clickOutside: vClickOutside.directive
+  },
   data() {
     return {
-      filters: [{
-        value: 'noaa',
-        label: 'NOAA',
-      },
-      {
-        value: 'nasa',
-        label: 'NASA',
-      },
-      {
-        value: 'iucn_unep_wcmc',
-        label: 'IUCN & UNEP-WCMC',
-      },
-      {
-        value: 'cait',
-        label: 'CAIT',
-      },
-      {
-        value: 'joe_casola',
-        label: 'JOE CASOLA, U. OF WASHINGTON',
-      },
-      {
-        value: 'worldbank',
-        label: 'WORLDBANK',
-      }],
-      loadingMessage: 'Searching...',
-      errorMessage: 'Something weird happened!',
-      notFoundMessage: 'No Datasets were found',
-      timeout: null,
+      isOpen: false
     };
   },
   computed: {
@@ -70,10 +46,13 @@ export default{
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         callback(...params);
-      }, 700);
+      }, 150);
+    },
+    onClickOutside() {
+      this.isOpen = false;
     },
     selectDataset(dataset) {
-      this.$router.push(`/data-sets/${dataset.id}`);
+      this.$store.dispatch('searchDatasets', dataset.name);
     },
     navigateDown(e) {
       const element = e.target.tagName === 'LI'
@@ -100,9 +79,8 @@ export default{
     },
   },
   components: {
-    DropdownComponent,
-    CheckboxComponent,
     router,
+    IconComponent
   },
 };
 </script>

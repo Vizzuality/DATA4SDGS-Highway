@@ -1,5 +1,14 @@
-<div class="c-dataset-list row">
-  <div class="column small-12 medium-6 large-4 featured-list-item" v-for="(dataset, index) in datasets" :key="dataset.id">
-    <dataset-component :dataset="dataset"></dataset-component>
-  </div>
+<div class="c-dataset-list">
+  <paginate
+    name="datasets"
+    :list="datasets"
+    :per="12"
+    class="row"
+    tag="div"
+  >
+    <div class="column small-12 medium-6 large-4 featured-list-item" v-for="(dataset, index) in paginated('datasets')" :key="dataset.id">
+      <dataset-component :dataset="dataset"></dataset-component>
+    </div>
+  </paginate>
+  <paginate-links v-if="datasets.length > 12" class="pagination" for="datasets" :async="true" :limit="2" :show-step-links="true"></paginate-links>
 </div>

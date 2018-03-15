@@ -9,7 +9,7 @@
   background-color: transparent;
   color: $button-font-color;
 
-  padding: $small-margin $medium-margin;
+  padding: $small-margin;
   border-radius: 2px;
 
   outline: none;
@@ -20,6 +20,10 @@
     &.-alternative {
       background-color: $theme-alternative;
     }
+  }
+
+  &.-full {
+    width: 100%;
   }
 
   &.-bordered {
@@ -42,4 +46,7 @@
     color: darken($button-font-color, 12.5%);
   }
 
+  &.-white {
+    color: $white;
+  }
 }

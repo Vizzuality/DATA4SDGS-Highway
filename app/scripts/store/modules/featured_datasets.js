@@ -3,6 +3,9 @@ import {
   SET_FEATURED_DATASETS_SUCCESS,
   SET_FEATURED_DATASETS_ERROR,
   SET_FEATURED_DATASETS_LOADING,
+  SET_DATASETS_SUCCESS,
+  SET_DATASETS_ERROR,
+  SET_DATASETS_LOADING,
 } from '../mutation-types';
 
 const Deserializer = new JSONAPIDeserializer({ keyForAttribute: 'camelCase' });
@@ -27,8 +30,41 @@ const featuredDatasets = {
     [SET_FEATURED_DATASETS_ERROR](state, error) {
       state.featured.error = error.message;
     },
+    [SET_DATASETS_SUCCESS](state, data) {
+      state.featured.list = data;
+    },
+    [SET_DATASETS_LOADING](state, loading) {
+      state.featured.loading = loading;
+    },
+    [SET_DATASETS_ERROR](state, error) {
+      state.featured.error = error.message;
+    },
   },
   actions: {
+    getDataSets({ commit }) {
+      return new Promise((resolve, reject) => {
+        commit(SET_DATASETS_LOADING, true);
+        commit(SET_DATASETS_ERROR, false);
+        fetch(`${BASE_URL}/dataset?app=data4sdgs&page[size]=12&includes=vocabulary,metadata&cache=expire`)
+          .then((response) => {
+            if (response.status >= 400) {
+              throw new Error(response.status);
+            }
+            return response.json();
+          }).then((data) => {
+            Deserializer.deserialize(data, (err, list) => {
+              if (err) throw new Error('Error deserializing json api');
+              commit(SET_DATASETS_LOADING, false);
+              commit(SET_DATASETS_SUCCESS, list);
+              resolve(list);
+            });
+          }).catch((error) => {
+            commit(SET_DATASETS_LOADING, false);
+            commit(SET_DATASETS_ERROR, error);
+            reject(error);
+          });
+      });
+    },
     getFeaturedDatasets({ commit }) {
       return new Promise((resolve, reject) => {
         commit(SET_FEATURED_DATASETS_LOADING, true);

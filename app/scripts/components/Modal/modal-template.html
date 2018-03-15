@@ -1,10 +1,14 @@
 <div class="c-modal" v-if="open" @click="close">
-  <div class="row align-center">
-    <div class="modal-content column small-12" @click.stop>
-      <button-component :click="close" class="close-modal">
-        <icon-component name="icon-close" class="-large"></icon-component>
-      </button-component>
-     <slot></slot>
+  <div class="row">
+    <div class="column small-12">
+      <div class="modal-container" @click.stop>
+        <button-component :click="close" class="close-modal">
+          <icon-component name="icon-close" class="-medium"></icon-component>
+        </button-component>
+        <div class="modal-content">
+          <slot></slot>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -7,13 +7,17 @@ import HTTPSnippet from 'httpsnippet';
 import { mapGetters } from 'vuex';
 import ArticleComponent from 'components/Article';
 import DatasetComponent from 'components/Dataset';
+import IconComponent from 'components/Icon';
+import uniq from 'lodash/uniq';
 
-export default{
+export default {
   name: 'console-component',
   data() {
     return {
-      languages: ['javascript', 'node', 'ruby', 'go', 'java', 'php', 'python', 'shell'],
-      displayedLang: 'javascript',
+      tab: 'code',
+      displayedCodeLang: 'javascript',
+      displayedLang: 'en',
+      codeLanguages: ['javascript', 'node', 'ruby', 'go', 'java', 'php', 'python', 'shell']
     };
   },
   mounted() {
@@ -25,16 +29,29 @@ export default{
   },
   computed: {
     snippet() {
-      let url = this.selectedDatasetURI;
-      if (url) {
-        url = encodeURI(url);
-        const snippet = new HTTPSnippet({
-          method: 'GET',
-          url,
-        });
-        return snippet.convert(this.displayedLang);
+      if (this.tab === 'code') {
+        let url = this.selectedDatasetURI;
+        if (url) {
+          url = encodeURI(url);
+          const snippet = new HTTPSnippet({
+            method: 'GET',
+            url,
+          });
+          return snippet.convert(this.displayedCodeLang);
+        }
+      }
+      if (this.tab === 'meta') {
+        return JSON.stringify(this.selectedDataset.metadata.find(m =>
+          m.attributes.language === this.displayedLang), null, 2);
       }
       return 'No Available Data';
+    },
+    languages() {
+      return uniq(this.selectedDataset.metadata.map(m => m.attributes.language));
+    },
+    dataSourceUrl() {
+      return this.selectedDataset.metadata.length &&
+        this.selectedDataset.metadata[0].attributes.dataSourceUrl;
     },
     ...mapGetters({
       selectedDataset: 'getSelectedDataset',
@@ -45,15 +62,27 @@ export default{
     classList(item) {
       return item === this.displayedLang ? 'tab-bar-pill -active' : 'tab-bar-pill';
     },
+    classListCode(item) {
+      return item === this.displayedCodeLang ? 'tab-bar-pill -active' : 'tab-bar-pill';
+    },
+    setTab(tab) {
+      this.tab = tab;
+    },
+    setDisplayedCodeLang(lang) {
+      // Google Analytics
+      ga('send', 'event', 'Data', 'Change language', lang);
+      this.displayedCodeLang = lang;
+    },
     setDisplayedLang(lang) {
       // Google Analytics
       ga('send', 'event', 'Data', 'Change language', lang);
       this.displayedLang = lang;
-    },
+    }
   },
   components: {
     ArticleComponent,
     DatasetComponent,
+    IconComponent
   },
 };
 </script>

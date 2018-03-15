@@ -2,42 +2,53 @@
 @import '../../../styles/variables';
 
 .c-modal {
-  position: absolute;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   background-color: transparent;
   z-index: 999999999;
   top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow: auto;
+  padding: rem(40) 0;
+  background-color: rgba($black, 0.2);
 
-  &.-center {
-    background-color: rgba(0, 0, 0, .5);
+  .modal-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    border: none;
+    background: rgb(255, 255, 255);
+    overflow: auto;
+    border-radius: 0px;
+    outline: none;
+    padding: 0px;
+    margin: auto;
+  }
 
-    .modal-content {
-      position: absolute;
-      min-height: inherit;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+  .close-modal {
+    position: absolute;
+    right: rem(20);
+    top: rem(20);
+    z-index: 1;
+
+    svg {
+      width: 25px;
+      height: 25px;
     }
   }
 
   .modal-content {
     position: relative;
-    width: 50vw;
-    min-height: 75vh;
     background-color: $theme-base;
-    top: rem(450);
     padding: $medium-margin + $small-margin;
     box-shadow: $box-shadow-2;
-
-    .close-modal {
-      position: absolute;
-      right: 0;
-      top: 0;
-
-      svg {
-        fill: $black;
-      }
-    }
   }
 }
