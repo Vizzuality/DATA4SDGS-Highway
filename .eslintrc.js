@@ -33,6 +33,12 @@ module.exports = {
       'js': 'never',
       'vue': 'never'
     }],
+    "no-console": [
+      1,
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
     'comma-dangle': ['error', 'only-multiline'],
     'no-unused-expressions': ['error', { 'allowShortCircuit': true }],
     'no-param-reassign': ['error', { "props": false }],
