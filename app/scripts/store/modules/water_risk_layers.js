@@ -224,7 +224,7 @@ export default {
     }) {
 
       commit(SET_WATER_LAYER_LOADING, true);
-      fetch(new Request(`${BASE_URL}/dataset?application=data4sdgs&includes=vocabulary&vocabulary[legacy]=data4sdgs-vizz2&cache=expire`))
+      fetch(new Request(`${BASE_URL}/dataset?application=data4sdgs&published=true&includes=vocabulary&vocabulary[legacy]=data4sdgs-vizz2&cache=expire`))
         .then((response) => {
           if (response.ok) return response.json();
           throw new Error(response.statusText);
