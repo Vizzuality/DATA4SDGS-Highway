@@ -9,6 +9,11 @@ export default {
   name: 'header-component',
   components: {
     IconComponent
+  },
+  data() {
+    return {
+      loginLink: `http://api.apihighways.org/auth/login?callbackUrl=${window.location.origin}/token&token=true`
+    };
   }
 };
 </script>
