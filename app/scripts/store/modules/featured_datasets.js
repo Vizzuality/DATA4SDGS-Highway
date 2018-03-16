@@ -45,7 +45,7 @@ const featuredDatasets = {
       return new Promise((resolve, reject) => {
         commit(SET_DATASETS_LOADING, true);
         commit(SET_DATASETS_ERROR, false);
-        fetch(`${BASE_URL}/dataset?app=data4sdgs&page[size]=12&includes=vocabulary,metadata&cache=expire`)
+        fetch(`${BASE_URL}/dataset?app=data4sdgs&page[size]=12&published=true&includes=vocabulary,metadata&cache=expire`)
           .then((response) => {
             if (response.status >= 400) {
               throw new Error(response.status);
@@ -69,7 +69,7 @@ const featuredDatasets = {
       return new Promise((resolve, reject) => {
         commit(SET_FEATURED_DATASETS_LOADING, true);
         commit(SET_FEATURED_DATASETS_ERROR, false);
-        fetch(`${BASE_URL}/dataset?app=data4sdgs&tags=data4sdgs-featured&page[size]=12&includes=vocabulary,metadata&cache=expire`)
+        fetch(`${BASE_URL}/dataset?app=data4sdgs&tags=data4sdgs-featured&published=true&page[size]=12&includes=vocabulary,metadata&cache=expire`)
           .then((response) => {
             if (response.status >= 400) {
               throw new Error(response.status);
