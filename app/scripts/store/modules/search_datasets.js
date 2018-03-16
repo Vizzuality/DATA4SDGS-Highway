@@ -51,8 +51,8 @@ const searchDatasets = {
         commit(SET_SEARCH_DATASETS_QUERY, value);
         commit(SET_SEARCH_DATASETS_LOADING, true);
         commit(SET_SEARCH_DATASETS_ERROR, false);
-        const tags = state.search.filters ? `&includes=vocabulary&published=true&vocabulary[legacy]=${state.search.filters}` : '';
-        fetch(`${BASE_URL}/dataset?application=data4sdgs&published=true&includes=vocabulary,metadata&page[size]=10000${state.search.query && state.search.query !== '' ? `&name=${state.search.query}` : ''}${tags}`)
+        const tags = state.search.filters ? `&vocabulary[legacy]=${state.search.filters}` : '';
+        fetch(`${BASE_URL}/v1/dataset?application=data4sdgs&published=true&includes=vocabulary,metadata&page[size]=10000${state.search.query && state.search.query !== '' ? `&name=${state.search.query}` : ''}${tags}`)
           .then((response) => {
             if (response.status >= 400) {
               throw new Error(response.status);

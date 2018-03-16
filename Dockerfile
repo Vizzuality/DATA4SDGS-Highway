@@ -4,7 +4,7 @@ RUN mkdir /sdgs &&  npm set progress=false && npm config set depth 0 && npm cach
 
 WORKDIR /sdgs
 
-ARG API_BASE_URL=https://api.apihighways.org/v1
+ARG API_BASE_URL=https://api.apihighways.org
 ARG GOOGLE_ANALYTICS=UA-90561944-1
 ARG NODE_ENV=production
 ARG SHOW_FEEDBACK=false
