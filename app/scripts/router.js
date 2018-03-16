@@ -6,6 +6,7 @@ import PlaygroundComponent from 'components/Playground';
 import HeaderComponent from 'components/Header';
 import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
+import TokenPage from 'components/Token';
 import VisualizationComponent from 'components/Visualization';
 import OtherVisualizationPage from 'components/OtherVisualization/Page';
 import LandingPage from 'components/Landing/Page';
@@ -39,6 +40,15 @@ const routes = [
         },
       },
     ],
+  },
+  {
+    path: '/token',
+    components: {
+      default: TokenPage,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
+    },
   },
 
   {

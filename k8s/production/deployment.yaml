@@ -28,7 +28,7 @@ spec:
           - name: NODE_ENV
             value: production
           - name: API_BASE_URL
-            value: "https://api.apihighways.org/v1"
+            value: "https://api.apihighways.org"
           - name: SHOW_FEEDBACK
             value: "false"
           - name: GOOGLE_ANALYTICS

@@ -1,0 +1,10 @@
+<section class="c-token">
+  <div class="row">
+    <div class="column small-12 medium-8 medium-offset-2">
+      <div class="token">
+        <textarea :value="token" id="token" readOnly v-on:click="selectAll" />
+        <button-component class="-dark -bordered -big" :click="getToken">Generate Token</button-component>
+      </div>
+    </div>
+  </div>
+</section>

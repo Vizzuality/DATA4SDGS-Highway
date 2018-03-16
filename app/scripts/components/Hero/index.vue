@@ -32,6 +32,7 @@ export default {
 
       computedLocation.home = location === '/';
       computedLocation.playground = location === '/data-sets';
+      computedLocation.token = location === '/token';
 
       return computedLocation;
     },
