@@ -13,6 +13,8 @@ import ConsoleComponent from 'components/Console';
 import SpinnerComponent from 'components/Spinner';
 import ButtonComponent from 'components/Button';
 
+const SHOW_RECENT_DATASETS = process.env.SHOW_RECENT_DATASETS;
+
 export default {
   name: 'playground-component',
   created() {
@@ -62,7 +64,7 @@ export default {
       notFoundMessage: 'No Datasets were found',
       timeout: null,
       page: 0,
-      showRecentDatasets: true
+      showRecentDatasets: SHOW_RECENT_DATASETS
     };
   },
   computed: {

@@ -33,6 +33,7 @@ export default {
       computedLocation.home = location === '/';
       computedLocation.playground = location === '/data-sets';
       computedLocation.token = location === '/token';
+      computedLocation.partners = location === '/partner-apis';
 
       return computedLocation;
     },

@@ -52,7 +52,8 @@ const searchDatasets = {
         commit(SET_SEARCH_DATASETS_LOADING, true);
         commit(SET_SEARCH_DATASETS_ERROR, false);
         const tags = state.search.filters ? `&vocabulary[legacy]=${state.search.filters}` : '';
-        fetch(`${BASE_URL}/v1/dataset?application=data4sdgs&published=true&includes=vocabulary,metadata&page[size]=10000${state.search.query && state.search.query !== '' ? `&name=${state.search.query}` : ''}${tags}`)
+        const queryEncoded = encodeURI(state.search.query);
+        fetch(`${BASE_URL}/v1/dataset?application=data4sdgs&published=true&includes=vocabulary,metadata&page[size]=10000${state.search.query && state.search.query !== '' ? `&name=${queryEncoded}` : ''}${tags}`)
           .then((response) => {
             if (response.status >= 400) {
               throw new Error(response.status);

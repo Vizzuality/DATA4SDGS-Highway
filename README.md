@@ -41,6 +41,8 @@ After the installation is completed, create a new file and name it `.env`. Copy 
 * TWITTER_ACCESS_TOKEN_SECRET - twitter access token secret (needed for tweets slider).
 * GOOGLE_ANALYTICS - google analytics app id
 * SHOW_FEEDBACK - flag to activate the landing's page feedback form. In order, to activate it must be set to `true`.
+* SHOW_RECENT_DATASETS - Boolean to enable/disable the "Recent dataset" feature on the data set page
+* SHOW_SEARCH_SUGGESTIONS - Boolean to enable/disable the search result suggestions on the data set page
 
 ## Usage
 To run the project in development mode you need to execute the following command on your terminal:

@@ -1,0 +1,72 @@
+@import '../../../styles/variables';
+
+.c-table {
+  width: 100%;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  display: flex;
+  font-size: rem(14);
+  line-height: 1.7;
+  color: rgba(69, 69, 69, 0.7);
+  font-family: $base-font-family;
+  font-weight: 400;
+
+  .t-row {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+
+    > div {
+      display: flex;
+      flex-flow: row nowrap;
+      flex-grow: 1;
+      flex-basis: 0;
+      word-break: break-word;
+      padding: rem(20) rem(30) rem(30) rem(30);
+      border-bottom: solid 1px rgba(#87929a, 0.5);
+
+      &:first-child {
+        padding-left: 2000px;
+        margin-left: -2000px;
+      }
+      &:last-child {
+        padding-right: 2000px;
+        margin-right: -2000px;
+      }
+
+    }
+
+    &.header {
+      > div {
+        border-bottom: solid 2px rgba(#87929a, 0.5);
+      }
+    }
+  }
+
+  .header {
+    font-weight: 600;
+    font-size: rem(14);
+    text-transform: capitalize;
+    color: $black;
+
+    > div {
+      padding-bottom: 5px;
+    }
+  }
+
+  .links {
+    display: flex;
+    margin-top: 10px;
+     > a {
+       margin-right: 20px;
+     }
+  }
+
+  .name {
+    display: block;
+    a {
+      text-transform: none;
+      color: $theme-blue;
+    }
+  }
+}
