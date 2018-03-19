@@ -13,20 +13,20 @@
       >
       <icon-component class="search-icon -round -medium" name="icon-search"></icon-component>
     </div>
-    <ul v-if="isOpen && results.length > 0" class="search-results-list" ref="search-results-list">
+    <ul v-if="isOpen && datasets.length > 0" class="search-results-list" ref="search-results-list">
       <li v-if="loading" class="search-results-item">Searching...</li>
       <li v-else-if="error" class="search-results-item -error">No datasets found</li>
       <li
         v-if="!loading"
         tabindex="-1"
         class="search-results-item -item js-search-results-item"
-        v-for="(result, index) in results"
-        @click="selectDataset(result)"
-        @keyup.enter="selectDataset(result)"
+        v-for="(dataset, index) in datasets"
+        @click="selectDataset(dataset)"
+        @keyup.enter="selectDataset(dataset)"
         @keyup.down="navigateDown"
         @keyup.up="navigateUp"
       >
-        {{result.name}}
+        {{dataset.name}}
       </li>
     </ul>
   </div>

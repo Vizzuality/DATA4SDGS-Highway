@@ -74,7 +74,7 @@ const selectedDataset = {
       return state.recentDatasets;
     },
     getSelectedDatasetURI(state) {
-      if (state.selected.dataset) return `${BASE_URL}/query/${state.selected.dataset.id}?sql=SELECT * FROM ${state.selected.dataset.tableName}`;
+      if (state.selected.dataset) return `${BASE_URL}/query?sql=SELECT * FROM ${state.selected.dataset.id}`;
       return null;
     },
   },
