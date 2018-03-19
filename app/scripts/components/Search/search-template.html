@@ -13,7 +13,7 @@
       >
       <icon-component class="search-icon -round -medium" name="icon-search"></icon-component>
     </div>
-    <ul v-if="isOpen && datasets.length > 0" class="search-results-list" ref="search-results-list">
+    <ul v-if="showSearchSuggestions && isOpen && datasets.length > 0" class="search-results-list" ref="search-results-list">
       <li v-if="loading" class="search-results-item">Searching...</li>
       <li v-else-if="error" class="search-results-item -error">No datasets found</li>
       <li
