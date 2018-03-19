@@ -63,6 +63,16 @@ const routes = [
   },
 
   {
+    path: '/partner-apis',
+    components: {
+      default: PartnerComponent,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
+    },
+  },
+
+  {
     path: '/examples',
     redirect: '/examples/conflicts-related-to-protected-areas'
   },

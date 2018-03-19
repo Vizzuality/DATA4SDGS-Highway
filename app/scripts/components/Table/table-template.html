@@ -7,13 +7,16 @@
   <div class="t-row body" v-for="(item, index) in data">
     <div class="col-row name">
       <div class="wrapper">
-        <a :href="item.link" target="_blank" rel="noopener nofollower">{{ item.name }}</a>
+        <a :href="item.docs" target="_blank" rel="noopener nofollower">{{ item.name }}</a>
         <div class="links">
-          <a :href="item.link" target="_blank" rel="noopener nofollower">
-            <icon-component v-if="item.link" name="icon-globe" class="-small"></icon-component>
-          </a>
           <a :href="item.docs" target="_blank" rel="noopener nofollower">
             <icon-component v-if="item.docs" name="icon-doc" class="-small"></icon-component>
+          </a>
+          <a v-if="item.examples" :href="item.examples" target="_blank" rel="noopener nofollower">
+            <icon-component name="icon-community" class="-small"></icon-component>
+          </a>
+          <a :href="item.link" target="_blank" rel="noopener nofollower">
+            <icon-component v-if="item.link" name="icon-globe" class="-small"></icon-component>
           </a>
           <a :href="item.github" target="_blank" rel="noopener nofollower">
             <icon-component v-if="item.github" name="icon-github" class="-small"></icon-component>
@@ -22,7 +25,7 @@
       </div>
     </div>
     <div class="col-row related">
-      <div>{{ item.relatedOrganization }}</div>
+      <div><a :href="item.orgUrl" target="_blank" rel="noopener nofollower">{{ item.relatedOrganization }}</a></div>
     </div>
     <div class="col-row description">
       <div>{{ item.description }}</div>
