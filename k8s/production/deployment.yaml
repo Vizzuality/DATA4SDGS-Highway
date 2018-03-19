@@ -31,6 +31,10 @@ spec:
             value: "https://api.apihighways.org"
           - name: SHOW_FEEDBACK
             value: "false"
+          - name: SHOW_SEARCH_SUGGESTIONS
+            value: "false"
+          - name: SHOW_RECENT_DATASETS
+            value: "false"
           - name: GOOGLE_ANALYTICS
             value: "UA-90561944-1"
           - name: TWITTER_ACCESS_TOKEN_KEY

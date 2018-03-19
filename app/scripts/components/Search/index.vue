@@ -5,6 +5,10 @@ import router from 'router';
 import { mapGetters } from 'vuex';
 import IconComponent from 'components/Icon';
 import vClickOutside from 'v-click-outside';
+import sortBy from 'lodash/sortBy';
+
+const SHOW_RECENT_DATASETS = process.env.SHOW_RECENT_DATASETS;
+const SHOW_SEARCH_SUGGESTIONS = process.env.SHOW_SEARCH_SUGGESTIONS;
 
 export default {
   name: 'search-component',
@@ -19,7 +23,9 @@ export default {
   },
   data() {
     return {
-      isOpen: false
+      isOpen: false,
+      query: '',
+      showSearchSuggestions: SHOW_SEARCH_SUGGESTIONS
     };
   },
   computed: {
@@ -28,6 +34,7 @@ export default {
         return this.query;
       },
       set(value) {
+        this.query = value;
         if (value.split('').length > 1 || value === '') {
           this.debounce(this.$store.dispatch, ['searchDatasets', value]);
         }
@@ -36,17 +43,26 @@ export default {
     ...mapGetters({
       notFound: 'getSearchNotFound',
       results: 'getSearchListData',
-      query: 'getSearchQuery',
+      recentDatasets: 'getRecentDatasets',
       loading: 'getSearchLoading',
       error: 'getSearchError',
     }),
+    datasets() {
+      if (this.recentDatasets.length && SHOW_RECENT_DATASETS) {
+        const recentIds = this.recentDatasets.map(d => d.id);
+        return sortBy(this.results.filter(d => recentIds.indexOf(d.id) > -1),
+          item => recentIds.indexOf(item.id)
+        );
+      }
+      return this.results;
+    }
   },
   methods: {
     debounce(callback, params) {
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         callback(...params);
-      }, 150);
+      }, 250);
     },
     onClickOutside() {
       this.isOpen = false;
@@ -55,6 +71,7 @@ export default {
       this.$store.dispatch('searchDatasets', dataset.name);
     },
     navigateDown(e) {
+      if (!SHOW_SEARCH_SUGGESTIONS) return;
       const element = e.target.tagName === 'LI'
       ? e.target.nextElementSibling
       : this.$refs['search-results-list'].firstChild;
@@ -62,6 +79,7 @@ export default {
       element && element.focus();
     },
     navigateUp(e) {
+      if (!SHOW_SEARCH_SUGGESTIONS) return;
       const element = e.target.previousElementSibling
       ? e.target.previousElementSibling
       : this.$refs['search-input'];
@@ -69,6 +87,7 @@ export default {
       element && element.focus();
     },
     onKeydown(e) {
+      if (!SHOW_SEARCH_SUGGESTIONS) return;
       const focusedElement = document.activeElement;
       if (e.which === 40 || e.which === 38) {
         if (focusedElement.classList.contains('js-search-input')
