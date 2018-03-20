@@ -3,6 +3,9 @@
     <div class="column small-12 align-middle flex">
       <dataset-component class="modal-dataset" :dataset="selectedDataset" large></dataset-component>
     </div>
+    <div class="column small-12 align-middle flex ds-description">
+      {{description}}
+    </div>
   </div>
   <div class="editor-header">
     <div v-if="selectedDataset.metadata.length" class="tab-panel">

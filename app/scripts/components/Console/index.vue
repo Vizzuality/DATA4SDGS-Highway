@@ -53,6 +53,12 @@ export default {
       return this.selectedDataset.metadata.length &&
         this.selectedDataset.metadata[0].attributes.dataSourceUrl;
     },
+    description() {
+      if (this.selectedDataset.metadata.length === 0) {
+        return '';
+      }
+      return this.selectedDataset.metadata[0].attributes.description;
+    },
     ...mapGetters({
       selectedDataset: 'getSelectedDataset',
       selectedDatasetURI: 'getSelectedDatasetURI',
