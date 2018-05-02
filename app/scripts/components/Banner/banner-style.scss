@@ -13,7 +13,8 @@
   transform: translateY(100%);
 
   padding: $small-margin;
-  background-color: $grayed-black;
+  background-color: #FFF;
+  border-top: 4px solid;
 
   z-index: 9999999999;
   box-shadow: $box-shadow-2;
@@ -21,12 +22,12 @@
 
 
   .banner-heading {
-    color: $theme-base;
+    color: #000;
     margin-bottom: $small-margin / 2;
   }
 
   .banner-body {
-    color: $theme-base;
+    color: #000;
     font-size: $font-size-xsmall;
     margin: 0;
 
@@ -37,10 +38,16 @@
 
   .c-button {
     color: $white;
+    background-color: #354283;
 
     &:hover {
       color: $white;
+      background-color: #435198;
     }
+  }
+
+  .dismiss-bg {
+    background-color: #a0a0a0;
   }
 
   @keyframes appear {

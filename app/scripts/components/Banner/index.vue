@@ -29,6 +29,14 @@ export default{
       required: true,
     },
   },
+  methods: {
+    goToContactForm() {
+      window.open(
+        'https://docs.google.com/forms/d/e/1FAIpQLSeYC7oc0Fs2pL-QAPHl2Nk_Y-h_ClmvptakzSHL8k5AJakbow/viewform?usp=sf_link',
+        '_blank'
+      );
+    },
+  },
   components: {
     ButtonComponent,
   },
