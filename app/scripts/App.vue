@@ -10,13 +10,9 @@
         :cookie-name="bannerCookie"
         :action="hideBanner"
         :isVisible="bannerVisibility"
-        heading="Welcome! This is a proof of concept website."
-        body='Thank you for taking a look at SDG Data Highways. We would love to hear your feedback,
-         in particular from your software engineers. The aim is to make it as fast as possible to
-         discover and use SDG data in your applications. If you think we’re meeting the aim, or have
-         some suggestions to help us improve the site, please send us feedback using
-         <a href="https://insights.hotjar.com/s?siteId=395952&surveyId=18062">this survey.</a>'
-        actionName="Got it!"
+        heading="Connect with us!"
+        body='API Highways is an early stage initiative. Please contact us if you have data to contribute, a potential use case, are a developer interested in using our tools, or for any other reason. For detailed information on how to get involved you can download/share our <a href="https://www.apihighways.org/static/doc/API_Highways.pdf" target="_blank">2-page PDF</a> summarizing this initiative.'
+        actionName="Contact Us"
       >
       </banner-component>
     </main>
