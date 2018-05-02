@@ -43,8 +43,7 @@ export default{
       return this.dataset.goal;
     },
     source() {
-      const info = this.getMetadataInfo();
-      return info && info.organization ? info.organization : this.getSourceByTag();
+      return this.dataset.metadata[0] && this.dataset.metadata[0].attributes.sourceOrganization;
     },
     link() {
       const info = this.getMetadataInfo();

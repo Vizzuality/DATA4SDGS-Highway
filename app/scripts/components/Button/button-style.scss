@@ -49,4 +49,9 @@
   &.-white {
     color: $white;
   }
+
+  &.-dark {
+    border-color: $theme-blue;
+    color: $theme-blue;
+  }
 }

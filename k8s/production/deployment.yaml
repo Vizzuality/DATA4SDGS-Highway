@@ -28,8 +28,12 @@ spec:
           - name: NODE_ENV
             value: production
           - name: API_BASE_URL
-            value: "https://api.apihighways.org/v1"
+            value: "https://api.apihighways.org"
           - name: SHOW_FEEDBACK
+            value: "false"
+          - name: SHOW_SEARCH_SUGGESTIONS
+            value: "false"
+          - name: SHOW_RECENT_DATASETS
             value: "false"
           - name: GOOGLE_ANALYTICS
             value: "UA-90561944-1"

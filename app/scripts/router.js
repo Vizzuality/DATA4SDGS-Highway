@@ -3,9 +3,11 @@ import VueRouter from 'vue-router';
 
 import HomeComponent from 'components/Home';
 import PlaygroundComponent from 'components/Playground';
+import PartnerComponent from 'components/PartnerApis';
 import HeaderComponent from 'components/Header';
 import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
+import TokenPage from 'components/Token';
 import VisualizationComponent from 'components/Visualization';
 import OtherVisualizationPage from 'components/OtherVisualization/Page';
 import LandingPage from 'components/Landing/Page';
@@ -39,6 +41,35 @@ const routes = [
         },
       },
     ],
+  },
+  {
+    path: '/token',
+    components: {
+      default: TokenPage,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
+    },
+  },
+
+  {
+    path: '/partner-apis',
+    components: {
+      default: PartnerComponent,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
+    },
+  },
+
+  {
+    path: '/partner-apis',
+    components: {
+      default: PartnerComponent,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
+    },
   },
 
   {
