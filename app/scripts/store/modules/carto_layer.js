@@ -97,7 +97,7 @@ const cartoLayer = {
   },
   actions: {
     setMarkerLayer({ commit }) {
-      const url = 'https://simbiotica.carto.com/api/v2/sql?q=SELECT count, cast(st_asgeojson(st_centroid(the_geom)) as json) as geometry FROM gdelt_project_data_filtered';
+      const url = 'https://apihighways.carto.com/api/v2/sql?q=SELECT count, cast(st_asgeojson(st_centroid(the_geom)) as json) as geometry FROM gdelt_project_data_filtered';
       commit(SET_CARTO_MARKERS_LAYER_SUCCESS, { url });
     },
 

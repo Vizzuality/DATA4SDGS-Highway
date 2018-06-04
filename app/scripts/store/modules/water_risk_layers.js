@@ -137,7 +137,7 @@ const DEFAULT_LAYERS = [{
   'protected': false,
   'env': 'production',
   'layerConfig': {
-    'account': 'simbiotica',
+    'account': 'apihighways',
     'params_config': [],
     'sql_config': [],
     'body': {
@@ -259,7 +259,7 @@ export default {
       commit
     }) {
       // TODO: this should be a dataset instead of a requests to carto
-      const url = `https://simbiotica.carto.com/api/v2/sql?q=with r as (SELECT sum(population) pop, basin_name, basinid,
+      const url = `https://apihighways.carto.com/api/v2/sql?q=with r as (SELECT sum(population) pop, basin_name, basinid,
       sum((transition_types::json->>'3')::numeric*pixel_area/10000) water_area_ha FROM water_basin_sa group by basin_name,
       basinid  order by 4 desc) select round(sum(pop)) as pop, round(sum(water_area_ha)) water,
       basin_name from r where water_area_ha is not null and basin_name != '' group by basin_name order by water desc`;
