@@ -23,6 +23,7 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     if (to.params.dataset) {
+      console.warn('dis');
       store.dispatch('setSelectedDataset', to.params.dataset)
       .then(() => store.dispatch('setModal', {
         isOpen: true,
@@ -58,6 +59,30 @@ export default {
       {
         value: 'worldbank',
         label: 'WORLDBANK',
+      },
+      {
+        value: 'PREP- Partnership for Resilience & Preparedness',
+        label: 'PREP- PARTNERSHIP FOR RESILIENCE & PREPAREDNESS',
+      },
+      {
+        value: 'Resource Watch',
+        label: 'RESOURCE WATCH',
+      },
+      {
+        value: 'Aqueduct',
+        label: 'AQUEDUCT',
+      },
+      {
+        value: 'Resource Watch API',
+        label: 'RESOURCE WATCH API',
+      },
+      {
+        value: 'Global Forest Watch',
+        label: 'GLOBAL FOREST WATCH',
+      },
+      {
+        value: 'Global Forest Watch - Climate',
+        label: 'GLOBAL FOREST WATCH - CLIMATE',
       }],
       loadingMessage: 'Searching...',
       errorMessage: 'Something weird happened!',

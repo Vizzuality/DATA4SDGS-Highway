@@ -44,7 +44,7 @@ const selectedDataset = {
       return new Promise((resolve, reject) => {
         commit(SET_SELECTED_DATASET_LOADING, true);
         commit(SET_SELECTED_DATASET_ERROR, false);
-        fetch(`${BASE_URL}/dataset/${id}?includes=metadata`)
+        fetch(`${BASE_URL}/v1/dataset/${id}?includes=metadata`)
           .then((response) => {
             if (response.status >= 400) {
               throw new Error(response.status);
