@@ -1,0 +1,12 @@
+<div class="c-examples">
+  <div>
+    <ul>
+      <li class="column small-12 medium-6 large-4 featured-list-item" v-for="example in examples" :key="example.id" >
+        <a href="#" @click="goToDetail(example.id)">
+          <h2>{{example.title}}</h2>
+          <img :src="example.thumbnail" alt="Example thumbnail">
+        </a>
+      </li>
+    </ul>
+  </div>
+</div >

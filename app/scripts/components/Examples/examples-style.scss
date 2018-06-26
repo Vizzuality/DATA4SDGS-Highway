@@ -1,0 +1,124 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-home {
+
+  .info-column {
+    display: flex;
+    flex-direction: column;
+    margin-top: rem(30);
+    margin-bottom: rem(30);
+
+    .info-column-text {
+      margin-top: $small-margin;
+
+      h3 {
+        margin-bottom: $small-margin;
+      }
+    }
+  }
+
+  .split-view {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background-color: rgba($theme-blue, 0.2);
+    }
+
+    &:first-child {
+      background-image: url('/static/layouts/laptop.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 532px;
+    }
+
+    &:last-child {
+      background-image: url('/static/layouts/lights.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 532px;
+
+      border: 1px solid $theme-alternative;
+      border-left: 0;
+    }
+  }
+
+  .link-column {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: $medium-margin * 2;
+    z-index: 2;
+
+    .link-column-action {
+      &:after {
+        position: relative;
+        display: inline-block;
+        content: '';
+        width: 9px;
+        height: 9px;
+        margin-left: $small-margin;
+        transform: rotate(45deg);
+        border: 2px solid transparent;
+        border-top: 2px solid $gold-yellow;
+        border-right: 2px solid $gold-yellow;
+
+      }
+    }
+
+    @media (min-width: 640px) and (max-width: 726px) {
+      height: 60%;
+    }
+  }
+
+  .twitter-slider {
+    .tweet {
+
+      > .tweet-message {
+        margin-top: $small-margin;
+        margin-bottom: 0;
+        font-style: italic;
+        font-size: $font-size-small;
+        text-align: center;
+      }
+
+      > .tweet-user {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+
+        > .tweet-user-tag {
+          font-weight: $font-weight-bold;
+          font-size: $font-size-xsmall;
+        }
+
+        > .tweet-username {
+          margin-left: $small-margin / 3;
+          text-transform: lowercase;
+          color: $theme-blue;
+        }
+      }
+    }
+  }
+
+  .no-tweets {
+    margin-top: $medium-margin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+}

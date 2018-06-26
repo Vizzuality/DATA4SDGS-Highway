@@ -1,0 +1,12 @@
+[
+  {
+    "id:": "conflicts-related-to-protected-areas",
+    "title": "Conflicts related to protected areas",
+    "thumbnail": "/static/examples/conflicts-related-to-protected-areas.png"
+  },
+  {
+    "id:": "regions-with-greatest-water-risks",
+    "title": "Regions with greatest water risks",
+    "thumbnail": "/static/examples/regions-with-greatest-water-risks.png"
+  }
+]

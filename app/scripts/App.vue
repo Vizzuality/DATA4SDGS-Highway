@@ -1,6 +1,6 @@
 <template>
   <div id="app" :class="{'modal-open': isDataSetsPage}">
-    <header :class="{'l-header': true, '-map': isExamplePage }">
+    <header class="l-header">
       <router-view name="HeaderComponent"></router-view>
     </header>
     <main class="l-main">

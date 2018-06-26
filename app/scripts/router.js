@@ -8,6 +8,7 @@ import HeaderComponent from 'components/Header';
 import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
 import TokenPage from 'components/Token';
+import ExamplesComponent from 'components/Examples';
 import VisualizationComponent from 'components/Visualization';
 import OtherVisualizationPage from 'components/OtherVisualization/Page';
 import LandingPage from 'components/Landing/Page';
@@ -74,7 +75,11 @@ const routes = [
 
   {
     path: '/examples',
-    redirect: '/examples/conflicts-related-to-protected-areas'
+    components: {
+      default: ExamplesComponent,
+      HeroComponent,
+      HeaderComponent,
+    },
   },
 
   {
