@@ -10,18 +10,24 @@
         </div>
       </div>
     </div>
-    <dataset-list-component v-if="datasets && datasets.length && !loading" :datasets="datasets"></dataset-list-component>
+    <dataset-list-component
+      v-if="datasets && datasets.length && !loading"
+      :datasets="datasets"
+    />
     <div v-else-if="!loading" class="no-datasets">
       No datasets for this search or filters
     </div>
     <spinner-component class="-absolute" :loading="searchLoading"></spinner-component>
     <div class="row">
       <div class="column small-12 medium-4 medium-offset-4">
-        <button-component v-if="showRecentDatasets && recentDatasets.length && !loading" class="-bordered -full -white browse-all" :click="showAllDatasets">Browse all datasets</button-component>
+        <button-component
+          v-if="showRecentDatasets && recentDatasets.length && !loading"
+          class="-bordered -full -white browse-all"
+          :click="showAllDatasets"
+        >
+          Browse all datasets
+        </button-component>
       </div>
     </div>
   </article-component>
-  <modal-component>
-    <console-component></console-component>
-  </modal-component>
 </div>

@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import HomeComponent from 'components/Home';
+import PlaygroundDetailComponent from 'components/PlaygroundDetail';
 import PlaygroundComponent from 'components/Playground';
 import PartnerComponent from 'components/PartnerApis';
 import HeaderComponent from 'components/Header';
@@ -33,14 +34,14 @@ const routes = [
       HeaderComponent,
       FooterComponent,
     },
-    children: [
-      {
-        path: ':dataset',
-        components: {
-          default: PlaygroundComponent,
-        },
-      },
-    ],
+  },
+  {
+    path: '/data-sets/:dataset',
+    components: {
+      default: PlaygroundDetailComponent,
+      HeaderComponent,
+      FooterComponent
+    }
   },
   {
     path: '/token',

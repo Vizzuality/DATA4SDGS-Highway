@@ -108,3 +108,15 @@ p {
 *, *:before, *:after, input[type=search] {
   box-sizing: inherit;
 }
+
+.row {
+  &.-equal-height {
+    margin-top: -0.9375rem;
+
+    div[class^=column], div[class*=column] {
+      display: flex;
+      flex-direction: column;
+      margin-top: -0.9375rem;
+    }
+  }
+}

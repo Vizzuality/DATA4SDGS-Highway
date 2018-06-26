@@ -1,0 +1,32 @@
+<div class="c-playground-detail">
+  <div class="row">
+    <div class="column small-3"></div>
+    <div class="column small-9">
+      <article-component grid-column="medium-12">
+        <h1 class="dataset-title" v-if="selectedDataset">{{selectedDataset.name}}</h1>
+        <p v-if="metadata" class="dataset-description">
+          {{metadata.description}}
+        </p>
+
+        <h3 class="details-section-heading">About this dataset</h3>
+        <div class="row -equal-height">
+          <div
+            v-for="detail in metadataDetails"
+            class="column small-6 medium-4"
+          >
+            <div class="detail-container">
+              <span class="detail-heading">{{detail.heading}}</span>
+              <p class="detail-value">{{detail.value}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-examples-header">
+          <h3>Code examples</h3>
+          <a>Learn how to use these data</a>
+        </div>
+        <console-component :selectedDataset="selectedDataset"></console-component>
+      </article-component>
+    </div>
+  </div>
+</div>

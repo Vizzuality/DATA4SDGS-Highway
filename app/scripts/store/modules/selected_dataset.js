@@ -68,15 +68,11 @@ const selectedDataset = {
   },
   getters: {
     getSelectedDataset(state) {
-      return state.selected.dataset;
+      return state.recentDatasets[0];
     },
     getRecentDatasets(state) {
       return state.recentDatasets;
-    },
-    getSelectedDatasetURI(state) {
-      if (state.selected.dataset) return `${BASE_URL}/query?sql=SELECT * FROM ${state.selected.dataset.id}`;
-      return null;
-    },
+    }
   },
 };
 

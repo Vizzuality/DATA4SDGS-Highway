@@ -1,0 +1,36 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-playground-detail {
+
+  .details-section-heading {
+    margin-bottom: $medium-margin;
+  }
+
+  .dataset-title {
+    text-align: left;
+  }
+
+  .detail-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .detail-heading {
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .detail-value {
+    font-size: 14px;
+  }
+
+  .code-examples-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $medium-margin;
+  }
+}
