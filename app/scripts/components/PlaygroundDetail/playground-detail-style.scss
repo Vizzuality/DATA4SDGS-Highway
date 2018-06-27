@@ -3,7 +3,14 @@
 
 .c-playground-detail {
 
-  .details-section-heading {
+  .dataset-detail-section {
+    margin: 0 0 115px 0;
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .section-title {
     margin-bottom: $medium-margin;
   }
 
@@ -32,5 +39,29 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: $medium-margin;
+  }
+
+  .metadata-info-box {
+    background-color: $theme-alternative;
+    border-radius: 10px;
+    padding: $small-margin;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xsmall;
+    line-height: 18px;
+    overflow: auto;
+
+    pre {
+      margin: 0;
+      display: flex;
+    }
+
+    code {
+      margin: 0;
+      font-family: Menlo, monospace;
+      white-space: pre-wrap;
+    }
+    .hljs {
+      background-color: $theme-alternative;
+    }
   }
 }

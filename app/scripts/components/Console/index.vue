@@ -32,7 +32,12 @@ export default {
   },
   computed: {
     selectedDatasetURI() {
-      if (this.selectedDataset) return `${BASE_URL}/query?sql=SELECT * FROM ${this.selectedDataset.id}`;
+      if (this.selectedDataset) {
+        if (this.selectedDataset.provider === 'resourcewatch') {
+          return `https://api.resourcewatch.org/v1/query?sql=SELECT * FROM ${this.selectedDataset.tableName}`;
+        }
+        return `${BASE_URL}/query?sql=SELECT * FROM ${this.selectedDataset.id}`;
+      }
       return null;
     },
     snippet() {
