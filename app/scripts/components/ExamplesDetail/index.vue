@@ -7,9 +7,11 @@ import router from 'router';
 import examples from '../../../data/examples.json';
 
 export default {
-  name: 'examples-component',
+  name: 'examples-detail-component',
   data() {
-    return { examples };
+    const { id } = this.$route.params;
+    const example = examples.find(ex => ex.id === id) || {};
+    return { example };
   },
   components: {
     router,

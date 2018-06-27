@@ -9,6 +9,7 @@ import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
 import TokenPage from 'components/Token';
 import ExamplesComponent from 'components/Examples';
+import ExamplesDetailComponent from 'components/ExamplesDetail';
 import LandingPage from 'components/Landing/Page';
 import LandingFooter from 'components/Landing/Footer';
 
@@ -84,7 +85,7 @@ const routes = [
   {
     path: '/examples/:id',
     components: {
-      default: ExamplesComponent,
+      default: ExamplesDetailComponent,
       HeaderComponent,
       FooterComponent,
     },

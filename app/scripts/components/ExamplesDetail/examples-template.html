@@ -1,0 +1,28 @@
+<div class="c-examples-detail">
+  <div class="c-examples-detail-intro">
+    <div class="row" >
+      <div class="column small-12 medium-6 info-column">
+        <span>API HIGHWAYS EXAMPLES</span>
+        <h1>{{example.title}}</h1>
+        <div>
+          Related organization: {{example.organization}}
+          Last update: {{example.lastUpdate}}
+        </div>
+        <div>
+          See source code {{example.sourceCode}}
+          Share
+        </div>
+      </div >
+    </div >
+  </div >
+  <div class="c-examples-detail-content">
+    <div class="row" >
+      <div class="column small-12 medium-6 info-column">
+        {{example.content}}
+      </div >
+      <a :href="example.url">Go to site</a>
+
+      <img :src="example.images[0]" alt="">
+    </div >
+  </div >
+</div >
