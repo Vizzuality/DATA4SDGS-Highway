@@ -9,8 +9,6 @@ import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
 import TokenPage from 'components/Token';
 import ExamplesComponent from 'components/Examples';
-import VisualizationComponent from 'components/Visualization';
-import OtherVisualizationPage from 'components/OtherVisualization/Page';
 import LandingPage from 'components/Landing/Page';
 import LandingFooter from 'components/Landing/Footer';
 
@@ -79,22 +77,16 @@ const routes = [
       default: ExamplesComponent,
       HeroComponent,
       HeaderComponent,
-    },
+      FooterComponent,
+    }
   },
 
   {
-    path: '/examples/conflicts-related-to-protected-areas',
+    path: '/examples/:id',
     components: {
-      default: VisualizationComponent,
+      default: ExamplesComponent,
       HeaderComponent,
-    },
-  },
-
-  {
-    path: '/examples/regions-with-greatest-water-risks',
-    components: {
-      default: OtherVisualizationPage,
-      HeaderComponent,
+      FooterComponent,
     },
   },
   {

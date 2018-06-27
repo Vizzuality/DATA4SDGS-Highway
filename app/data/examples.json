@@ -1,12 +1,14 @@
 [
   {
-    "id:": "conflicts-related-to-protected-areas",
+    "id": "conflicts-related-to-protected-areas",
     "title": "Conflicts related to protected areas",
-    "thumbnail": "/static/examples/conflicts-related-to-protected-areas.png"
+    "thumbnail": "/static/examples/conflicts-related-to-protected-areas.png",
+    "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
   {
-    "id:": "regions-with-greatest-water-risks",
+    "id": "regions-with-greatest-water-risks",
     "title": "Regions with greatest water risks",
-    "thumbnail": "/static/examples/regions-with-greatest-water-risks.png"
+    "thumbnail": "/static/examples/regions-with-greatest-water-risks.png",
+    "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   }
 ]
