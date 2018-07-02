@@ -1,69 +1,93 @@
 // Import global variables
 @import '../../../styles/variables';
 
-.c-examples {
-  margin: 50px 0 150px;
+.c-examples-detail {
+  &-intro {
+    background-color: $theme-accent;
+    padding: $medium-margin 0 $small-margin;
 
-  .examples-list {
-    list-style: none;
-    padding: 0;
-  }
+    &__metadata {
+      align-items: center;
+      display: flex;
+      > a,
+      > span {
+        font-size: $font-size-small;
+        line-height: 1.63;
+        margin-right: $small-margin;
+        color: $theme-base;
+        text-transform: none;
+        font-weight: normal;
 
-  .example-card {
-    position: relative;
-    display: inline-block;
-    border: solid 1px rgba(135, 146, 154, 0.2);
-    margin-bottom: 60px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
 
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom :0;
-      left: 0;
-      opacity: 0;
-      box-shadow: 0 30px 20px 0 rgba(0,0,0,0.10);
-      transition: opacity 0.3s ease-in-out;
+      &:last-child {
+        justify-content: flex-end;
+      }
     }
 
-    &:hover:after {
-      opacity: 1;
+    &__title {
+      margin: $medium-margin 0 $small-margin;
+      text-align: left;
+      color: $theme-base;
     }
 
-    &-thumbnail {
-      height: 190px;
-      background-size: cover;
-    }
-
-    &-title {
-      margin: 15px;
-      font-size: rem(24);
-      font-weight: normal;
-      line-height: 0.92;
-      letter-spacing: 1.6px;
-      color: $base-font-color;
-    }
-
-
-    &-content {
-      margin: 12px 15px;
-      font-size: $font-size-xsmall;
-      font-weight: normal;
-      line-height: 1.43;
-      letter-spacing: normal;
-      color: $base-font-color-light;
-    }
-
-    &-details {
-      float: right;
-      margin: 15px;
+    .breadcrumb {
       font-size: $font-size-small;
       font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
       line-height: 1.5;
       letter-spacing: 1px;
-      text-align: right;
-      color: $link-font-color;
+      padding-left: 10px;
+      position: relative;
+
+      &:before {
+        content: "";
+        position: relative;
+        left: -7px;
+        top: -2px;
+        border: solid $link-font-color;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(135deg);
+      }
+    }
+    .separator {
+      background-color: rgba($theme-base, 0.52);
+      width: 1px;
+      height: 32px;
+    }
+  }
+
+  &-content {
+    margin-top: $large-margin;
+
+    .row {
+      margin-bottom: $large-margin;
+    }
+
+    &__title {
+      font-size: $font-size-large;
+      font-weight: 300;
+      line-height: 1.38;
+      letter-spacing: -0.5px;
+      color: $theme-accent;
+      margin-top: 0;
+    }
+
+    &__text {
+      font-size: $font-size-small;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.63;
+      letter-spacing: normal;
+      margin: 0;
+      color: $base-font-color;
     }
   }
 }

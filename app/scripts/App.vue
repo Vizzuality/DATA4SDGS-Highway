@@ -16,7 +16,7 @@
       >
       </banner-component>
     </main>
-    <footer v-if="!isExamplePage" class="l-footer">
+    <footer class="l-footer">
       <router-view name="FooterComponent"></router-view>
     </footer>
   </div>
@@ -51,9 +51,6 @@ export default {
       computedLocation.map = this.$route.path === '/map';
 
       return computedLocation;
-    },
-    isExamplePage() {
-      return this.$route.path.startsWith('/examples/');
     },
     isAboutPage() {
       return this.$route.path.startsWith('/about');
