@@ -4,6 +4,7 @@
 
 <script>
 import router from 'router';
+import CarouselComponent from 'components/Carousel';
 import examples from '../../../data/examples.json';
 
 export default {
@@ -13,8 +14,14 @@ export default {
     const example = examples.find(ex => ex.id === id) || {};
     return { example };
   },
+  computed: {
+    hasMultipleImages() {
+      return this.example && this.example.images.length > 1;
+    }
+  },
   components: {
     router,
+    CarouselComponent
   },
 };
 </script>

@@ -8,9 +8,16 @@
     "sourceCode": "https://github.com/",
     "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "thumbnail": "/static/examples/conflicts-related-to-protected-areas.png",
+    "thumb": "/static/examples/conflicts-related-to-protected-areas.png",
     "images": [
-      "/static/examples/conflicts-related-to-protected-areas.png"
+      {
+        "id": "1",
+        "src": "/static/examples/conflicts-related-to-protected-areas.png"
+      },
+      {
+        "id": "2",
+        "src": "/static/examples/regions-with-greatest-water-risks.png"
+      }
     ]
   },
   {
@@ -22,9 +29,12 @@
     "sourceCode": "https://github.com/",
     "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "thumbnail": "/static/examples/regions-with-greatest-water-risks.png",
+    "thumb": "/static/examples/regions-with-greatest-water-risks.png",
     "images": [
-      "/static/examples/regions-with-greatest-water-risks.png"
+      {
+        "id": "1",
+        "src": "/static/examples/regions-with-greatest-water-risks.png"
+      }
     ]
   }
 ]

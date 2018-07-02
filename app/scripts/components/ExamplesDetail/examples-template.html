@@ -32,10 +32,18 @@
         <a class="c-button -link" :href="example.url" target="_blank" rel="noopener noreferrer">Go to site</a>
       </div >
     </div >
-      <div class="row">
-
+    <div class="row">
       <div class="column small-12">
-        <img :src="example.images[0]" alt="">
+        <div v-if="hasMultipleImages">
+          <carousel-component
+            :starting-image="0"
+            :images="example.images"
+            :auto-slide-interval="0"
+          ></carousel-component>
+        </div>
+        <div v-else>
+          <img :src="example.images[0].src" alt="Example image thumbnail">
+        </div>
       </div>
     </div>
   </div >
