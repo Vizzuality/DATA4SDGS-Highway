@@ -31,6 +31,36 @@
             <a>Related Data sets</a>
           </li>
         </ul>
+
+        <div class="sidebar-links-section">
+          <span class="sidebar-links-heading">
+            <icon-component name="icon-download" class="-xsmall"></icon-component>
+            Download
+          </span>
+          <ul class="sidebar-links">
+            <li>
+              <a href="metadata.dataDownloadUrl.csv">.csv</a>
+            </li>
+            <li>
+              <a href="metadata.dataDownloadUrl.json">.json</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-links-section">
+           <span class="sidebar-links-heading">
+            <icon-component name="icon-external-link" class="-xsmall"></icon-component>
+            External Integrations
+          </span>
+          <ul class="sidebar-links -integrations">
+            <li>
+              <a href="metadata.dataDownloadUrl.csv">CARTO</a>
+            </li>
+            <li>
+              <a href="metadata.dataDownloadUrl.json">Data.World</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="column small-9">
@@ -48,7 +78,12 @@
               class="column small-6 medium-4"
             >
               <div class="detail-container">
-                <span class="detail-heading">{{detail.heading}}</span>
+                <span class="detail-heading">
+                  <span v-if="detail.info">
+                    <icon-component name="icon-info" class="-xsmall"></icon-component>
+                  </span>
+                  {{detail.heading}}
+                </span>
                 <p class="detail-value">{{detail.value}}</p>
               </div>
             </div>
@@ -58,7 +93,12 @@
         <section id="examples" class="dataset-detail-section">
           <div class="code-examples-header">
             <h3>Code examples</h3>
-            <a>Learn how to use these data</a>
+            <a class="examples-link">
+              <span>
+                <icon-component name="icon-book" class="-xsmall"></icon-component>
+              </span>
+              Learn how to use these data
+            </a>
           </div>
           <console-component :selectedDataset="selectedDataset"></console-component>
         </section>
@@ -75,3 +115,9 @@
     </div>
   </div>
 </div>
+<script>
+  import IconComponent from 'app/scripts/components/Icon/index';
+  export default {
+    components: { IconComponent }
+  }
+</script>

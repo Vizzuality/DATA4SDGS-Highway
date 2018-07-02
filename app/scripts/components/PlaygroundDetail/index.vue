@@ -6,7 +6,7 @@ import { mapGetters } from 'vuex';
 import findLast from 'lodash/findLast';
 import ArticleComponent from 'components/Article';
 import ConsoleComponent from 'components/Console';
-import SpinnerComponent from 'components/Spinner';
+import IconComponent from 'components/Icon';
 
 export default {
   name: 'playground-detail-component',
@@ -51,7 +51,7 @@ export default {
         const details = [
           { heading: 'Owner / Source', value: this.metadata.sourceOrganization },
           { heading: 'Data download URL', value: this.metadata.dataSourceUrl },
-          { heading: 'Type', value: this.selectedDataset.provider },
+          { heading: 'Type', value: this.selectedDataset.provider, info: true },
           { heading: 'Identifier', value: this.metadata.dataset },
           { heading: 'Language', value: this.metadata.language },
           null,
@@ -71,10 +71,7 @@ export default {
   methods: {
     handleScroll() {
       const header = document.getElementById('header');
-      const paddingOffset = parseInt(
-        getComputedStyle(document.querySelector('.c-article')).paddingTop,
-        10
-      );
+      const paddingOffset = 120;
       const anchors = [
         { id: 'about', el: document.getElementById('about') },
         { id: 'examples', el: document.getElementById('examples') },
@@ -92,8 +89,8 @@ export default {
   },
   components: {
     ArticleComponent,
-    SpinnerComponent,
-    ConsoleComponent,
+    IconComponent,
+    ConsoleComponent
   },
 };
 

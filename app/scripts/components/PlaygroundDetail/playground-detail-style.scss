@@ -3,6 +3,14 @@
 
 .c-playground-detail {
   background: linear-gradient(to right, #f0f0f0 0%, #f0f0f0 20%, $white 20%, $white 100%);
+
+  a {
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: 0.8px;
+    color: #334285;
+  }
+
   .dataset-detail-section {
     margin: 0 0 115px 0;
     &:last-child {
@@ -40,6 +48,13 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: $medium-margin;
+
+    .examples-link {
+      display: flex;
+      span {
+        margin: 0 $small-margin 0 0;
+      }
+    }
   }
 
   .metadata-info-box {
@@ -71,23 +86,26 @@
 
     .sidebar-container {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: flex-start;
       align-items: flex-start;
       height: 100%;
       width: 100%;
-      padding: 80px 0 0;
+      padding: 80px 0 0 $small-margin;
+
+      > * {
+        margin: 0 0 $medium-margin;
+      }
 
       &.-fixed {
         position: fixed;
-        width: 25%;
-        left: 0;
+        width: calc(25% - 45px);
         top: 0;
       }
     }
 
     .sidebar-navigation {
       list-style: none;
-      margin: 0;
       padding: 0;
 
       li {
@@ -106,6 +124,24 @@
         &.-active {
           color: $theme-blue;
         }
+      }
+    }
+
+    .sidebar-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+
+      > li:first-child {
+        margin: 0 $small-margin 0 0;
+      }
+    }
+
+    .sidebar-links-section {
+      .sidebar-links-heading {
+        display: flex;
+        font-weight: 700;
       }
     }
   }

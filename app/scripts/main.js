@@ -11,7 +11,6 @@ import router from './router';
 
 sync(store, router);
 
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
