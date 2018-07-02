@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header :class="{'l-header': true, '-map': isExamplePage }">
+    <header id="header" :class="{'l-header': true, '-map': isExamplePage }">
       <router-view name="HeaderComponent"></router-view>
     </header>
     <main class="l-main">

@@ -3,6 +3,7 @@
 <script>
 import store from 'store';
 import { mapGetters } from 'vuex';
+import findLast from 'lodash/findLast';
 import ArticleComponent from 'components/Article';
 import ConsoleComponent from 'components/Console';
 import SpinnerComponent from 'components/Spinner';
@@ -15,6 +16,9 @@ export default {
     }
     next();
   },
+  created() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
   mounted() {
     if (this.metadata && Object.keys(this.metadata.info).length > 0) {
       hljs.highlightBlock(this.$refs.metadataInfo);
@@ -24,6 +28,16 @@ export default {
     if (this.metadata && Object.keys(this.metadata.info).length > 0) {
       hljs.highlightBlock(this.$refs.metadataInfo);
     }
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  data() {
+    const header = document.getElementById('header');
+    return {
+      fixSidebar: !!header && window.pageYOffset >= header.offsetHeight,
+      activeAnchor: 'about'
+    };
   },
   computed: {
     metadata() {
@@ -54,7 +68,28 @@ export default {
       selectedDataset: 'getSelectedDataset'
     })
   },
-  methods: {},
+  methods: {
+    handleScroll() {
+      const header = document.getElementById('header');
+      const paddingOffset = parseInt(
+        getComputedStyle(document.querySelector('.c-article')).paddingTop,
+        10
+      );
+      const anchors = [
+        { id: 'about', el: document.getElementById('about') },
+        { id: 'examples', el: document.getElementById('examples') },
+        { id: 'info', el: document.getElementById('info') }
+      ];
+      this.fixSidebar = !!header && window.scrollY >= header.offsetHeight;
+      const anchor = findLast(
+        anchors,
+        a => a.el && a.el.offsetTop < (window.scrollY + paddingOffset)
+      );
+      if (anchor) {
+        this.activeAnchor = anchor && anchor.id;
+      }
+    }
+  },
   components: {
     ArticleComponent,
     SpinnerComponent,

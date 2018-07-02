@@ -1,9 +1,41 @@
 <div class="c-playground-detail">
   <div class="row">
-    <div class="column small-3"></div>
+    <div class="column small-3 dataset-detail-sidebar">
+      <div :class="['sidebar-container', { '-fixed': fixSidebar }]">
+        <ul class="sidebar-navigation">
+          <li>
+            <a
+              :class="{ '-active': activeAnchor === 'about' }"
+              href="#about"
+            >
+              About this dataset
+            </a>
+          </li>
+          <li>
+            <a
+              :class="{ '-active': activeAnchor === 'examples' }"
+              href="#examples"
+            >
+              Code examples
+            </a>
+          </li>
+          <li>
+            <a
+              :class="{ '-active': activeAnchor === 'info' }"
+              href="#info"
+            >
+              Additional info
+            </a>
+          </li>
+          <li>
+            <a>Related Data sets</a>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="column small-9">
-      <article-component grid-column="medium-12">
-        <section class="dataset-detail-section">
+      <article-component grid-row="row align-center" grid-column="medium-11">
+        <section id="about" class="dataset-detail-section">
           <h1 class="dataset-title" v-if="selectedDataset">{{selectedDataset.name}}</h1>
           <p v-if="metadata" class="dataset-description">
             {{metadata.description}}
@@ -23,7 +55,7 @@
           </div>
         </section>
 
-        <section class="dataset-detail-section">
+        <section id="examples" class="dataset-detail-section">
           <div class="code-examples-header">
             <h3>Code examples</h3>
             <a>Learn how to use these data</a>
@@ -31,7 +63,7 @@
           <console-component :selectedDataset="selectedDataset"></console-component>
         </section>
 
-        <section class="dataset-detail-section" v-if="metadata && Object.keys(metadata.info).length > 0">
+        <section id="info" class="dataset-detail-section" v-if="metadata && Object.keys(metadata.info).length > 0">
           <h3 class="section-title">Additional info</h3>
           <div class="metadata-info-box">
             <pre>
