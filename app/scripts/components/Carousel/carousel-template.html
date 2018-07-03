@@ -7,9 +7,9 @@
     </div>
     <div
       v-for="(image, index) in  images"
-      :key="image.id"
+      :key="index"
       :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
-      :style="{ 'background-image': 'url(' + image.src + ')' }"
+      :style="{ 'background-image': 'url(' + image + ')' }"
       @click="activateImage(index)"
     >
     </div>

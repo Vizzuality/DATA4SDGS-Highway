@@ -8,7 +8,7 @@ export default {
   computed: {
     currentImage() {
       this.timeLeft = this.autoSlideInterval;
-      return this.images[this.activeImage].src;
+      return this.images[this.activeImage];
     }
   },
   data() {

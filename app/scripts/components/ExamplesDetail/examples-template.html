@@ -1,6 +1,6 @@
 <div class="c-examples-detail">
   <div class="c-examples-detail-intro">
-    <div class="row" >
+    <div class="row">
       <div class="column small-12">
         <router-link class="breadcrumb" active-class="-active" to="/examples" exact>
           API HIGHWAYS EXAMPLES
@@ -18,33 +18,35 @@
         <span class="separator"></span>
         <span>Share</span>
       </div>
-    </div >
-  </div >
+    </div>
+  </div>
   <div class="c-examples-detail-content">
-    <div class="row" >
+    <div class="row">
       <div class="column small-12">
         <h2 class="c-examples-detail-content__title">Description</h2>
       </div>
       <div class="column small-12 medium-8">
         <p class="c-examples-detail-content__text">{{example.content}}</p>
-      </div >
+      </div>
       <div class="column small-12 medium-2 medium-offset-2 align-self-bottom">
         <a class="c-button -link" :href="example.url" target="_blank" rel="noopener noreferrer">Go to site</a>
-      </div >
-    </div >
+      </div>
+    </div>
     <div class="row">
       <div class="column small-12">
-        <div v-if="hasMultipleImages">
+        <div v-if="hasEmbed">
+          <div v-html="example.html"></div>
+        </div>
+        <div v-else-if="hasMultipleImages">
           <carousel-component
             :starting-image="0"
             :images="example.images"
-            :auto-slide-interval="0"
           ></carousel-component>
         </div>
-        <div v-else>
-          <img :src="example.images[0].src" alt="Example image thumbnail">
+        <div v-else-if="hasSingleImage">
+          <img :src="example.images[0]" alt="Example image thumbnail">
         </div>
       </div>
     </div>
-  </div >
-</div >
+  </div>
+</div>

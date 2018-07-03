@@ -15,6 +15,12 @@ export default {
     return { example };
   },
   computed: {
+    hasEmbed() {
+      return this.example && !!this.example.html;
+    },
+    hasSingleImage() {
+      return this.example && this.example.images.length === 1;
+    },
     hasMultipleImages() {
       return this.example && this.example.images.length > 1;
     }
