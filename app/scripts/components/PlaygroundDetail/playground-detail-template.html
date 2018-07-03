@@ -11,7 +11,7 @@
               About this dataset
             </a>
           </li>
-          <li>
+          <li v-if="showCodeExamples">
             <a
               :class="{ '-active': activeAnchor === 'examples' }"
               href="#examples"
@@ -19,7 +19,7 @@
               Code examples
             </a>
           </li>
-          <li>
+          <li v-if="showCodeExamples">
             <a
               :class="{ '-active': activeAnchor === 'info' }"
               href="#info"
@@ -27,8 +27,21 @@
               Additional info
             </a>
           </li>
+          <li v-if="!showCodeExamples">
+            <a
+              :class="{'-active': activeAnchor === 'docs'}"
+              href="#docs"
+            >
+              Docs
+            </a>
+          </li>
           <li>
-            <a>Related Data sets</a>
+            <a
+              :class="{'-active': activeAnchor === 'related-datasets'}"
+              href="#related-datasets"
+            >
+              Related datasets
+            </a>
           </li>
         </ul>
 
@@ -121,7 +134,12 @@
           v-if="!showCodeExamples"
         >
           <div class="c-button-group -center">
-            <button-component class="-bordered -big -filled">Go To Docs</button-component>
+            <button-component
+              class="-bordered -big -filled"
+              :click="() => void 0"
+            >
+              Go To Docs
+            </button-component>
           </div>
         </section>
 
@@ -130,6 +148,21 @@
           class="dataset-detail-section -separator"
         >
           <h3 class="section-title">Related datasets</h3>
+          <div class="row -equal-height">
+            <div class="column small-6" v-for="dataset in relatedDatasets">
+              <div class="related-dataset">
+                <h4 class="related-dataset-title">
+                  {{dataset.name}}
+                </h4>
+                <span
+                  class="related-dataset-source"
+                  v-if="dataset.metadata"
+                >
+                  {{dataset.metadata.sourceOrganization}}
+                </span>
+              </div>
+            </div>
+          </div>
         </section>
       </article-component>
     </div>

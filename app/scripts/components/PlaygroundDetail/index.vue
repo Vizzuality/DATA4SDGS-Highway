@@ -21,12 +21,12 @@ export default {
     window.addEventListener('scroll', this.handleScroll);
   },
   mounted() {
-    if (this.metadata && Object.keys(this.metadata.info).length > 0) {
+    if (this.showCodeExamples && this.metadata && Object.keys(this.metadata.info).length > 0) {
       hljs.highlightBlock(this.$refs.metadataInfo);
     }
   },
   updated() {
-    if (this.metadata && Object.keys(this.metadata.info).length > 0) {
+    if (this.showCodeExamples && this.metadata && Object.keys(this.metadata.info).length > 0) {
       hljs.highlightBlock(this.$refs.metadataInfo);
     }
   },
@@ -65,24 +65,33 @@ export default {
       }
       return [];
     },
-    ...mapGetters({
-      selectedDataset: 'getSelectedDataset'
-    }),
     isShallow() {
+      if (!this.selectedDataset) return false;
       return ['worldbank', 'hdx', 'genericindex', 'resourcewatch'].includes(this.selectedDataset.provider);
     },
     showCodeExamples() {
       return !this.isShallow || this.selectedDataset.provider === 'resourcewatch';
-    }
+    },
+    ...mapGetters({
+      selectedDataset: 'getSelectedDataset',
+      relatedDatasets: 'getRelatedDatasets'
+    })
   },
   methods: {
     handleScroll() {
       const header = document.getElementById('header');
       const paddingOffset = 120;
-      const anchors = [
-        { id: 'about', el: document.getElementById('about') },
+      const examples = [
         { id: 'examples', el: document.getElementById('examples') },
         { id: 'info', el: document.getElementById('info') }
+      ];
+      const docs = [
+        { id: 'docs', el: document.getElementById('docs') }
+      ];
+      const anchors = [
+        { id: 'about', el: document.getElementById('about') },
+        ...(this.showCodeExamples ? examples : docs),
+        { id: 'related-datasets', el: document.getElementById('related-datasets') }
       ];
       this.fixSidebar = !!header && window.scrollY >= header.offsetHeight;
       const anchor = findLast(

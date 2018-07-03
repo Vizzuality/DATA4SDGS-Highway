@@ -89,6 +89,29 @@
     }
   }
 
+  .related-dataset {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: $medium-margin;
+    box-shadow: 0 15px 50px -5px rgba(0, 0, 0, 0.25);
+
+    .related-dataset-title {
+      text-transform: capitalize;
+      margin: 0 0 $medium-margin 0;
+    }
+
+    .related-dataset-source {
+      color: $link-font-color;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: $font-size-xsmall;
+      font-weight: $font-weight-bold;
+    }
+  }
+
   .dataset-detail-sidebar {
     background-color: #f0f0f0;
 

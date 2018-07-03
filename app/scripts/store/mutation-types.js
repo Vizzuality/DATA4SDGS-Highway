@@ -24,6 +24,11 @@ export const SET_SELECTED_DATASET_LOADING = 'datasets/SET_SELECTED_DATASET_LOADI
 export const ADD_RECENT_DATASETS = 'datasets/ADD_RECENT_DATASETS';
 
 /**
+ * Related Datasets
+ */
+export const SET_RELATED_DATASETS = 'datasets/SET_RELATED_DATASETS';
+
+/**
  * Modal - Console Modal
  */
 export const SET_MODAL = 'modal/SET_MODAL';
