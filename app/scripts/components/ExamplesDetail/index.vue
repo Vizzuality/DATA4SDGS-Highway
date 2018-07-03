@@ -4,8 +4,10 @@
 
 <script>
 import router from 'router';
-import CarouselComponent from 'components/Carousel';
 import IconComponent from 'components/Icon';
+import ModalComponent from 'components/Modal';
+import ShareComponent from 'components/Share';
+import CarouselComponent from 'components/Carousel';
 import examples from '../../../data/examples.json';
 
 export default {
@@ -13,7 +15,9 @@ export default {
   data() {
     const { id } = this.$route.params;
     const example = examples.find(ex => ex.id === id) || {};
-    return { example };
+    return {
+      example
+    };
   },
   computed: {
     imagesFiltered() {
@@ -29,9 +33,16 @@ export default {
       return this.example && this.example.images.length > 1;
     }
   },
+  methods: {
+    openShare() {
+      this.$store.dispatch('setModal', { isOpen: true });
+    }
+  },
   components: {
     router,
     IconComponent,
+    ModalComponent,
+    ShareComponent,
     CarouselComponent
   },
 };

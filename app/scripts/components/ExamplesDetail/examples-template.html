@@ -19,10 +19,10 @@
           See source code
         </a>
         <span class="separator"></span>
-        <span>
+        <button @click="openShare">
           <icon-component name="icon-share" class="-small"></icon-component>
           Share
-        </span>
+        </button>
       </div>
     </div>
   </div>
@@ -54,5 +54,12 @@
         </div>
       </div>
     </div>
+    <modal-component class="-center">
+      <div class="row">
+        <div class="column small-12 align-middle flex">
+          <share-component></share-component>
+        </div>
+      </div>
+    </modal-component>
   </div>
 </div>
