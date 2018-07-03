@@ -4,6 +4,16 @@
 .c-playground-detail {
   background: linear-gradient(to right, #f0f0f0 0%, #f0f0f0 20%, $white 20%, $white 100%);
 
+  &.-loading {
+    > .row {
+      min-height: calc(100vh - #{$footer-height});
+    }
+
+    .c-spinner {
+      height: 100%;
+    }
+  }
+
   a {
     font-size: 14px;
     text-transform: none;

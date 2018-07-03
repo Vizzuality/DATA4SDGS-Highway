@@ -1,4 +1,4 @@
-<div class="c-playground-detail">
+<div :class="['c-playground-detail', { '-loading': loading }]">
   <div class="row">
     <div class="column small-3 dataset-detail-sidebar">
       <div :class="['sidebar-container', { '-fixed': fixSidebar }]">
@@ -156,9 +156,7 @@
           </div>
         </section>
       </article-component>
-      <article-component>
-        <spinner-component :loading="loading"></spinner-component>
-      </article-component>
+      <spinner-component class="-absolute" :loading="loading" :overlay="true"></spinner-component>
     </div>
   </div>
 </div>
