@@ -112,7 +112,9 @@ export default new VueRouter({
   mode: 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
-    if (to.params.dataset || from.params.dataset) return savedPosition;
+    const toDataset = to.params.dataset;
+    const fromDataset = from.params.dataset;
+    if ((toDataset || fromDataset) && toDataset === fromDataset) return savedPosition;
     return { x: 0, y: 0 };
   },
 });

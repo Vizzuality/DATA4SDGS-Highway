@@ -144,23 +144,14 @@
         </section>
 
         <section
+          v-if="relatedDatasets"
           id="related-datasets"
           class="dataset-detail-section -separator"
         >
           <h3 class="section-title">Related datasets</h3>
           <div class="row -equal-height">
             <div class="column small-6" v-for="dataset in relatedDatasets">
-              <div class="related-dataset">
-                <h4 class="related-dataset-title">
-                  {{dataset.name}}
-                </h4>
-                <span
-                  class="related-dataset-source"
-                  v-if="dataset.metadata"
-                >
-                  {{dataset.metadata.sourceOrganization}}
-                </span>
-              </div>
+              <dataset-component :dataset="dataset"></dataset-component>
             </div>
           </div>
         </section>

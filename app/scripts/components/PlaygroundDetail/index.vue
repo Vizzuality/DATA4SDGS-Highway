@@ -8,6 +8,7 @@ import ArticleComponent from 'components/Article';
 import ConsoleComponent from 'components/Console';
 import ButtonComponent from 'components/Button';
 import IconComponent from 'components/Icon';
+import DatasetComponent from 'components/Dataset';
 
 export default {
   name: 'playground-detail-component',
@@ -101,13 +102,20 @@ export default {
       if (anchor) {
         this.activeAnchor = anchor && anchor.id;
       }
+    },
+    onRouteChange() {
+      this.$store.dispatch('setSelectedDataset', this.$route.params.dataset);
     }
+  },
+  watch: {
+    $route: 'onRouteChange'
   },
   components: {
     ArticleComponent,
     IconComponent,
     ConsoleComponent,
-    ButtonComponent
+    ButtonComponent,
+    DatasetComponent
   },
 };
 
