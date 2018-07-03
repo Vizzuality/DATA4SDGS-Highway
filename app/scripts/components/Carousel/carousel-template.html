@@ -6,7 +6,7 @@
       <button @click="nextImage" class="next"></button>
     </div>
     <div
-      v-for="(image, index) in  images"
+      v-for="(image, index) in images"
       :key="index"
       :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
       :style="{ 'background-image': 'url(' + image + ')' }"

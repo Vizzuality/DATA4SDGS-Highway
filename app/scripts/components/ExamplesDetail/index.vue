@@ -15,6 +15,9 @@ export default {
     return { example };
   },
   computed: {
+    imagesFiltered() {
+      return this.example && this.example.images.slice(0, 3);
+    },
     hasEmbed() {
       return this.example && !!this.example.html;
     },

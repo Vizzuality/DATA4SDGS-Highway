@@ -40,7 +40,7 @@
         <div v-else-if="hasMultipleImages">
           <carousel-component
             :starting-image="0"
-            :images="example.images"
+            :images="imagesFiltered"
           ></carousel-component>
         </div>
         <div v-else-if="hasSingleImage">
