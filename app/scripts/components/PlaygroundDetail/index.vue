@@ -9,6 +9,7 @@ import ConsoleComponent from 'components/Console';
 import ButtonComponent from 'components/Button';
 import IconComponent from 'components/Icon';
 import DatasetComponent from 'components/Dataset';
+import SpinnerComponent from 'components/Spinner';
 
 export default {
   name: 'playground-detail-component',
@@ -73,6 +74,9 @@ export default {
     showCodeExamples() {
       return !this.isShallow || this.selectedDataset.provider === 'resourcewatch';
     },
+    loading() {
+      return this.$store.state.selectedDataset.selected.loading;
+    },
     ...mapGetters({
       selectedDataset: 'getSelectedDataset',
       relatedDatasets: 'getRelatedDatasets'
@@ -115,7 +119,8 @@ export default {
     IconComponent,
     ConsoleComponent,
     ButtonComponent,
-    DatasetComponent
+    DatasetComponent,
+    SpinnerComponent
   },
 };
 

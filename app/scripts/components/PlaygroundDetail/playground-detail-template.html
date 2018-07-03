@@ -19,7 +19,7 @@
               Code examples
             </a>
           </li>
-          <li v-if="showCodeExamples">
+          <li v-if="showCodeExamples && metadata && Object.keys(metadata.info).length > 0">
             <a
               :class="{ '-active': activeAnchor === 'info' }"
               href="#info"
@@ -77,7 +77,7 @@
       </div>
     </div>
     <div class="column small-9">
-      <article-component grid-row="row align-center" grid-column="medium-11">
+      <article-component grid-row="row align-center" grid-column="medium-11" v-if="!loading">
         <section id="about" class="dataset-detail-section">
           <h1 class="dataset-title" v-if="selectedDataset">{{selectedDataset.name}}</h1>
           <p v-if="metadata" class="dataset-description">
@@ -155,6 +155,9 @@
             </div>
           </div>
         </section>
+      </article-component>
+      <article-component>
+        <spinner-component :loading="loading"></spinner-component>
       </article-component>
     </div>
   </div>

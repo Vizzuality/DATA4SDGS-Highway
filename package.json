@@ -91,5 +91,8 @@
   "engines": {
     "node": ">= 7.10.1",
     "npm": ">= 4.0.5"
+  },
+  "devDependencies": {
+    "raw-loader": "^0.5.1"
   }
 }
