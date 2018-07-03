@@ -6,6 +6,7 @@ import { mapGetters } from 'vuex';
 import findLast from 'lodash/findLast';
 import ArticleComponent from 'components/Article';
 import ConsoleComponent from 'components/Console';
+import ButtonComponent from 'components/Button';
 import IconComponent from 'components/Icon';
 
 export default {
@@ -66,7 +67,13 @@ export default {
     },
     ...mapGetters({
       selectedDataset: 'getSelectedDataset'
-    })
+    }),
+    isShallow() {
+      return ['worldbank', 'hdx', 'genericindex', 'resourcewatch'].includes(this.selectedDataset.provider);
+    },
+    showCodeExamples() {
+      return !this.isShallow || this.selectedDataset.provider === 'resourcewatch';
+    }
   },
   methods: {
     handleScroll() {
@@ -90,7 +97,8 @@ export default {
   components: {
     ArticleComponent,
     IconComponent,
-    ConsoleComponent
+    ConsoleComponent,
+    ButtonComponent
   },
 };
 

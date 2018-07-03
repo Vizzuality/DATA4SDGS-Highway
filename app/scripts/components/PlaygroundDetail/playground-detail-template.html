@@ -79,7 +79,7 @@
             >
               <div class="detail-container">
                 <span class="detail-heading">
-                  <span v-if="detail.info">
+                  <span v-if="detail.info && isShallow">
                     <icon-component name="icon-info" class="-xsmall"></icon-component>
                   </span>
                   {{detail.heading}}
@@ -90,7 +90,7 @@
           </div>
         </section>
 
-        <section id="examples" class="dataset-detail-section">
+        <section id="examples" class="dataset-detail-section" v-if="showCodeExamples">
           <div class="code-examples-header">
             <h3>Code examples</h3>
             <a class="examples-link">
@@ -103,7 +103,10 @@
           <console-component :selectedDataset="selectedDataset"></console-component>
         </section>
 
-        <section id="info" class="dataset-detail-section" v-if="metadata && Object.keys(metadata.info).length > 0">
+        <section
+          id="info" class="dataset-detail-section"
+          v-if="showCodeExamples && metadata && Object.keys(metadata.info).length > 0"
+        >
           <h3 class="section-title">Additional info</h3>
           <div class="metadata-info-box">
             <pre>
@@ -111,13 +114,24 @@
             </pre>
           </div>
         </section>
+
+        <section
+          id="docs"
+          class="dataset-detail-section"
+          v-if="!showCodeExamples"
+        >
+          <div class="c-button-group -center">
+            <button-component class="-bordered -big -filled">Go To Docs</button-component>
+          </div>
+        </section>
+
+        <section
+          id="related-datasets"
+          class="dataset-detail-section -separator"
+        >
+          <h3 class="section-title">Related datasets</h3>
+        </section>
       </article-component>
     </div>
   </div>
 </div>
-<script>
-  import IconComponent from 'app/scripts/components/Icon/index';
-  export default {
-    components: { IconComponent }
-  }
-</script>

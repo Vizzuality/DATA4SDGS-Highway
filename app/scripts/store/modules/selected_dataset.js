@@ -68,7 +68,7 @@ const selectedDataset = {
   },
   getters: {
     getSelectedDataset(state) {
-      return state.recentDatasets[0];
+      return state.selected.dataset;
     },
     getRecentDatasets(state) {
       return state.recentDatasets;
