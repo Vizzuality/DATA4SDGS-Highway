@@ -14,9 +14,15 @@
         <span>Last update: {{example.lastUpdate}}</span>
       </div>
       <div class="column small-12 medium-6 c-examples-detail-intro__metadata">
-        <a :href="example.sourceCode" target="_blank" rel="noopener noreferrer">See source code</a>
+        <a :href="example.sourceCode" target="_blank" rel="noopener nofollower">
+          <icon-component name="icon-github" class="-small"></icon-component>
+          See source code
+        </a>
         <span class="separator"></span>
-        <span>Share</span>
+        <span>
+          <icon-component name="icon-share" class="-small"></icon-component>
+          Share
+        </span>
       </div>
     </div>
   </div>

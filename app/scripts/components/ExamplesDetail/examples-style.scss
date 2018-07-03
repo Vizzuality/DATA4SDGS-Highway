@@ -11,8 +11,10 @@
       display: flex;
       > a,
       > span {
-        font-size: $font-size-small;
+        display: flex;
+        align-items: center;
         line-height: 1.63;
+        font-size: $font-size-small;
         margin-right: $small-margin;
         color: $theme-base;
         text-transform: none;
@@ -32,6 +34,12 @@
       margin: $medium-margin 0 $small-margin;
       text-align: left;
       color: $theme-base;
+    }
+
+    .c-icon {
+      display: inline-block;
+      fill: $theme-base;
+      margin-right: 10px;
     }
 
     .breadcrumb {

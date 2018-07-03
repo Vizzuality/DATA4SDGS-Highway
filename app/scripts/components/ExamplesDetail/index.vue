@@ -5,6 +5,7 @@
 <script>
 import router from 'router';
 import CarouselComponent from 'components/Carousel';
+import IconComponent from 'components/Icon';
 import examples from '../../../data/examples.json';
 
 export default {
@@ -30,6 +31,7 @@ export default {
   },
   components: {
     router,
+    IconComponent,
     CarouselComponent
   },
 };
