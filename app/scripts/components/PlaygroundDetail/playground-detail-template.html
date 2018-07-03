@@ -35,7 +35,7 @@
               Docs
             </a>
           </li>
-          <li>
+          <li v-if="relatedDatasets">
             <a
               :class="{'-active': activeAnchor === 'related-datasets'}"
               href="#related-datasets"
@@ -146,7 +146,7 @@
         <section
           v-if="relatedDatasets"
           id="related-datasets"
-          class="dataset-detail-section -separator"
+          class="dataset-detail-section"
         >
           <h3 class="section-title">Related datasets</h3>
           <div class="row -equal-height">
