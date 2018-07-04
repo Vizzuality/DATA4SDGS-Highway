@@ -6,7 +6,7 @@
           <li>
             <a
               :class="{ '-active': activeAnchor === 'about' }"
-              href="#about"
+              @click="scrollTo('#about')"
             >
               About this dataset
             </a>
@@ -14,7 +14,7 @@
           <li v-if="showCodeExamples">
             <a
               :class="{ '-active': activeAnchor === 'examples' }"
-              href="#examples"
+              @click="scrollTo('#examples')"
             >
               Code examples
             </a>
@@ -22,7 +22,7 @@
           <li v-if="showCodeExamples && metadata && Object.keys(metadata.info).length > 0">
             <a
               :class="{ '-active': activeAnchor === 'info' }"
-              href="#info"
+              @click="scrollTo('#info')"
             >
               Additional info
             </a>
@@ -30,7 +30,7 @@
           <li v-if="!showCodeExamples">
             <a
               :class="{'-active': activeAnchor === 'docs'}"
-              href="#docs"
+              @click="scrollTo('#docs')"
             >
               Docs
             </a>
@@ -38,7 +38,7 @@
           <li v-if="relatedDatasets">
             <a
               :class="{'-active': activeAnchor === 'related-datasets'}"
-              href="#related-datasets"
+              @click="scrollTo('#related-datasets')"
             >
               Related datasets
             </a>
@@ -47,7 +47,7 @@
 
         <div class="sidebar-links-section">
           <span class="sidebar-links-heading">
-            <icon-component name="icon-download" class="-xsmall"></icon-component>
+            <icon-component name="icon-download" class="-small"></icon-component>
             Download
           </span>
           <ul class="sidebar-links">
@@ -62,7 +62,7 @@
 
         <div class="sidebar-links-section" v-if="false">
            <span class="sidebar-links-heading">
-            <icon-component name="icon-external-link" class="-xsmall"></icon-component>
+            <icon-component name="icon-external-link" class="-medium"></icon-component>
             External Integrations
           </span>
           <ul class="sidebar-links -integrations">
@@ -125,9 +125,9 @@
                   <v-popover
                     trigger="hover"
                     placement="top"
-                    v-if="detail.info && isShallow"
+                    v-if="detail.info"
                   >
-                    <icon-component name="icon-close" class="-xsmall"></icon-component>
+                    <icon-component name="icon-info" class="-medium"></icon-component>
                     <div class="tooltip-container" slot="popover">
                       <span class="tooltip-heading">
                         Shallow rendering

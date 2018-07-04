@@ -23,12 +23,22 @@ export default {
     window.addEventListener('scroll', this.handleScroll);
   },
   mounted() {
-    if (this.showCodeExamples && this.metadata && Object.keys(this.metadata.info).length > 0) {
+    if (
+      this.showCodeExamples &&
+      this.metadata &&
+      Object.keys(this.metadata.info).length > 0 &&
+      this.$refs.metadataInfo
+    ) {
       hljs.highlightBlock(this.$refs.metadataInfo);
     }
   },
   updated() {
-    if (this.showCodeExamples && this.metadata && Object.keys(this.metadata.info).length > 0) {
+    if (
+      this.showCodeExamples &&
+      this.metadata &&
+      Object.keys(this.metadata.info).length > 0 &&
+      this.$refs.metadataInfo
+    ) {
       hljs.highlightBlock(this.$refs.metadataInfo);
     }
   },
@@ -51,10 +61,11 @@ export default {
     },
     metadataDetails() {
       if (this.metadata) {
+        console.log(this.isShallow);
         const details = [
           { heading: 'Owner / Source', value: this.metadata.sourceOrganization },
           { heading: 'Data download URL', value: this.metadata.dataSourceUrl },
-          { heading: 'Type', value: this.selectedDataset.provider, info: true },
+          { heading: 'Type', value: this.selectedDataset.provider, info: this.isShallow },
           { heading: 'Identifier', value: this.metadata.dataset },
           { heading: 'Language', value: this.metadata.language },
           null,
@@ -69,6 +80,7 @@ export default {
     },
     isShallow() {
       if (!this.selectedDataset) return false;
+      console.log(this.selectedDataset.provider);
       return ['worldbank', 'hdx', 'genericindex', 'resourcewatch'].includes(this.selectedDataset.provider);
     },
     showCodeExamples() {
@@ -109,6 +121,10 @@ export default {
     },
     onRouteChange() {
       this.$store.dispatch('setSelectedDataset', this.$route.params.dataset);
+    },
+    scrollTo(selector) {
+      const el = document.querySelector(selector);
+      if (el) el.scrollIntoView();
     }
   },
   watch: {
