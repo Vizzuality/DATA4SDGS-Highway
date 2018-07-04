@@ -1,0 +1,95 @@
+@import '../../../styles/variables';
+
+.c-carousel {
+  user-select: none;
+  position: relative;
+
+  &-img {
+    display: block;
+    height: 580px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 15px;
+  }
+
+  .thumbnails {
+    height: 190px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    position: relative;
+  }
+
+  .thumbnail-image {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 2px;
+    flex-basis: 33%;
+    margin-right: 25px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 3px solid transparent;
+
+    &.active {
+      border: 3px solid $link-font-color;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .actions {
+    font-size: 1.5em;
+    height: 100px;
+    position: absolute;
+    bottom: 45px;
+    margin-top: -20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .actions > button {
+    cursor: pointer;
+    transition: all 250ms;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    position: relative;
+    pointer-events: all;
+    box-shadow: 0 30px 20px 0 rgba(0, 0, 0, 0.1);
+    outline: none;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border: solid $theme-accent;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      transform-origin: center;
+      transform: rotate(135deg) translateY(50%);
+    }
+
+    &.prev {
+      margin-left: -50px;
+    }
+
+    &.next {
+      margin-right: -50px;
+      &:before {
+        transform: rotate(-45deg) translateY(-50%);
+      }
+    }
+  }
+}
+

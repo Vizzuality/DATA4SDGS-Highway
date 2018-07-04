@@ -34,7 +34,7 @@ export default {
       computedLocation.playground = location === '/data-sets';
       computedLocation.token = location === '/token';
       computedLocation.partners = location === '/partner-apis';
-
+      computedLocation.examples = location === '/examples';
       return computedLocation;
     },
   },

@@ -8,8 +8,8 @@ import HeaderComponent from 'components/Header';
 import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
 import TokenPage from 'components/Token';
-import VisualizationComponent from 'components/Visualization';
-import OtherVisualizationPage from 'components/OtherVisualization/Page';
+import ExamplesComponent from 'components/Examples';
+import ExamplesDetailComponent from 'components/ExamplesDetail';
 import LandingPage from 'components/Landing/Page';
 import LandingFooter from 'components/Landing/Footer';
 
@@ -74,22 +74,20 @@ const routes = [
 
   {
     path: '/examples',
-    redirect: '/examples/conflicts-related-to-protected-areas'
+    components: {
+      default: ExamplesComponent,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
+    }
   },
 
   {
-    path: '/examples/conflicts-related-to-protected-areas',
+    path: '/examples/:id',
     components: {
-      default: VisualizationComponent,
+      default: ExamplesDetailComponent,
       HeaderComponent,
-    },
-  },
-
-  {
-    path: '/examples/regions-with-greatest-water-risks',
-    components: {
-      default: OtherVisualizationPage,
-      HeaderComponent,
+      FooterComponent,
     },
   },
   {
