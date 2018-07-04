@@ -1,0 +1,16 @@
+<div class="c-examples">
+  <ul class="row examples-list">
+    <router-link v-for="example in examples" tag="li" :to="'/examples/' + example.id" class="column small-12 medium-6 large-4" :key="example.id">
+      <a class="example-card">
+        <div class="example-card-thumbnail" :style="'background-image: url(' + example.thumb +')'"></div>
+        <h2 class="example-card-title">{{example.title}}</h2>
+        <p class="example-card-content">
+          {{example.intro}}
+        </p>
+        <span class="example-card-details">
+          DETAILS
+        </span>
+      </a>
+    </router-link>
+  </ul>
+</div >

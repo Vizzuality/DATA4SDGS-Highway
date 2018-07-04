@@ -64,4 +64,16 @@
     border-color: $theme-blue;
     color: $theme-blue;
   }
+
+  &.-link {
+    display: block;
+    background-color: $link-font-color;
+    color: $theme-accent;
+    font-size: $font-size-small;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.63;
+    padding: 10px;
+    text-transform: none;
+  }
 }
