@@ -15,11 +15,21 @@
   outline: none;
 
   &.-filled {
-    background-color: $theme-accent;
-    font-weight: $font-weight-bold;
+    color: $theme-base;
+    background-color: #354283;
+
+    &:hover {
+      color: $theme-base;
+      background-color: #435198;
+    }
     &.-alternative {
       background-color: $theme-alternative;
     }
+  }
+
+  &.-dismiss {
+    color: $theme-base;
+    background-color: #a0a0a0;
   }
 
   &.-full {

@@ -1,0 +1,181 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-playground-detail {
+  background: linear-gradient(to right, #f0f0f0 0%, #f0f0f0 20%, $white 20%, $white 100%);
+
+  &.-loading {
+    > .row {
+      min-height: calc(100vh - #{$footer-height});
+    }
+
+    .c-spinner {
+      height: 100%;
+    }
+  }
+
+  a {
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: 0.8px;
+    color: #334285;
+  }
+
+  .dataset-detail-section {
+    margin: 0 0 $large-margin 0;
+    padding: $large-margin 0 0 0;
+    border-top: solid 1px $theme-complementary;
+
+    &:first-child {
+      border-top: 0;
+      padding: 0;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .section-title {
+    margin-bottom: $medium-margin;
+  }
+
+  .dataset-title {
+    text-align: left;
+    > div {
+      display: inline-block;
+      margin: 0 0 0 $small-margin;
+    }
+  }
+
+  .detail-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .detail-heading {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 14px;
+
+    .detail-heading-text {
+      margin: 0 $small-margin 0 0;
+    }
+  }
+
+  .detail-value {
+    font-size: 14px;
+    word-break: break-all;
+  }
+
+  .code-examples-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $medium-margin;
+
+    .examples-link {
+      display: flex;
+      span {
+        margin: 0 $small-margin 0 0;
+      }
+    }
+  }
+
+  .metadata-info-box {
+    background-color: $theme-alternative;
+    border-radius: 10px;
+    padding: $small-margin;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xsmall;
+    line-height: 18px;
+    overflow: auto;
+
+    pre {
+      margin: 0;
+      display: flex;
+    }
+
+    code {
+      margin: 0;
+      font-family: Menlo, monospace;
+      white-space: pre-wrap;
+    }
+    .hljs {
+      background-color: $theme-alternative;
+    }
+  }
+
+  .dataset-detail-sidebar {
+    background-color: $theme-complementary;
+
+    .sidebar-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 100%;
+      width: 100%;
+      padding: 80px 0 0 $small-margin;
+
+      > * {
+        margin: 0 0 $medium-margin;
+      }
+
+      &.-fixed {
+        position: fixed;
+        width: calc(25% - 45px);
+        top: 0;
+      }
+    }
+
+    .sidebar-navigation {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin: 0 0 5px 0;
+        &:last-child {
+          margin: 0;
+        }
+      }
+
+      a {
+        font-size: 14px;
+        line-height: 1.64;
+        color: #a2a2a2;
+        text-transform: capitalize;
+
+        &.-active {
+          color: $theme-blue;
+        }
+      }
+    }
+
+    .sidebar-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+
+      > li:first-child {
+        margin: 0 $small-margin 0 0;
+      }
+    }
+
+    .sidebar-links-section {
+      .sidebar-links-heading {
+        display: flex;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .v-popover {
+    cursor: pointer;
+  }
+}

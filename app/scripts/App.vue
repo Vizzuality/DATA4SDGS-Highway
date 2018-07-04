@@ -1,6 +1,6 @@
 <template>
   <div id="app" :class="{'modal-open': isDataSetsPage}">
-    <header class="l-header">
+    <header id="header" class="l-header">
       <router-view name="HeaderComponent"></router-view>
     </header>
     <main class="l-main">
@@ -32,8 +32,6 @@ export default {
   created() {
     // Actions for hydrating store
     this.$store.dispatch('setTimeline');
-    this.$store.dispatch('getWaterRiskLayers');
-    this.$store.dispatch('getWaterBasins');
   },
   mounted() {
     this.bannerVisibility = !sessionStorage.getItem(this.bannerCookie);
@@ -54,9 +52,6 @@ export default {
     },
     isAboutPage() {
       return this.$route.path.startsWith('/about');
-    },
-    isDataSetsPage() {
-      return this.$route.params.dataset;
     }
   },
   methods: {

@@ -1,0 +1,203 @@
+<div :class="['c-playground-detail', { '-loading': loading }]">
+  <div class="row">
+    <div class="column small-3 dataset-detail-sidebar">
+      <div :class="['sidebar-container', { '-fixed': fixSidebar }]">
+        <ul class="sidebar-navigation">
+          <li>
+            <a
+              :class="{ '-active': activeAnchor === 'about' }"
+              @click="scrollTo('#about')"
+            >
+              About this dataset
+            </a>
+          </li>
+          <li v-if="showCodeExamples">
+            <a
+              :class="{ '-active': activeAnchor === 'examples' }"
+              @click="scrollTo('#examples')"
+            >
+              Code examples
+            </a>
+          </li>
+          <li v-if="showCodeExamples && metadata && Object.keys(metadata.info).length > 0">
+            <a
+              :class="{ '-active': activeAnchor === 'info' }"
+              @click="scrollTo('#info')"
+            >
+              Additional info
+            </a>
+          </li>
+          <li v-if="!showCodeExamples">
+            <a
+              :class="{'-active': activeAnchor === 'docs'}"
+              @click="scrollTo('#docs')"
+            >
+              Docs
+            </a>
+          </li>
+          <li v-if="relatedDatasets">
+            <a
+              :class="{'-active': activeAnchor === 'related-datasets'}"
+              @click="scrollTo('#related-datasets')"
+            >
+              Related datasets
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-links-section">
+          <span class="sidebar-links-heading">
+            <icon-component name="icon-download" class="-small"></icon-component>
+            Download
+          </span>
+          <ul class="sidebar-links">
+            <li>
+              <a href="metadata.dataDownloadUrl.csv">.csv</a>
+            </li>
+            <li>
+              <a href="metadata.dataDownloadUrl.json">.json</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-links-section" v-if="false">
+           <span class="sidebar-links-heading">
+            <icon-component name="icon-external-link" class="-medium"></icon-component>
+            External Integrations
+          </span>
+          <ul class="sidebar-links -integrations">
+            <li>
+              <a href="metadata.dataDownloadUrl.csv">CARTO</a>
+            </li>
+            <li>
+              <a href="metadata.dataDownloadUrl.json">Data.World</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="column small-9">
+      <article-component grid-row="row align-center" grid-column="medium-11" v-if="!loading">
+        <section id="about" class="dataset-detail-section">
+          <h1 class="dataset-title" v-if="selectedDataset">
+            {{selectedDataset.name}}
+            <v-popover
+              trigger="hover"
+              placement="top"
+            >
+              <template v-if="metadata.sandbox">
+                <icon-component name="icon-close" class="-medium"></icon-component>
+                <div class="tooltip-container" slot="popover">
+                      <span class="tooltip-heading">
+                        Sandbox environment
+                      </span>
+                  <p class="tooltip-content">
+                    Authentication needed to query this dataset
+                  </p>
+                </div>
+              </template>
+              <template v-else>
+                <icon-component name="icon-lock" class="-medium"></icon-component>
+                <div class="tooltip-container" slot="popover">
+                      <span class="tooltip-heading">
+                        Sandbox environment
+                      </span>
+                  <p class="tooltip-content">
+                    No authentication needed to query this dataset
+                  </p>
+                </div>
+              </template>
+            </v-popover>
+          </h1>
+          <p v-if="metadata" class="dataset-description">
+            {{metadata.description}}
+          </p>
+
+          <h3 class="section-title">About this dataset</h3>
+          <div class="row -equal-height">
+            <div
+              v-for="detail in metadataDetails"
+              class="column small-6 medium-4"
+            >
+              <div class="detail-container">
+                <div class="detail-heading">
+                  <span class="detail-heading-text">{{detail.heading}}</span>
+                  <v-popover
+                    trigger="hover"
+                    placement="top"
+                    v-if="detail.info"
+                  >
+                    <icon-component name="icon-info" class="-medium"></icon-component>
+                    <div class="tooltip-container" slot="popover">
+                      <span class="tooltip-heading">
+                        Shallow rendering
+                      </span>
+                      <p class="tooltip-content">
+                        Lorem ipsum dolor sit amet consectetuer
+                      </p>
+                    </div>
+                  </v-popover>
+                </div>
+                <p class="detail-value">{{detail.value}}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="examples" class="dataset-detail-section" v-if="showCodeExamples">
+          <div class="code-examples-header">
+            <h3>Code examples</h3>
+            <a class="examples-link">
+              <span>
+                <icon-component name="icon-book" class="-xsmall"></icon-component>
+              </span>
+              Learn how to use these data
+            </a>
+          </div>
+          <console-component :selectedDataset="selectedDataset"></console-component>
+        </section>
+
+        <section
+          id="info" class="dataset-detail-section"
+          v-if="showCodeExamples && metadata && Object.keys(metadata.info).length > 0"
+        >
+          <h3 class="section-title">Additional info</h3>
+          <div class="metadata-info-box">
+            <pre>
+              <code class="json" ref="metadataInfo">{{metadata.info}}</code>
+            </pre>
+          </div>
+        </section>
+
+        <section
+          id="docs"
+          class="dataset-detail-section"
+          v-if="!showCodeExamples"
+        >
+          <div class="c-button-group -center">
+            <button-component
+              class="-bordered -big -filled"
+              :click="() => void 0"
+            >
+              Go To Docs
+            </button-component>
+          </div>
+        </section>
+
+        <section
+          v-if="relatedDatasets"
+          id="related-datasets"
+          class="dataset-detail-section"
+        >
+          <h3 class="section-title">Related datasets</h3>
+          <div class="row -equal-height">
+            <div class="column small-6" v-for="dataset in relatedDatasets">
+              <dataset-component :dataset="dataset"></dataset-component>
+            </div>
+          </div>
+        </section>
+      </article-component>
+      <spinner-component class="-absolute" :loading="loading" :overlay="true"></spinner-component>
+    </div>
+  </div>
+</div>

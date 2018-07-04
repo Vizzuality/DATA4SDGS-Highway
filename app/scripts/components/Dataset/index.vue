@@ -4,7 +4,7 @@
 
 <script>
 import router from 'router';
-// import uniq from 'lodash/uniq';
+import capitalize from 'lodash/capitalize';
 
 export default{
   name: 'dataset-component',
@@ -34,7 +34,7 @@ export default{
       return `/data-sets/${this.dataset.id}`;
     },
     name() {
-      return this.dataset.name;
+      return capitalize(this.dataset.name);
     },
     target() {
       return this.dataset.target;
