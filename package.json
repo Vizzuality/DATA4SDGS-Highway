@@ -72,6 +72,7 @@
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0",
     "twitter": "^1.7.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
     "url-loader": "^0.5.7",
     "v-click-outside": "^1.0.3",
     "v-tooltip": "^2.0.0-rc.33",
