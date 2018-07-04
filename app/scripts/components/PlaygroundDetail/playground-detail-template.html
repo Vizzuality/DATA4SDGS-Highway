@@ -60,7 +60,7 @@
           </ul>
         </div>
 
-        <div class="sidebar-links-section">
+        <div class="sidebar-links-section" v-if="false">
            <span class="sidebar-links-heading">
             <icon-component name="icon-external-link" class="-xsmall"></icon-component>
             External Integrations
@@ -79,7 +79,36 @@
     <div class="column small-9">
       <article-component grid-row="row align-center" grid-column="medium-11" v-if="!loading">
         <section id="about" class="dataset-detail-section">
-          <h1 class="dataset-title" v-if="selectedDataset">{{selectedDataset.name}}</h1>
+          <h1 class="dataset-title" v-if="selectedDataset">
+            {{selectedDataset.name}}
+            <v-popover
+              trigger="hover"
+              placement="top"
+            >
+              <template v-if="metadata.sandbox">
+                <icon-component name="icon-close" class="-medium"></icon-component>
+                <div class="tooltip-container" slot="popover">
+                      <span class="tooltip-heading">
+                        Sandbox environment
+                      </span>
+                  <p class="tooltip-content">
+                    Authentication needed to query this dataset
+                  </p>
+                </div>
+              </template>
+              <template v-else>
+                <icon-component name="icon-share" class="-medium"></icon-component>
+                <div class="tooltip-container" slot="popover">
+                      <span class="tooltip-heading">
+                        Sandbox environment
+                      </span>
+                  <p class="tooltip-content">
+                    No authentication needed to query this dataset
+                  </p>
+                </div>
+              </template>
+            </v-popover>
+          </h1>
           <p v-if="metadata" class="dataset-description">
             {{metadata.description}}
           </p>
@@ -91,12 +120,24 @@
               class="column small-6 medium-4"
             >
               <div class="detail-container">
-                <span class="detail-heading">
-                  <span v-if="detail.info && isShallow">
-                    <icon-component name="icon-info" class="-xsmall"></icon-component>
-                  </span>
-                  {{detail.heading}}
-                </span>
+                <div class="detail-heading">
+                  <span class="detail-heading-text">{{detail.heading}}</span>
+                  <v-popover
+                    trigger="hover"
+                    placement="top"
+                    v-if="detail.info && isShallow"
+                  >
+                    <icon-component name="icon-close" class="-xsmall"></icon-component>
+                    <div class="tooltip-container" slot="popover">
+                      <span class="tooltip-heading">
+                        Shallow rendering
+                      </span>
+                      <p class="tooltip-content">
+                        Lorem ipsum dolor sit amet consectetuer
+                      </p>
+                    </div>
+                  </v-popover>
+                </div>
                 <p class="detail-value">{{detail.value}}</p>
               </div>
             </div>

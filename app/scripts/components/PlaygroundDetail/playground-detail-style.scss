@@ -42,6 +42,10 @@
 
   .dataset-title {
     text-align: left;
+    > div {
+      display: inline-block;
+      margin: 0 0 0 $small-margin;
+    }
   }
 
   .detail-container {
@@ -51,9 +55,16 @@
   }
 
   .detail-heading {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     margin-top: 10px;
     font-weight: 700;
     font-size: 14px;
+
+    .detail-heading-text {
+      margin: 0 $small-margin 0 0;
+    }
   }
 
   .detail-value {
@@ -162,5 +173,9 @@
         font-weight: 700;
       }
     }
+  }
+
+  .v-popover {
+    cursor: pointer;
   }
 }
