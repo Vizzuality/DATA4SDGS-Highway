@@ -15,6 +15,7 @@ export default {
   data() {
     const { id } = this.$route.params;
     const example = examples.find(ex => ex.id === id) || {};
+    example.lastUpdate = new Date(example.lastUpdate).toLocaleDateString('en-EN', { year: 'numeric', month: 'long', day: 'numeric' });
     return {
       example
     };
