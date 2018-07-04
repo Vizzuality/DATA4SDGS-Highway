@@ -24,7 +24,7 @@
   .dataset-detail-section {
     margin: 0 0 $large-margin 0;
     padding: $large-margin 0 0 0;
-    border-top: solid 1px #f0f0f0;
+    border-top: solid 1px $theme-complementary;
 
     &:first-child {
       border-top: 0;
@@ -111,7 +111,7 @@
   }
 
   .dataset-detail-sidebar {
-    background-color: #f0f0f0;
+    background-color: $theme-complementary;
 
     .sidebar-container {
       display: flex;

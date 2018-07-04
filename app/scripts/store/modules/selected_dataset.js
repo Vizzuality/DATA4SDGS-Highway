@@ -117,7 +117,6 @@ const selectedDataset = {
     getRecentDatasets(state) {
       return state.recentDatasets;
     },
-    /* eslint-disable */
     getRelatedDatasets(state) {
       const { related } = state;
       if (related) {
