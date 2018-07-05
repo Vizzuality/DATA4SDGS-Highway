@@ -82,9 +82,9 @@ const selectedDataset = {
           }).then((res) => {
             if (res.data.length > 0) {
               const related = res.data.slice(0, 2);
-              const fetchRelatedDataset = fetch(`${BASE_URL}/dataset/${id}`)
+              const fetchRelatedDataset = datasetId => fetch(`${BASE_URL}/dataset/${datasetId}?includes=metadata`)
                 .then(r => (r.status >= 400 ? Promise.reject(r.status) : r.json()));
-              Promise.all(related.map(fetchRelatedDataset))
+              Promise.all(related.map(item => fetchRelatedDataset(item.dataset)))
                 .then(data => Promise.all(data.map(item =>
                     new Promise((reso, rej) => {
                       Deserializer.deserialize(item,
