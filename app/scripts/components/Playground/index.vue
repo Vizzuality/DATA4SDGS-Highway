@@ -67,6 +67,14 @@ export default {
       {
         value: 'Global Forest Watch - Climate',
         label: 'GLOBAL FOREST WATCH - CLIMATE',
+      },
+      {
+        value: 'HDX API',
+        label: 'HDX API',
+      },
+      {
+        value: 'United Nations Statistics Division',
+        label: 'United Nations Statistics Division',
       }],
       loadingMessage: 'Searching...',
       errorMessage: 'Something weird happened!',
