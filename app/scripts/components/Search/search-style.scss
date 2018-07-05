@@ -17,6 +17,7 @@ $checkbox-color: #aea6a6;
 
   .input {
     position: relative;
+    height: 60px;
 
     .search-input {
       width: 100%;
@@ -41,7 +42,12 @@ $checkbox-color: #aea6a6;
       height: 25px;
       fill: $gold-yellow;
       right: 25px;
-      top: calc(50% + 18px);
+      top: 50%;
+      transform: translateY(-50%);
+
+      &.-inverted {
+        transform: translateY(-50%) rotate(180deg)
+      }
     }
   }
 
@@ -83,5 +89,58 @@ $checkbox-color: #aea6a6;
 
   @media (max-width: 639px) {
     margin-top: $small-margin;
+  }
+
+
+  .c-tabs {
+    position: absolute;
+    background: $white;
+    left: 0;
+    right: 0;
+    top: 60px;
+    border: solid 1px rgba(69, 69, 69, 0.5);
+    border-top: 0;
+    padding: $medium-margin;
+  }
+
+  .c-filters {
+    font-size: 1rem;
+    margin-top: 14px;
+  }
+}
+
+.c-tabs {
+  font-size: 1rem;
+
+  .tabs-component-tabs {
+    display: flex;
+    list-style: none;
+    margin: 0 0 $medium-margin;
+    padding: 0;
+
+    .tabs-component-tab {
+      display: inline-flex;
+      margin-right: $medium-margin;
+      > a {
+        color: $icon-color;
+        text-transform: none;
+        font-size: $font-size-xsmall;
+        line-height: 1.64;
+        font-weight: normal;
+      }
+      &.is-active {
+        > a {
+          color: $theme-accent;
+          font-weight: 500;
+          border-bottom: 1px solid;
+        }
+      }
+    }
+  }
+
+  .tabs-component-panels {
+    .c-checkbox-group {
+      padding: 0;
+    }
   }
 }

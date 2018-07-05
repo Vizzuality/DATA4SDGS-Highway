@@ -1,0 +1,48 @@
+{
+  "dataSources": [
+    {
+      "value": "noa",
+      "label": "NOAA"
+    },
+    {
+      "value": "nas",
+      "label": "NASA"
+    },
+    {
+      "value": "iucn_unep_wcmc",
+      "label": "IUCN & UNEP-WCMC"
+    },
+    {
+      "value": "cai",
+      "label": "CAIT"
+    },
+    {
+      "value": "joe_casola",
+      "label": "JOE CASOLA, U. OF WASHINGTON"
+    },
+    {
+      "value": "worldban",
+      "label": "WORLDBANK"
+    }
+  ],
+  "topics": [
+    {
+      "value": "topic1",
+      "label": "TOPIC 1"
+    },
+    {
+      "value": "topic2",
+      "label": "TOPIC 2"
+    }
+  ],
+  "temporalRanges": [
+    {
+      "value": "temp1",
+      "label": "TEMPORAL RANGE 1"
+    },
+    {
+      "value": "temp2",
+      "label": "TEMPORAL RANGE 2"
+    }
+  ]
+}

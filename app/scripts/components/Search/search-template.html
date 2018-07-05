@@ -1,19 +1,34 @@
 <div class="c-search">
-  <div class="container">
+  <div class="container" v-click-outside="onClickOutside">
     <div class="input">
       <input
         type="search"
-        placeholder="Search for data..."
+        placeholder="Search and filter datasets"
         class="search-input js-search-input"
         v-model.trim="queryState"
         @keyup.down="navigateDown"
         ref="search-input"
-        v-click-outside="onClickOutside"
         v-on:click="isOpen = true"
       >
-      <icon-component class="search-icon -round -medium" name="icon-search"></icon-component>
+      <icon-component :class="['search-icon', '-round', '-xsmall', { '-inverted': isOpen }]" name="icon-chevron-down"></icon-component>
     </div>
-    <ul v-if="showSearchSuggestions && isOpen && datasets.length > 0" class="search-results-list" ref="search-results-list">
+    <div v-if="selectedFilters.length > 0" class="c-filters">
+      <tag-component v-for="(filter, index) in selectedFilters" icon="close">
+        <span>{{filter}}</span>
+        <button @click="() => clearSelection(filter)">
+          <icon-component
+            name="icon-close"
+            class="search-icon -round -accent -mini"
+          ></icon-component>
+        </button>
+      </tag-component>
+      <tag-component filled label="Clear filters">
+        <button @click="() => clearSelection()">
+          Clear filters
+        </button>
+      </tag-component>
+    </div>
+    <!-- <ul v-if="showSearchSuggestions && isOpen && datasets.length > 0" class="search-results-list" ref="search-results-list">
       <li v-if="loading" class="search-results-item">Searching...</li>
       <li v-else-if="error" class="search-results-item -error">No datasets found</li>
       <li
@@ -28,7 +43,20 @@
       >
         {{dataset.name}}
       </li>
-    </ul>
+    </ul> -->
+    <div v-if="isOpen" class="c-tabs">
+      <tabs>
+        <tab name="Data source">
+          <checkbox-component :items="filters.dataSources" icon="icon-check"></checkbox-component>
+        </tab>
+        <tab name="Topic">
+          <checkbox-component :items="filters.topics" icon="icon-check"></checkbox-component>
+        </tab>
+        <tab name="Temporal range">
+          <checkbox-component :items="filters.temporalRanges" icon="icon-check"></checkbox-component>
+        </tab>
+      </tabs>
+    </div>
   </div>
 </div>
 

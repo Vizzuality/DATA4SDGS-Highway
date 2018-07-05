@@ -3,9 +3,13 @@
 <script>
 import router from 'router';
 import { mapGetters } from 'vuex';
+import { Tabs, Tab } from 'vue-tabs-component';
+import TagComponent from 'components/Tag';
 import IconComponent from 'components/Icon';
 import vClickOutside from 'v-click-outside';
+import CheckboxComponent from 'components/Checkbox';
 import sortBy from 'lodash/sortBy';
+import filters from '../../../data/search-filters.json';
 
 const SHOW_RECENT_DATASETS = process.env.SHOW_RECENT_DATASETS;
 const SHOW_SEARCH_SUGGESTIONS = process.env.SHOW_SEARCH_SUGGESTIONS;
@@ -23,6 +27,7 @@ export default {
   },
   data() {
     return {
+      filters,
       isOpen: false,
       query: '',
       showSearchSuggestions: SHOW_SEARCH_SUGGESTIONS
@@ -46,6 +51,7 @@ export default {
       recentDatasets: 'getRecentDatasets',
       loading: 'getSearchLoading',
       error: 'getSearchError',
+      selectedFilters: 'getSearchFiltersArray'
     }),
     datasets() {
       if (this.recentDatasets.length && SHOW_RECENT_DATASETS) {
@@ -69,6 +75,9 @@ export default {
     },
     selectDataset(dataset) {
       this.$store.dispatch('searchDatasets', dataset.name);
+    },
+    clearSelection(filter) {
+      console.log(filter, 'DELEEETE');
     },
     navigateDown(e) {
       if (!SHOW_SEARCH_SUGGESTIONS) return;
@@ -99,6 +108,10 @@ export default {
   },
   components: {
     router,
+    Tabs,
+    Tab,
+    TagComponent,
+    CheckboxComponent,
     IconComponent
   },
 };

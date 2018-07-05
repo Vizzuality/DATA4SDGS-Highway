@@ -3,11 +3,25 @@
 
 .c-icon {
   flex-shrink: 0;
+
+  > svg {
+    fill: $icon-color;
+  }
+
   &.-round {
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+  }
+
+  &.-mini {
+    height: 6px;
+    width: 6px;
+    > svg {
+      height: 6px;
+      width: 6px;
+    }
   }
 
   &.-xsmall {
@@ -59,5 +73,10 @@
   &.-complementary > svg {
     fill: $theme-complementary;
     stroke: $theme-complementary;
+  }
+
+  &.-accent > svg {
+    fill: $theme-accent;
+    stroke: $theme-accent;
   }
 }

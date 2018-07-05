@@ -82,6 +82,7 @@
     "vue-paginate": "^3.5.1",
     "vue-router": "^2.0.2",
     "vue-style-loader": "^1.0.0",
+    "vue-tabs-component": "^1.4.0",
     "vuex": "^2.0.0",
     "vuex-router-sync": "^4.0.1",
     "webpack": "^1.13.2",

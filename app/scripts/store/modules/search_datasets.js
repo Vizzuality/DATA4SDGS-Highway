@@ -1,4 +1,5 @@
 import { Deserializer as JSONAPIDeserializer } from 'jsonapi-serializer';
+import capitalize from 'lodash/capitalize';
 import {
   SET_SEARCH_DATASETS_SUCCESS,
   SET_SEARCH_DATASETS_ERROR,
@@ -85,6 +86,11 @@ const searchDatasets = {
     },
     getSearchFilters(state) {
       return state.search.filters;
+    },
+    getSearchFiltersArray(state) {
+      return state.search.filters
+      ? state.search.filters.split(',').map(f => capitalize(f))
+      : [];
     },
     getSearchLoading(state) {
       return state.search.loading;
