@@ -1,35 +1,16 @@
 <div class="c-console">
-  <div class="row expanded">
-    <div class="column small-12 align-middle flex">
-      <dataset-component class="modal-dataset" :dataset="selectedDataset" large></dataset-component>
-    </div>
-    <div class="column small-12 align-middle flex ds-description">
-      {{description}}
-    </div>
-  </div>
-  <div class="editor-header">
-    <div v-if="selectedDataset.metadata.length" class="tab-panel">
-      <div :class="{'tab':true, 'active': tab === 'code' }" v-on:click="setTab('code')">
-        Code examples
-      </div>
-      <div :class="{'tab':true, 'active': tab === 'meta' }" v-on:click="setTab('meta')">
-        Metadata
-      </div>
-    </div>
-    <div v-if="dataSourceUrl" class="data-link">
-      <a :href="dataSourceUrl" target="_blank">
-        <icon-component name="icon-link" class="-small"></icon-component>
-        See data source
-      </a>
-    </div>
-  </div>
-  <div :class="{'row column console': true, 'has-tabs': selectedDataset.metadata.length }">
+  <div class="row column console">
     <div class="tab-bar">
-      <div v-if="tab === 'code'" v-for="lang in codeLanguages" :class="classListCode(lang)" @click.stop="setDisplayedCodeLang(lang)">{{lang}}</div>
-      <div v-if="tab === 'meta'" v-for="lang in languages" :class="classList(lang)" @click.stop="setDisplayedLang(lang)">{{lang}}</div>
+      <div
+        v-for="lang in codeLanguages"
+        :class="classListCode(lang)"
+        @click.stop="setDisplayedCodeLang(lang)"
+      >
+        {{lang}}
+      </div>
     </div>
     <pre class="console-content">
-      <code ref="snippet">{{snippet}}</code>
+      <code :class="displayedCodeLang" ref="snippet">{{snippet}}</code>
     </pre>
   </div>
 </div>

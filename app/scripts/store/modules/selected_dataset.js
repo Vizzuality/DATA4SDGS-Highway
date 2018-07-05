@@ -4,6 +4,7 @@ import {
   SET_SELECTED_DATASET_SUCCESS,
   SET_SELECTED_DATASET_LOADING,
   SET_SELECTED_DATASET_ERROR,
+  SET_RELATED_DATASETS,
   ADD_RECENT_DATASETS,
 } from '../mutation-types';
 
@@ -15,6 +16,7 @@ const restoredDatasets = JSON.parse(localStorage.getItem('recentDatasets'));
 
 const selectedDataset = {
   state: {
+    related: null,
     selected: {
       dataset: null,
       loading: false,
@@ -38,9 +40,13 @@ const selectedDataset = {
       state.recentDatasets = recentDatasets;
       localStorage.setItem('recentDatasets', JSON.stringify(recentDatasets));
     },
+    [SET_RELATED_DATASETS](state, datasets) {
+      state.related = datasets;
+    }
   },
   actions: {
-    setSelectedDataset({ commit }, id) {
+    setSelectedDataset({ commit, dispatch }, id) {
+      dispatch('setRelatedDatasets', id);
       return new Promise((resolve, reject) => {
         commit(SET_SELECTED_DATASET_LOADING, true);
         commit(SET_SELECTED_DATASET_ERROR, false);
@@ -65,6 +71,44 @@ const selectedDataset = {
           });
       });
     },
+    setRelatedDatasets({ commit }, id) {
+      return new Promise((resolve, reject) => {
+        fetch(`${BASE_URL}/graph/query/similar-dataset/${id}`)
+          .then((response) => {
+            if (response.status >= 400) {
+              throw new Error(response.status);
+            }
+            return response.json();
+          }).then((res) => {
+            if (res.data.length > 0) {
+              const related = res.data.slice(0, 2);
+              const fetchRelatedDataset = fetch(`${BASE_URL}/dataset/${id}`)
+                .then(r => (r.status >= 400 ? Promise.reject(r.status) : r.json()));
+              Promise.all(related.map(fetchRelatedDataset))
+                .then(data => Promise.all(data.map(item =>
+                    new Promise((reso, rej) => {
+                      Deserializer.deserialize(item,
+                        (err, dataset) => {
+                          if (err) rej(new Error('Error deserializing json api'));
+                          return reso(dataset);
+                        });
+                    }))
+                  )
+                  .then((datasets) => {
+                    commit(SET_RELATED_DATASETS, datasets);
+                    resolve();
+                  })
+                  .catch(err => reject(err))
+                );
+            } else {
+              commit(SET_RELATED_DATASETS, null);
+              resolve();
+            }
+          }).catch((error) => {
+            reject(error);
+          });
+      });
+    }
   },
   getters: {
     getSelectedDataset(state) {
@@ -73,10 +117,24 @@ const selectedDataset = {
     getRecentDatasets(state) {
       return state.recentDatasets;
     },
-    getSelectedDatasetURI(state) {
-      if (state.selected.dataset) return `${BASE_URL}/query?sql=SELECT * FROM ${state.selected.dataset.id}`;
-      return null;
-    },
+    getRelatedDatasets(state) {
+      const { related } = state;
+      if (related) {
+        return related.map((dataset) => {
+          if (dataset.metadata.length > 0) {
+            return {
+              ...dataset,
+              metadata: dataset.metadata[0].attributes
+            };
+          }
+          return {
+            ...dataset,
+            metadata: null
+          };
+        });
+      }
+      return related;
+    }
   },
 };
 

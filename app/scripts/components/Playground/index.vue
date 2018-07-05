@@ -2,14 +2,12 @@
 <style lang="scss" src="./playground-style.scss"></style>
 <script>
 import router from 'router';
-import store from 'store';
 import sortBy from 'lodash/sortBy';
 import { mapGetters } from 'vuex';
 import ArticleComponent from 'components/Article';
 import DatasetListComponent from 'components/DatasetList';
 import ModalComponent from 'components/Modal';
 import DropdownComponent from 'components/Dropdown';
-import ConsoleComponent from 'components/Console';
 import SpinnerComponent from 'components/Spinner';
 import ButtonComponent from 'components/Button';
 
@@ -20,19 +18,6 @@ export default {
   created() {
     this.$store.dispatch('searchDatasets', '');
     this.$store.dispatch('setSearchDatasetsFilters', '');
-  },
-  beforeRouteEnter(to, from, next) {
-    if (to.params.dataset) {
-      console.warn('dis');
-      store.dispatch('setSelectedDataset', to.params.dataset)
-      .then(() => store.dispatch('setModal', {
-        isOpen: true,
-        onClose: () => {
-          router.push('/data-sets');
-        },
-      }));
-    }
-    next();
   },
   data() {
     return {
@@ -93,14 +78,10 @@ export default {
     };
   },
   computed: {
-    storeRouter() {
-      return this.$store.route;
-    },
     ...mapGetters({
       searchDatasets: 'getSearchListData',
       loading: 'getSearchLoading',
       error: 'getSearchError',
-      selectedDataset: 'getSelectedDataset',
       recentDatasets: 'getRecentDatasets',
       searchLoading: 'getSearchLoading',
       selectedFilters: 'getSearchFilters'
@@ -123,25 +104,13 @@ export default {
       this.showRecentDatasets = false;
     },
   },
-  watch: {
-    storeRouter() {
-      if (this.$router.params.dataset) {
-        this.$store.dispatch('setSelectedDataset', this.$router.to.params.dataset)
-        .then(() => this.$store.dispatch('setModal', {
-          isOpen: true,
-          onClose: this.closeModal,
-        }));
-      }
-      this.$router.next();
-    }
-  },
+  watch: {},
   components: {
     ArticleComponent,
     DatasetListComponent,
     DropdownComponent,
     ModalComponent,
     SpinnerComponent,
-    ConsoleComponent,
     router,
     ButtonComponent
   },

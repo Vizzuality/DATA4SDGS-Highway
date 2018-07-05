@@ -1,0 +1,65 @@
+<div class="c-examples-detail">
+  <div class="c-examples-detail-intro">
+    <div class="row">
+      <div class="column small-12">
+        <router-link class="breadcrumb" active-class="-active" to="/examples" exact>
+          API HIGHWAYS EXAMPLES
+        </router-link>
+      </div>
+      <div class="column small-12">
+        <h1 class="c-examples-detail-intro__title">{{example.title}}</h1>
+      </div>
+      <div class="column small-12 medium-6 c-examples-detail-intro__metadata">
+        <span>Related organization: {{example.organization}}</span>
+        <span>Last update: {{example.lastUpdate}}</span>
+      </div>
+      <div class="column small-12 medium-6 c-examples-detail-intro__metadata">
+        <a :href="example.sourceCode" target="_blank" rel="noopener nofollower">
+          <icon-component name="icon-github" class="-small"></icon-component>
+          See source code
+        </a>
+        <span class="separator"></span>
+        <button @click="openShare">
+          <icon-component name="icon-share" class="-small"></icon-component>
+          Share
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="c-examples-detail-content">
+    <div class="row">
+      <div class="column small-12">
+        <h2 class="c-examples-detail-content__title">Description</h2>
+      </div>
+      <div class="column small-12 medium-8">
+        <p class="c-examples-detail-content__text">{{example.content}}</p>
+      </div>
+      <div class="column small-12 medium-2 medium-offset-2 align-self-bottom">
+        <a class="c-button -link" :href="example.url" target="_blank" rel="noopener noreferrer">Go to site</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column small-12">
+        <div v-if="hasEmbed">
+          <div v-html="example.html"></div>
+        </div>
+        <div v-else-if="hasMultipleImages">
+          <carousel-component
+            :starting-image="0"
+            :images="imagesFiltered"
+          ></carousel-component>
+        </div>
+        <div v-else-if="hasSingleImage">
+          <img :src="example.images[0]" alt="Example image thumbnail">
+        </div>
+      </div>
+    </div>
+    <modal-component class="-center">
+      <div class="row">
+        <div class="column small-12 align-middle flex">
+          <share-component></share-component>
+        </div>
+      </div>
+    </modal-component>
+  </div>
+</div>

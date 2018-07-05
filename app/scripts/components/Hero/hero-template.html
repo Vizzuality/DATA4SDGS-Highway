@@ -2,13 +2,13 @@
 
   <div v-if="location.home" >
     <div class="hero-home-content" >
-      <h1 >Transform data on SDGs into effective applications</h1 >
+      <h1>Transform data on SDGs into effective applications</h1>
     </div >
   </div >
 
   <div v-if="location.playground" >
     <div class="hero-app-content" v-if="!location.home" >
-      <h1 >API Highways data sets</h1 >
+      <h1>API Highways data sets</h1>
       <div class="row" >
         <div class="column small-12 medium-10 medium-offset-1" >
           <search-component ></search-component >
@@ -19,13 +19,19 @@
 
   <div v-if="location.token" >
     <div class="hero-app-content" >
-      <h1 >Generate API Token</h1 >
+      <h1>Generate API Token</h1>
     </div >
   </div >
 
   <div v-if="location.partners" >
     <div class="hero-app-content" >
-      <h1 >Partner APIs</h1 >
+      <h1>Partner APIs</h1>
+    </div >
+  </div >
+
+  <div v-if="location.examples" >
+    <div class="hero-app-content" >
+      <h1>API Highways Examples</h1>
     </div >
   </div >
 </div >

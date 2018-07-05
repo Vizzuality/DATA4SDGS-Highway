@@ -15,11 +15,21 @@
   outline: none;
 
   &.-filled {
-    background-color: $theme-accent;
-    font-weight: $font-weight-bold;
+    color: $theme-base;
+    background-color: #354283;
+
+    &:hover {
+      color: $theme-base;
+      background-color: #435198;
+    }
     &.-alternative {
       background-color: $theme-alternative;
     }
+  }
+
+  &.-dismiss {
+    color: $theme-base;
+    background-color: #a0a0a0;
   }
 
   &.-full {
@@ -53,5 +63,17 @@
   &.-dark {
     border-color: $theme-blue;
     color: $theme-blue;
+  }
+
+  &.-link {
+    display: block;
+    background-color: $link-font-color;
+    color: $theme-accent;
+    font-size: $font-size-small;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.63;
+    padding: 10px;
+    text-transform: none;
   }
 }

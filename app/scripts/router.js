@@ -2,14 +2,15 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import HomeComponent from 'components/Home';
+import PlaygroundDetailComponent from 'components/PlaygroundDetail';
 import PlaygroundComponent from 'components/Playground';
 import PartnerComponent from 'components/PartnerApis';
 import HeaderComponent from 'components/Header';
 import FooterComponent from 'components/Footer';
 import HeroComponent from 'components/Hero';
 import TokenPage from 'components/Token';
-import VisualizationComponent from 'components/Visualization';
-import OtherVisualizationPage from 'components/OtherVisualization/Page';
+import ExamplesComponent from 'components/Examples';
+import ExamplesDetailComponent from 'components/ExamplesDetail';
 import LandingPage from 'components/Landing/Page';
 import LandingFooter from 'components/Landing/Footer';
 
@@ -33,14 +34,14 @@ const routes = [
       HeaderComponent,
       FooterComponent,
     },
-    children: [
-      {
-        path: ':dataset',
-        components: {
-          default: PlaygroundComponent,
-        },
-      },
-    ],
+  },
+  {
+    path: '/data-sets/:dataset',
+    components: {
+      default: PlaygroundDetailComponent,
+      HeaderComponent,
+      FooterComponent
+    }
   },
   {
     path: '/token',
@@ -74,22 +75,20 @@ const routes = [
 
   {
     path: '/examples',
-    redirect: '/examples/conflicts-related-to-protected-areas'
+    components: {
+      default: ExamplesComponent,
+      HeroComponent,
+      HeaderComponent,
+      FooterComponent,
+    }
   },
 
   {
-    path: '/examples/conflicts-related-to-protected-areas',
+    path: '/examples/:id',
     components: {
-      default: VisualizationComponent,
+      default: ExamplesDetailComponent,
       HeaderComponent,
-    },
-  },
-
-  {
-    path: '/examples/regions-with-greatest-water-risks',
-    components: {
-      default: OtherVisualizationPage,
-      HeaderComponent,
+      FooterComponent,
     },
   },
   {
@@ -111,7 +110,9 @@ export default new VueRouter({
   mode: 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
-    if (to.params.dataset || from.params.dataset) return savedPosition;
+    const toDataset = to.params.dataset;
+    const fromDataset = from.params.dataset;
+    if ((toDataset || fromDataset) && toDataset === fromDataset) return savedPosition;
     return { x: 0, y: 0 };
   },
 });
