@@ -72,12 +72,14 @@
 
 .tooltip-content {
   line-height: 1.14;
+  font-size: 14px;
   color: rgba(69, 69, 69, 0.7);
   margin: 0;
 }
 
 .tooltip-heading {
   line-height: 1.64;
+  font-size: 14px;
   color: #222222;
   font-weight: 600;
 }
