@@ -80,6 +80,10 @@
               return 'Generic indexed dataset';
             case 'un':
               return 'UN';
+            case 'json':
+              return 'JSON Document';
+            case 'csv':
+              return 'CSV Document';
             default:
               return type;
           }
