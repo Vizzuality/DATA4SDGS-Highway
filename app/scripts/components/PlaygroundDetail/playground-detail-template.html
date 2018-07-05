@@ -86,13 +86,13 @@
               placement="top"
             >
               <template v-if="metadata.sandbox">
-                <icon-component name="icon-close" class="-medium"></icon-component>
+                <icon-component name="icon-unlock" class="-medium"></icon-component>
                 <div class="tooltip-container" slot="popover">
                       <span class="tooltip-heading">
                         Sandbox environment
                       </span>
                   <p class="tooltip-content">
-                    Authentication needed to query this dataset
+                    No authentication needed to query this dataset
                   </p>
                 </div>
               </template>
@@ -103,7 +103,7 @@
                         Sandbox environment
                       </span>
                   <p class="tooltip-content">
-                    No authentication needed to query this dataset
+                    Authentication needed to query this dataset
                   </p>
                 </div>
               </template>
