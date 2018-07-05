@@ -48,7 +48,7 @@
     text-align: left;
     > div {
       display: inline-block;
-      margin: 0 0 0 $small-margin;
+      margin: 0 0 0 ($small-margin / 2);
     }
   }
 
@@ -175,6 +175,10 @@
       .sidebar-links-heading {
         display: flex;
         font-weight: 700;
+
+        .sidebar-links-heading-text {
+          margin: 0 0 0 ($small-margin / 2);
+        }
       }
     }
   }

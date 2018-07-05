@@ -61,7 +61,6 @@ export default {
     },
     metadataDetails() {
       if (this.metadata) {
-        console.log(this.isShallow);
         const details = [
           { heading: 'Owner / Source', value: this.metadata.sourceOrganization },
           { heading: 'Data download URL', value: this.metadata.dataSourceUrl },
@@ -80,7 +79,6 @@ export default {
     },
     isShallow() {
       if (!this.selectedDataset) return false;
-      console.log(this.selectedDataset.provider);
       return ['worldbank', 'hdx', 'genericindex', 'resourcewatch'].includes(this.selectedDataset.provider);
     },
     showCodeExamples() {
