@@ -9,6 +9,7 @@ import IconComponent from 'components/Icon';
 import vClickOutside from 'v-click-outside';
 import CheckboxComponent from 'components/Checkbox';
 import sortBy from 'lodash/sortBy';
+import capitalize from 'lodash/capitalize';
 import filters from '../../../data/search-filters.json';
 
 const SHOW_RECENT_DATASETS = process.env.SHOW_RECENT_DATASETS;
@@ -77,7 +78,10 @@ export default {
       this.$store.dispatch('searchDatasets', dataset.name);
     },
     clearSelection(filter) {
-      console.log(filter, 'DELEEETE');
+      const newFilters = filter
+        ? this.selectedFilters.filter(f => f !== filter).join(',')
+        : '';
+      this.$store.dispatch('setSearchDatasetsFilters', newFilters);
     },
     navigateDown(e) {
       if (!SHOW_SEARCH_SUGGESTIONS) return;
@@ -105,6 +109,9 @@ export default {
         }
       }
     },
+  },
+  filters: {
+    capitalize
   },
   components: {
     router,

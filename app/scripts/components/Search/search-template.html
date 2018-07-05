@@ -14,7 +14,7 @@
     </div>
     <div v-if="selectedFilters.length > 0" class="c-filters">
       <tag-component v-for="(filter, index) in selectedFilters" icon="close">
-        <span>{{filter}}</span>
+        <span>{{filter | capitalize}}</span>
         <button @click="() => clearSelection(filter)">
           <icon-component
             name="icon-close"
@@ -47,13 +47,13 @@
     <div v-if="isOpen" class="c-tabs">
       <tabs>
         <tab name="Data source">
-          <checkbox-component :items="filters.dataSources" icon="icon-check"></checkbox-component>
+          <checkbox-component :items="filters.dataSources" :initial="selectedFilters" icon="icon-check"></checkbox-component>
         </tab>
         <tab name="Topic">
-          <checkbox-component :items="filters.topics" icon="icon-check"></checkbox-component>
+          <checkbox-component :items="filters.topics" :initial="selectedFilters" icon="icon-check"></checkbox-component>
         </tab>
         <tab name="Temporal range">
-          <checkbox-component :items="filters.temporalRanges" icon="icon-check"></checkbox-component>
+          <checkbox-component :items="filters.temporalRanges" :initial="selectedFilters" icon="icon-check"></checkbox-component>
         </tab>
       </tabs>
     </div>

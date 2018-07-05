@@ -3,7 +3,9 @@
 <style lang="scss" src="./checkbox-style.scss"></style>
 
 <script>
+import { mapGetters } from 'vuex';
 import IconComponent from 'components/Icon';
+import difference from 'lodash/difference';
 
 export default {
   name: 'checkbox-component',
@@ -12,14 +14,23 @@ export default {
       type: Array,
       required: true,
     },
+    initial: {
+      type: Array,
+      required: false,
+    },
     icon: {
       type: String
     },
   },
   data() {
     return {
-      selectedFilters: [],
+      selectedFilters: this.initial || []
     };
+  },
+  computed: {
+    ...mapGetters({
+      currentFilters: 'getSearchFiltersArray'
+    }),
   },
   methods: {
     getId(value, index) {
@@ -28,7 +39,7 @@ export default {
   },
   watch: {
     selectedFilters() {
-      const newFilters = this.selectedFilters.join(',');
+      const newFilters = [...difference(this.currentFilters, this.items.map(i => i.value)), ...this.selectedFilters].join(',');
       this.$store.dispatch('setSearchDatasetsFilters', newFilters);
     },
   },
