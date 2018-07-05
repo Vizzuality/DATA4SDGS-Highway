@@ -59,6 +59,12 @@
         }
         return null;
       },
+      vocabulary() {
+        if (this.selectedDataset && this.selectedDataset.vocabulary.length > 0) {
+          return this.selectedDataset.vocabulary[0].attributes;
+        }
+        return null;
+      },
       metadataDetails() {
         const details = [];
 
@@ -105,9 +111,7 @@
             });
           }
 
-          if (this.metadata) {
-            details.push({ heading: 'Language', value: (this.metadata.language === 'en' ? 'English' : this.metadata.language) });
-          }
+          details.push({ heading: 'Language', value: (this.metadata.language === 'en' ? 'English' : this.metadata.language) });
 
           if (this.metadata.license) {
             details.push({ heading: 'License', value: this.metadata.license });
@@ -132,6 +136,10 @@
               value: `<a href='${this.metadata.dataSourceEndpoint}' target="_blank" rel="noopener noreferrer">${this.metadata.dataSourceEndpoint}</a>`
             });
           }
+        }
+
+        if (this.vocabulary) {
+          details.push({ heading: 'Tags', value: this.vocabulary.tags.join(', ') });
         }
         return details.filter(detail => detail && (typeof detail.value !== 'undefined'));
       },
