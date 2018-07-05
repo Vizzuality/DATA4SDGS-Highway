@@ -27,6 +27,16 @@
         ],
         apis: [
           {
+            name: 'Resource Watch API',
+            relatedOrganization: 'World Resources Institute',
+            orgUrl: 'http://www.wri.org/',
+            description: 'Resource Watch, an open platform for everyone to explore accurate, up-to-date insights about our planet. This open source API infrastructure was forked to build API Highways infrastructure.',
+            link: 'http://resourcewatch.org/',
+            docs: 'https://api.resourcewatch.org/',
+            examples: '',
+            github: 'https://github.com/resource-watch'
+          },
+          {
             name: 'World Bank APIs',
             relatedOrganization: 'World Bank Group',
             orgUrl: 'http://www.worldbank.org',
@@ -45,16 +55,6 @@
             docs: 'http://www.geodab.net/apis',
             examples: 'https://codepen.io/msantoro/pen/jZJXEO',
             github: 'https://github.com/hotosm/OpenAerialMap'
-          },
-          {
-            name: 'Resource Watch API',
-            relatedOrganization: 'World Resources Institute',
-            orgUrl: 'http://www.wri.org/',
-            description: 'Resource Watch, an open platform for everyone to explore accurate, up-to-date insights about our planet. ',
-            link: 'http://resourcewatch.org/',
-            docs: 'https://api.resourcewatch.org/',
-            examples: '',
-            github: 'https://github.com/resource-watch'
           },
           {
             name: 'United Nations Statistics Division SDG API',
@@ -93,7 +93,7 @@
             description: 'Focusing on human interactions in the environment, SEDAC has as its mission to develop and operate applications that support the integration of socioeconomic and earth science data and to serve as an "Information Gateway" between earth sciences and social sciences.',
             link: 'http://sedac.ciesin.columbia.edu/',
             docs: 'http://sedac.ciesin.columbia.edu/maps/services',
-            examples: '',
+            examples: 'https://codepen.io/alaurenz/pen/dmNoNR',
             github: ''
           },
         ]

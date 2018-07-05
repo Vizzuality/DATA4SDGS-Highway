@@ -74,6 +74,12 @@
   .detail-value {
     font-size: 14px;
     word-break: break-all;
+
+    a {
+      font-weight: normal;
+      line-height: 1.71;
+      letter-spacing: normal;
+    }
   }
 
   .code-examples-header {
@@ -152,7 +158,6 @@
         font-size: 14px;
         line-height: 1.64;
         color: #a2a2a2;
-        text-transform: capitalize;
 
         &.-active {
           color: $theme-blue;

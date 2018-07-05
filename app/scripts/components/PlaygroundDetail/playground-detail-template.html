@@ -19,20 +19,20 @@
               Code examples
             </a>
           </li>
+          <li v-if="showDocsLink">
+            <a
+              :class="{'-active': activeAnchor === 'docs'}"
+              @click="scrollTo('#docs')"
+            >
+              API Documentation
+            </a>
+          </li>
           <li v-if="showCodeExamples && metadata && Object.keys(metadata.info).length > 0">
             <a
               :class="{ '-active': activeAnchor === 'info' }"
               @click="scrollTo('#info')"
             >
-              Additional info
-            </a>
-          </li>
-          <li v-if="!showCodeExamples">
-            <a
-              :class="{'-active': activeAnchor === 'docs'}"
-              @click="scrollTo('#docs')"
-            >
-              Docs
+              Additional Info
             </a>
           </li>
           <li v-if="relatedDatasets">
@@ -45,17 +45,17 @@
           </li>
         </ul>
 
-        <div class="sidebar-links-section">
+        <div class="sidebar-links-section" v-if="metadata && (metadata.dataDownloadUrl.csv || metadata.dataDownloadUrl.json)">
           <span class="sidebar-links-heading">
             <icon-component name="icon-download" class="-small"></icon-component>
             <span class="sidebar-links-heading-text">Download</span>
           </span>
           <ul class="sidebar-links">
-            <li>
-              <a href="metadata.dataDownloadUrl.csv">.csv</a>
+            <li v-if="metadata && metadata.dataDownloadUrl.csv" >
+              <a :href="metadata.dataDownloadUrl.csv" target="_blank">.csv</a>
             </li>
-            <li>
-              <a href="metadata.dataDownloadUrl.json">.json</a>
+            <li v-if="metadata && metadata.dataDownloadUrl.json" >
+              <a :href="metadata.dataDownloadUrl.json" target="_blank">.json</a>
             </li>
           </ul>
         </div>
@@ -85,7 +85,7 @@
               trigger="hover"
               placement="top"
             >
-              <template v-if="metadata.sandbox">
+              <template v-if="metadata && metadata.sandbox">
                 <icon-component name="icon-unlock" class="-medium"></icon-component>
                 <div class="tooltip-container" slot="popover">
                       <span class="tooltip-heading">
@@ -96,7 +96,7 @@
                   </p>
                 </div>
               </template>
-              <template v-else>
+              <template v-else-if="metadata">
                 <icon-component name="icon-lock" class="-medium"></icon-component>
                 <div class="tooltip-container" slot="popover">
                       <span class="tooltip-heading">
@@ -130,15 +130,16 @@
                     <icon-component name="icon-info" class="-small"></icon-component>
                     <div class="tooltip-container" slot="popover">
                       <span class="tooltip-heading">
-                        Shallow rendering
+                        Indexed dataset
                       </span>
                       <p class="tooltip-content">
-                        Lorem ipsum dolor sit amet consectetuer
+                        Indexed datasets are referenced by API Highways, but the underling data is only available through the
+                        original dataset host.
                       </p>
                     </div>
                   </v-popover>
                 </div>
-                <p class="detail-value">{{detail.value}}</p>
+                <p class="detail-value" v-html="detail.value"></p>
               </div>
             </div>
           </div>
@@ -147,18 +148,40 @@
         <section id="examples" class="dataset-detail-section" v-if="showCodeExamples">
           <div class="code-examples-header">
             <h3>Code examples</h3>
-            <a class="examples-link">
+            <a
+              class="examples-link"
+              @click="openDocs"
+            >
               <span>
                 <icon-component name="icon-book" class="-xsmall"></icon-component>
               </span>
-              Learn how to use these data
+              Learn how to use this data
             </a>
           </div>
           <console-component :selectedDataset="selectedDataset"></console-component>
         </section>
 
         <section
-          id="info" class="dataset-detail-section"
+          id="docs"
+          class="dataset-detail-section"
+          v-if="showDocsLink"
+        >
+          <div class="code-examples-header">
+            <h3 class="section-title">API Documentation</h3>
+          </div>
+          <div class="c-button-group -center">
+            <button-component
+              class="-bordered -big -filled"
+              :click="openDocs"
+            >
+              Go To API Docs
+            </button-component>
+          </div>
+        </section>
+
+        <section
+          id="info"
+          class="dataset-detail-section"
           v-if="showCodeExamples && metadata && Object.keys(metadata.info).length > 0"
         >
           <h3 class="section-title">Additional info</h3>
@@ -169,20 +192,6 @@
           </div>
         </section>
 
-        <section
-          id="docs"
-          class="dataset-detail-section"
-          v-if="!showCodeExamples"
-        >
-          <div class="c-button-group -center">
-            <button-component
-              class="-bordered -big -filled"
-              :click="() => void 0"
-            >
-              Go To Docs
-            </button-component>
-          </div>
-        </section>
 
         <section
           v-if="relatedDatasets"
