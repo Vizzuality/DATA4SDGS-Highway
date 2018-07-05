@@ -85,7 +85,7 @@
               trigger="hover"
               placement="top"
             >
-              <template v-if="metadata && metadata.sandbox">
+              <template v-if="selectedDataset.sandbox">
                 <icon-component name="icon-unlock" class="-medium"></icon-component>
                 <div class="tooltip-container" slot="popover">
                       <span class="tooltip-heading">
@@ -96,7 +96,7 @@
                   </p>
                 </div>
               </template>
-              <template v-else-if="metadata">
+              <template v-else>
                 <icon-component name="icon-lock" class="-medium"></icon-component>
                 <div class="tooltip-container" slot="popover">
                       <span class="tooltip-heading">
