@@ -6,6 +6,7 @@
 import { mapGetters } from 'vuex';
 import IconComponent from 'components/Icon';
 import difference from 'lodash/difference';
+import uniq from 'lodash/uniq';
 
 export default {
   name: 'checkbox-component',
@@ -39,7 +40,8 @@ export default {
   },
   watch: {
     selectedFilters() {
-      const newFilters = [...difference(this.currentFilters, this.items.map(i => i.value)), ...this.selectedFilters].join(',');
+      const filters = difference(this.currentFilters, this.items.map(i => i.value));
+      const newFilters = uniq([...filters, ...this.selectedFilters]).join(',');
       this.$store.dispatch('setSearchDatasetsFilters', newFilters);
     },
   },
