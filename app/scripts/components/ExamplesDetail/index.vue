@@ -15,7 +15,6 @@ export default {
   data() {
     const { id } = this.$route.params;
     const example = examples.find(ex => ex.id === id) || {};
-    example.lastUpdate = new Date(example.lastUpdate).toLocaleDateString('en-EN', { year: 'numeric', month: 'long', day: 'numeric' });
     return {
       example
     };
@@ -28,10 +27,10 @@ export default {
       return this.example && !!this.example.html;
     },
     hasSingleImage() {
-      return this.example && this.example.images.length === 1;
+      return this.example && this.example.images && this.example.images.length === 1;
     },
     hasMultipleImages() {
-      return this.example && this.example.images.length > 1;
+      return this.example && this.example.images && this.example.images.length > 1;
     }
   },
   methods: {
