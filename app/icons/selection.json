@@ -71,7 +71,7 @@
         "isMulticolor2": false,
         "grid": 28,
         "tags": [
-          "info-copy"
+          "info"
         ]
       },
       "attrs": [
@@ -80,7 +80,7 @@
       "properties": {
         "order": 88,
         "id": 48,
-        "name": "info-copy",
+        "name": "info",
         "prevSize": 32
       },
       "setIdx": 1,
