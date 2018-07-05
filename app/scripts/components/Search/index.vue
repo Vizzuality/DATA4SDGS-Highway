@@ -61,6 +61,17 @@ export default {
         );
       }
       return this.results;
+    },
+    selections() {
+      const selection = {};
+      debugger;
+      Object.keys(filters).forEach((key) => {
+        const selectedFilters = intersection(filters[key].map(f => f.value), this.selectedFilters);
+        selection[key] = selectedFilters.length
+          ? `(${selectedFilters.length})`
+          : '';
+      });
+      return selection;
     }
   },
   methods: {

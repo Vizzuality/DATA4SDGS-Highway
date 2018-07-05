@@ -28,14 +28,14 @@
       </tag-component>
     </div>
     <div v-if="isOpen" class="c-tabs">
-      <tabs>
-        <tab name="Data source">
+      <tabs :options="{ useUrlFragment: false }">
+        <tab id="data-source" :name="`Data source <span class='number-selected'>${selections.dataSources}</span>`">
           <checkbox-component :items="filters.dataSources" :initial="selectedFilters" icon="icon-check"></checkbox-component>
         </tab>
-        <tab name="Topic">
+        <tab id="topics" :name="`Topic <span class='number-selected'>${selections.topics}</span>`">
             <checkbox-component :items="filters.topics" :initial="selectedFilters" icon="icon-check"></checkbox-component>
           </tab>
-        <tab name="Temporal range">
+        <tab id="temporal-range" :name="`Temporal range <span class='number-selected'>${selections.temporalRanges}</span>`">
           <checkbox-component :items="filters.temporalRanges" :initial="selectedFilters" icon="icon-check"></checkbox-component>
         </tab>
       </tabs>
