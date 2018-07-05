@@ -15,7 +15,6 @@ const SHOW_RECENT_DATASETS = process.env.SHOW_RECENT_DATASETS;
 export default {
   name: 'playground-component',
   created() {
-    this.$store.dispatch('searchDatasets', '');
     this.$store.dispatch('setSearchDatasetsFilters', '');
   },
   data() {

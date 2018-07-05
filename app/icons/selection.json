@@ -121,7 +121,7 @@
         "isMulticolor2": false,
         "grid": 28,
         "tags": [
-          "info-copy"
+          "info"
         ],
         "colorPermutations": {
           "16216216212431826512532402171": [
@@ -135,7 +135,7 @@
       "properties": {
         "order": 109,
         "id": 48,
-        "name": "info-copy",
+        "name": "info",
         "prevSize": 32
       },
       "setIdx": 0,
