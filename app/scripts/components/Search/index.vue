@@ -8,12 +8,12 @@ import TagComponent from 'components/Tag';
 import IconComponent from 'components/Icon';
 import vClickOutside from 'v-click-outside';
 import CheckboxComponent from 'components/Checkbox';
+import intersection from 'lodash/intersection';
 import sortBy from 'lodash/sortBy';
 import capitalize from 'lodash/capitalize';
 import filters from '../../../data/search-filters.json';
 
 const SHOW_RECENT_DATASETS = process.env.SHOW_RECENT_DATASETS;
-const SHOW_SEARCH_SUGGESTIONS = process.env.SHOW_SEARCH_SUGGESTIONS;
 
 export default {
   name: 'search-component',
@@ -31,7 +31,6 @@ export default {
       filters,
       isOpen: false,
       query: '',
-      showSearchSuggestions: SHOW_SEARCH_SUGGESTIONS
     };
   },
   computed: {
@@ -82,32 +81,6 @@ export default {
         ? this.selectedFilters.filter(f => f !== filter).join(',')
         : '';
       this.$store.dispatch('setSearchDatasetsFilters', newFilters);
-    },
-    navigateDown(e) {
-      if (!SHOW_SEARCH_SUGGESTIONS) return;
-      const element = e.target.tagName === 'LI'
-      ? e.target.nextElementSibling
-      : this.$refs['search-results-list'].firstChild;
-
-      element && element.focus();
-    },
-    navigateUp(e) {
-      if (!SHOW_SEARCH_SUGGESTIONS) return;
-      const element = e.target.previousElementSibling
-      ? e.target.previousElementSibling
-      : this.$refs['search-input'];
-
-      element && element.focus();
-    },
-    onKeydown(e) {
-      if (!SHOW_SEARCH_SUGGESTIONS) return;
-      const focusedElement = document.activeElement;
-      if (e.which === 40 || e.which === 38) {
-        if (focusedElement.classList.contains('js-search-input')
-        || focusedElement.classList.contains('js-search-results-item')) {
-          e.preventDefault();
-        }
-      }
     },
   },
   filters: {
