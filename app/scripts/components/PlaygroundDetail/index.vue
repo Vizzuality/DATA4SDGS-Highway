@@ -86,6 +86,10 @@
               return 'Generic indexed dataset';
             case 'un':
               return 'UN';
+            case 'json':
+              return 'JSON Document';
+            case 'csv':
+              return 'CSV Document';
             default:
               return type;
           }
@@ -115,16 +119,6 @@
 
           if (this.metadata.license) {
             details.push({ heading: 'License', value: this.metadata.license });
-          }
-
-          if (
-            this.metadata.dataSourceEndpoint
-            && this.metadata.dataSourceEndpoint !== this.metadata.dataSourceUrl
-          ) {
-            details.push({
-              heading: 'Data source endpoint',
-              value: `<a href='${this.metadata.dataSourceEndpoint}' target="_blank" rel="noopener noreferrer">${this.metadata.dataSourceEndpoint}</a>`
-            });
           }
 
           if (
