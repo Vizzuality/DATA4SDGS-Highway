@@ -2,13 +2,17 @@
 @import '../../../styles/variables';
 
 .c-playground-detail {
-  background: linear-gradient(to right, #f0f0f0 0%, #f0f0f0 20%, $white 20%, $white 100%);
+  background: linear-gradient(to right, #f0f0f0 0%, #f0f0f0 50%, $white 50%, $white 100%);
+
+  .main-content {
+    background-color: $white;
+  }
+
+  > .row {
+    min-height: calc(100vh - #{$footer-height});
+  }
 
   &.-loading {
-    > .row {
-      min-height: calc(100vh - #{$footer-height});
-    }
-
     .c-spinner {
       height: 100%;
     }
@@ -120,11 +124,11 @@
       align-items: flex-start;
       height: 100%;
       width: 100%;
-      padding: 80px 0 0 $small-margin;
+      padding: 80px 0 0 $small-margin;Pla
 
-      > * {
-        margin: 0 0 $medium-margin;
-      }
+    > * {
+      margin: 0 0 $medium-margin;
+    }
 
       &.-fixed {
         position: fixed;
