@@ -62,8 +62,31 @@
       metadataDetails() {
         const details = [];
 
+        const humanFriendlyType = (type) => {
+          switch (type) {
+            case 'bigquery':
+              return 'Big Query';
+            case 'gee':
+              return 'Google Earth Engine';
+            case 'cartodb':
+              return 'Carto';
+            case 'worldbank':
+              return 'World Bank';
+            case 'resourcewatch':
+              return 'Resource Watch API';
+            case 'hdx':
+              return 'HDX Watch';
+            case 'genericindex':
+              return 'Generic indexed dataset';
+            case 'un':
+              return 'UN';
+            default:
+              return type;
+          }
+        };
+
         if (this.selectedDataset.provider) {
-          details.push({ heading: 'Type', value: this.selectedDataset.provider, info: this.isShallow });
+          details.push({ heading: 'Type', value: humanFriendlyType(this.selectedDataset.provider), info: this.isShallow });
         }
 
         if (this.selectedDataset.id) {
@@ -95,7 +118,17 @@
             && this.metadata.dataSourceEndpoint !== this.metadata.dataSourceUrl
           ) {
             details.push({
-              heading: 'Endpoint',
+              heading: 'Data source endpoint',
+              value: `<a href='${this.metadata.dataSourceEndpoint}' target="_blank" rel="noopener noreferrer">${this.metadata.dataSourceEndpoint}</a>`
+            });
+          }
+
+          if (
+            this.metadata.dataSourceEndpoint
+            && this.metadata.dataSourceEndpoint !== this.metadata.dataSourceUrl
+          ) {
+            details.push({
+              heading: 'Data source endpoint',
               value: `<a href='${this.metadata.dataSourceEndpoint}' target="_blank" rel="noopener noreferrer">${this.metadata.dataSourceEndpoint}</a>`
             });
           }
