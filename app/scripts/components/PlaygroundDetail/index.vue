@@ -61,7 +61,6 @@ export default {
     },
     metadataDetails() {
       if (this.metadata) {
-        console.log(this.isShallow);
         const details = [
           { heading: 'Owner / Source', value: this.metadata.sourceOrganization },
           { heading: 'Data download URL', value: this.metadata.dataSourceUrl },
