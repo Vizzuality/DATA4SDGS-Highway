@@ -42,7 +42,7 @@ export default {
       },
       {
         value: 'worldbank',
-        label: 'WORLDBANK',
+        label: 'WORLD BANK',
       },
       {
         value: 'PREP- Partnership for Resilience & Preparedness',
@@ -70,11 +70,11 @@ export default {
       },
       {
         value: 'HDX API',
-        label: 'HDX API',
+        label: 'HUMANITARIAN DATA EXCHANGE',
       },
       {
         value: 'United Nations Statistics Division',
-        label: 'United Nations Statistics Division',
+        label: 'UNITED NATIONS STATISTICS DIVISION',
       }],
       loadingMessage: 'Searching...',
       errorMessage: 'Something weird happened!',

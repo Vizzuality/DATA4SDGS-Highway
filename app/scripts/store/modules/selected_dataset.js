@@ -114,6 +114,9 @@ const selectedDataset = {
     getSelectedDataset(state) {
       return state.selected.dataset;
     },
+    getError(state) {
+      return state.selected.error;
+    },
     getRecentDatasets(state) {
       return state.recentDatasets;
     },

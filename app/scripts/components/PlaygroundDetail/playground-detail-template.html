@@ -5,6 +5,7 @@
         <ul class="sidebar-navigation">
           <li>
             <a
+              v-if="selectedDataset"
               :class="{ '-active': activeAnchor === 'about' }"
               @click="scrollTo('#about')"
             >
@@ -79,6 +80,19 @@
     <div class="column small-9 main-content">
       <article-component grid-row="row align-center" grid-column="medium-11" v-if="!loading">
         <section id="about" class="dataset-detail-section">
+
+          <h1 class="dataset-title" v-if="!selectedDataset && error">
+            Error loading dataset
+          </h1>
+
+          <h3 class="dataset-title" v-if="error === '404'">
+            Dataset not found
+          </h3>
+
+          <h3 class="dataset-title" v-else>
+            {{error}}
+          </h3>
+
           <h1 class="dataset-title" v-if="selectedDataset">
             {{selectedDataset.name}}
             <v-popover
@@ -107,7 +121,10 @@
             {{metadata.description}}
           </p>
 
-          <h3 class="section-title">About this dataset</h3>
+          <h3
+            v-if="selectedDataset"
+            class="section-title"
+          >About this dataset</h3>
           <div class="row -equal-height">
             <div
               v-for="detail in metadataDetails"

@@ -95,12 +95,14 @@
           }
         };
 
-        if (this.selectedDataset.provider) {
-          details.push({ heading: 'Type', value: humanFriendlyType(this.selectedDataset.provider), info: this.isShallow });
-        }
+        if (this.selectedDataset) {
+          if (this.selectedDataset.provider) {
+            details.push({ heading: 'Type', value: humanFriendlyType(this.selectedDataset.provider), info: this.isShallow });
+          }
 
-        if (this.selectedDataset.id) {
-          details.push({ heading: 'Identifier', value: this.selectedDataset.id });
+          if (this.selectedDataset.id) {
+            details.push({ heading: 'Identifier', value: this.selectedDataset.id });
+          }
         }
 
         if (this.metadata) {
@@ -139,7 +141,7 @@
       },
       isShallow() {
         if (!this.selectedDataset) return false;
-        return ['worldbank', 'hdx', 'genericindex', 'resourcewatch'].includes(this.selectedDataset.provider);
+        return ['worldbank', 'hdx', 'genericindex', 'resourcewatch', 'un'].includes(this.selectedDataset.provider);
       },
       showCodeExamples() {
         return this.selectedDataset && this.selectedDataset.provider !== 'genericindex' && (!this.isShallow || this.selectedDataset.provider === 'resourcewatch');
@@ -152,6 +154,7 @@
       },
       ...mapGetters({
         selectedDataset: 'getSelectedDataset',
+        error: 'getError',
         relatedDatasets: 'getRelatedDatasets'
       })
     },
