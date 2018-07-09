@@ -1,13 +1,14 @@
-import isFunction from 'lodash/isFunction';
-
 const { API_BASE_URL } = global;
 const version = 'v1';
 
 const handleResponse = (d) => {
   if (d.status >= 200 && d.status <= 300) {
-    const data = isFunction(d.json) ? d.json() : d;
-    // fallback
-    data.json = () => data;
+    let data;
+    try {
+      data = d.json();
+    } catch (e) {
+      data = d.text();
+    }
     return data;
   }
   throw new Error(d.statusText);
