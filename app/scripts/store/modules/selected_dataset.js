@@ -1,4 +1,5 @@
 import { Deserializer as JSONAPIDeserializer } from 'jsonapi-serializer';
+import API from 'services/ApiManager';
 import uniqBy from 'lodash/uniqBy';
 import {
   SET_SELECTED_DATASET_SUCCESS,
@@ -9,8 +10,6 @@ import {
 } from '../mutation-types';
 
 const Deserializer = new JSONAPIDeserializer({ keyForAttribute: 'camelCase' });
-
-const BASE_URL = global.API_BASE_URL;
 
 const restoredDatasets = JSON.parse(localStorage.getItem('recentDatasets'));
 
@@ -50,13 +49,9 @@ const selectedDataset = {
       return new Promise((resolve, reject) => {
         commit(SET_SELECTED_DATASET_LOADING, true);
         commit(SET_SELECTED_DATASET_ERROR, false);
-        fetch(`${BASE_URL}/v1/dataset/${id}?includes=metadata,vocabulary`)
-          .then((response) => {
-            if (response.status >= 400) {
-              throw new Error(response.status);
-            }
-            return response.json();
-          }).then((data) => {
+        const params = `${id}?includes=metadata,vocabulary`;
+        API.get('dataset', params)
+          .then((data) => {
             Deserializer.deserialize(data, (err, dataset) => {
               if (err) throw new Error('Error deserializing json api');
               commit(SET_SELECTED_DATASET_LOADING, false);
@@ -73,16 +68,12 @@ const selectedDataset = {
     },
     setRelatedDatasets({ commit }, id) {
       return new Promise((resolve, reject) => {
-        fetch(`${BASE_URL}/graph/query/similar-dataset/${id}`)
-          .then((response) => {
-            if (response.status >= 400) {
-              throw new Error(response.status);
-            }
-            return response.json();
-          }).then((res) => {
+        API.get(`graph/query/similar-dataset/${id}`)
+          .then((res) => {
             if (res.data.length > 0) {
               const related = res.data.slice(0, 2);
-              const fetchRelatedDataset = datasetId => fetch(`${BASE_URL}/dataset/${datasetId}?includes=metadata`)
+              const fetchRelatedDataset = datasetId =>
+              API.get(`/dataset/${datasetId}`, 'includes=metadata')
                 .then(r => (r.status >= 400 ? Promise.reject(r.status) : r.json()));
               Promise.all(related.map(item => fetchRelatedDataset(item.dataset)))
                 .then(data => Promise.all(data.map(item =>

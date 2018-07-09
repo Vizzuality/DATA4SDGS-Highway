@@ -1,4 +1,5 @@
 import { Deserializer as JSONAPIDeserializer } from 'jsonapi-serializer';
+import API from 'services/ApiManager';
 import {
   SET_SEARCH_DATASETS_SUCCESS,
   SET_SEARCH_DATASETS_ERROR,
@@ -8,8 +9,6 @@ import {
 } from '../mutation-types';
 
 const Deserializer = new JSONAPIDeserializer({ keyForAttribute: 'camelCase' });
-
-const BASE_URL = global.API_BASE_URL;
 
 const searchDatasets = {
   state: {
@@ -53,13 +52,9 @@ const searchDatasets = {
         commit(SET_SEARCH_DATASETS_ERROR, false);
         const tags = state.search.filters ? `&vocabulary[legacy]=${state.search.filters}` : '';
         const queryEncoded = encodeURI(state.search.query);
-        fetch(`${BASE_URL}/v1/dataset?application=data4sdgs&published=true&includes=metadata&page[size]=500${state.search.query && state.search.query !== '' ? `&name=${queryEncoded}` : ''}${tags}`)
-          .then((response) => {
-            if (response.status >= 400) {
-              throw new Error(response.status);
-            }
-            return response.json();
-          }).then((data) => {
+        const params = `application=data4sdgs&published=true&includes=metadata&page[size]=500${state.search.query && state.search.query !== '' ? `&name=${queryEncoded}` : ''}${tags}`;
+        API.get('dataset', params)
+          .then((data) => {
             Deserializer.deserialize(data, (err, list) => {
               if (err) throw new Error('Error deserializing json api');
               commit(SET_SEARCH_DATASETS_LOADING, false);
