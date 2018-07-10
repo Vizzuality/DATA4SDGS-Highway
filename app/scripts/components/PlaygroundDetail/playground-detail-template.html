@@ -93,9 +93,12 @@
             {{error}}
           </h3>
 
-          <h1 class="dataset-title" v-if="selectedDataset">
+          <h1 class="dataset-title"
+              v-if="selectedDataset"
+          >
             {{selectedDataset.name}}
             <v-popover
+              v-bind:class="{ sandbox: !selectedDataset.sandbox }"
               trigger="hover"
               placement="top"
             >
@@ -107,11 +110,14 @@
                   </p>
                 </div>
               </template>
+
               <template v-if="!isShallow && !selectedDataset.sandbox">
-                <icon-component name="icon-lock" class="-medium"></icon-component>
+                <a :href="loginLink">
+                  <icon-component name="icon-lock" class="-medium"></icon-component>
+                </a>
                 <div class="tooltip-container" slot="popover">
                   <p class="tooltip-content">
-                    An API key is needed to query this dataset. Login or register to get yours - the process is simple and free.
+                    An API key is needed to query this dataset. Click here to login or register, and get you API key - the process is simple and free.
                   </p>
                 </div>
               </template>

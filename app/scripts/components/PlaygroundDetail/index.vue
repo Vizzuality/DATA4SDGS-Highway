@@ -11,6 +11,11 @@
   import DatasetComponent from 'components/Dataset';
   import SpinnerComponent from 'components/Spinner';
 
+  const isSelectedDatasetShallow = (dataset) => {
+    if (!dataset) return false;
+    return ['worldbank', 'hdx', 'genericindex', 'resourcewatch', 'un'].includes(dataset.provider);
+  };
+
   export default {
     name: 'playground-detail-component',
     beforeRouteEnter(to, from, next) {
@@ -49,7 +54,8 @@
       const header = document.getElementById('header');
       return {
         fixSidebar: !!header && window.pageYOffset >= header.offsetHeight,
-        activeAnchor: 'about'
+        activeAnchor: 'about',
+        loginLink: `http://api.apihighways.org/auth/login?callbackUrl=${window.location.origin}/token&token=true`
       };
     },
     computed: {
@@ -79,9 +85,9 @@
             case 'worldbank':
               return 'World Bank';
             case 'resourcewatch':
-              return 'Resource Watch API';
+              return 'Resource Watch';
             case 'hdx':
-              return 'HDX Watch';
+              return 'HDX';
             case 'genericindex':
               return 'Generic indexed dataset';
             case 'un':
@@ -96,8 +102,14 @@
         };
 
         if (this.selectedDataset) {
+          if (isSelectedDatasetShallow(this.selectedDataset) && this.selectedDataset.provider) {
+            details.push({ heading: 'Access API', value: `${humanFriendlyType(this.selectedDataset.provider)} API`, info: true });
+          } else {
+            details.push({ heading: 'Access API', value: 'API Highways', info: false });
+          }
+
           if (this.selectedDataset.provider) {
-            details.push({ heading: 'Type', value: humanFriendlyType(this.selectedDataset.provider), info: this.isShallow });
+            details.push({ heading: 'Dataset type', value: humanFriendlyType(this.selectedDataset.provider) });
           }
 
           if (this.selectedDataset.id) {
@@ -112,7 +124,7 @@
 
           if (this.metadata.dataSourceUrl) {
             details.push({
-              heading: 'Data download URL',
+              heading: 'Data source URL',
               value: `<a href='${this.metadata.dataSourceUrl}' target="_blank" rel="noopener noreferrer">${this.metadata.dataSourceUrl}</a>`
             });
           }
@@ -140,8 +152,7 @@
         return details.filter(detail => detail && (typeof detail.value !== 'undefined'));
       },
       isShallow() {
-        if (!this.selectedDataset) return false;
-        return ['worldbank', 'hdx', 'genericindex', 'resourcewatch', 'un'].includes(this.selectedDataset.provider);
+        return isSelectedDatasetShallow(this.selectedDataset);
       },
       showCodeExamples() {
         return this.selectedDataset && this.selectedDataset.provider !== 'genericindex' && (!this.isShallow || this.selectedDataset.provider === 'resourcewatch');
@@ -192,7 +203,7 @@
         if (el) el.scrollIntoView();
       },
       openDocs() {
-        switch (this.$store.state.selectedDataset) {
+        switch (this.selectedDataset.provider) {
           case 'worldbank':
             window.open('https://datahelpdesk.worldbank.org/knowledgebase/topics/125589-developer-information', '_blank');
             break;
