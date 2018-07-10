@@ -9,11 +9,7 @@
     "intro": "Number of conflicts contrasted with protected areas.",
     "content": "Bubble map of events or conflicts on a global scale, contrasted with a layer of protected areas. Visualisation built using CARTO and vue.js",
     "thumb": "/static/examples/conflicts-related-to-protected-areas.png",
-    "html": "<iframe src='https://gpsdd.github.io/DATA4SDGS-Highway-Examples/#/conflicts-related-to-protected-areas' width='100%' height='600px' frameborder='0'></iframe>",
-    "images": [
-      "/static/examples/conflicts-related-to-protected-areas.png",
-      "/static/examples/regions-with-greatest-water-risks.png"
-    ]
+    "html": "<iframe src='https://gpsdd.github.io/DATA4SDGS-Highway-Examples/#/conflicts-related-to-protected-areas' width='100%' height='600px' frameborder='0'></iframe>"
   },
   {
     "id": "regions-with-greatest-water-risks",
@@ -26,5 +22,19 @@
     "content": "Tabular view of South Africa's top regions associated with water risk, as well as map with layers representing water transitions, water basins and population. Visualisation built using CARTO and vue.js",
     "thumb": "/static/examples/regions-with-greatest-water-risks.png",
     "html": "<iframe src='https://gpsdd.github.io/DATA4SDGS-Highway-Examples/#/regions-with-greatest-water-risks' width='100%' height='600px' frameborder='0'></iframe>"
+  },
+  {
+    "id": "gee-nightlights-analysis",
+    "title": "GEE Nightlights analysis",
+    "author": "GPSDD",
+    "date": "July 10, 2018",
+    "sourceCode": "https://github.com/GPSDD/data_notebooks/blob/master/nightlights_analysis.ipynb",
+    "intro": "A jupyter notebook with examples on how to query API Highways for Google Earth Engine datasets information.",
+    "content": "A jupyter notebook with examples on how to query API Highways for Google Earth Engine datasets information. The notebooks provides some scaffolding to make API requests, example queries to Google Earth Engine datasets, a global analysis on the trends of nighttime lights emission based on the DMSP-OLS Nighttime Lights Time Series (https://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html), and a map visualization of the results centered in Ghana --its boundaries extracted from the Simplified Large Scale International Boundaries (LSIB) dataset (https://catalog.data.gov/dataset/global-lsib-lines-simplified-2017mar30).",
+    "thumb": "/static/examples/gee-nightlights-1.png",
+    "images": [
+      "/static/examples/gee-nightlights-1.png",
+      "/static/examples/gee-nightlights-2.png"
+    ]
   }
 ]
