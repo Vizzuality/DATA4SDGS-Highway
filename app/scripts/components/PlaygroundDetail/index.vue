@@ -59,6 +59,12 @@
         }
         return null;
       },
+      vocabulary() {
+        if (this.selectedDataset && this.selectedDataset.vocabulary.length > 0) {
+          return this.selectedDataset.vocabulary[0].attributes;
+        }
+        return null;
+      },
       metadataDetails() {
         const details = [];
 
@@ -80,17 +86,23 @@
               return 'Generic indexed dataset';
             case 'un':
               return 'UN';
+            case 'json':
+              return 'JSON Document';
+            case 'csv':
+              return 'CSV Document';
             default:
               return type;
           }
         };
 
-        if (this.selectedDataset.provider) {
-          details.push({ heading: 'Type', value: humanFriendlyType(this.selectedDataset.provider), info: this.isShallow });
-        }
+        if (this.selectedDataset) {
+          if (this.selectedDataset.provider) {
+            details.push({ heading: 'Type', value: humanFriendlyType(this.selectedDataset.provider), info: this.isShallow });
+          }
 
-        if (this.selectedDataset.id) {
-          details.push({ heading: 'Identifier', value: this.selectedDataset.id });
+          if (this.selectedDataset.id) {
+            details.push({ heading: 'Identifier', value: this.selectedDataset.id });
+          }
         }
 
         if (this.metadata) {
@@ -105,9 +117,7 @@
             });
           }
 
-          if (this.metadata) {
-            details.push({ heading: 'Language', value: (this.metadata.language === 'en' ? 'English' : this.metadata.language) });
-          }
+          details.push({ heading: 'Language', value: (this.metadata.language === 'en' ? 'English' : this.metadata.language) });
 
           if (this.metadata.license) {
             details.push({ heading: 'License', value: this.metadata.license });
@@ -122,22 +132,16 @@
               value: `<a href='${this.metadata.dataSourceEndpoint}' target="_blank" rel="noopener noreferrer">${this.metadata.dataSourceEndpoint}</a>`
             });
           }
+        }
 
-          if (
-            this.metadata.dataSourceEndpoint
-            && this.metadata.dataSourceEndpoint !== this.metadata.dataSourceUrl
-          ) {
-            details.push({
-              heading: 'Data source endpoint',
-              value: `<a href='${this.metadata.dataSourceEndpoint}' target="_blank" rel="noopener noreferrer">${this.metadata.dataSourceEndpoint}</a>`
-            });
-          }
+        if (this.vocabulary) {
+          details.push({ heading: 'Tags', value: this.vocabulary.tags.join(', ') });
         }
         return details.filter(detail => detail && (typeof detail.value !== 'undefined'));
       },
       isShallow() {
         if (!this.selectedDataset) return false;
-        return ['worldbank', 'hdx', 'genericindex', 'resourcewatch'].includes(this.selectedDataset.provider);
+        return ['worldbank', 'hdx', 'genericindex', 'resourcewatch', 'un'].includes(this.selectedDataset.provider);
       },
       showCodeExamples() {
         return this.selectedDataset && this.selectedDataset.provider !== 'genericindex' && (!this.isShallow || this.selectedDataset.provider === 'resourcewatch');
@@ -150,6 +154,7 @@
       },
       ...mapGetters({
         selectedDataset: 'getSelectedDataset',
+        error: 'getError',
         relatedDatasets: 'getRelatedDatasets'
       })
     },

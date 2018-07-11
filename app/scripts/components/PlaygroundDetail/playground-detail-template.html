@@ -5,6 +5,7 @@
         <ul class="sidebar-navigation">
           <li>
             <a
+              v-if="selectedDataset"
               :class="{ '-active': activeAnchor === 'about' }"
               @click="scrollTo('#about')"
             >
@@ -79,31 +80,38 @@
     <div class="column small-9 main-content">
       <article-component grid-row="row align-center" grid-column="medium-11" v-if="!loading">
         <section id="about" class="dataset-detail-section">
+
+          <h1 class="dataset-title" v-if="!selectedDataset && error">
+            Error loading dataset
+          </h1>
+
+          <h3 class="dataset-title" v-if="error === '404'">
+            Dataset not found
+          </h3>
+
+          <h3 class="dataset-title" v-else>
+            {{error}}
+          </h3>
+
           <h1 class="dataset-title" v-if="selectedDataset">
             {{selectedDataset.name}}
             <v-popover
               trigger="hover"
               placement="top"
             >
-              <template v-if="selectedDataset.sandbox">
+              <template v-if="!isShallow && selectedDataset.sandbox">
                 <icon-component name="icon-unlock" class="-medium"></icon-component>
                 <div class="tooltip-container" slot="popover">
-                      <span class="tooltip-heading">
-                        Sandbox environment
-                      </span>
                   <p class="tooltip-content">
-                    No authentication needed to query this dataset
+                    No authentication needed to query this dataset.
                   </p>
                 </div>
               </template>
-              <template v-else>
+              <template v-if="!isShallow && !selectedDataset.sandbox">
                 <icon-component name="icon-lock" class="-medium"></icon-component>
                 <div class="tooltip-container" slot="popover">
-                      <span class="tooltip-heading">
-                        No sandbox environment
-                      </span>
                   <p class="tooltip-content">
-                    Authentication needed to query this dataset
+                    An API key is needed to query this dataset. Login or register to get yours - the process is simple and free.
                   </p>
                 </div>
               </template>
@@ -113,7 +121,10 @@
             {{metadata.description}}
           </p>
 
-          <h3 class="section-title">About this dataset</h3>
+          <h3
+            v-if="selectedDataset"
+            class="section-title"
+          >About this dataset</h3>
           <div class="row -equal-height">
             <div
               v-for="detail in metadataDetails"

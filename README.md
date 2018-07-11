@@ -113,3 +113,79 @@ git push heroku master
 
 5. Submit a pull request :D
 
+# Examples gallery
+
+The examples gallery content can be edited in the `app/data/examples.json` file.
+
+* id: 
+* title: Human-friendly title of the visualisation. 
+* url: URL of the page
+* organization: 
+* lastUpdate: 
+* sourceCode: 
+* intro: 
+* content: 
+* thumb: 
+* html: 
+* images: 
+
+| Field name     | Required? | Description |
+|----------------|-----------|-------------|
+| id             | Y         | ID of the visualisation. Must be unique and not contain spaces or special characters. |
+| title          | Y         | Human-friendly title of the visualisation. |
+| url            | N         | URL of the page |
+| author         | N         | Name of the author of the visualisation            |
+| date           | N         | Date when the visualisation was published |
+| sourceCode     | N         | Link to the source code of the example |
+| intro          | N         | Short text describing the example. To be displayed in the gallery view. |
+| content        | N         | Larger text describing the example. To be displayed in the example detail page. |
+| thumb          | N         | Small thumbnail representative of the example. To be displayed in the gallery view. |
+| html           | N         | HTML snippet to be embedded within the example detail page. |
+| images         | N         | List of images to be displayed in the example detail page. Only displayed if no html content is passed. |
+
+While most fields are not required, all of them are recommended - expect for having `images` and `html` simultaneously.
+
+#### Example: 
+
+```json
+[
+  {
+    "id": "conflicts-related-to-protected-areas",
+    "title": "Conflicts related to protected areas",
+    "url": "https://gpsdd.github.io/DATA4SDGS-Highway-Examples/#/conflicts-related-to-protected-areas",
+    "author": "GPSDD",
+    "date": "July 2, 2018",
+    "sourceCode": "https://github.com/GPSDD/DATA4SDGS-Highway-Examples/tree/master/app/scripts/components/MapVisualization",
+    "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "thumb": "/static/examples/conflicts-related-to-protected-areas.png",
+    "html": "<iframe src='https://gpsdd.github.io/DATA4SDGS-Highway-Examples/#/conflicts-related-to-protected-areas' width='100%' height='600px' frameborder='0'></iframe>",
+    "images": [
+      "/static/examples/conflicts-related-to-protected-areas.png",
+      "/static/examples/regions-with-greatest-water-risks.png"
+    ]
+  },
+  {
+    "id": "regions-with-greatest-water-risks",
+    "title": "Regions with greatest water risks",
+    "url": "https://gpsdd.github.io/DATA4SDGS-Highway-Examples/#/regions-with-greatest-water-risks",
+    "author": "GPSDD",
+    "date": "July 2, 2018",
+    "sourceCode": "https://github.com/GPSDD/DATA4SDGS-Highway-Examples/tree/master/app/scripts/components/OtherVisualization",
+    "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "thumb": "/static/examples/regions-with-greatest-water-risks.png",
+    "images": [
+      "/static/examples/conflicts-related-to-protected-areas.png",
+      "/static/examples/regions-with-greatest-water-risks.png"
+    ]
+  }
+]
+```
+
+#### Security warning
+
+The source code of this application makes no security or sanity checks on the content of the `html` field.
+It's the sole responsibility of the editor of the examples file to validate that this HTML code is valid, does not introduce security
+threats to the site or its users, and does not have any cross-interactions with other parts of the site, including other examples
+using the `html` field. To minimize all these risks, its recommended to use a single `<iframe>` element in this field.

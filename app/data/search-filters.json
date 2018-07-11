@@ -47,6 +47,14 @@
     {
       "value": "Global Forest Watch - Climate",
       "label": "GLOBAL FOREST WATCH - CLIMATE"
+    },
+    {
+      "value": "HDX API",
+      "label": "HUMANITARIAN DATA EXCHANGE"
+    },
+    {
+      "value": "United Nations Statistics Division",
+      "label": "UNITED NATIONS STATISTICS DIVISION"
     }
   ],
   "topics": [

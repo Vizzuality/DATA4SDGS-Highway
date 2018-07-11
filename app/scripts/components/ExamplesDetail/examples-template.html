@@ -10,15 +10,15 @@
         <h1 class="c-examples-detail-intro__title">{{example.title}}</h1>
       </div>
       <div class="column small-12 medium-6 c-examples-detail-intro__metadata">
-        <span>Related organization: {{example.organization}}</span>
-        <span>Last update: {{example.lastUpdate}}</span>
+        <span v-if="example.author">Author: {{example.author}}</span>
+        <span v-if="example.date">Date published: {{example.date}}</span>
       </div>
       <div class="column small-12 medium-6 c-examples-detail-intro__metadata">
-        <a :href="example.sourceCode" target="_blank" rel="noopener nofollower">
+        <a v-if="example.sourceCode" :href="example.sourceCode" target="_blank" rel="noopener nofollower">
           <icon-component name="icon-github" class="-small"></icon-component>
           See source code
         </a>
-        <span class="separator"></span>
+        <span v-if="example.sourceCode" class="separator"></span>
         <button @click="openShare">
           <icon-component name="icon-share" class="-small"></icon-component>
           Share
@@ -28,13 +28,13 @@
   </div>
   <div class="c-examples-detail-content">
     <div class="row">
-      <div class="column small-12">
+      <div class="column small-12" v-if="example.content">
         <h2 class="c-examples-detail-content__title">Description</h2>
       </div>
-      <div class="column small-12 medium-8">
+      <div class="column small-12 medium-8" v-if="example.content">
         <p class="c-examples-detail-content__text">{{example.content}}</p>
       </div>
-      <div class="column small-12 medium-2 medium-offset-2 align-self-bottom">
+      <div v-if="example.url" class="column small-12 medium-2 medium-offset-2 align-self-bottom">
         <a class="c-button -link" :href="example.url" target="_blank" rel="noopener noreferrer">Go to site</a>
       </div>
     </div>

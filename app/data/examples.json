@@ -3,11 +3,11 @@
     "id": "conflicts-related-to-protected-areas",
     "title": "Conflicts related to protected areas",
     "url": "https://gpsdd.github.io/DATA4SDGS-Highway-Examples/#/conflicts-related-to-protected-areas",
-    "organization": "GPSDD",
-    "lastUpdate": 1530482400000,
+    "author": "GPSDD",
+    "date": "July 2, 2018",
     "sourceCode": "https://github.com/GPSDD/DATA4SDGS-Highway-Examples/tree/master/app/scripts/components/MapVisualization",
-    "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "intro": "Number of conflicts contrasted with protected areas.",
+    "content": "Bubble map of events or conflicts on a global scale, contrasted with a layer of protected areas. Visualisation built using CARTO and vue.js",
     "thumb": "/static/examples/conflicts-related-to-protected-areas.png",
     "html": "<iframe src='https://gpsdd.github.io/DATA4SDGS-Highway-Examples/#/conflicts-related-to-protected-areas' width='100%' height='600px' frameborder='0'></iframe>",
     "images": [
@@ -19,15 +19,12 @@
     "id": "regions-with-greatest-water-risks",
     "title": "Regions with greatest water risks",
     "url": "https://gpsdd.github.io/DATA4SDGS-Highway-Examples/#/regions-with-greatest-water-risks",
-    "organization": "GPSDD",
-    "lastUpdate": 1530482400000,
+    "author": "GPSDD",
+    "date": "July 2, 2018",
     "sourceCode": "https://github.com/GPSDD/DATA4SDGS-Highway-Examples/tree/master/app/scripts/components/OtherVisualization",
-    "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "intro": "South Africa map detailing risks associated with population and water presence.",
+    "content": "Tabular view of South Africa's top regions associated with water risk, as well as map with layers representing water transitions, water basins and population. Visualisation built using CARTO and vue.js",
     "thumb": "/static/examples/regions-with-greatest-water-risks.png",
-    "images": [
-      "/static/examples/conflicts-related-to-protected-areas.png",
-      "/static/examples/regions-with-greatest-water-risks.png"
-    ]
+    "html": "<iframe src='https://gpsdd.github.io/DATA4SDGS-Highway-Examples/#/regions-with-greatest-water-risks' width='100%' height='600px' frameborder='0'></iframe>"
   }
 ]

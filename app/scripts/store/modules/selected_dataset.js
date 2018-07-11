@@ -50,7 +50,7 @@ const selectedDataset = {
       return new Promise((resolve, reject) => {
         commit(SET_SELECTED_DATASET_LOADING, true);
         commit(SET_SELECTED_DATASET_ERROR, false);
-        fetch(`${BASE_URL}/v1/dataset/${id}?includes=metadata`)
+        fetch(`${BASE_URL}/v1/dataset/${id}?includes=metadata,vocabulary`)
           .then((response) => {
             if (response.status >= 400) {
               throw new Error(response.status);
@@ -113,6 +113,9 @@ const selectedDataset = {
   getters: {
     getSelectedDataset(state) {
       return state.selected.dataset;
+    },
+    getError(state) {
+      return state.selected.error;
     },
     getRecentDatasets(state) {
       return state.recentDatasets;
