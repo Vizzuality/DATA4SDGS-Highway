@@ -189,3 +189,7 @@ The source code of this application makes no security or sanity checks on the co
 It's the sole responsibility of the editor of the examples file to validate that this HTML code is valid, does not introduce security
 threats to the site or its users, and does not have any cross-interactions with other parts of the site, including other examples
 using the `html` field. To minimize all these risks, its recommended to use a single `<iframe>` element in this field.
+
+# Filter options
+
+The options available within each filter can be configured in `app/data/search-filters.json`. Filter values across different filters need to be unique.
