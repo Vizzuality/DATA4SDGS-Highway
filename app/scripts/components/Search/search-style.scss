@@ -144,6 +144,11 @@ $checkbox-color: #aea6a6;
     }
   }
 
+  .tabs-component-panel {
+    max-height: 220px;
+    overflow: auto;
+  }
+
   .tabs-component-panels {
     .c-checkbox-group {
       padding: 0;
