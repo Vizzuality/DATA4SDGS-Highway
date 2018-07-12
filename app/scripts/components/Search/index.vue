@@ -94,7 +94,10 @@
       selections() {
         const selection = {};
         Object.keys(filters).forEach((key) => {
-          const selectedFilters = intersection(filters[key].map(f => f.value), this.selectedFilters);
+          const selectedFilters = intersection(
+            filters[key].map(f => f.value),
+            this.selectedFilters[key]
+          );
           selection[key] = selectedFilters.length
             ? `(${selectedFilters.length})`
             : '';
