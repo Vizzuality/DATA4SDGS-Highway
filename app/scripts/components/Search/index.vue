@@ -122,16 +122,15 @@
             emptyFilter[filterKey] = [];
           });
           this.$store.dispatch('setSearchDatasetsFilters', emptyFilter);
+        } else {
+          const newSectionFilters = (key && filter)
+            ? this.selectedFilters[key].filter(f => f !== filter)
+            : {};
+
+          const updatedFilter = {};
+          updatedFilter[key] = newSectionFilters;
+          this.$store.dispatch('setSearchDatasetsFilters', Object.assign({}, this.selectedFilters, updatedFilter));
         }
-
-        const newSectionFilters = (key && filter)
-          ? this.selectedFilters[key].filter(f => f !== filter)
-          : {};
-
-        const updatedFilter = {};
-        updatedFilter[key] = newSectionFilters;
-
-        this.$store.dispatch('setSearchDatasetsFilters', Object.assign({}, this.selectedFilters, updatedFilter));
       },
     },
     components: {
