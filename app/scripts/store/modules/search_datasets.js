@@ -1,11 +1,13 @@
 import { Deserializer as JSONAPIDeserializer } from 'jsonapi-serializer';
 import {
-  SET_SEARCH_DATASETS_SUCCESS,
   SET_SEARCH_DATASETS_ERROR,
+  SET_SEARCH_DATASETS_FILTERS,
   SET_SEARCH_DATASETS_LOADING,
   SET_SEARCH_DATASETS_QUERY,
-  SET_SEARCH_DATASETS_FILTERS
+  SET_SEARCH_DATASETS_SUCCESS
 } from '../mutation-types';
+import filterSettings from '../../../data/search-filters.json';
+
 
 const Deserializer = new JSONAPIDeserializer({ keyForAttribute: 'camelCase' });
 
@@ -51,9 +53,22 @@ const searchDatasets = {
         commit(SET_SEARCH_DATASETS_QUERY, value);
         commit(SET_SEARCH_DATASETS_LOADING, true);
         commit(SET_SEARCH_DATASETS_ERROR, false);
-        const tags = state.search.filters ? `&vocabulary[legacy]=${state.search.filters}` : '';
+
+        let taxnomyFilter = '';
+        if (state.search.filters.dataSources && state.search.filters.dataSources.length > 0) {
+          taxnomyFilter = `&vocabulary[legacy]=${state.search.filters.dataSources.join(',')}`;
+        }
+
+        const graphFilter = Object.assign({}, state.search.filters);
+        delete graphFilter.dataSources;
+        const graphFilterArray = [].concat(...Object.values(graphFilter));
+        const tags = graphFilterArray.length > 0 ? `&${graphFilterArray.map((elem, index) => `concepts[0][${index}]=${elem}`).join('&')}` : '';
+
         const queryEncoded = encodeURI(state.search.query);
-        fetch(`${BASE_URL}/v1/dataset?application=data4sdgs&published=true&includes=metadata&page[size]=500${state.search.query && state.search.query !== '' ? `&name=${queryEncoded}` : ''}${tags}`)
+        const search = state.search.query && state.search.query !== '' ? `&name=${queryEncoded}` : '';
+
+
+        fetch(`${BASE_URL}/v1/dataset?published=true&includes=metadata&page[size]=500${search}${tags}${taxnomyFilter}`)
           .then((response) => {
             if (response.status >= 400) {
               throw new Error(response.status);
@@ -84,12 +99,14 @@ const searchDatasets = {
       return state.search.query;
     },
     getSearchFilters(state) {
+      if (!state.search.filters) {
+        const result = {};
+        Object.keys(filterSettings).forEach((key) => {
+          result[key] = [];
+        });
+        return result;
+      }
       return state.search.filters;
-    },
-    getSearchFiltersArray(state) {
-      return state.search.filters
-      ? state.search.filters.split(',')
-      : [];
     },
     getSearchLoading(state) {
       return state.search.loading;

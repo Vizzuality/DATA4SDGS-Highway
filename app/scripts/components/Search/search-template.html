@@ -15,7 +15,7 @@
     <div v-if="selectedFiltersLabels.length > 0" class="c-filters" >
       <tag-component v-for="filter in selectedFiltersLabels" icon="close" >
         <span >{{filter.label}}</span >
-        <button @click="() => clearSelection(filter.value)" >
+        <button @click="() => clearSelection(filter.value, filter.key)" >
           <icon-component
             name="icon-close"
             class="search-icon -round -accent -mini"
@@ -31,25 +31,30 @@
     <div v-if="isOpen" class="c-tabs" >
       <tabs :options="{ useUrlFragment: false }" >
         <tab id="data-source" :name="`Data source <span class='number-selected'>${selections.dataSources}</span>`" >
-          <checkbox-component :items="filters.dataSources" :initial="selectedFilters"
+          <checkbox-component :items="filters.dataSources" :initial="selectedFilters.dataSources"
+                              :group="'dataSources'"
                               icon="icon-check" ></checkbox-component >
         </tab >
         <tab id="geography" :name="`Geography <span class='number-selected'>${selections.geography}</span>`" >
-          <checkbox-component :items="filters.geography" :initial="selectedFilters"
+          <checkbox-component :items="filters.geography" :initial="selectedFilters.geography"
+                              :group="'geography'"
                               icon="icon-check" ></checkbox-component >
         </tab >
         <tab id="topics" :name="`Topic <span class='number-selected'>${selections.topics}</span>`" >
-          <checkbox-component :items="filters.topics" :initial="selectedFilters"
+          <checkbox-component :items="filters.topics" :initial="selectedFilters.topics"
+                              :group="'topics'"
                               icon="icon-check" ></checkbox-component >
         </tab >
         <tab id="frequency-range"
              :name="`Update frequency <span class='number-selected'>${selections.frequency}</span>`" >
-          <checkbox-component :items="filters.frequency" :initial="selectedFilters"
+          <checkbox-component :items="filters.frequency" :initial="selectedFilters.frequency"
+                              :group="'frequency'"
                               icon="icon-check" ></checkbox-component >
         </tab >
         <tab id="sdg"
              :name="`SDG <span class='number-selected'>${selections.sdg}</span>`" >
-          <checkbox-component :items="filters.sdg" :initial="selectedFilters"
+          <checkbox-component :items="filters.sdg" :initial="selectedFilters.sdg"
+                              :group="'sdg'"
                               icon="icon-check" ></checkbox-component >
         </tab >
       </tabs >

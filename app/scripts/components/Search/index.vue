@@ -48,12 +48,22 @@
         const filterLabels = [];
 
         if (this.selectedFilters && this.filters) {
-          this.selectedFilters.forEach((filterValue) => {
-            const match = Object.values(this.filters).map(
-              filterSection =>
-                filterSection.find(filterOption =>
+          const filterValues = [].concat(...Object.values(this.selectedFilters));
+
+          filterValues.forEach((filterValue) => {
+            const match = Object.keys(this.filters).map(
+              (filterSectionKey) => {
+                const filterSection = this.filters[filterSectionKey];
+                const filterMatch = filterSection.find(filterOption =>
                   filterOption.value === filterValue
-                )
+                );
+
+                if (filterMatch) {
+                  return Object.assign({}, filterMatch, { key: filterSectionKey });
+                }
+
+                return null;
+              }
             ).find(e => e);
 
             if (typeof match !== 'undefined') {
@@ -70,7 +80,7 @@
         recentDatasets: 'getRecentDatasets',
         loading: 'getSearchLoading',
         error: 'getSearchError',
-        selectedFilters: 'getSearchFiltersArray'
+        selectedFilters: 'getSearchFilters'
       }),
       datasets() {
         if (this.recentDatasets.length && SHOW_RECENT_DATASETS) {
@@ -105,11 +115,23 @@
       selectDataset(dataset) {
         this.$store.dispatch('searchDatasets', dataset.name);
       },
-      clearSelection(filter) {
-        const newFilters = filter
-          ? this.selectedFilters.filter(f => f !== filter).join(',')
-          : '';
-        this.$store.dispatch('setSearchDatasetsFilters', newFilters);
+      clearSelection(filter, key) {
+        if (!key || !filter) {
+          const emptyFilter = {};
+          Object.keys(filters).forEach((filterKey) => {
+            emptyFilter[filterKey] = [];
+          });
+          this.$store.dispatch('setSearchDatasetsFilters', emptyFilter);
+        }
+
+        const newSectionFilters = (key && filter)
+          ? this.selectedFilters[key].filter(f => f !== filter)
+          : {};
+
+        const updatedFilter = {};
+        updatedFilter[key] = newSectionFilters;
+
+        this.$store.dispatch('setSearchDatasetsFilters', Object.assign({}, this.selectedFilters, updatedFilter));
       },
     },
     components: {

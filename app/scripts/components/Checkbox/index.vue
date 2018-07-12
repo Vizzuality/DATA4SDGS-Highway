@@ -1,53 +1,56 @@
-<template src="./checkbox-template.html"></template>
+<template src="./checkbox-template.html" ></template >
 
-<style lang="scss" src="./checkbox-style.scss"></style>
+<style lang="scss" src="./checkbox-style.scss" ></style >
 
-<script>
-import { mapGetters } from 'vuex';
-import IconComponent from 'components/Icon';
-import difference from 'lodash/difference';
-import uniq from 'lodash/uniq';
+<script >
+  import { mapGetters } from 'vuex';
+  import IconComponent from 'components/Icon';
 
-export default {
-  name: 'checkbox-component',
-  props: {
-    items: {
-      type: Array,
-      required: true,
+  export default {
+    name: 'checkbox-component',
+    props: {
+      group: {
+        type: String,
+        required: true,
+      },
+      items: {
+        type: Array,
+        required: true,
+      },
+      initial: {
+        type: Array,
+        required: true,
+      },
+      icon: {
+        type: String
+      },
     },
-    initial: {
-      type: Array,
-      required: false,
+    data() {
+      return {
+        selectedFilters: this.initial || {}
+      };
     },
-    icon: {
-      type: String
+    computed: {
+      ...mapGetters({
+        currentFilters: 'getSearchFilters'
+      }),
     },
-  },
-  data() {
-    return {
-      selectedFilters: this.initial || []
-    };
-  },
-  computed: {
-    ...mapGetters({
-      currentFilters: 'getSearchFiltersArray'
-    }),
-  },
-  methods: {
-    getId(value, index) {
-      return `checkbox-${value}-${index}`;
+    methods: {
+      getId(value, index) {
+        return `checkbox-${value}-${index}`;
+      },
     },
-  },
-  watch: {
-    selectedFilters() {
-      const filters = difference(this.currentFilters, this.items.map(i => i.value));
-      const newFilters = uniq([...filters, ...this.selectedFilters]).join(',');
-      this.$store.dispatch('setSearchDatasetsFilters', newFilters);
+    watch: {
+      selectedFilters() {
+        const newFilters = Object.assign({}, this.currentFilters);
+        newFilters[this.group] = this.selectedFilters;
+
+        this.$store.dispatch('setSearchDatasetsFilters', newFilters);
+      },
     },
-  },
-  components: {
-    IconComponent,
-  },
-};
-</script>
+    components: {
+      IconComponent,
+    },
+  };
+</script >
 
