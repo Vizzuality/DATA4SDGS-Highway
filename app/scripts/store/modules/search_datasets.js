@@ -12,6 +12,7 @@ import filterSettings from '../../../data/search-filters.json';
 const Deserializer = new JSONAPIDeserializer({ keyForAttribute: 'camelCase' });
 
 const BASE_URL = global.API_BASE_URL;
+let xhr;
 
 const searchDatasets = {
   state: {
@@ -67,23 +68,31 @@ const searchDatasets = {
         const queryEncoded = encodeURI(state.search.query);
         const search = state.search.query && state.search.query !== '' ? `&name=${queryEncoded}` : '';
 
-
-        fetch(`${BASE_URL}/v1/dataset?published=true&includes=metadata&page[size]=500${search}${tags}${taxnomyFilter}`)
-          .then((response) => {
-            if (response.status >= 400) {
-              throw new Error(response.status);
-            }
-            return response.json();
-          }).then((data) => {
+        // Using XMLHttpRequest to be able to cancel request
+        const url = `${BASE_URL}/v1/dataset?published=true&includes=metadata&page[size]=500${search}${tags}${taxnomyFilter}`;
+        if (xhr) {
+          xhr.abort();
+        }
+        xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === XMLHttpRequest.DONE && xhr.status >= 200 && xhr.status < 400) {
+            const data = JSON.parse(xhr.response);
             Deserializer.deserialize(data, (err, list) => {
               if (err) throw new Error('Error deserializing json api');
               commit(SET_SEARCH_DATASETS_LOADING, false);
               commit(SET_SEARCH_DATASETS_SUCCESS, list);
+              xhr = null;
             });
-          }).catch((error) => {
-            commit(SET_SEARCH_DATASETS_LOADING, false);
-            commit(SET_SEARCH_DATASETS_ERROR, error);
-          });
+          }
+        };
+        xhr.onerror = () => {
+          commit(SET_SEARCH_DATASETS_LOADING, false);
+          commit(SET_SEARCH_DATASETS_ERROR, xhr.responseText);
+        };
+
+        xhr.send();
+        return xhr;
       });
     },
   },
