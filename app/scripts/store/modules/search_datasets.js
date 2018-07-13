@@ -75,6 +75,7 @@ const searchDatasets = {
         }
         xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
+        xhr.setRequestHeader('client', 'front');
         xhr.onreadystatechange = () => {
           if (xhr.readyState === XMLHttpRequest.DONE && xhr.status >= 200 && xhr.status < 400) {
             const data = JSON.parse(xhr.response);

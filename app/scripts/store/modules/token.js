@@ -19,7 +19,8 @@ const token = {
       return new Promise(() => {
         fetch(`${BASE_URL}/auth/generate-token`, {
           headers: {
-            Authorization: `Bearer ${qs.parse(window.location.search).token}`
+            Authorization: `Bearer ${qs.parse(window.location.search).token}`,
+            client: 'front'
           }
         })
         .then((response) => {

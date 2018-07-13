@@ -1,4 +1,5 @@
 import { Deserializer as JSONAPIDeserializer } from 'jsonapi-serializer';
+import API from 'services/ApiManager';
 import {
   SET_FEATURED_DATASETS_SUCCESS,
   SET_FEATURED_DATASETS_ERROR,
@@ -9,8 +10,6 @@ import {
 } from '../mutation-types';
 
 const Deserializer = new JSONAPIDeserializer({ keyForAttribute: 'camelCase' });
-
-const BASE_URL = global.API_BASE_URL;
 
 const featuredDatasets = {
   state: {
@@ -45,13 +44,8 @@ const featuredDatasets = {
       return new Promise((resolve, reject) => {
         commit(SET_DATASETS_LOADING, true);
         commit(SET_DATASETS_ERROR, false);
-        fetch(`${BASE_URL}/v1/dataset?app=data4sdgs&page[size]=12&published=true&includes=metadata&cache=expire`)
-          .then((response) => {
-            if (response.status >= 400) {
-              throw new Error(response.status);
-            }
-            return response.json();
-          }).then((data) => {
+        API.get('dataset', 'app=data4sdgs&page[size]=12&published=true&includes=metadata&cache=expire')
+          .then((data) => {
             Deserializer.deserialize(data, (err, list) => {
               if (err) throw new Error('Error deserializing json api');
               commit(SET_DATASETS_LOADING, false);
@@ -69,13 +63,9 @@ const featuredDatasets = {
       return new Promise((resolve, reject) => {
         commit(SET_FEATURED_DATASETS_LOADING, true);
         commit(SET_FEATURED_DATASETS_ERROR, false);
-        fetch(`${BASE_URL}/v1/dataset?app=data4sdgs&tags=data4sdgs-featured&published=true&page[size]=12&includes=metadata&cache=expire`)
-          .then((response) => {
-            if (response.status >= 400) {
-              throw new Error(response.status);
-            }
-            return response.json();
-          }).then((data) => {
+        const params = 'app=data4sdgs&tags=data4sdgs-featured&published=true&page[size]=12&includes=metadata&cache=expire';
+        API.get('dataset', params)
+          .then((data) => {
             Deserializer.deserialize(data, (err, list) => {
               if (err) throw new Error('Error deserializing json api');
               commit(SET_FEATURED_DATASETS_LOADING, false);
