@@ -46,7 +46,7 @@
           </li>
         </ul>
 
-        <div class="sidebar-links-section" v-if="metadata && (metadata.dataDownloadUrl.csv || metadata.dataDownloadUrl.json)">
+        <div class="sidebar-links-section" v-if="metadata && metadata.dataDownloadUrl && (metadata.dataDownloadUrl.csv || metadata.dataDownloadUrl.json)">
           <span class="sidebar-links-heading">
             <icon-component name="icon-download" class="-small"></icon-component>
             <span class="sidebar-links-heading-text">Download</span>
