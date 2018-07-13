@@ -7,7 +7,6 @@ import { mapGetters } from 'vuex';
 import ArticleComponent from 'components/Article';
 import DatasetListComponent from 'components/DatasetList';
 import ModalComponent from 'components/Modal';
-import DropdownComponent from 'components/Dropdown';
 import SpinnerComponent from 'components/Spinner';
 import ButtonComponent from 'components/Button';
 
@@ -20,62 +19,6 @@ export default {
   },
   data() {
     return {
-      filters: [{
-        value: 'noaa',
-        label: 'NOAA',
-      },
-      {
-        value: 'nasa',
-        label: 'NASA',
-      },
-      {
-        value: 'iucn_unep_wcmc',
-        label: 'IUCN & UNEP-WCMC',
-      },
-      {
-        value: 'cait',
-        label: 'CAIT',
-      },
-      {
-        value: 'joe_casola',
-        label: 'JOE CASOLA, U. OF WASHINGTON',
-      },
-      {
-        value: 'worldbank',
-        label: 'WORLD BANK',
-      },
-      {
-        value: 'PREP- Partnership for Resilience & Preparedness',
-        label: 'PREP- PARTNERSHIP FOR RESILIENCE & PREPAREDNESS',
-      },
-      {
-        value: 'Resource Watch',
-        label: 'RESOURCE WATCH',
-      },
-      {
-        value: 'Aqueduct',
-        label: 'AQUEDUCT',
-      },
-      {
-        value: 'Resource Watch API',
-        label: 'RESOURCE WATCH API',
-      },
-      {
-        value: 'Global Forest Watch',
-        label: 'GLOBAL FOREST WATCH',
-      },
-      {
-        value: 'Global Forest Watch - Climate',
-        label: 'GLOBAL FOREST WATCH - CLIMATE',
-      },
-      {
-        value: 'HDX API',
-        label: 'HUMANITARIAN DATA EXCHANGE',
-      },
-      {
-        value: 'United Nations Statistics Division',
-        label: 'UNITED NATIONS STATISTICS DIVISION',
-      }],
       loadingMessage: 'Searching...',
       errorMessage: 'Something weird happened!',
       notFoundMessage: 'No Datasets were found',
@@ -115,7 +58,6 @@ export default {
   components: {
     ArticleComponent,
     DatasetListComponent,
-    DropdownComponent,
     ModalComponent,
     SpinnerComponent,
     router,

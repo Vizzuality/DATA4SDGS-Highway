@@ -1,35 +1,65 @@
-<div class="c-search">
-  <div class="container">
-    <div class="input">
+<div class="c-search" >
+  <div class="container" v-click-outside="onClickOutside" >
+    <div class="input" >
       <input
         type="search"
-        placeholder="Search for data..."
+        placeholder="Search and filter datasets"
         class="search-input js-search-input"
         v-model.trim="queryState"
-        @keyup.down="navigateDown"
         ref="search-input"
-        v-click-outside="onClickOutside"
         v-on:click="isOpen = true"
       >
-      <icon-component class="search-icon -round -medium" name="icon-search"></icon-component>
-    </div>
-    <ul v-if="showSearchSuggestions && isOpen && datasets.length > 0" class="search-results-list" ref="search-results-list">
-      <li v-if="loading" class="search-results-item">Searching...</li>
-      <li v-else-if="error" class="search-results-item -error">No datasets found</li>
-      <li
-        v-if="!loading"
-        tabindex="-1"
-        class="search-results-item -item js-search-results-item"
-        v-for="(dataset, index) in datasets"
-        @click="selectDataset(dataset)"
-        @keyup.enter="selectDataset(dataset)"
-        @keyup.down="navigateDown"
-        @keyup.up="navigateUp"
-      >
-        {{dataset.name}}
-      </li>
-    </ul>
-  </div>
-</div>
+      <icon-component :class="['search-icon', '-round', '-xsmall', { '-inverted': isOpen }]"
+                      name="icon-chevron-down" ></icon-component >
+    </div >
+    <div v-if="selectedFiltersLabels.length > 0" class="c-filters" >
+      <tag-component v-for="filter in selectedFiltersLabels" icon="close" >
+        <span >{{filter.label}}</span >
+        <button @click="() => clearSelection(filter.value, filter.key)" >
+          <icon-component
+            name="icon-close"
+            class="search-icon -round -accent -mini"
+          ></icon-component >
+        </button >
+      </tag-component >
+      <tag-component filled label="Clear filters" >
+        <button @click="() => clearSelection()" >
+          Clear filters
+        </button >
+      </tag-component >
+    </div >
+    <div v-if="isOpen" class="c-tabs" >
+      <tabs :options="{ useUrlFragment: false }" >
+        <tab id="data-source" :name="`Data source <span class='number-selected'>${selections.dataSources}</span>`" >
+          <checkbox-component :items="filters.dataSources" :initial="selectedFilters.dataSources"
+                              :group="'dataSources'"
+                              icon="icon-check" ></checkbox-component >
+        </tab >
+        <tab id="geography" :name="`Geography <span class='number-selected'>${selections.geography}</span>`" >
+          <checkbox-component :items="filters.geography" :initial="selectedFilters.geography"
+                              :group="'geography'"
+                              icon="icon-check" ></checkbox-component >
+        </tab >
+        <tab id="topics" :name="`Topic <span class='number-selected'>${selections.topics}</span>`" >
+          <checkbox-component :items="filters.topics" :initial="selectedFilters.topics"
+                              :group="'topics'"
+                              icon="icon-check" ></checkbox-component >
+        </tab >
+        <tab id="frequency-range"
+             :name="`Update frequency <span class='number-selected'>${selections.frequency}</span>`" >
+          <checkbox-component :items="filters.frequency" :initial="selectedFilters.frequency"
+                              :group="'frequency'"
+                              icon="icon-check" ></checkbox-component >
+        </tab >
+        <tab id="sdg"
+             :name="`SDG <span class='number-selected'>${selections.sdg}</span>`" >
+          <checkbox-component :items="filters.sdg" :initial="selectedFilters.sdg"
+                              :group="'sdg'"
+                              icon="icon-check" ></checkbox-component >
+        </tab >
+      </tabs >
+    </div >
+  </div >
+</div >
 
 

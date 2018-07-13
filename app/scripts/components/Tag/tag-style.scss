@@ -1,0 +1,49 @@
+// Import global variables
+@import '../../../styles/variables';
+
+.c-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 20px;
+  border-radius: 10px;
+  border: solid 1px $theme-accent;
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  > span,
+  > button {
+    font-size: $font-size-xxsmall;
+    line-height: 2;
+    font-style: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    color: $theme-accent;
+    outline: none;
+  }
+
+  > span {
+    padding-left: 10px;
+  }
+
+  > button {
+    padding: 5px;
+  }
+
+  &.-filled {
+    background-color: $theme-accent;
+
+    > span,
+    > button {
+      color: $white;
+    }
+
+    .c-icon > svg {
+      fill: $white;
+    }
+  }
+}
