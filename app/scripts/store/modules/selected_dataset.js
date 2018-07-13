@@ -49,8 +49,8 @@ const selectedDataset = {
       return new Promise((resolve, reject) => {
         commit(SET_SELECTED_DATASET_LOADING, true);
         commit(SET_SELECTED_DATASET_ERROR, false);
-        const params = `${id}?includes=metadata,vocabulary`;
-        API.get('dataset', params)
+        const params = 'includes=metadata,vocabulary';
+        API.get(`dataset/${id}`, params)
           .then((data) => {
             Deserializer.deserialize(data, (err, dataset) => {
               if (err) throw new Error('Error deserializing json api');
