@@ -1,0 +1,2676 @@
+{
+  "dataSources": [
+    {
+      "value": "noaa",
+      "label": "NOAA"
+    },
+    {
+      "value": "nasa",
+      "label": "NASA"
+    },
+    {
+      "value": "iucn_unep_wcmc",
+      "label": "IUCN & UNEP-WCMC"
+    },
+    {
+      "value": "cait",
+      "label": "CAIT"
+    },
+    {
+      "value": "joe_casola",
+      "label": "JOE CASOLA, U. OF WASHINGTON"
+    },
+    {
+      "value": "worldbank",
+      "label": "WORLDBANK"
+    },
+    {
+      "value": "PREP- Partnership for Resilience & Preparedness",
+      "label": "PREP- PARTNERSHIP FOR RESILIENCE & PREPAREDNESS"
+    },
+    {
+      "value": "Resource Watch",
+      "label": "RESOURCE WATCH"
+    },
+    {
+      "value": "Aqueduct",
+      "label": "AQUEDUCT"
+    },
+    {
+      "value": "Resource Watch API",
+      "label": "RESOURCE WATCH API"
+    },
+    {
+      "value": "Global Forest Watch",
+      "label": "GLOBAL FOREST WATCH"
+    },
+    {
+      "value": "Global Forest Watch - Climate",
+      "label": "GLOBAL FOREST WATCH - CLIMATE"
+    },
+    {
+      "value": "HDX API",
+      "label": "HUMANITARIAN DATA EXCHANGE"
+    },
+    {
+      "value": "United Nations Statistics Division",
+      "label": "UNITED NATIONS STATISTICS DIVISION"
+    }
+  ],
+  "geography": [
+    {
+      "value": "antarctica",
+      "label": "Antarctica"
+    },
+    {
+      "value": "europe",
+      "label": "Europe"
+    },
+    {
+      "value": "north_america",
+      "label": "North America"
+    },
+    {
+      "value": "south_america",
+      "label": "South America"
+    },
+    {
+      "value": "oceania",
+      "label": "Oceania"
+    },
+    {
+      "value": "africa",
+      "label": "Africa"
+    },
+    {
+      "value": "asia",
+      "label": "Asia"
+    },
+    {
+      "label": "European Free Trade Association",
+      "value": "european_free_trade_association"
+    },
+    {
+      "value": "schengen_area",
+      "label": "Schengen Area"
+    },
+    {
+
+      "value": "eu",
+      "label": "EU"
+    },
+    {
+      "value": "oecd",
+      "label": "OECD"
+    },
+    {
+      "value": "spain",
+      "label": "Spain"
+    },
+    {
+      "value": "portugal",
+      "label": "Portugal"
+    },
+    {
+      "value": "germany",
+      "label": "Germany"
+    },
+    {
+      "value": "uk",
+      "label": "United Kingdom"
+    },
+    {
+      "value": "italy",
+      "label": "Italy"
+    },
+    {
+      "value": "ireland",
+      "label": "Ireland"
+    },
+    {
+      "value": "malta",
+      "label": "Malta"
+    },
+    {
+      "value": "belgium",
+      "label": "Belgium"
+    },
+    {
+      "value": "austria",
+      "label": "Austria"
+    },
+    {
+      "value": "latvia",
+      "label": "Latvia"
+    },
+    {
+      "value": "bulgaria",
+      "label": "Bulgaria"
+    },
+    {
+      "value": "lithuania",
+      "label": "Lithuania"
+    },
+    {
+      "value": "luxembourg",
+      "label": "Luxembourg"
+    },
+    {
+      "value": "croatia",
+      "label": "Croatia"
+    },
+    {
+      "value": "cyprus",
+      "label": "Cyprus"
+    },
+    {
+      "value": "czech_republic",
+      "label": "Czech Republic"
+    },
+    {
+      "value": "netherlands",
+      "label": "Netherlands"
+    },
+    {
+      "value": "denmark",
+      "label": "Denmark"
+    },
+    {
+      "value": "poland",
+      "label": "Poland"
+    },
+    {
+      "value": "estonia",
+      "label": "Estonia"
+    },
+    {
+      "value": "finland",
+      "label": "Finland"
+    },
+    {
+      "value": "slovakia",
+      "label": "Slovakia"
+    },
+    {
+      "value": "romania",
+      "label": "Romania"
+    },
+    {
+      "value": "slovenia",
+      "label": "Slovenia"
+    },
+    {
+      "value": "greece",
+      "label": "Greece"
+    },
+    {
+      "value": "hungary",
+      "label": "Hungary"
+    },
+    {
+      "value": "sweden",
+      "label": "Sweden"
+    },
+    {
+      "value": "france",
+      "label": "France"
+    },
+    {
+      "value": "afghanistan",
+      "label": "Afghanistan"
+    },
+    {
+      "value": "aland",
+      "label": "Aland"
+    },
+    {
+      "value": "albania",
+      "label": "Albania"
+    },
+    {
+      "value": "algeria",
+      "label": "Algeria"
+    },
+    {
+      "value": "american_samoa",
+      "label": "American Samoa"
+    },
+    {
+      "value": "andorra",
+      "label": "Andorra"
+    },
+    {
+      "value": "angola",
+      "label": "Angola"
+    },
+    {
+      "value": "anguilla",
+      "label": "Anguilla"
+    },
+    {
+      "label": "Antigua and Barbuda",
+      "value": "antigua_and_barbuda"
+    },
+    {
+      "value": "argentina",
+      "label": "Argentina"
+    },
+    {
+      "value": "armenia",
+      "label": "Armenia"
+    },
+    {
+      "value": "aruba",
+      "label": "Aruba"
+    },
+    {
+      "value": "australia",
+      "label": "Australia"
+    },
+    {
+      "value": "azerbaijan",
+      "label": "Azerbaijan"
+    },
+    {
+      "value": "bahamas",
+      "label": "Bahamas"
+    },
+    {
+      "value": "bahrain",
+      "label": "Bahrain"
+    },
+    {
+      "value": "bangladesh",
+      "label": "Bangladesh"
+    },
+    {
+      "value": "barbados",
+      "label": "Barbados"
+    },
+    {
+      "value": "belarus",
+      "label": "Belarus"
+    },
+    {
+      "value": "belize",
+      "label": "Belize"
+    },
+    {
+      "value": "benin",
+      "label": "Benin"
+    },
+    {
+      "value": "bermuda",
+      "label": "Bermuda"
+    },
+    {
+      "value": "bhutan",
+      "label": "Bhutan"
+    },
+    {
+      "value": "bolivia",
+      "label": "Bolivia"
+    },
+    {
+      "label": "Bosnia and Herzegovina",
+      "value": "bosnia_and_herzegovina"
+    },
+    {
+      "value": "botswana",
+      "label": "Botswana"
+    },
+    {
+      "value": "brazil",
+      "label": "Brazil"
+    },
+    {
+      "label": "British Indian Ocean Territory",
+      "value": "british_indian_ocean_territory"
+    },
+    {
+      "value": "brunei",
+      "label": "Brunei"
+    },
+    {
+      "value": "burkina_faso",
+      "label": "Burkina Faso"
+    },
+    {
+      "value": "burundi",
+      "label": "Burundi"
+    },
+    {
+      "value": "cambodia",
+      "label": "Cambodia"
+    },
+    {
+      "value": "cameroon",
+      "label": "Cameroon"
+    },
+    {
+      "value": "canada",
+      "label": "Canada"
+    },
+    {
+      "value": "cape_verde",
+      "label": "Cape_Verde"
+    },
+    {
+      "value": "cayman_islands",
+      "label": "Cayman Islands"
+    },
+    {
+      "label": "Central African Republic",
+      "value": "central_african_republic"
+    },
+    {
+      "value": "chad",
+      "label": "Chad"
+    },
+    {
+      "value": "chile",
+      "label": "Chile"
+    },
+    {
+      "value": "china",
+      "label": "China"
+    },
+    {
+      "value": "colombia",
+      "label": "Colombia"
+    },
+    {
+      "value": "comoros",
+      "label": "Comoros"
+    },
+    {
+      "value": "congo",
+      "label": "Congo"
+    },
+    {
+      "label": "Democratic Republic of the Congo",
+      "value": "democratic_republic_of_congo"
+    },
+    {
+      "value": "cook_islands",
+      "label": "Cook islands"
+    },
+    {
+      "value": "costa_rica",
+      "label": "Costa Rica"
+    },
+    {
+      "value": "ivory_coast",
+      "label": "Ivory Coast"
+    },
+    {
+      "value": "cuba",
+      "label": "Cuba"
+    },
+    {
+      "value": "curacao",
+      "label": "Curaçao"
+    },
+    {
+      "value": "djibouti",
+      "label": "Djibouti"
+    },
+    {
+      "value": "dominica",
+      "label": "Dominica"
+    },
+    {
+      "label": "Dominican Republic",
+      "value": "dominican_republic"
+    },
+    {
+      "value": "ecuador",
+      "label": "Ecuador"
+    },
+    {
+      "value": "egypt",
+      "label": "Egypt"
+    },
+    {
+      "value": "el_salvador",
+      "label": "El Salvador"
+    },
+    {
+      "label": "Equatorial Guinea",
+      "value": "equatorial_guinea"
+    },
+    {
+      "value": "eritrea",
+      "label": "Eritrea"
+    },
+    {
+      "value": "ethiopia",
+      "label": "Ethiopia"
+    },
+    {
+      "label": "Falkland Islands",
+      "value": "falkland_islands"
+    },
+    {
+      "value": "faroe_islands",
+      "label": "Faroe Islands"
+    },
+    {
+      "value": "fiji",
+      "label": "Fiji"
+    },
+    {
+      "label": "French Polynesia",
+      "value": "french_polynesia"
+    },
+    {
+      "label": "French Southern and Antarctic Lands",
+      "value": "french_southern_and_antarctic_lands"
+    },
+    {
+      "value": "gabon",
+      "label": "Gabon"
+    },
+    {
+      "value": "gambia",
+      "label": "Gambia"
+    },
+    {
+      "value": "georgia",
+      "label": "Georgia"
+    },
+    {
+      "value": "ghana",
+      "label": "Ghana"
+    },
+    {
+      "value": "gibraltar",
+      "label": "Gibraltar"
+    },
+    {
+      "value": "greenland",
+      "label": "Greenland"
+    },
+    {
+      "value": "grenada",
+      "label": "Grenada"
+    },
+    {
+      "value": "guam",
+      "label": "Guam"
+    },
+    {
+      "value": "guatemala",
+      "label": "Guatemala"
+    },
+    {
+      "value": "guernsey",
+      "label": "Guernsey"
+    },
+    {
+      "value": "guinea",
+      "label": "Guinea"
+    },
+    {
+      "value": "guinea_bissau",
+      "label": "Guinea-Bissau"
+    },
+    {
+      "value": "guyana",
+      "label": "Guyana"
+    },
+    {
+      "value": "haiti",
+      "label": "Haiti"
+    },
+    {
+      "label": "Heard Island and McDonald Islands",
+      "value": "heard_island_and_mcdoland_islands"
+    },
+    {
+      "value": "vatican",
+      "label": "Vatican"
+    },
+    {
+      "value": "honduras",
+      "label": "Honduras"
+    },
+    {
+      "value": "hong_kong",
+      "label": "Hong Kong"
+    },
+    {
+      "value": "iceland",
+      "label": "Iceland"
+    },
+    {
+      "value": "india",
+      "label": "India"
+    },
+    {
+      "value": "sikkim",
+      "label": "Sikkim"
+    },
+    {
+      "value": "rajasthan",
+      "label": "Rajasthan"
+    },
+    {
+      "value": "punjab",
+      "label": "Punjab"
+    },
+    {
+      "value": "puducherry",
+      "label": "Puducherry"
+    },
+    {
+      "value": "odisha",
+      "label": "Odisha"
+    },
+    {
+      "value": "nagaland",
+      "label": "Nagaland"
+    },
+    {
+      "value": "mizoram",
+      "label": "Mizoram"
+    },
+    {
+      "value": "meghalaya",
+      "label": "Meghalaya"
+    },
+    {
+      "value": "manipur",
+      "label": "Manipur"
+    },
+    {
+      "value": "maharashtra",
+      "label": "Maharashtra"
+    },
+    {
+      "value": "madhya_pradesh",
+      "label": "Madhya Pradesh"
+    },
+    {
+      "value": "lakshadweep",
+      "label": "Lakshadweep"
+    },
+    {
+      "value": "kerala",
+      "label": "Kerala"
+    },
+    {
+      "value": "karnataka",
+      "label": "Karnataka"
+    },
+    {
+      "value": "west_bengal",
+      "label": "West Bengal"
+    },
+    {
+      "value": "uttar_pradesh",
+      "label": "Uttar Pradesh"
+    },
+    {
+      "value": "tripura",
+      "label": "Tripura"
+    },
+    {
+      "value": "telangana",
+      "label": "Telangana"
+    },
+    {
+      "value": "tamil_nadu",
+      "label": "Tamil Nadu"
+    },
+    {
+      "label": "Jammu and Kashmir",
+      "value": "jammu_and_kashmir"
+    },
+    {
+      "label": "Himachal Pradesh",
+      "value": "himachal_pradesh"
+    },
+    {
+      "value": "haryana",
+      "label": "Haryana"
+    },
+    {
+      "value": "gujarat",
+      "label": "Gujarat"
+    },
+    {
+      "value": "daman_and_diu",
+      "label": "Daman and Diu"
+    },
+    {
+      "value": "goa",
+      "label": "Goa"
+    },
+    {
+      "value": "delhi",
+      "label": "Delhi"
+    },
+    {
+      "label": "Dadra and Nagar Haveli",
+      "value": "dadra_and_nagar_haveli"
+    },
+    {
+      "value": "chandigarh",
+      "label": "Chandigarh"
+    },
+    {
+      "value": "bihar",
+      "label": "Bihar"
+    },
+    {
+      "value": "assam",
+      "label": "Assam"
+    },
+    {
+      "label": "Arunachal Pradesh",
+      "value": "arunachal_pradesh"
+    },
+    {
+      "value": "andhra_pradesh",
+      "label": "Andhra Pradesh"
+    },
+    {
+      "label": "Andaman and Nicobar Islands",
+      "value": "andaman_and_nicobar_islands"
+    },
+    {
+      "value": "chhattisgarh",
+      "label": "Chhattisgarh"
+    },
+    {
+      "value": "jharkhand",
+      "label": "Jharkhand"
+    },
+    {
+      "value": "uttarakhand",
+      "label": "Uttarakhand"
+    },
+    {
+      "value": "indonesia",
+      "label": "Indonesia"
+    },
+    {
+      "value": "iran",
+      "label": "Iran"
+    },
+    {
+      "value": "iraq",
+      "label": "Iraq"
+    },
+    {
+      "value": "isle_of_man",
+      "label": "Isle of Man"
+    },
+    {
+      "value": "israel",
+      "label": "Israel"
+    },
+    {
+      "value": "jamaica",
+      "label": "Jamaica"
+    },
+    {
+      "value": "japan",
+      "label": "Japan"
+    },
+    {
+      "value": "jersey",
+      "label": "Jersey"
+    },
+    {
+      "value": "jordan",
+      "label": "Jordan"
+    },
+    {
+      "value": "kazakhstan",
+      "label": "Kazakhstan"
+    },
+    {
+      "value": "kenya",
+      "label": "Kenya"
+    },
+    {
+      "value": "kiribati",
+      "label": "Kiribati"
+    },
+    {
+      "label": "Democratic Republic of Korea",
+      "value": "democratic_republic_of_korea"
+    },
+    {
+      "value": "south_korea",
+      "label": "South Korea"
+    },
+    {
+      "value": "kuwait",
+      "label": "Kuwait"
+    },
+    {
+      "value": "kyrgyzstan",
+      "label": "Kyrgyzstan"
+    },
+    {
+      "label": "Lao People's Democratic Republic",
+      "value": "laos"
+    },
+    {
+      "value": "lebanon",
+      "label": "Lebanon"
+    },
+    {
+      "value": "lesotho",
+      "label": "Lesotho"
+    },
+    {
+      "value": "liberia",
+      "label": "Liberia"
+    },
+    {
+      "value": "libya",
+      "label": "Libya"
+    },
+    {
+      "value": "liechtenstein",
+      "label": "Liechtenstein"
+    },
+    {
+      "value": "macao",
+      "label": "Macao"
+    },
+    {
+      "value": "macedonia",
+      "label": "Macedonia"
+    },
+    {
+      "value": "madagascar",
+      "label": "Madagascar"
+    },
+    {
+      "value": "malawi",
+      "label": "Malawi"
+    },
+    {
+      "value": "malaysia",
+      "label": "Malaysia"
+    },
+    {
+      "value": "maldives",
+      "label": "Maldives"
+    },
+    {
+      "value": "mali",
+      "label": "Mali"
+    },
+    {
+      "label": "Marshall Islands",
+      "value": "marshall_islands"
+    },
+    {
+      "value": "mauritania",
+      "label": "Mauritania"
+    },
+    {
+      "value": "mauritius",
+      "label": "Mauritius"
+    },
+    {
+      "value": "mexico",
+      "label": "Mexico"
+    },
+    {
+      "value": "micronesia",
+      "label": "Micronesia"
+    },
+    {
+      "value": "moldova",
+      "label": "Moldova"
+    },
+    {
+      "value": "monaco",
+      "label": "Monaco"
+    },
+    {
+      "value": "mongolia",
+      "label": "Mongolia"
+    },
+    {
+      "value": "montenegro",
+      "label": "Montenegro"
+    },
+    {
+      "value": "montserrat",
+      "label": "Montserrat"
+    },
+    {
+      "value": "morocco",
+      "label": "Morocco"
+    },
+    {
+      "value": "mozambique",
+      "label": "Mozambique"
+    },
+    {
+      "value": "myanmar",
+      "label": "Myanmar"
+    },
+    {
+      "value": "namibia",
+      "label": "Namibia"
+    },
+    {
+      "value": "nauru",
+      "label": "Nauru"
+    },
+    {
+      "value": "nepal",
+      "label": "Nepal"
+    },
+    {
+      "value": "new_caledonia",
+      "label": "New Caledonia"
+    },
+    {
+      "value": "new_zealand",
+      "label": "New Zealand"
+    },
+    {
+      "value": "nicaragua",
+      "label": "Nicaragua"
+    },
+    {
+      "value": "niger",
+      "label": "Niger"
+    },
+    {
+      "value": "nigeria",
+      "label": "Nigeria"
+    },
+    {
+      "value": "niue",
+      "label": "Niue"
+    },
+    {
+      "value": "norfolk_island",
+      "label": "Norfolk Island"
+    },
+    {
+      "label": "Northern Mariana Islands",
+      "value": "northern_mariana_islands"
+    },
+    {
+      "value": "norway",
+      "label": "Norway"
+    },
+    {
+      "value": "oman",
+      "label": "Oman"
+    },
+    {
+      "value": "pakistan",
+      "label": "Pakistan"
+    },
+    {
+      "value": "palau",
+      "label": "Palau"
+    },
+    {
+      "value": "palestine",
+      "label": "Palestine"
+    },
+    {
+      "value": "panama",
+      "label": "Panama"
+    },
+    {
+      "label": "Papua New Guinea",
+      "value": "papua_new_guinea"
+    },
+    {
+      "value": "paraguay",
+      "label": "Paraguay"
+    },
+    {
+      "value": "peru",
+      "label": "Peru"
+    },
+    {
+      "value": "philippines",
+      "label": "Philippines"
+    },
+    {
+      "label": "Pitcairn Islands",
+      "value": "pitcairn_islands"
+    },
+    {
+      "value": "puerto_rico",
+      "label": "Puerto Rico"
+    },
+    {
+      "value": "qatar",
+      "label": "Qatar"
+    },
+    {
+      "value": "russia",
+      "label": "Russia"
+    },
+    {
+      "value": "rwanda",
+      "label": "Rwanda"
+    },
+    {
+      "label": "Saint Barthélemy",
+      "value": "saint_barthelemy"
+    },
+    {
+      "value": "saint_helena",
+      "label": "Saint Helena"
+    },
+    {
+      "label": "Saint Kitts and Nevis",
+      "value": "saint_kitts_and_nevis"
+    },
+    {
+      "value": "saint_lucia",
+      "label": "Saint Lucia"
+    },
+    {
+      "value": "saint_martin",
+      "label": "Saint Martin"
+    },
+    {
+      "label": "Saint Pierre and Miquelon",
+      "value": "saint_pierre_and_miquelon"
+    },
+    {
+      "label": "Saint Vincent and the Grenadines",
+      "value": "saint_vincent_and_the_grenadines"
+    },
+    {
+      "value": "samoa",
+      "label": "Samoa"
+    },
+    {
+      "value": "san_marino",
+      "label": "San Marino"
+    },
+    {
+      "label": "São Tomé and Principe",
+      "value": "sao_tome_and_principe"
+    },
+    {
+      "value": "saudi_arabia",
+      "label": "Saudi Arabia"
+    },
+    {
+      "value": "senegal",
+      "label": "Senegal"
+    },
+    {
+      "value": "serbia",
+      "label": "Serbia"
+    },
+    {
+      "value": "seychelles",
+      "label": "Seychelles"
+    },
+    {
+      "value": "sierra_leone",
+      "label": "Sierra Leone"
+    },
+    {
+      "value": "singapore",
+      "label": "Singapore"
+    },
+    {
+      "value": "sint_marteen",
+      "label": "Sint Maarten"
+    },
+    {
+      "label": "Solomon Islands",
+      "value": "solomon_islands"
+    },
+    {
+      "value": "somalia",
+      "label": "Somalia"
+    },
+    {
+      "value": "south_africa",
+      "label": "South Africa"
+    },
+    {
+      "value": "south_georgia_and_the_south_sandwich_islands",
+      "label": "South Georgia and the South Sandwich Islands"
+    },
+    {
+      "value": "south_sudan",
+      "label": "South Sudan"
+    },
+    {
+      "value": "sri_lanka",
+      "label": "Sri Lanka"
+    },
+    {
+      "value": "sudan",
+      "label": "Sudan"
+    },
+    {
+      "value": "suriname",
+      "label": "Suriname"
+    },
+    {
+      "value": "swaziland",
+      "label": "Swaziland"
+    },
+    {
+      "value": "switzerland",
+      "label": "Switzerland"
+    },
+    {
+      "value": "syria",
+      "label": "Syria"
+    },
+    {
+      "value": "taiwan",
+      "label": "Taiwan"
+    },
+    {
+      "value": "tajikistan",
+      "label": "Tajikistan"
+    },
+    {
+      "value": "tanzania",
+      "label": "Tanzania"
+    },
+    {
+      "value": "thailand",
+      "label": "Thailand"
+    },
+    {
+      "value": "timor_lest",
+      "label": "Timor-Leste"
+    },
+    {
+      "value": "togo",
+      "label": "Togo"
+    },
+    {
+      "value": "tonga",
+      "label": "Tonga"
+    },
+    {
+      "label": "Trinidad and Tobago",
+      "value": "trinidad_and_tobago"
+    },
+    {
+      "value": "tunisia",
+      "label": "Tunisia"
+    },
+    {
+      "value": "turkey",
+      "label": "Turkey"
+    },
+    {
+      "value": "turkmenistan",
+      "label": "Turkmenistan"
+    },
+    {
+      "label": "Turks and Caicos Islands",
+      "value": "turks_and_caicos_islands"
+    },
+    {
+      "value": "tuvalu",
+      "label": "Tuvalu"
+    },
+    {
+      "value": "uganda",
+      "label": "Uganda"
+    },
+    {
+      "value": "ukraine",
+      "label": "Ukraine"
+    },
+    {
+      "label": "United Arab Emirates",
+      "value": "united_arab_emirates"
+    },
+    {
+      "value": "usa",
+      "label": "United States"
+    },
+    {
+      "label": "United States Minor Outlying Islands",
+      "value": "united_states_minor_outlying_islands"
+    },
+    {
+      "value": "uruguay",
+      "label": "Uruguay"
+    },
+    {
+      "value": "uzbekistan",
+      "label": "Uzbekistan"
+    },
+    {
+      "value": "vanuatu",
+      "label": "Vanuatu"
+    },
+    {
+      "value": "venezuela",
+      "label": "Venezuela"
+    },
+    {
+      "value": "vietnam",
+      "label": "Vietnam"
+    },
+    {
+      "label": "British Virgin Islands",
+      "value": "british_virgin_islands"
+    },
+    {
+      "label": "United States Virgin Islands",
+      "value": "united_states_virgin_islands"
+    },
+    {
+      "label": "Wallis and Futuna",
+      "value": "wallis_and_futuna"
+    },
+    {
+      "value": "western_sahara",
+      "label": "Western Sahara"
+    },
+    {
+      "value": "yemen",
+      "label": "Yemen"
+    },
+    {
+      "value": "zambia",
+      "label": "Zambia"
+    },
+    {
+      "value": "zimbabwe",
+      "label": "Zimbabwe"
+    },
+    {
+      "label": "Coral Sea Islands Territory",
+      "value": "coral_sea_islands_territory"
+    },
+    {
+      "label": "Republic of Kosovo",
+      "value": "republic_of_kosovo"
+    }
+  ],
+  "topics": [
+    {
+      "value": "un",
+      "label": "UN"
+    },
+    {
+      "value": "erosion",
+      "label": "Erosion"
+    },
+    {
+      "value": "sedimentation",
+      "label": "Sedimentation"
+    },
+    {
+
+      "value": "commodity",
+      "label": "Commodity"
+    },
+    {
+
+      "value": "plant",
+      "label": "Plants"
+    },
+    {
+      "value": "infrastructure",
+      "label": "Infrastructure"
+    },
+    {
+      "label": "Natural Infrastructure",
+      "value": "natural_infrastructure"
+    },
+    {
+
+      "value": "animal",
+      "label": "Animals"
+    },
+    {
+
+      "value": "explosion",
+      "label": "Explosions"
+    },
+    {
+      "value": "damage",
+      "label": "Damages"
+    },
+    {
+
+      "value": "land",
+      "label": "Land"
+    },
+    {
+      "value": "extreme_event",
+      "label": "Extreme Events"
+    },
+    {
+      "value": "conflict",
+      "label": "Conflicts"
+    },
+    {
+
+      "value": "temperature",
+      "label": "Temperature"
+    },
+    {
+      "value": "exploitation",
+      "label": "Exploitation"
+    },
+    {
+
+      "value": "coast",
+      "label": "Coasts"
+    },
+    {
+
+      "value": "wetland",
+      "label": "Wetlands"
+    },
+    {
+      "value": "financial_loss",
+      "label": "Financial Loss"
+    },
+    {
+      "value": "forest",
+      "label": "Forests"
+    },
+    {
+
+      "value": "fire",
+      "label": "Fires"
+    },
+    {
+      "value": "deforestation",
+      "label": "Deforestation"
+    },
+    {
+      "value": "logging",
+      "label": "Logging"
+    },
+    {
+      "value": "mangroves",
+      "label": "Mangroves"
+    },
+    {
+      "value": "trees",
+      "label": "Trees"
+    },
+    {
+      "value": "forestry",
+      "label": "Forestry"
+    },
+    {
+      "value": "degradation",
+      "label": "Degradation"
+    },
+    {
+      "value": "forest_cover",
+      "label": "Forest Cover"
+    },
+    {
+      "value": "intact_forest",
+      "label": "Intact Forests"
+    },
+    {
+      "value": "water",
+      "label": "Water"
+    },
+    {
+
+      "value": "drought",
+      "label": "Drought"
+    },
+    {
+
+      "value": "flood",
+      "label": "Floods"
+    },
+    {
+      "value": "sewage",
+      "label": "Sewage"
+    },
+    {
+
+      "value": "water_extent",
+      "label": "Water Extent"
+    },
+    {
+
+      "value": "water_demand",
+      "label": "Water Demand"
+    },
+    {
+      "value": "precipitation",
+      "label": "Precipitation"
+    },
+    {
+
+      "value": "water_quality",
+      "label": "Water Quality"
+    },
+    {
+
+      "value": "water_stress",
+      "label": "Water Stress"
+    },
+    {
+      "value": "drinking_water",
+      "label": "Drinking Water"
+    },
+    {
+
+      "value": "wastewater",
+      "label": "Wastewater"
+    },
+    {
+      "value": "water_access",
+      "label": "Water Access"
+    },
+    {
+
+      "value": "dam",
+      "label": "Dams"
+    },
+    {
+
+      "value": "river",
+      "label": "Rivers"
+    },
+    {
+
+      "value": "lake",
+      "label": "Lakes"
+    },
+    {
+
+      "value": "ocean",
+      "label": "Oceans"
+    },
+    {
+      "value": "watershed",
+      "label": "Watersheds"
+    },
+    {
+      "value": "clean_water",
+      "label": "Clean Water"
+    },
+    {
+
+      "label": "Water Conflicts",
+      "value": "water_conflict"
+    },
+    {
+
+      "label": "Harmful Algal Blooms",
+      "value": "harmful_algal_blooms"
+    },
+    {
+      "value": "ice",
+      "label": "Ice"
+    },
+    {
+      "label": "Total Suspended Solids",
+      "value": "total_suspended_solids"
+    },
+    {
+      "label": "Biological Oxygen Demand",
+      "value": "biological_oxygen_demand"
+    },
+    {
+      "label": "Chemical Oxygen Demand",
+      "value": "chemical_oxygen_demand"
+    },
+    {
+      "value": "nitrogen",
+      "label": "Nitrogen"
+    },
+    {
+      "value": "phosphorus",
+      "label": "Phosphorus"
+    },
+    {
+      "value": "snow",
+      "label": "Snow"
+    },
+    {
+      "value": "eutrophication",
+      "label": "Eutrophication"
+    },
+    {
+      "label": "Food and Agriculture",
+      "value": "food_and_agriculture"
+    },
+    {
+      "value": "hunger",
+      "label": "Hunger"
+    },
+    {
+      "value": "nutrition",
+      "label": "Nutrition"
+    },
+    {
+
+      "value": "famine",
+      "label": "Famine"
+    },
+    {
+      "value": "livestock",
+      "label": "Livestock"
+    },
+    {
+
+      "value": "crop",
+      "label": "Crops"
+    },
+    {
+      "value": "crop_health",
+      "label": "Crop Health"
+    },
+    {
+      "value": "crop_yield",
+      "label": "Crop Yield"
+    },
+    {
+      "value": "food_security",
+      "label": "Food Security"
+    },
+    {
+      "value": "food_supply",
+      "label": "Food Supply"
+    },
+    {
+      "value": "food_waste",
+      "label": "Food Waste"
+    },
+    {
+      "value": "malnutrition",
+      "label": "Malnutrition"
+    },
+    {
+
+      "value": "food_price",
+      "label": "Food Price"
+    },
+    {
+      "value": "agriculture",
+      "label": "Agriculture"
+    },
+    {
+      "value": "irrigation",
+      "label": "Irrigation"
+    },
+    {
+      "value": "beef",
+      "label": "Beef"
+    },
+    {
+      "value": "lamb",
+      "label": "Lamb"
+    },
+    {
+      "value": "aquaculture",
+      "label": "Aquaculture"
+    },
+    {
+      "value": "maize",
+      "label": "Maize"
+    },
+    {
+      "value": "fishing",
+      "label": "Fishing"
+    },
+    {
+      "value": "fishery",
+      "label": "Fishery"
+    },
+    {
+      "value": "seafood",
+      "label": "Seafood"
+    },
+    {
+      "value": "climate",
+      "label": "Climate"
+    },
+    {
+
+      "value": "ghg",
+      "label": "GHG"
+    },
+    {
+      "value": "sea_ice",
+      "label": "Sea Ice"
+    },
+    {
+      "value": "sea_level",
+      "label": "Sea Level"
+    },
+    {
+      "value": "snow_cover",
+      "label": "Snow Cover"
+    },
+    {
+
+      "value": "albedo",
+      "label": "Albedo"
+    },
+    {
+      "value": "glacier",
+      "label": "Glaciers"
+    },
+    {
+      "value": "climate_change",
+      "label": "Climate Change"
+    },
+    {
+
+      "label": "Sea Surface Temperature",
+      "value": "sea_surface_temperature"
+    },
+    {
+      "value": "acidification",
+      "label": "Acidification"
+    },
+    {
+
+      "value": "storm",
+      "label": "Storm"
+    },
+    {
+      "label": "Storm Intensity",
+      "value": "storm_intensity"
+    },
+    {
+
+      "value": "biome",
+      "label": "Biomes"
+    },
+    {
+
+      "value": "CO2",
+      "label": "CO2"
+    },
+    {
+
+      "value": "ch4",
+      "label": "CH4"
+    },
+    {
+      "value": "boreal",
+      "label": "Boreal"
+    },
+    {
+      "value": "temperate",
+      "label": "Temperate"
+    },
+    {
+      "value": "tropical",
+      "label": "Tropical"
+    },
+    {
+
+      "value": "wind",
+      "label": "Wind"
+    },
+    {
+
+      "value": "n2o",
+      "label": "N2O"
+    },
+    {
+      "label": "Thermal Expansion",
+      "value": "thermal_expansion"
+    },
+    {
+
+      "value": "seasonality",
+      "label": "Seasonality"
+    },
+    {
+      "value": "energy",
+      "label": "Energy"
+    },
+    {
+      "label": "Energy Production",
+      "value": "energy_production"
+    },
+    {
+      "label": "Energy Efficiency",
+      "value": "energy_efficiency"
+    },
+    {
+      "value": "emissions",
+      "label": "Emissions"
+    },
+    {
+
+      "value": "renewable_energy",
+      "label": "Renewable"
+    },
+    {
+
+      "label": "Nonrenewable Energy",
+      "value": "nonrenewable_energy"
+    },
+    {
+
+      "value": "power_plant",
+      "label": "Power Plants"
+    },
+    {
+      "value": "solar_energy",
+      "label": "Solar Energy"
+    },
+    {
+      "value": "wind_energy",
+      "label": "Wind Energy"
+    },
+    {
+      "value": "geothermal",
+      "label": "Geothermal"
+    },
+    {
+      "value": "coal",
+      "label": "Coal"
+    },
+    {
+      "value": "natural_gas",
+      "label": "Natural Gas"
+    },
+    {
+
+      "value": "petroleum",
+      "label": "Petroleum"
+    },
+    {
+      "value": "nuclear",
+      "label": "Nuclear"
+    },
+    {
+      "value": "radiation",
+      "label": "Radiation"
+    },
+    {
+
+      "value": "energy_hazard",
+      "label": "Energy Hazard"
+    },
+    {
+
+      "value": "oil_refinery",
+      "label": "Oil Refinery"
+    },
+    {
+      "value": "thorium",
+      "label": "Thorium"
+    },
+    {
+      "value": "hydropower",
+      "label": "Hydropower"
+    },
+    {
+
+      "value": "fuel",
+      "label": "Fuel"
+    },
+    {
+      "value": "energy_access",
+      "label": "Energy Access"
+    },
+    {
+      "value": "power_lines",
+      "label": "Power Lines"
+    },
+    {
+      "value": "pipelines",
+      "label": "Pipelines"
+    },
+    {
+      "label": "Energy Infrastructure",
+      "value": "energy_infrastructure"
+    },
+    {
+      "value": "urbanization",
+      "label": "Urbanization"
+    },
+    {
+      "value": "roads",
+      "label": "Roads"
+    },
+    {
+      "value": "urban",
+      "label": "Cities"
+    },
+    {
+      "value": "pollution",
+      "label": "Pollution"
+    },
+    {
+      "label": "Public Transportation",
+      "value": "public_transportation"
+    },
+    {
+
+      "label": "Impervious Surface",
+      "value": "impervious_surface"
+    },
+    {
+
+      "value": "bus",
+      "label": "Buses"
+    },
+    {
+
+      "value": "train",
+      "label": "Trains"
+    },
+    {
+
+      "value": "bike",
+      "label": "Bikes"
+    },
+    {
+
+      "value": "car",
+      "label": "Cars"
+    },
+    {
+
+      "value": "accessibility",
+      "label": "Accessibility"
+    },
+    {
+
+      "value": "greenspace",
+      "label": "Greenspace"
+    },
+    {
+
+      "value": "air_quality",
+      "label": "Air Quality"
+    },
+    {
+
+      "value": "o3",
+      "label": "O3"
+    },
+    {
+
+      "value": "cfc",
+      "label": "CFC"
+    },
+    {
+
+      "value": "co",
+      "label": "CO"
+    },
+    {
+
+      "value": "so2",
+      "label": "SO2"
+    },
+    {
+      "value": "waste",
+      "label": "Waste"
+    },
+    {
+
+      "value": "heat_island",
+      "label": "Heat Islands"
+    },
+    {
+
+      "value": "disasters",
+      "label": "Disasters"
+    },
+    {
+
+      "label": "Natural Disasters",
+      "value": "natural_disaster"
+    },
+    {
+
+      "value": "earthquake",
+      "label": "Earthquakes"
+    },
+    {
+
+      "value": "volcano",
+      "label": "Volcanoes"
+    },
+    {
+
+      "value": "eruption",
+      "label": "Eruptions"
+    },
+    {
+
+      "value": "cold_wave",
+      "label": "Cold Waves"
+    },
+    {
+
+      "value": "heat_wave",
+      "label": "Heat Waves"
+    },
+    {
+
+      "value": "landslide",
+      "label": "Landslides"
+    },
+    {
+      "value": "hurricane",
+      "label": "Hurricanes"
+    },
+    {
+
+      "value": "tsunami",
+      "label": "Tsunamis"
+    },
+    {
+      "value": "slope",
+      "label": "Slope"
+    },
+    {
+      "value": "species",
+      "label": "Species"
+    },
+    {
+
+      "label": "Illegal Activity",
+      "value": "illegal_activity"
+    },
+    {
+
+      "value": "ecosystem",
+      "label": "Ecosystems"
+    },
+    {
+
+      "value": "poaching",
+      "label": "Poaching"
+    },
+    {
+      "value": "hunting",
+      "label": "Hunting"
+    },
+    {
+
+      "value": "habitat_loss",
+      "label": "Habitat Loss"
+    },
+    {
+
+      "value": "ecoregion",
+      "label": "Ecoregions"
+    },
+    {
+
+      "value": "habitat",
+      "label": "Habitats"
+    },
+    {
+      "value": "endangered",
+      "label": "Endangered"
+    },
+    {
+
+      "value": "extinction",
+      "label": "Extinction"
+    },
+    {
+
+      "value": "mammal",
+      "label": "Mammals"
+    },
+    {
+
+      "value": "coral_reef",
+      "label": "Coral Reefs"
+    },
+    {
+
+      "value": "amphibian",
+      "label": "Amphibians"
+    },
+    {
+
+      "value": "reef",
+      "label": "Reefs"
+    },
+    {
+
+      "value": "bleaching",
+      "label": "Bleaching"
+    },
+    {
+      "value": "marine_life",
+      "label": "Marine Life"
+    },
+    {
+      "value": "conservation",
+      "label": "Conservation"
+    },
+    {
+      "value": "restoration",
+      "label": "Restoration"
+    },
+    {
+
+      "value": "society",
+      "label": "Society"
+    },
+    {
+
+      "value": "population",
+      "label": "Population"
+    },
+    {
+      "value": "literacy",
+      "label": "Literacy"
+    },
+    {
+      "value": "school",
+      "label": "School"
+    },
+    {
+      "value": "education",
+      "label": "Education"
+    },
+    {
+      "label": "Political Stability",
+      "value": "political_stability"
+    },
+    {
+      "value": "rights",
+      "label": "Rights"
+    },
+    {
+      "value": "human_rights",
+      "label": "Human Rights"
+    },
+    {
+      "label": "Indigenous Rights",
+      "value": "Indigenous_rights"
+    },
+    {
+      "value": "land_rights",
+      "label": "Land Rights"
+    },
+    {
+
+      "value": "justice",
+      "label": "Justice"
+    },
+    {
+
+      "value": "protest",
+      "label": "Protests"
+    },
+    {
+      "value": "security",
+      "label": "Security"
+    },
+    {
+
+      "value": "corruption",
+      "label": "Corruption"
+    },
+    {
+
+      "value": "governance",
+      "label": "Governance"
+    },
+    {
+      "label": "Displaced People",
+      "value": "displaced_people"
+    },
+    {
+      "value": "discrimination",
+      "label": "Discrimination"
+    },
+    {
+      "value": "resilience",
+      "label": "Resilience"
+    },
+    {
+      "value": "vulnerability",
+      "label": "Vulnerability"
+    },
+    {
+
+      "value": "refugee",
+      "label": "Refugee"
+    },
+    {
+      "value": "women",
+      "label": "Women"
+    },
+    {
+
+      "value": "gender",
+      "label": "Gender"
+    },
+    {
+      "value": "poverty",
+      "label": "Poverty"
+    },
+    {
+
+      "value": "mortality",
+      "label": "Mortality"
+    },
+    {
+      "value": "wealth",
+      "label": "Wealth"
+    },
+    {
+
+      "value": "inequality",
+      "label": "Inequality"
+    },
+    {
+
+      "value": "health",
+      "label": "Health"
+    },
+    {
+
+      "value": "gdp",
+      "label": "GDP"
+    },
+    {
+      "value": "disease",
+      "label": "Disease"
+    },
+    {
+      "value": "protected_areas",
+      "label": "Protected Area"
+    },
+    {
+      "value": "developed",
+      "label": "Developed"
+    },
+    {
+      "value": "developing",
+      "label": "Developing"
+    },
+    {
+      "value": "low_income",
+      "label": "Low Income"
+    },
+    {
+      "value": "middle_income",
+      "label": "Middle Income"
+    },
+    {
+      "value": "high_income",
+      "label": "High Income"
+    },
+    {
+      "value": "commerce",
+      "label": "Commerce"
+    },
+    {
+
+      "value": "supply_chain",
+      "label": "Supply Chains"
+    },
+    {
+
+      "value": "fertilizer",
+      "label": "Fertilizer"
+    },
+    {
+
+      "value": "exposure",
+      "label": "Exposure"
+    },
+    {
+
+      "value": "adaptation",
+      "label": "Adaptation"
+    },
+    {
+
+      "value": "mitigation",
+      "label": "Mitigation"
+    },
+    {
+
+      "value": "storm_surge",
+      "label": "Storm Surge"
+    },
+    {
+      "label": "Sustainable Development",
+      "value": "sustainable_development"
+    },
+    {
+      "label": "Emergency Services",
+      "value": "emergency_services"
+    },
+    {
+
+      "label": "Adaptive Capacity",
+      "value": "adaptive_capacity"
+    },
+    {
+
+      "value": "economic",
+      "label": "Economic"
+    },
+    {
+      "value": "concessions",
+      "label": "Concessions"
+    },
+    {
+
+      "value": "response",
+      "label": "Response"
+    },
+    {
+      "value": "development",
+      "label": "Development"
+    },
+    {
+      "value": "early_warning",
+      "label": "Early Warning"
+    },
+    {
+
+      "value": "stormwater",
+      "label": "Stormwater"
+    },
+    {
+
+      "value": "climate_hazard",
+      "label": "Climate Hazard"
+    },
+    {
+
+      "label": "Emergency Response",
+      "value": "emergency_response"
+    },
+    {
+      "label": "Coastal Erosion",
+      "value": "coastal_erosion"
+    },
+    {
+      "value": "water_security",
+      "label": "Water Security"
+    },
+    {
+
+      "value": "wildfire",
+      "label": "Wildfires"
+    },
+    {
+
+      "value": "water_supply",
+      "label": "Water Supply"
+    },
+    {
+
+      "label": "Coastal Flooding",
+      "value": "coastal_flooding"
+    },
+    {
+      "value": "runoff",
+      "label": "Runoff"
+    },
+    {
+      "label": "Community Lands",
+      "value": "community_lands"
+    },
+    {
+      "label": "Indigenous Lands",
+      "value": "Indigenous_lands"
+    },
+    {
+      "value": "national",
+      "label": "National"
+    },
+    {
+      "value": "subnational",
+      "label": "Subnational"
+    },
+    {
+
+      "value": "bird",
+      "label": "Birds"
+    },
+    {
+
+      "value": "reptile",
+      "label": "Reptiles"
+    },
+    {
+
+      "value": "air_pressure",
+      "label": "Air Pressure"
+    },
+    {
+
+      "value": "climate_zone",
+      "label": "Climate Zone"
+    },
+    {
+      "label": "Evapotranspiration",
+      "value": "evapotranspiration"
+    },
+    {
+
+      "value": "gas",
+      "label": "Gases"
+    },
+    {
+
+      "label": "Commercial Activity",
+      "value": "commercial_activity"
+    },
+    {
+      "value": "shipping",
+      "label": "Shipping"
+    },
+    {
+      "value": "mining",
+      "label": "Mining"
+    },
+    {
+      "value": "drilling",
+      "label": "Drilling"
+    },
+    {
+      "label": "Market Incentives",
+      "value": "market_incentives"
+    },
+    {
+      "label": "International Relations",
+      "value": "international_relations"
+    },
+    {
+
+      "value": "treaty",
+      "label": "Treaties"
+    },
+    {
+
+      "value": "finance",
+      "label": "Finance"
+    },
+    {
+
+      "value": "trade",
+      "label": "Trade"
+    },
+    {
+
+      "value": "mineral",
+      "label": "Minerals"
+    },
+    {
+      "value": "corn",
+      "label": "Corn"
+    },
+    {
+
+      "value": "cropland",
+      "label": "Croplands"
+    },
+    {
+      "value": "rice",
+      "label": "Rice"
+    },
+    {
+      "value": "soy",
+      "label": "Soy"
+    },
+    {
+      "value": "wheat",
+      "label": "Wheat"
+    },
+    {
+      "label": "Internally Displaced",
+      "value": "internally_displaced"
+    },
+    {
+
+      "value": "income",
+      "label": "Income"
+    },
+    {
+
+      "value": "livelihood",
+      "label": "Livelihood"
+    },
+    {
+      "value": "biodiversity",
+      "label": "Biodiversity"
+    },
+    {
+
+      "value": "tourism",
+      "label": "Tourism"
+    },
+    {
+      "value": "lights",
+      "label": "Lights"
+    },
+    {
+      "value": "energy_demand",
+      "label": "Energy Demand"
+    },
+    {
+
+      "value": "spill",
+      "label": "Spill"
+    },
+    {
+      "label": "Food Production",
+      "value": "food_production"
+    },
+    {
+
+      "value": "pasture",
+      "label": "Pasture"
+    },
+    {
+      "value": "groundwater",
+      "label": "Groundwater"
+    },
+    {
+      "value": "snow_and _ice",
+      "label": "Snow and Ice"
+    },
+    {
+      "value": "surface_water",
+      "label": "Surface Water"
+    },
+    {
+
+      "value": "fossil_fuel",
+      "label": "Fossil Fuel"
+    },
+    {
+      "label": "Administrative Boundaries",
+      "value": "administrative_boundaries"
+    },
+    {
+      "value": "settlements",
+      "label": "Settlements"
+    },
+    {
+      "value": "sanitation",
+      "label": "Sanitation"
+    },
+    {
+
+      "value": "hospital",
+      "label": "Hospital"
+    },
+    {
+
+      "value": "transportation",
+      "label": "Transportation"
+    },
+    {
+
+      "value": "minority",
+      "label": "Minority"
+    },
+    {
+      "value": "elevation",
+      "label": "Elevation"
+    },
+    {
+      "value": "land_cover",
+      "label": "Land Cover"
+    },
+    {
+      "value": "land_use",
+      "label": "Land Use"
+    },
+    {
+      "value": "permafrost",
+      "label": "Permafrost"
+    },
+    {
+
+      "value": "roadless_area",
+      "label": "Roadless Areas"
+    },
+    {
+
+      "value": "soil",
+      "label": "Soils"
+    },
+    {
+      "value": "uranium",
+      "label": "Uranium"
+    },
+    {
+
+      "value": "tornado",
+      "label": "Tornados"
+    },
+    {
+
+      "value": "salinity",
+      "label": "Salinity"
+    },
+    {
+
+      "value": "monsoon",
+      "label": "Monsoons"
+    },
+    {
+
+      "value": "airplane",
+      "label": "Airplane"
+    },
+    {
+
+      "value": "airport",
+      "label": "Airport"
+    },
+    {
+
+      "value": "train_station",
+      "label": "Train Station"
+    },
+    {
+
+      "label": "Natural Resource",
+      "value": "natural_resource"
+    },
+    {
+
+      "label": "Resource Scarcity",
+      "value": "resource_scarcity"
+    },
+    {
+
+      "value": "sea_level_rise",
+      "label": "Sea Level Rise"
+    },
+    {
+      "value": "affiliation",
+      "label": "Affiliations"
+    },
+    {
+
+      "value": "human_activity",
+      "label": "Human Activity"
+    },
+    {
+
+      "value": "migration",
+      "label": "Migration"
+    },
+    {
+
+      "label": "Public Services",
+      "value": "public_service"
+    },
+    {
+
+      "value": "cyanobacteria",
+      "label": "Cyanobacteria"
+    },
+    {
+      "value": "threatened",
+      "label": "Threatened"
+    },
+    {
+      "label": "Urban Expansion",
+      "value": "urban_expansion"
+    },
+    {
+
+      "value": "dead_zone",
+      "label": "Dead Zone"
+    },
+    {
+      "value": "nutrients",
+      "label": "Nutrients"
+    },
+    {
+      "value": "weather",
+      "label": "Weather"
+    },
+    {
+      "value": "biomass",
+      "label": "Biomass"
+    },
+    {
+      "value": "smoke",
+      "label": "Smoke"
+    },
+    {
+      "value": "carbon",
+      "label": "Carbon"
+    },
+    {
+      "value": "investments",
+      "label": "Investments"
+    }
+  ],
+  "frequency": [
+    {
+      "value": "daily",
+      "label": "Daily"
+    },
+    {
+      "value": "near_real_time",
+      "label": "Near Real Time"
+    },
+    {
+      "value": "weekly",
+      "label": "Weekly"
+    },
+    {
+      "value": "monthly",
+      "label": "Monthly"
+    },
+    {
+      "value": "annual",
+      "label": "Annual"
+    },
+    {
+      "value": "hourly",
+      "label": "Hourly"
+    },
+    {
+      "value": "not_updated",
+      "label": "Not Updated"
+    },
+    {
+      "value": "subscribable",
+      "label": "Subscribable"
+    }
+  ],
+  "sdg": [
+    {
+      "label": "SDG 1 No Poverty",
+      "value": "SDG_1_No_Poverty"
+    },
+    {
+      "label": "SDG 2 Zero Hunger",
+      "value": "SDG_2_Zero_Hunger"
+    },
+    {
+      "value": "SDG_3_Good_Health_and_Well-being",
+      "label": "SDG 3 Good Health and Well-being"
+    },
+    {
+      "label": "SDG 4 Quality Education",
+      "value": "SDG_4_Quality_Education"
+    },
+    {
+      "label": "SDG 5 Gender Equality",
+      "value": "SDG_5_Gender_Equality"
+    },
+    {
+      "label": "SDG 6 Clean Water and Sanitation",
+      "value": "SDG_6_Clean_Water_and_Sanitation"
+    },
+    {
+      "label": "SDG 7 Affordable and Clean Energy",
+      "value": "SDG_7_Affordable_and_Clean_Energy"
+    },
+    {
+      "value": "SDG_8_Decent_Work_and_Economic_Growth",
+      "label": "SDG 8 Decent Work and Economic Growth"
+    },
+    {
+      "value": "SDG_9_Industry_Innovation_and_Infrastructure",
+      "label": "SDG 9 Industry"
+    },
+    {
+      "label": "SDG 10 Reduced Inequalities",
+      "value": "SDG_10_Reduced_Inequalities"
+    },
+    {
+      "value": "SDG_11_Sustainable_Cities_and_Communities",
+      "label": "SDG 11 Sustainable Cities and Communities"
+    },
+    {
+      "value": "SDG_12_Responsible_Consumption_and_Production",
+      "label": "SDG 12 Responsible Consumption and Production"
+    },
+    {
+      "label": "SDG 13 Climate Action",
+      "value": "SDG_13_Climate_Action"
+    },
+    {
+      "label": "SDG 14 Life below Water",
+      "value": "SDG_14_Life_below_Water"
+    },
+    {
+      "label": "SDG 15 Life on Land",
+      "value": "SDG_15_Life_on_Land"
+    },
+    {
+      "value": "SDG_16_Peace_Justice_and_Strong_Institutions",
+      "label": "SDG 16 Peace Justice and Strong Institutions"
+    },
+    {
+      "label": "SDG 17 Partnership for Goals",
+      "value": "SDG_17_Partnership_for_Goals"
+    }
+  ]
+}
