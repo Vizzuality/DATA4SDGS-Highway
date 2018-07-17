@@ -57,15 +57,15 @@ const searchDatasets = {
 
         let taxnomyFilter = '';
         if (state.search.filters.dataSources && state.search.filters.dataSources.length > 0) {
-          taxnomyFilter = `&vocabulary[legacy]=${state.search.filters.dataSources.join(',')}`;
+          taxnomyFilter = `&vocabulary[legacy]=${state.search.filters.dataSources.map(encodeURIComponent).join(',')}`;
         }
 
         const graphFilter = Object.assign({}, state.search.filters);
         delete graphFilter.dataSources;
         const graphFilterArray = [].concat(...Object.values(graphFilter));
-        const tags = graphFilterArray.length > 0 ? `&${graphFilterArray.map((elem, index) => `concepts[0][${index}]=${elem}`).join('&')}` : '';
+        const tags = graphFilterArray.length > 0 ? `&${graphFilterArray.map((elem, index) => `concepts[0][${index}]=${encodeURIComponent(elem)}`).join('&')}` : '';
 
-        const queryEncoded = encodeURI(state.search.query);
+        const queryEncoded = encodeURIComponent(state.search.query);
         const search = state.search.query && state.search.query !== '' ? `&name=${queryEncoded}` : '';
 
         // Using XMLHttpRequest to be able to cancel request
